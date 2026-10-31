@@ -1,0 +1,27 @@
+{
+  "site": {
+    "name": "Torque & Timber",
+    "tagline": "Truck parts, tested against the marketing",
+    "domain": "",
+    "language": "en-US",
+    "audience": "US truck owners researching bolt-on upgrades before buying"
+  },
+  "editorial": {
+    "no_fabricated_experience": true,
+    "affiliate_disclosure": "required_on_every_page",
+    "methodology_page": "required",
+    "min_sources_per_post": 3,
+    "publish_cadence_early": "3-4 posts/week, depth over volume"
+  },
+  "categories": [
+    {
+      "slug": "cold-air-intakes",
+      "label": "Cold Air Intakes",
+      "status": "starting"
+    }
+  ],
+  "notes": [
+    "Dates on posts must reflect the actual publish date. Backdating is not permitted.",
+    "Every post must state what it could not verify."
+  ]
+}
