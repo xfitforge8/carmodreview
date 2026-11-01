@@ -9,7 +9,7 @@ Working draft — **not published**. No domain yet.
 ## Structure
 
 ```
-site/                    static HTML, no build step
+docs/                    static HTML, no build step
   index.html
   methodology.html
   style.css
