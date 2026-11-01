@@ -1,10 +1,10 @@
 {
   "site": {
-    "name": "Torque & Timber",
-    "tagline": "Truck parts, tested against the marketing",
-    "domain": "",
+    "name": "Car Mod Review",
+    "tagline": "Car parts, tested against the marketing",
+    "domain": "https://carmodreview.com/",
     "language": "en-US",
-    "audience": "US truck owners researching bolt-on upgrades before buying"
+    "audience": "US car, truck, and SUV owners researching bolt-on upgrades before buying"
   },
   "editorial": {
     "no_fabricated_experience": true,
@@ -23,5 +23,10 @@
   "notes": [
     "Dates on posts must reflect the actual publish date. Backdating is not permitted.",
     "Every post must state what it could not verify."
-  ]
+  ],
+  "monetization": {
+    "status": "pending",
+    "plan": "Amazon Associates once site is live and approved",
+    "rule": "No affiliate link may carry rel=sponsored until a real affiliate relationship exists."
+  }
 }

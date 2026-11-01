@@ -9,7 +9,7 @@
 ## Open
 
 - [ ] Domain purchase (user)
-- [ ] Brand name confirmation — currently "Torque & Timber"
+- [x] Brand name: **Car Mod Review** (carmodreview.com, bought 2026-10-30)
 - [ ] Affiliate program applications (Amazon Associates needs a live site first)
 - [ ] Hosting decision
 
