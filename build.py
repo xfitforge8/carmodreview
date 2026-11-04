@@ -277,15 +277,19 @@ TAGLINE = {
 def default_sidebar(lang, rel):
     """Category list for the left rail, the way a blog sidebar conventionally works.
 
-    Built from CATEGORIES, so a new category appears here automatically.
+    Order follows CATEGORIES exactly — the same order the homepage lists the
+    categories in. It used to be sorted alphabetically by label, which put
+    "Brakes" first in the rail and "Suspension" first in the body: two different
+    orders for the same six things on the same page, with no way for a reader to
+    reconcile them. Editorial order is a decision; alphabetical by translated
+    label is just a property of the words.
     """
     labels = {'en': 1, 'kr': 2, 'es': 3}
-    cats = sorted(CATEGORIES.values(), key=lambda c: c[labels[lang]].lower())
     head = {'en': 'Categories', 'kr': '카테고리', 'es': 'Categorías'}[lang]
     items = ''.join(
-        f'        <li><a href="{rel}{HUBLESS.get(c[0], c[0] + "/index.html")}">'
-        f'{html.escape(c[labels[lang]])}</a></li>\n'
-        for c in cats
+        f'        <li><a href="{rel}{HUBLESS.get(slug, slug + "/index.html")}">'
+        f'{html.escape(label)}</a></li>\n'
+        for slug, label in ((c[0], c[labels[lang]]) for c in CATEGORIES.values())
     )
     return (f'    <div class="side-block">\n'
             f'      <h2 class="side-title">{head}</h2>\n'
@@ -797,15 +801,40 @@ def build_static_pages(index_entries):
 
 
 def index_list_html(index_entries, code, rel):
+    """The guides index on the homepage, in the same order as the left rail.
+
+    The order comes from CATEGORIES, not from the order the article files happen to be
+    read in and not from the alphabet. A reader who sees the rail on the left and the
+    index in the middle is looking at one page; two orders for the same six categories
+    reads as a bug, because it is one.
+    """
+    label_i = {'en': 1, 'kr': 2, 'es': 3}[code]
     by_cat = {}
     for e in index_entries:
         if code not in (e[7].get('langs_all') or set()):
             continue
         by_cat.setdefault(e[3], []).append(e)
+
+    # Tuning has no hub, so its guide is filed under Engine. The rail still shows
+    # Tuning as its own line, so the index has to as well or the two lists disagree
+    # again. Move that one guide under its own heading and drop it from Engine, so it
+    # appears once and in the same place the rail puts it.
+    for hslug, target in HUBLESS.items():
+        tdir, _, tfile = target.rpartition('/')
+        stem = tfile[:-5] if tfile.endswith('.html') else tfile
+        for e in index_entries:
+            if e[3] == tdir and e[1] == stem:
+                by_cat[hslug] = [e]
+                by_cat[tdir] = [x for x in by_cat.get(tdir, []) if x is not e]
+                break
+
     out = [f'\n  <h2 id="guides">{UI[code]["nav_cats"]}</h2>\n']
-    for catslug, items in by_cat.items():
-        label = items[0][4] if code == 'en' else (items[0][5] if code == 'kr' else items[0][6])
-        out.append(f'  <h3><a href="{rel}{catslug}/index.html">{html.escape(label)}</a></h3>\n')
+    for catslug, *labels in CATEGORIES.values():
+        items = by_cat.get(catslug)
+        if not items:
+            continue
+        out.append(f'  <h3><a href="{rel}{HUBLESS.get(catslug, catslug + "/index.html")}">'
+                   f'{html.escape(labels[label_i - 1])}</a></h3>\n')
         out.append('  <ul class="post-list">\n')
         for e in items:
             date, slug, cat, cs, cl, ck, ce, meta = e
@@ -815,7 +844,7 @@ def index_list_html(index_entries, code, rel):
                        f'<div class="meta">{date}</div></li>\n')
         out.append('  </ul>\n')
 
-    if code == 'en':
+    if code == 'en' and os.path.exists(os.path.join(ROOT, '_prev_docs', 'cold-air-intakes', 'index.html')):
         out.append('  <h2>Also published</h2>\n  <ul class="post-list">\n')
         out.append('    <li><a href="cold-air-intakes/index.html">Cold air intakes</a>'
                    '<div class="meta">F-150 5.0L buying guide</div></li>\n')
