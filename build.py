@@ -26,6 +26,45 @@ import photos
 from photos import (inject_photos, find_photos, photo_html, category_photo,
                     CATEGORY_SOURCE)
 
+# ───────────────────────────────────────────────────── analytics (Cloudflare)
+# Cloudflare Web Analytics: cookieless, collects no personal data, no consent
+# banner needed. The beacon is inert until a token is set here -- with the token
+# empty, every page renders byte-identical to before. To switch on: add
+# carmodreview.com as a site in the Cloudflare dashboard, copy the token out of
+# the JS snippet it gives you, paste it below, rebuild.
+#
+# Deliberately not Google Analytics: GA4 sets cookies, which under CCPA (the
+# site is in California) means a consent banner and a cookie policy rewrite.
+# This site's whole pitch is being more credible than its competitors, and the
+# least-invasive analytics is the consistent choice.
+CF_BEACON_TOKEN = ''
+
+CF_BEACON_SNIPPET = (
+    '<script defer src="https://static.cloudflareinsights.com/beacon.min.js" '
+    'data-cf-beacon=\'{{"token": "{token}"}}\'></script>'
+)
+
+
+def analytics_tag():
+    """The Cloudflare beacon, or '' when no token is configured."""
+    if not CF_BEACON_TOKEN:
+        return ''
+    return CF_BEACON_SNIPPET.format(token=CF_BEACON_TOKEN)
+
+
+def inject_analytics(html_text):
+    """Add the beacon to a hand-written page that does not go through PAGE.
+
+    The legacy pages are copied forward verbatim, and search.html is a raw
+    string, so neither picks up render_page's insertion. Walking them is the
+    only way to keep analytics coverage complete -- a page without the beacon
+    is invisible in the dashboard, and the gap would not be obvious.
+    """
+    tag = analytics_tag()
+    if not tag or '</head>' not in html_text:
+        return html_text
+    return html_text.replace('</head>', tag + '\n</head>', 1)
+
 CATEGORIES = {
     'Suspension':      ('suspension',      'Suspension',      '서스펜션',      'Suspensión'),
     'Wheels & Tires':  ('wheels-tires',    'Wheels & Tires',  '휠 & 타이어',   'Llantas y neumáticos'),
@@ -228,7 +267,7 @@ PAGE = """<!DOCTYPE html>
 <meta name="twitter:image" content="{og_image}">
 <link rel="alternate" type="application/rss+xml" title="Car Mod Review" href="{domain}/feed.xml">
 <link rel="stylesheet" href="{rel}style.css">
-{jsonld}
+{jsonld}{analytics}
 </head>
 <body>
 
@@ -326,6 +365,7 @@ def render_page(*, lang, title, desc, canonical, body_html, rel, jsonld='',
         canonical=canonical, alt_links=alt, og_type=og_type, og_locale=OG_LOCALE[lang],
         og_image=og_image or f'{DOMAIN}/og.png',
         domain=DOMAIN, rel=rel, jsonld=(jsonld + site_jsonld()), body=body_html,
+        analytics=('\n' + analytics_tag()) if analytics_tag() else '',
         tagline=TAGLINE[lang], all_posts=ui['all_posts'], how=ui['how'], other=ui['other'],
         search=ui['search'], contact=ui['contact'], about=ui['about'],
         privacy=ui['privacy'], terms=ui['terms'], foot_tag=ui['foot_tag'],
@@ -654,7 +694,7 @@ def build_legacy_pages():
         txt = re.sub(r'\s*<p[^>]*>\s*<strong>Affiliate note:</strong>.*?</p>\s*', '\n', txt, flags=re.S)
         txt = re.sub(r'\s*<p[^>]*>\s*We earn commissions?[^<]*</p>\s*', '\n', txt, flags=re.S)
         txt = re.sub(r'\s*<span>\d+\s+min read</span>', '', txt)
-        open(dst, 'w', encoding='utf-8').write(txt)
+        open(dst, 'w', encoding='utf-8').write(inject_analytics(txt))
         n += 1
     if n:
         print(f'  carried forward {n} legacy page(s)')
@@ -1066,7 +1106,7 @@ def build_search(items):
     with open(os.path.join(OUT, 'search-index.json'), 'w', encoding='utf-8') as f:
         json.dump(payload, f, ensure_ascii=False, indent=0)
     open(os.path.join(OUT, 'search.html'), 'w', encoding='utf-8').write(
-        SEARCH_PAGE.replace("{domain}", DOMAIN))
+        inject_analytics(SEARCH_PAGE.replace("{domain}", DOMAIN)))
     print(f'  search: {len(payload)} guides indexed')
 
 
