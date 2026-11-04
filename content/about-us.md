@@ -23,15 +23,13 @@ We do not present manufacturer claims as independent testing. This site does not
 
 That restraint costs us the confident tone that parts content usually adopts. It is the reason the guides are worth reading.
 
-If a page changes because we learned something — a spec was revised, a part was discontinued, a company changed suppliers — the article is updated and the change is noted.
+If a page changes because we learned something, whether a spec was revised, a part discontinued or a company changed suppliers, the article is updated and the change is noted.
 
 ### What's next
 
 Coverage is expanding deliberately rather than broadly — suspension, intake, exhaust, wheels and tires, brakes and tuning first, then lighting, interior and maintenance.
 
 If you are working on a vehicle we have not covered and want a category prioritised, say so. It genuinely changes the order.
-
-Thanks for reading.
 
 ---
 
@@ -65,5 +63,3 @@ CarModReview는 지루한 부분을 제대로 해보려는 시도입니다. 실�
 커버리지는 넓게가 아니라 의도적으로 넓혀갑니다. 서스펜션, 인테이크, 배기, 휠과 타이어, 브레이크, 튜닝을 먼저 다루고, 그다음 라이팅, 인테리어, 정비 순으로 이어집니다.
 
 아직 다루지 않은 차량을 만지고 계시고 특정 카테고리를 먼저 보고 싶으시면 알려주세요. 순서는 실제로 바뀝니다.
-
-읽어주셔서 감사합니다.

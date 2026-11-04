@@ -20,7 +20,7 @@ last_updated: 2026-06-09
 
 ## EN
 
-An exhaust is the modification people buy for sound and then regret for drone. Understanding what the system actually does — and which part produces which behavior — is what separates a good purchase from an expensive mistake you live with on every highway commute.
+An exhaust is the modification people buy for sound and then regret for drone. Understanding what the system actually does, and which part produces which behavior, is what separates a good purchase from an expensive mistake you live with on every highway commute.
 
 ### What each section does
 
@@ -28,28 +28,28 @@ A modern exhaust has four functional zones, and changing each one produces a dif
 
 **Manifold / header.** Collects exhaust from the cylinders. Changing this is the biggest power change available in the exhaust system, and the most invasive and expensive.
 
-**Downpipe.** Connects the manifold to the catalyst. On turbo cars, the downpipe is where the most restriction lives — a high-flow downpipe is the single largest exhaust-side power gain on a turbo engine. Often the most emissions-sensitive part and the one most likely to fail inspection.
+**Downpipe.** Connects the manifold to the catalyst. On turbo cars the downpipe is where most of the restriction lives, and a high-flow one is the largest exhaust-side power gain available on a turbo engine. It is also the most emissions-sensitive part in the system, and the one most likely to fail an inspection.
 
 **Catalytic converter.** Reduces emissions. High-flow cats exist and are legal in some jurisdictions, not others. "Test pipe" and "catless" replacements are illegal for road use nearly everywhere and will fail inspection. We don't recommend them for street cars.
 
-**Cat-back.** Everything from behind the catalyst to the tailpipe: mid-pipe, resonator, muffler, tail sections. This is where sound and tone are made. Power gains are usually small — often in the 5–15 hp range on a naturally aspirated engine, and largely a matter of removing restriction rather than adding flow capacity.
+**Cat-back.** Everything from behind the catalyst to the tailpipe: mid-pipe, resonator, muffler, tail sections. Sound and tone are made here. Power gains are usually small, often 5–15 hp on a naturally aspirated engine, and come from removing restriction rather than adding flow capacity.
 
 **Axle-back.** Just the muffler and tailpipe behind the rear axle. Cheapest way to change sound. Power gain is close to zero. Best option if sound is the only goal and budget is tight.
 
 ### The drone problem
 
-Drone is a low-frequency resonance that occurs at a specific engine RPM — typically 1,800–2,500 rpm, which is exactly highway cruising speed. It's not the same as loudness: a system can be loud at wide-open throttle and quiet at cruise, or modest at full throttle and unbearable at 70 mph.
+Drone is a low-frequency resonance that occurs at a specific engine RPM, typically 1,800–2,500 rpm, which is exactly highway cruising speed. It's not the same as loudness: a system can be loud at wide-open throttle and quiet at cruise, or modest at full throttle and unbearable at 70 mph.
 
 Drone comes from the system's resonant frequency matching a cabin harmonic. The tools against it, in order of effectiveness:
 
 1. **Keep a resonator.** Removing the resonator is the most common cause of drone. A well-designed system keeps one, or adds a Helmholtz-style chamber to cancel a specific frequency.
 2. **Choose the quieter muffler variant.** Nearly every brand sells a "touring" and a "race" version. The touring version is what you want on a daily.
 3. **Keep the system's diameter appropriate.** Oversized pipe (3.5" on a 300 hp engine) reduces exhaust velocity and often increases drone while hurting low-end torque.
-4. **Retain the factory valve system if equipped.** Active exhaust valves let you have quiet cruise and loud throttle. Cars that come with them from the factory — many modern performance models — can be programmed rather than replaced.
+4. **Retain the factory valve system if equipped.** Active exhaust valves let you have quiet cruise and loud throttle. Cars that come with them from the factory, many modern performance models, can be programmed rather than replaced.
 
 Test drive before buying if at all possible, and specifically listen at steady 70 mph in top gear. A shop that will let you hear the system on a customer car is worth driving to.
 
-### The power question, honestly
+### Power numbers, and why there are none here
 
 We won't quote horsepower figures for exhausts we haven't dyno-tested. What we can say about the mechanism:
 
@@ -71,7 +71,7 @@ Be skeptical of any "up to +25 hp" claim on a cat-back with no dyno chart attach
 
 Welds matter as much as material. Look for TIG welds rather than MIG, mandrel bends rather than crush bends, and flanges rather than slip joints where possible.
 
-### Sound versus neighbors and legality
+### Sound, Neighbors and the Law
 
 Nearly every US state and most countries regulate exhaust noise and emissions equipment. Practical rules that keep you out of trouble:
 
@@ -80,7 +80,7 @@ Nearly every US state and most countries regulate exhaust noise and emissions eq
 - **Cold start is the loudest moment.** Many systems are much louder for the first 30 seconds, which is when neighbors notice.
 - **Check inspection requirements before buying.** Some systems alter the position of emissions sensors and will fail a plug-in scan, even if they physically fit.
 
-### The honest summary
+### Picking a System
 
 If sound is your goal and budget is tight: **axle-back, touring muffler, keep everything else.** If you want a real character change with a small power benefit: **cat-back with a resonator, quality 304 stainless.** If you're chasing power on a turbo car, spend on the **downpipe plus a tune** rather than on a louder cat-back — and understand exactly what that does to your warranty and inspection status before you commit.
 
@@ -119,7 +119,7 @@ Buy for cruise behavior, not for the full-throttle sound clip. You'll spend 99% 
 
 가능하면 사기 전에 시승하세요. 특히 톱기어로 70 mph 정속에서 들어보세요. 고객 차에서 들려줄 수 있는 샵이라면 찾아갈 가치가 있습니다.
 
-### 출력에 대한 정직한 답
+### 마력 수치를 쓰지 않는 이유
 
 다이노로 측정하지 않은 배기에 마력 수치를 제시하지 않겠습니다. 메커니즘에 대해 말할 수 있는 것은 이렇습니다.
 
@@ -150,7 +150,7 @@ Buy for cruise behavior, not for the full-throttle sound clip. You'll spend 99% 
 - **콜드 스타트가 가장 시끄러운 순간입니다.** 많은 시스템이 처음 30초 동안 훨씬 크고, 이웃이 알아차리는 때가 그때입니다.
 - **구매 전에 검사 요건을 확인하세요.** 일부 시스템은 배기가스 센서 위치를 바꿔, 물리적으로 장착되더라도 플러그인 스캔에서 탈락합니다.
 
-### 솔직한 정리
+### 시스템 고르기
 
 소리가 목표이고 예산이 빠듯하면: **액슬백, 투어링 머플러, 나머지는 그대로.** 실질적인 캐릭터 변화와 작은 출력 이득을 원하면: **레조네이터가 있는 캣백, 품질 좋은 304 스테인리스.** 터보차에서 출력을 좇는다면 더 시끄러운 캣백보다 **다운파이프 + 튠**에 쓰세요. 그리고 그게 보증과 검사 상태에 정확히 어떤 영향을 주는지 결심 전에 이해하세요.
 
@@ -160,7 +160,7 @@ Buy for cruise behavior, not for the full-throttle sound clip. You'll spend 99% 
 
 ## ES
 
-El escape es la modificación que la gente compra por sonido y luego lamenta por el zumbido. Entender qué hace realmente el sistema — y qué parte produce cada comportamiento — es lo que separa una buena compra de un error caro con el que convive en cada trayecto por autopista.
+El escape es la modificación que la gente compra por sonido y luego lamenta por el zumbido. Entender qué hace realmente el sistema, y qué parte produce cada comportamiento, es lo que separa una buena compra de un error caro con el que convive en cada trayecto por autopista.
 
 ### Qué hace cada sección
 
@@ -189,7 +189,7 @@ El zumbido proviene de que la frecuencia de resonancia del sistema coincide con 
 
 Pruebe antes de comprar si es posible, y escuche específicamente a 120 km/h constante en la marcha más larga. Un taller que le deje escuchar el sistema en un coche de cliente merece el desplazamiento.
 
-### La cuestión de la potencia, con honestidad
+### La potencia, y por qué aquí no hay cifras
 
 No citaremos cifras de potencia de escapes que no hayamos medido en banco. Lo que sí podemos decir del mecanismo:
 
@@ -220,7 +220,7 @@ Casi todos los estados de EE. UU. y la mayoría de los países regulan el ruido 
 - **El arranque en frío es el momento más ruidoso.** Muchos sistemas son mucho más ruidosos los primeros 30 segundos, que es cuando los vecinos se dan cuenta.
 - **Compruebe los requisitos de inspección antes de comprar.** Algunos sistemas alteran la posición de los sensores de emisiones y fallarán un escaneo por conector aunque encajen físicamente.
 
-### Resumen honesto
+### Cómo elegir el sistema
 
 Si el objetivo es el sonido y el presupuesto es ajustado: **axle-back, silencioso touring, y deje lo demás igual.** Si quiere un cambio real de carácter con una pequeña ganancia de potencia: **cat-back con resonador, acero inoxidable 304 de calidad.** Si persigue potencia en un turbo, invierta en **downpipe más electrónica** en lugar de en un cat-back más ruidoso, y entienda exactamente qué hace eso a su garantía y a su inspección antes de comprometerse.
 

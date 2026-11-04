@@ -29,9 +29,9 @@ Four jobs, and aftermarket parts usually improve one at the expense of the other
 1. **Support vehicle weight** (springs).
 2. **Control the spring's motion** (dampers/shocks).
 3. **Maintain tire contact with the road** over bumps and load changes.
-4. **Control geometry** — camber, caster, toe, roll center — as the suspension moves.
+4. **Control geometry**: camber, caster, toe and roll center as the suspension moves.
 
-A spring's job is job 1. The damper's job is jobs 2 and 3. If you lower the car with springs and keep stock dampers, you've changed the spring rate without changing the damping to match — the damper is now under-damped for the stiffer spring and over-worked because it has less travel. That's the mechanical reason cheap lowering springs feel bad.
+A spring's job is job 1. The damper's job is jobs 2 and 3. If you lower the car with springs and keep stock dampers, you've changed the spring rate without changing the damping to match. The damper is now under-damped for the stiffer spring and over-worked because it has less travel. That's the mechanical reason cheap lowering springs feel bad.
 
 ### The options, ranked by what you get
 
@@ -51,7 +51,7 @@ Lowering a car changes its alignment. Specifically:
 
 - **Camber goes more negative** as you lower a car with a double-wishbone or strut suspension. Some is good for cornering; too much wears the inside of the tire and reduces straight-line grip.
 - **Toe changes**, and incorrect toe is the fastest way to destroy tires.
-- **Roll center drops**, sometimes below ground level, which increases body roll even though the car is lower and stiffer — the counterintuitive result people feel and can't explain.
+- **Roll center drops**, sometimes below ground level, which increases body roll even though the car is lower and stiffer. It's the counterintuitive result people feel and can't explain.
 - **Bump steer** can appear if the tie rod geometry is now wrong.
 
 After any ride height change: **get an alignment, with camber and caster correction if the platform supports it.** Budget for camber plates or adjustable arms if needed. Skipping this is not saving money, it's buying tires.
@@ -70,13 +70,15 @@ Anti-roll bars are the underrated tool: they reduce body roll without reducing r
 
 On a truck, "suspension upgrade" usually means one of three things and they're not interchangeable:
 
-- **Leveling** — raises the front to match the rear. Stance, minimal capability change.
-- **Lift** — raises both ends for clearance. Needs geometry correction (upper control arms, sometimes a differential drop or carrier bearing shim) or you'll eat CV joints and get poor alignment.
-- **Load support** — air bags or helper springs for towing. Improves stability and safety when loaded, no change to stance when empty.
+A **leveling kit** raises the front to match the rear. It is a stance change and buys you almost no capability.
 
-If you tow, load support is the upgrade that actually improves your driving. If you want clearance, lift properly. Don't lift a towing truck for looks and expect it to tow better — it will tow worse.
+A **lift** raises both ends for clearance, and it needs geometry correction — upper control arms, sometimes a differential drop or carrier bearing shim. Skip that and you eat CV joints and get an alignment you can't fix.
 
-### The honest summary
+**Load support** means air bags or helper springs, for towing. Stability and safety improve when loaded; nothing changes when the truck is empty.
+
+If you tow, load support is the upgrade that improves your driving. If you want clearance, lift properly. Don't lift a towing truck for looks and expect it to tow better. It will tow worse.
+
+### Buying by use
 
 - **Budget-limited street car:** matched spring and damper kit, then an alignment. Don't buy the cheapest coilovers.
 - **Serious about handling:** good coilovers with real valving, plus anti-roll bars, plus a corner balance and alignment from someone who knows your platform.
@@ -98,7 +100,7 @@ Whatever you buy, budget the alignment as part of the purchase price. It's not o
 1. **차량 중량 지지** (스프링)
 2. **스프링 움직임 제어** (댐퍼/쇼크)
 3. **요철과 하중 변화에서 타이어 접지 유지**
-4. **기하학 제어** — 서스펜션이 움직일 때의 캠버, 캐스터, 토, 롤 센터
+4. **기하학 제어**: 서스펜션이 움직일 때의 캠버, 캐스터, 토, 롤 센터
 
 스프링의 일은 1번입니다. 댐퍼의 일은 2번과 3번입니다. 스프링만으로 차를 낮추고 순정 댐퍼를 유지하면, 스프링 레이트를 바꾸면서 그에 맞는 댐핑을 바꾸지 않은 것입니다. 댐퍼는 이제 더 단단한 스프링에 비해 과소 댐핑이고, 트래블이 줄어 과로합니다. 저렴한 다운스프링이 나쁘게 느껴지는 기계적 이유입니다.
 
@@ -139,13 +141,13 @@ Whatever you buy, budget the alignment as part of the purchase price. It's not o
 
 트럭에서 "서스펜션 업그레이드"는 보통 세 가지 중 하나를 뜻하고, 서로 대체 불가입니다.
 
-- **레벨링** — 앞을 올려 뒤와 맞춤. 자세, 능력 변화는 최소.
-- **리프트** — 양쪽을 올려 클리어런스 확보. 기하학 보정(상부 컨트롤암, 경우에 따라 디퍼렌셜 드롭이나 캐리어 베어링 심)이 필요합니다. 안 하면 CV 조인트를 먹고 얼라인먼트가 나빠집니다.
-- **하중 지지** — 견인용 에어백이나 헬퍼 스프링. 적재 시 안정성과 안전성을 높이고, 공차 시 자세는 그대로입니다.
+- **레벨링:** 앞을 올려 뒤와 맞춤. 자세, 능력 변화는 최소.
+- **리프트:** 양쪽을 올려 클리어런스 확보. 기하학 보정(상부 컨트롤암, 경우에 따라 디퍼렌셜 드롭이나 캐리어 베어링 심)이 필요합니다. 안 하면 CV 조인트를 먹고 얼라인먼트가 나빠집니다.
+- **하중 지지:** 견인용 에어백이나 헬퍼 스프링. 적재 시 안정성과 안전성을 높이고, 공차 시 자세는 그대로입니다.
 
 견인을 한다면 실제로 주행을 개선하는 업그레이드는 하중 지지입니다. 클리어런스가 필요하면 제대로 리프트하세요. 견인 트럭을 멋으로 리프트하고 더 잘 끌 것이라고 기대하지 마세요. 더 나쁘게 끕니다.
 
-### 솔직한 정리
+### 용도별 선택
 
 - **예산이 빠듯한 스트리트 카:** 스프링과 댐퍼가 매칭된 킷, 그리고 얼라인먼트. 가장 저렴한 코일오버는 사지 마세요.
 - **핸들링을 진지하게:** 제대로 된 밸빙의 좋은 코일오버, 안티롤 바, 그리고 본인 플랫폼을 아는 사람의 코너 밸런스와 얼라인먼트.
@@ -167,7 +169,7 @@ Cuatro tareas, y las piezas de posmercado suelen mejorar una a costa de las dem�
 1. **Soportar el peso del vehículo** (muelles).
 2. **Controlar el movimiento del muelle** (amortiguadores).
 3. **Mantener el contacto del neumático con la carretera** en baches y cambios de carga.
-4. **Controlar la geometría** — caída, avance, convergencia, centro de balanceo — según se mueve la suspensión.
+4. **Controlar la geometría**: caída, avance, convergencia y centro de balanceo según se mueve la suspensión.
 
 El trabajo del muelle es el 1. El del amortiguador, el 2 y el 3. Si baja el coche con muelles y conserva los amortiguadores de serie, ha cambiado la rigidez sin cambiar la amortiguación para igualarla: el amortiguador queda subamortiguado para el muelle más firme y sobrecargado porque tiene menos recorrido. Esa es la razón mecánica por la que los muelles rebajados baratos se sienten mal.
 
@@ -208,13 +210,13 @@ Las barras estabilizadoras son la herramienta infravalorada: reducen el balanceo
 
 En una camioneta, "mejora de suspensión" suele significar una de tres cosas, y no son intercambiables:
 
-- **Nivelación** — sube el frontal para igualar la trasera. Postura, cambio mínimo de capacidad.
-- **Elevación** — sube ambos ejes para ganar altura libre. Requiere corrección de geometría (brazos superiores, a veces caída del diferencial o suplemento del soporte del cardán) o se comerá las juntas homocinéticas y tendrá mala alineación.
-- **Soporte de carga** — bolsas de aire o muelles auxiliares para remolcar. Mejora estabilidad y seguridad cargado, sin cambio de postura en vacío.
+- **Nivelación:** sube el frontal para igualar la trasera. Postura, cambio mínimo de capacidad.
+- **Elevación:** sube ambos ejes para ganar altura libre. Requiere corrección de geometría (brazos superiores, a veces caída del diferencial o suplemento del soporte del cardán) o se comerá las juntas homocinéticas y tendrá mala alineación.
+- **Soporte de carga:** bolsas de aire o muelles auxiliares para remolcar. Mejora estabilidad y seguridad cargado, sin cambio de postura en vacío.
 
 Si remolca, el soporte de carga es la mejora que realmente mejora su conducción. Si quiere altura libre, eleve correctamente. No eleve una camioneta de remolque por estética esperando que remolque mejor: remolcará peor.
 
-### Resumen honesto
+### Elegir según el uso
 
 - **Coche de calle con presupuesto limitado:** kit de muelle y amortiguador acompasados, luego alineado. No compre los coilovers más baratos.
 - **Si va en serio con el comportamiento:** buenos coilovers con valvulado real, más barras estabilizadoras, más un equilibrado de esquinas y alineado de alguien que conozca su plataforma.

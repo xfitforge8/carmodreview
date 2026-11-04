@@ -1,13 +1,13 @@
 ---
 title:
-  en: "How to Buy Aftermarket Wheels: Offset, Width, and What Actually Matters"
-  kr: "애프터마켓 휠 구매 가이드: 오프셋, 폭, 그리고 실제로 중요한 것"
-  es: "Cómo comprar llantas de aleación: offset, ancho y lo que realmente importa"
+  en: "Aftermarket Wheels: Offset, Width, and the Numbers That Decide Fitment"
+  kr: "애프터마켓 휠: 오프셋, 폭, 그리고 장착을 결정하는 숫자들"
+  es: "Llantas de aleación: offset, ancho y los números que deciden el montaje"
 seo_title:
   en: "Aftermarket Wheels: Offset, Width, and What Matters"
   es: "Cómo comprar llantas de aleación: offset y ancho"
 seo_desc:
-  en: "How offset and width actually change how a car drives, and which wheel specs matter once you look past marketing."
+  en: "How offset and width change the way a car drives, and which wheel specs still matter once you look past the marketing."
   es: "Cómo el offset y el ancho cambian de verdad el comportamiento del coche, y qué especificaciones importan."
 slug: wheels-buying-guide
 category: Wheels & Tires
@@ -24,17 +24,17 @@ Wheels are the single most visible modification you can make, and also the one w
 
 ### The four numbers
 
-**Diameter.** The wheel's height in inches. Changing diameter changes tire sidewall height if you want to keep the overall rolling diameter constant — which you almost always do.
+**Diameter.** The wheel's height in inches. Changing diameter changes tire sidewall height if you want to keep the overall rolling diameter constant, which you almost always do.
 
 **Width.** Measured between the bead seats, in inches. Width determines what tire section width you can run. Each tire has a recommended wheel width range; going outside it means a pinched or stretched sidewall and unpredictable handling.
 
 **Offset (ET).** The distance from the wheel's mounting face to its centerline, in millimeters. Positive offset tucks the wheel inward, negative pushes it outward. **This is the number that decides whether your wheel fits.** Wrong offset is the cause of nearly every rubbing and clearance problem. It's also what changes steering feel — a big offset change alters the scrub radius, which is the geometry that determines how the steering self-centers and how the tire wears.
 
-**Bolt pattern (PCD).** The number and spacing of the lug holes, e.g. 5×114.3. It must match your hub exactly. Adapter spacers exist but add a failure point and are illegal in some jurisdictions — avoid them.
+**Bolt pattern (PCD).** The number and spacing of the lug holes, e.g. 5×114.3. It must match your hub exactly. Adapter spacers exist but add a failure point and are illegal in some jurisdictions. Avoid them.
 
-Also check **center bore** (hub diameter). If the wheel's bore is larger than the hub, you need hub-centric rings, or the wheel locates on the studs alone — which causes vibration.
+Also check **center bore** (hub diameter). If the wheel's bore is larger than the hub, you need hub-centric rings, or the wheel locates on the studs alone, which causes vibration.
 
-### Fitment: measure, don't guess
+### Fitment, Measured Not Guessed
 
 The reliable way to know whether a wheel fits is to measure your current setup and model the change:
 
@@ -49,17 +49,17 @@ A fitment calculator does this arithmetic for you, but the measurement is what m
 
 ### Construction: cast, flow-formed, forged
 
-**Cast.** Molten aluminum poured into a mold. Cheapest, heaviest, and least ductile. Fine for a street car on good roads — but a cast wheel is more likely to crack rather than bend on a hard impact.
+**Cast.** Molten aluminum poured into a mold. Cheapest, heaviest, and least ductile. Fine for a street car on good roads, but a cast wheel is more likely to crack rather than bend on a hard impact.
 
 **Flow-formed (also called flow-formed, rotary-forged, or spun).** A cast center with the rim section spun and pressed under heat, which aligns the grain structure. Typically 15–25% lighter than a comparable cast wheel at a modest price premium. This is the sweet spot for most people — you get most of the weight benefit without forged pricing.
 
-**Forged.** Machined from a solid billet or forged under high pressure. Strongest and lightest, and priced accordingly — often 2–3× flow-formed. Worth it for track use where unsprung mass and strength both matter, less so for a daily.
+**Forged.** Machined from a solid billet or forged under high pressure. Strongest and lightest, and priced accordingly, often 2–3× flow-formed. Worth it for track use where unsprung mass and strength both matter, less so for a daily.
 
 **Weight is worth caring about** because it's unsprung and rotating. Rough rule of thumb: 1 lb removed from rotating wheel mass is worth roughly 3 lb of static vehicle mass for acceleration. Lighter wheels also improve ride quality because the suspension has less mass to control over bumps.
 
 ### What to check before you buy
 
-- **Load rating.** Each wheel has a rated load. The wheel's rating × 4 must exceed your vehicle's gross weight with margin. This matters enormously on trucks, SUVs, and anything that tows — an under-rated wheel can fail catastrophically loaded.
+- **Load rating.** Each wheel has a rated load. The wheel's rating × 4 must exceed your vehicle's gross weight with margin. This matters enormously on trucks, SUVs, and anything that tows. An under-rated wheel can fail catastrophically loaded.
 - **TPMS compatibility.** Most modern cars need the tire pressure sensors transferred or replaced. Budget for this.
 - **Lug hardware.** Aftermarket wheels often need different lug nuts (conical vs. ball seat, or tuner-style). Using the wrong seat type damages the wheel and can loosen.
 - **Brake clearance.** Big brake kits and large factory brakes may not clear the wheel's inner barrel. Check spoke profile, not just diameter.
@@ -73,9 +73,9 @@ A fitment calculator does this arithmetic for you, but the measurement is what m
 
 **Truck / SUV.** Load rating first, weight second, looks third. Heavy all-terrains on heavy cast wheels create a lot of unsprung mass and you feel it in ride and braking.
 
-### The honest summary
+### Order of operations
 
-Buy for correct fitment first. A wheel that fits properly and is 2 lb heavier than the ideal will give you a better car than a lighter wheel with the wrong offset. Get the offset right, verify load rating, use hub-centric rings and correct lug hardware, then choose construction based on budget. Everything else is aesthetics, and aesthetics are a legitimate reason — just don't let them override the numbers.
+Buy for correct fitment first. A wheel that fits properly and is 2 lb heavier than the ideal will give you a better car than a lighter wheel with the wrong offset. Get the offset right, verify load rating, use hub-centric rings and correct lug hardware, then choose construction based on budget. Everything else is aesthetics, and aesthetics are a legitimate reason. Just don't let them override the numbers.
 
 ---
 
@@ -134,7 +134,7 @@ Buy for correct fitment first. A wheel that fits properly and is 2 lb heavier th
 
 **트럭 / SUV.** 하중 등급이 먼저, 무게가 다음, 외관이 그다음입니다. 무거운 올터레인 타이어에 무거운 캐스트 휠을 조합하면 스프렁 매스가 크게 늘고 승차감과 제동에서 체감됩니다.
 
-### 솔직한 정리
+### 확인 순서
 
 무엇보다 올바른 핏을 먼저 사세요. 제대로 맞고 이상적인 무게보다 2 lb 무거운 휠이, 오프셋이 틀린 가벼운 휠보다 나은 차를 만들어 줍니다. 오프셋을 맞추고, 하중 등급을 확인하고, 허브링과 올바른 러그 하드웨어를 쓰고, 그다음 예산에 따라 제조 방식을 고르세요. 나머지는 미학이고, 미학도 정당한 이유입니다. 다만 숫자를 이기게 두지는 마세요.
 
@@ -195,7 +195,7 @@ Una calculadora de ajuste hace esta aritmética por usted, pero la medición es 
 
 **Camioneta / SUV.** Primero capacidad de carga, después peso, después estética. Neumáticos all-terrain pesados sobre llantas fundidas pesadas generan mucha masa no suspendida, y se nota en confort y frenada.
 
-### Resumen honesto
+### El orden correcto
 
 Compre primero por ajuste correcto. Una llanta que encaja bien y pesa 2 lb más que la ideal le dará un coche mejor que una llanta más ligera con el offset equivocado. Acierte con el offset, verifique la capacidad de carga, use anillos centradores y tornillería correcta, y luego elija la construcción según el presupuesto. Todo lo demás es estética, y la estética es una razón legítima: simplemente no deje que gane a los números.
 

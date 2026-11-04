@@ -37,10 +37,6 @@ Nothing here is presented as a dyno result or a measured figure unless the sourc
 | [Brakes](cat:brakes) | Pad compounds, rotor choices, fluid, bedding |
 | [Tuning](cat:tuning) | Flash vs piggyback, warranty reality, data logging |
 
-### Our promise on money
-
-
----
 
 ## KR
 
@@ -79,10 +75,6 @@ Nothing here is presented as a dyno result or a measured figure unless the sourc
 | [브레이크](cat:brakes) | 패드 컴파운드, 디스크 선택, 플루이드, 베딩 |
 | [튜닝](cat:tuning) | 플래시 vs 피기백, 보증의 현실, 데이터 로깅 |
 
-### 돈에 대한 약속
-
-
----
 
 ## ES
 
@@ -120,6 +112,3 @@ Aquí no se presenta ninguna cifra de banco de potencia ni medición propia sin 
 | [Escape](cat:exhaust) | Cat-back vs axle-back, zumbido, materiales, legalidad |
 | [Frenos](cat:brakes) | Compuestos de pastilla, elección de disco, líquido, asentamiento |
 | [Reprogramación](cat:tuning) | Flash vs piggyback, la realidad de la garantía, registro de datos |
-
-### Nuestra promesa sobre el dinero
-

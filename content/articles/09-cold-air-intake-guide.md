@@ -7,7 +7,7 @@ seo_title:
   en: "Cold Air Intake: What It Does and the MAF Problem"
   es: "Admisión de aire frío: qué hace y el problema del MAF"
 seo_desc:
-  en: "How a cold air intake actually works, why half of what's sold isn't one, and the MAF and heat-soak problems to avoid."
+  en: "How a cold air intake works, why half of what's sold isn't one, and the MAF and heat-soak problems to avoid."
   es: "Cómo funciona de verdad una admisión de aire frío, por qué la mitad no lo son, y los problemas de MAF y calor."
 slug: cold-air-intake-guide
 category: Engine
@@ -21,10 +21,10 @@ last_updated: 2026-07-07
 ## EN
 
 This guide generalises the same mechanism covered in the Silverado piece, so it applies to any
-platform. If you have read that article, the physics here is identical — only the specific engine
+platform. If you have read that article, the physics here is identical; only the specific engine
 differs.
 
-### What the factory airbox is actually for
+### What the factory airbox is for
 
 An OEM airbox is an engineered compromise: filtration, noise reduction, water ingestion resistance, and cost. It is not designed to be maximally free-flowing, but it is usually better than the aftermarket implies. Modern turbo engines in particular have well-designed intake tracts.
 
@@ -40,17 +40,17 @@ An aftermarket intake changes one or more of these: filter surface area, intake 
 
 ### Where the gain doesn't exist
 
-**The ECU is the limit.** Adding airflow capacity does not change the ECU's boost targets or fuel mapping. On a MAF-equipped engine, the ECU measures the air coming in and fuels it accordingly — so the engine holds its commanded power rather than making more. On a speed-density (MAP-based) engine, similar logic applies through different sensing.
+**The ECU is the limit.** Adding airflow capacity does not change the ECU's boost targets or fuel mapping. On a MAF-equipped engine, the ECU measures the air coming in and fuels it accordingly, so the engine holds its commanded power rather than making more. On a speed-density (MAP-based) engine, similar logic applies through different sensing.
 
 The consequence: **a bolt-on intake on a stock tune is mostly a sound modification.** The exception is an intake specifically designed and calibrated with a tune, which is a different product sold as a package.
 
-### The MAF problem, in detail
+### The MAF problem
 
 This is the failure mode that costs people money.
 
-**Oiled filter media.** Cotton-gauze filters are oiled to trap fine particles. Over-oiling — which is easy to do and widely done — sends oil mist downstream. That oil coats the MAF sensor's heated element. The element's job is to be cooled by airflow and report the cooling as mass air flow; a coating insulates it, so it under-reports airflow. Under-reported air means under-fuelled, which the ECU reads as a lean condition: rough idle, hesitation, and eventually a P0171/P0174 lean code.
+**Oiled filter media.** Cotton-gauze filters are oiled to trap fine particles. Over-oiling, which is easy to do and widely done, sends oil mist downstream. That oil coats the MAF sensor's heated element. The element's job is to be cooled by airflow and report the cooling as mass air flow; a coating insulates it, so it under-reports airflow. Under-reported air means under-fuelled, which the ECU reads as a lean condition: rough idle, hesitation, and eventually a P0171/P0174 lean code.
 
-The fix is cleaning — and the important part is **what you clean it with.** MAF cleaner is formulated to evaporate fully and not attack the sensor or its housing. Brake cleaner, carb cleaner, and especially anything with acetone or strong solvents will destroy the sensor. Never use them.
+The fix is cleaning, and the important part is **what you clean it with.** MAF cleaner is formulated to evaporate fully and not attack the sensor or its housing. Brake cleaner, carb cleaner, and especially anything with acetone or strong solvents will destroy the sensor. Never use them.
 
 The prevention: oil the filter lightly, let it dry completely before reinstalling, and clean the MAF at every filter service.
 
@@ -58,7 +58,7 @@ The prevention: oil the filter lightly, let it dry completely before reinstallin
 
 ### Heat soak and "cold air" that isn't
 
-Half of what's marketed as a cold air intake draws from inside the engine bay — which is the hottest air available once the car is warm and stationary. Symptoms you'd notice: strong performance when moving, flat response in traffic.
+Half of what's marketed as a cold air intake draws from inside the engine bay, which is the hottest air available once the car is warm and stationary. Symptoms you'd notice: strong performance when moving, flat response in traffic.
 
 What to check before buying:
 
@@ -68,18 +68,20 @@ What to check before buying:
 
 ### Filtration and engine life
 
-A more free-flowing filter generally filters less finely. On a street car doing 12,000 miles a year in dusty conditions, that difference compounds. The genuine high-performance answer is more filter area rather than a coarser filter — a large panel filter in the stock airbox often gives most of the flow benefit with better filtration than a small open cone.
+A more free-flowing filter generally filters less finely. On a street car doing 12,000 miles a year in dusty conditions, that difference compounds. The genuine high-performance answer is more filter area rather than a coarser filter. A large panel filter in the stock airbox often gives most of the flow benefit with better filtration than a small open cone.
 
-### What we'd actually recommend
+### What we recommend
 
-- **Stock or near-stock engine:** a high-quality drop-in panel filter in the factory airbox. Cheap, no MAF risk, keeps the factory cold-air path, and gives a small real benefit. This is the genuinely underrated option.
-- **Want the sound:** a sealed-box intake that draws from the factory location. Accept that it's a sound purchase, and be honest with yourself about that.
-- **Chasing power:** intake plus a tune, calibrated together, on a platform where the intake is actually the restriction. Support it with a high-flow downpipe if turbo.
+On a **stock or near-stock engine**, fit a good drop-in panel filter in the factory airbox. It's cheap, carries no MAF risk, keeps the factory cold-air path and gives a small real benefit. It is the most underrated option on this page.
+
+If you **want the sound**, buy a sealed-box intake that draws from the factory location, and know that's what you bought.
+
+If you're **chasing power**, fit an intake and tune it together on a platform where the intake is the actual restriction, with a high-flow downpipe behind it if the car is turbocharged.
 - **Avoid:** open-cone filters in the engine bay, over-oiled filters, and any product advertised with a horsepower claim and no dyno chart.
 
-### The honest summary
+### Bottom line
 
-Intakes are one of the most oversold modifications in the aftermarket. They can be a good purchase — for sound, and as part of a tuned package. They are rarely a good purchase as a standalone power modification. Buy one knowing which of those you're doing, keep the filter properly oiled or use dry media, and clean the MAF.
+Intakes are one of the most oversold modifications in the aftermarket. They can be a good purchase for sound, and as part of a tuned package. They are rarely a good purchase as a standalone power modification. Buy one knowing which of those you're doing, keep the filter properly oiled or use dry media, and clean the MAF.
 
 ---
 
@@ -136,11 +138,11 @@ Intakes are one of the most oversold modifications in the aftermarket. They can 
 ### 실제 권고
 
 - **순정 또는 거의 순정 엔진:** 순정 에어박스에 고품질 드롭인 패널 필터. 저렴하고, MAF 리스크가 없고, 공장 콜드에어 경로를 유지하며, 작은 실이득이 있습니다. 진짜 저평가된 선택입니다.
-- **소리를 원함:** 순정 위치에서 공기를 끌어오는 밀폐 박스 인테이크. 소리 구매임을 인정하고 자신에게 솔직하세요.
+- **소리를 원함:** 순정 위치에서 공기를 끌어오는 밀폐 박스 인테이크. 출력이 아니라 소리를 사는 것입니다.
 - **출력을 좇음:** 인테이크와 튠을 함께 캘리브레이션. 인테이크가 실제로 병목인 플랫폼에서만. 터보라면 하이플로우 다운파이프로 뒷받침하세요.
 - **피할 것:** 엔진룸 안 오픈 콘 필터, 오일 과다 필터, 그리고 다이노 그래프 없이 마력 향상을 광고하는 모든 제품.
 
-### 솔직한 정리
+### 결론
 
 인테이크는 애프터마켓에서 가장 과대 판매되는 튜닝 중 하나입니다. 좋은 구매일 수 있습니다. 소리를 위해서, 그리고 튠 패키지의 일부로서. 단독 출력 튜닝으로는 좋은 구매인 경우가 드뭅니다. 둘 중 무엇을 하는지 알고 사세요. 필터 오일을 적절히 유지하거나 드라이 매체를 쓰고, MAF를 청소하세요.
 
@@ -199,11 +201,11 @@ Un filtro más fluido generalmente filtra menos fino. En un coche de calle que h
 ### Lo que realmente recomendaríamos
 
 - **Motor de serie o casi:** un panel de sustitución de alta calidad en la caja de fábrica. Barato, sin riesgo de MAF, conserva la ruta de aire frío de fábrica y aporta un pequeño beneficio real. Es la opción genuinamente infravalorada.
-- **Quiere el sonido:** una admisión de caja sellada que tome del emplazamiento de fábrica. Acepte que es una compra de sonido y sea honesto consigo mismo.
+- **Quiere el sonido:** una admisión de caja sellada que tome del emplazamiento de fábrica. Es una compra de sonido, no de potencia.
 - **Persigue potencia:** admisión más repro, calibradas juntas, en una plataforma donde la admisión sea realmente la restricción. Respáldela con un downpipe de alto flujo si es turbo.
 - **Evite:** filtros de cono abierto en el vano motor, filtros sobreaceitados y cualquier producto anunciado con una cifra de potencia sin gráfica de banco.
 
-### Resumen honesto
+### En resumen
 
 Las admisiones son una de las modificaciones más sobrevendidas de la posventa. Pueden ser una buena compra: por sonido y como parte de un paquete con repro. Rara vez son buena compra como modificación de potencia aislada. Compre sabiendo cuál de las dos está haciendo, mantenga el filtro bien aceitado o use medio seco, y limpie el MAF.
 
