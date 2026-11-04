@@ -73,6 +73,87 @@ If you tow or haul regularly: **leave the rake alone.** Buy rear air bags instea
 
 If you're chasing actual off-road capability: skip the leveling kit entirely and buy a proper lift with corrected geometry. A leveling kit is a stance modification, and there's nothing wrong with admitting that's what you want. Just don't let a marketing page convince you it's a performance upgrade.
 
+### What the kits actually cost
+
+Prices and review counts as the listings showed them on 4 November 2026. Fitment
+ranges are the listing's own, and they are not interchangeable &mdash; the
+2019&ndash;2026 trucks take a different part from the 2007&ndash;2018 ones.
+
+<div class="pick">
+  <div class="pick-label">Best value</div>
+  <h3>Supreme Suspensions 1.50-Inch Pro Billet Lower Strut Spacer (19&ndash;26 Silverado 1500)</h3>
+  <div class="pick-price">$49.95 &middot; 12 reviews</div>
+  <p>Fifty dollars for a billet strut spacer is the honest version of this
+  modification: a machined block that sits on top of the strut, no geometry
+  correction claimed, no marketing about performance. It produces the 1.5 inches
+  this article recommends and nothing else.</p>
+  <p>At this price the risk is not the part, it's the install. A spacer this
+  cheap assumes you have the tools and the confidence to disassemble a strut
+  assembly, or the willingness to pay a shop an hour of labour. Budget for that
+  and it is still the cheapest way to a level truck.</p>
+  <dl class="spec">
+    <div><dt>Price</dt><dd>$49.95</dd></div>
+    <div><dt>Fitment</dt><dd>2019&ndash;2026, Silverado 1500</dd></div>
+    <div><dt>Lift</dt><dd>1.50 in, front</dd></div>
+    <div><dt>Type</dt><dd>Lower strut spacer, billet</dd></div>
+    <div><dt>Owner reviews</dt><dd>12</dd></div>
+  </dl>
+  <p class="buyrow"><a class="buy" href="https://www.americantrucks.com/supreme-suspensions-silverado1500-150-inch-pro-billet-lower-strut-spacer-leveling-kit-chsl07fl1500.html" rel="nofollow noopener" target="_blank">See the Supreme Suspensions spacer&nbsp;&rarr;</a> <span class="buy-note">list price checked 4 Nov 2026</span></p>
+</div>
+
+<div class="pick">
+  <div class="pick-label">Best all-round</div>
+  <h3>ReadyLIFT 1.50-Inch Front Leveling Kit (19&ndash;26 Silverado 1500, excl. Trail Boss &amp; ZR2)</h3>
+  <div class="pick-price">$149.95 &middot; 17 reviews</div>
+  <p>ReadyLIFT is the name with the longest history on this platform, and the
+  money over the Supreme part buys two things worth having: a kit that has been
+  through enough trucks that the fitment problems are documented, and a company
+  with something to lose if it goes wrong.</p>
+  <p>Note the exclusion. Trail Boss and ZR2 trucks are already lifted from the
+  factory and this kit is not for them. That is the single most common ordering
+  error on this part, and it is written on the listing rather than discovered
+  after delivery.</p>
+  <dl class="spec">
+    <div><dt>Price</dt><dd>$149.95</dd></div>
+    <div><dt>Fitment</dt><dd>2019&ndash;2026, excluding Trail Boss &amp; ZR2</dd></div>
+    <div><dt>Lift</dt><dd>1.50 in, front</dd></div>
+    <div><dt>Owner reviews</dt><dd>17</dd></div>
+  </dl>
+  <p class="buyrow"><a class="buy" href="https://www.americantrucks.com/readylift-silverado1500-150-inch-front-leveling-kit-66-39150.html" rel="nofollow noopener" target="_blank">See the ReadyLIFT kit&nbsp;&rarr;</a> <span class="buy-note">list price checked 4 Nov 2026</span></p>
+</div>
+
+<div class="pick">
+  <div class="pick-label">If you want it done properly</div>
+  <h3>ReadyLIFT 1.75-Inch Front Leveling Kit with Tubular Control Arms (19&ndash;26 Trail Boss)</h3>
+  <div class="pick-price">$529.95 &middot; open box from $317.97</div>
+  <p>This is the option this article would point you to if you want to level and
+  keep the front end working the way it was designed to. The tubular upper
+  control arms exist to correct the geometry a spacer alone leaves wrong &mdash;
+  which is the honest answer to the CV angle and alignment concerns raised
+  above.</p>
+  <p>It costs three times the Supreme spacer, and it is the only pick here that
+  addresses the actual engineering problem rather than just the ride height. If
+  you are keeping the truck, this is where the money goes.</p>
+  <dl class="spec">
+    <div><dt>Price</dt><dd>$529.95</dd></div>
+    <div><dt>Fitment</dt><dd>2019&ndash;2026, Silverado 1500 Trail Boss</dd></div>
+    <div><dt>Lift</dt><dd>1.75 in, front</dd></div>
+    <div><dt>Includes</dt><dd>Tubular upper control arms</dd></div>
+  </dl>
+  <p class="buyrow"><a class="buy" href="https://www.americantrucks.com/readylift-silverado1500-175-inch-front-leveling-kit-tubular-control-arms-66-3921.html" rel="nofollow noopener" target="_blank">See the ReadyLIFT kit with UCAs&nbsp;&rarr;</a> <span class="buy-note">list price checked 4 Nov 2026</span></p>
+</div>
+
+<div class="callout">
+  <div class="callout-title">What we did not verify</div>
+  <p>We did not install any of these, and we have no measurement of the resulting
+  ride height or alignment change on a specific truck. The lift figures are the
+  manufacturers' claims. Reviews are reported as counts, not as an average score,
+  because star ratings render inconsistently across these listings.</p>
+  <p>Fitment ranges are exactly as the listings state them. Check your own door
+  jamb sticker before ordering &mdash; the year splits on this platform do not
+  line up with the way people talk about "the new Silverado".</p>
+</div>
+
 ---
 
 ## KR

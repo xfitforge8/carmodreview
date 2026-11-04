@@ -85,6 +85,86 @@ For the **track**: dedicated track pads swapped at the event, high-temperature f
 
 And in every case, the order is tires, then brakes, then power.
 
+### What these actually cost for a Silverado 1500
+
+Prices and review counts as the listings showed them on 4 November 2026. Note the
+year splits carefully &mdash; the 2019&ndash;2026 trucks and the 2007&ndash;2018
+trucks take different pads, and 6-lug and 8-lug rotor kits are not
+interchangeable.
+
+<div class="pick">
+  <div class="pick-label">Best daily-driver pad</div>
+  <h3>PowerStop Z17 Evolution Ceramic Pads with Hardware, Rear Pair (19&ndash;26 Silverado 1500)</h3>
+  <div class="pick-price">$38.28 &middot; 17 reviews</div>
+  <p>This is the daily-driver answer from the section above, at the price the
+  section implies: a ceramic pad from a company that makes brake parts and not
+  marketing, with the hardware kit included so you are not hunting for shims on
+  a Sunday.</p>
+  <p>Ceramic is the right call for a street truck if dust bothers you more than
+  ultimate bite. It is not the pad for towing heavy or for spirited driving
+  &mdash; ceramic fades earlier when hot. For a truck that commutes, that trade is
+  the correct one.</p>
+  <dl class="spec">
+    <div><dt>Price</dt><dd>$38.28</dd></div>
+    <div><dt>Fitment</dt><dd>2019&ndash;2026, Silverado 1500, rear</dd></div>
+    <div><dt>Compound</dt><dd>Ceramic, low dust</dd></div>
+    <div><dt>Includes</dt><dd>Hardware kit</dd></div>
+    <div><dt>Owner reviews</dt><dd>17</dd></div>
+  </dl>
+  <p class="buyrow"><a class="buy" href="https://www.americantrucks.com/powerstop-silverado1500-z17-evolution-plus-clean-ride-ceramic-brake-pads-rear-pair-17-2174.html" rel="nofollow noopener" target="_blank">See the PowerStop Z17 pads&nbsp;&rarr;</a> <span class="buy-note">list price checked 4 Nov 2026</span></p>
+</div>
+
+<div class="pick">
+  <div class="pick-label">Best pad-and-rotor kit</div>
+  <h3>C&amp;L Super Sport HD 6-Lug Brake Rotor and Pad Kit, Front and Rear (19&ndash;26 Silverado 1500)</h3>
+  <div class="pick-price">$390.95 &middot; 47 reviews</div>
+  <p>Pads, rotors and hardware as one order, which removes the most common
+  mismatch in this job: new pads bedded onto rotors that already carry the
+  profile of the old ones. If you are replacing pads because they are worn, the
+  rotors are usually at their wear limit too, and doing both at once is cheaper
+  than doing them six months apart.</p>
+  <p>The 6-lug fitment is the one to check against your own truck. Get this wrong
+  and you will find out at the parts counter, not on the listing.</p>
+  <dl class="spec">
+    <div><dt>Price</dt><dd>$390.95</dd></div>
+    <div><dt>Fitment</dt><dd>2019&ndash;2026, Silverado 1500, 6-lug</dd></div>
+    <div><dt>Includes</dt><dd>Front and rear rotors, pads, hardware</dd></div>
+    <div><dt>Owner reviews</dt><dd>47</dd></div>
+  </dl>
+  <p class="buyrow"><a class="buy" href="https://www.americantrucks.com/cl-silverado1500-super-sport-hd-6-lug-brake-rotor-pad-kit-front-rear-cl.html" rel="nofollow noopener" target="_blank">See the C&amp;L kit&nbsp;&rarr;</a> <span class="buy-note">list price checked 4 Nov 2026</span></p>
+</div>
+
+<div class="pick">
+  <div class="pick-label">If you tow or haul near the limit</div>
+  <h3>Hawk Performance LTS Brake Pads, Front Pair (07&ndash;18 Silverado 1500)</h3>
+  <div class="pick-price">$167.99 &middot; 6 reviews</div>
+  <p>Hawk's LTS compound is the light-truck answer to heat: it is designed to
+  keep bite as temperatures climb, which is exactly the scenario a ceramic pad
+  gives up on. If you tow, this is where the money goes rather than into a
+  drilled rotor.</p>
+  <p>Two honest caveats. It costs four times the PowerStop pad and it will dust
+  more. And it is listed here for the <strong>2007&ndash;2018</strong> truck
+  &mdash; check fitment for your own year rather than assuming it carries over.</p>
+  <dl class="spec">
+    <div><dt>Price</dt><dd>$167.99</dd></div>
+    <div><dt>Fitment</dt><dd>2007&ndash;2018, Silverado 1500, front</dd></div>
+    <div><dt>Compound</dt><dd>LTS &mdash; light truck, heat-resistant</dd></div>
+    <div><dt>Owner reviews</dt><dd>6</dd></div>
+  </dl>
+  <p class="buyrow"><a class="buy" href="https://www.americantrucks.com/hawk-performance-silverado1500-lts-brake-pads-hb912y710.html" rel="nofollow noopener" target="_blank">See the Hawk LTS pads&nbsp;&rarr;</a> <span class="buy-note">list price checked 4 Nov 2026</span></p>
+</div>
+
+<div class="callout">
+  <div class="callout-title">What we did not verify</div>
+  <p>No stopping-distance or fade testing was performed, and none of these
+  listings publishes measured braking data. The compound descriptions are the
+  manufacturers' own. Review counts are reported instead of average scores,
+  because star ratings render inconsistently across these listings.</p>
+  <p>Rotor diameter and thickness are not stated on these listings, so we have
+  not printed them. Measure yours before ordering if you are unsure which
+  fitment your truck has.</p>
+</div>
+
 ---
 
 ## KR

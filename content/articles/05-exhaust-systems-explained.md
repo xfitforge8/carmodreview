@@ -86,6 +86,82 @@ If sound is your goal and budget is tight: **axle-back, touring muffler, keep ev
 
 Buy for cruise behavior, not for the full-throttle sound clip. You'll spend 99% of your driving time at part throttle, and that's the sound you have to live with.
 
+### What these cost on a Silverado 1500
+
+Prices and review counts as the listings showed them on 4 November 2026. Watch
+the year and engine splits &mdash; the 4.3L, 5.3L and 6.2L systems differ, and so
+do the cab and bed configurations.
+
+<div class="pick">
+  <div class="pick-label">Best value</div>
+  <h3>C&amp;L Single Exhaust System with Polished Tip, Side Exit (14&ndash;18 5.3L Silverado 1500)</h3>
+  <div class="pick-price">$389.99 &middot; 268 reviews</div>
+  <p>This is the "character change without the drama" pick from the section
+  above: a full cat-back with a single side exit, in the mid price band, with
+  enough owners behind it that the fitment and drone questions are already
+  answered in public.</p>
+  <p>A side exit behind the rear wheel is also the practical choice for a truck
+  that tows, because it keeps the tip out of the path of a trailer. It changes
+  the sound at the tailpipe without altering anything forward of the muffler, so
+  your emissions equipment stays exactly where the factory put it.</p>
+  <dl class="spec">
+    <div><dt>Price</dt><dd>$389.99</dd></div>
+    <div><dt>Fitment</dt><dd>2014&ndash;2018, 5.3L Silverado 1500</dd></div>
+    <div><dt>Type</dt><dd>Cat-back, single side exit</dd></div>
+    <div><dt>Owner reviews</dt><dd>268</dd></div>
+  </dl>
+  <p class="buyrow"><a class="buy" href="https://www.americantrucks.com/proven-ground-53silverado1500-3-inch-single-exhaust-system-with-polished-tip-side-exit-s115448-53.html" rel="nofollow noopener" target="_blank">See the C&amp;L cat-back&nbsp;&rarr;</a> <span class="buy-note">list price checked 4 Nov 2026</span></p>
+</div>
+
+<div class="pick">
+  <div class="pick-label">Cheapest real change</div>
+  <h3>MBRP Armor Plus High Flow Replacement Muffler (14&ndash;26 4.3L, 5.3L Silverado 1500)</h3>
+  <div class="pick-price">$199.99</div>
+  <p>If the goal is sound and the budget is tight, a replacement muffler is the
+  honest answer &mdash; it is not a cat-back, it changes less, and it costs half as
+  much. MBRP's Armor Plus is aluminised steel rather than 304 stainless, which is
+  the reason for the price and also the thing to accept going in: it will not
+  outlast a stainless system in a salt state.</p>
+  <p>No published review count on this listing, which is the trade-off for the
+  price. Treat it as the low-risk experiment: less money committed, less
+  evidence behind it.</p>
+  <dl class="spec">
+    <div><dt>Price</dt><dd>$199.99</dd></div>
+    <div><dt>Fitment</dt><dd>2014&ndash;2026, 4.3L and 5.3L Silverado 1500</dd></div>
+    <div><dt>Type</dt><dd>Replacement muffler</dd></div>
+    <div><dt>Material</dt><dd>Aluminised steel</dd></div>
+  </dl>
+  <p class="buyrow"><a class="buy" href="https://www.americantrucks.com/mbrp-silverado1500-armor-plus-high-flow-replacement-muffler-s5011409.html" rel="nofollow noopener" target="_blank">See the MBRP muffler&nbsp;&rarr;</a> <span class="buy-note">list price checked 4 Nov 2026</span></p>
+</div>
+
+<div class="pick">
+  <div class="pick-label">Budget side exit</div>
+  <h3>Single Exhaust System with Polished Tip, Side Exit (07&ndash;13 5.3L Silverado 1500)</h3>
+  <div class="pick-price">$209.99 &middot; 70 reviews</div>
+  <p>If you have the earlier truck, this is the cheapest complete cat-back in the
+  range we checked, and 70 owners have reviewed it. It costs roughly half the
+  C&amp;L system above and delivers the same category of change.</p>
+  <p>The fitment is the entire caveat: this is the 2007&ndash;2013 body, and it
+  will not fit the newer trucks no matter what the photo implies.</p>
+  <dl class="spec">
+    <div><dt>Price</dt><dd>$209.99</dd></div>
+    <div><dt>Fitment</dt><dd>2007&ndash;2013, 5.3L Silverado 1500</dd></div>
+    <div><dt>Type</dt><dd>Cat-back, single side exit</dd></div>
+    <div><dt>Owner reviews</dt><dd>70</dd></div>
+  </dl>
+  <p class="buyrow"><a class="buy" href="https://www.americantrucks.com/silverado1500-single-exhaust-system-with-polished-tip-side-exit-s115401-53.html" rel="nofollow noopener" target="_blank">See the side-exit system&nbsp;&rarr;</a> <span class="buy-note">list price checked 4 Nov 2026</span></p>
+</div>
+
+<div class="callout">
+  <div class="callout-title">What we did not verify</div>
+  <p>We did not measure sound levels on any of these, and none of the listings
+  publishes a dB figure. We have therefore printed no decibel claim, which means
+  the "is it too loud for my neighborhood" question stays unanswered here rather
+  than answered with a number we invented.</p>
+  <p>Material and construction are as the listings state them. Where a listing
+  gives no review count, we say so rather than omitting the line silently.</p>
+</div>
+
 ---
 
 ## KR
