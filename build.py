@@ -472,6 +472,14 @@ def build():
     # style.css is tracked in the repo root now, not carried from _prev_docs
     shutil.copy(os.path.join(ROOT, 'style.css'), os.path.join(OUT, 'style.css'))
 
+    # Google Search Console proves ownership by fetching this exact file at the
+    # site root. It has to survive every rebuild -- rmtree at the top of build()
+    # takes docs/ with it -- or verification lapses and Search Console drops the
+    # property. Tracked in the repo root next to style.css for that reason.
+    for f in os.listdir(ROOT):
+        if f.startswith('google') and f.endswith('.html'):
+            shutil.copy(os.path.join(ROOT, f), os.path.join(OUT, f))
+
     # real photographs, copied from content/photos/. Only image files are
     # published — the sidecar captions and the README stay out of the build.
     if os.path.isdir(PHOTO_ROOT):
