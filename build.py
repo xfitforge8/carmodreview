@@ -674,6 +674,13 @@ def build():
         if os.path.exists(os.path.join(SRC, '..', 'docs', 'CNAME')) else open(
             os.path.join(OUT, 'CNAME'), 'w').write('carmodreview.com\n')
 
+    # GitHub Pages runs Jekyll over every deploy unless this file is present.
+    # The site is already-rendered HTML, so Jekyll is pure overhead: it added
+    # minutes to each build and, worse, would silently mangle a page containing
+    # Liquid-looking braces. An empty file is the whole fix, but rmtree above
+    # deletes it each time -- so it is written here, on every build.
+    open(os.path.join(OUT, '.nojekyll'), 'w').close()
+
     arts = []
     for fn in sorted(os.listdir(os.path.join(SRC, 'articles'))):
         if not fn.endswith('.md'):
