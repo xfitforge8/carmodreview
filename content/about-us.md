@@ -2,6 +2,27 @@
 
 ## EN
 
+<figure class="editor">
+  <img src="avatar.svg" alt="Illustrated portrait of Duffy Vance, editor of CarModReview" width="200" height="200">
+  <figcaption>
+    <span class="editor-name">Duffy Vance</span>
+    <span class="editor-role">Editor &middot; writes the guides</span>
+  </figcaption>
+</figure>
+
+### Who writes this
+
+Duffy Vance edits CarModReview and writes the guides on it. The name is a pen name, and
+that is the only thing on this page you are asked to take on faith. Everything else is
+either checkable or labelled as opinion.
+
+He is a city mechanic in the amateur sense: no trade certificate, no lift, no shop. What
+he has is a long-running argument with the way parts get sold, and a driveway that has
+taught him more about fitment than any product listing ever did. Being a city driver is
+not incidental to how these guides are written. It is why they keep coming back to the
+things that actually decide whether a part works where you park it — curb clearance,
+inspection rules, noise limits, and whether a job needs equipment you do not own.
+
 ### Why this site exists
 
 Shopping for car parts is a research problem that most of the internet has made worse. A search for almost any modification returns a stack of pages that repeat the manufacturer's marketing copy, quote the same unverified horsepower figure, and rank products by commission rate rather than by whether they work.
@@ -34,6 +55,27 @@ If you are working on a vehicle we have not covered and want a category prioriti
 ---
 
 ## KR
+
+<figure class="editor">
+  <img src="avatar.svg" alt="CarModReview 편집자 더피 밴스의 일러스트 초상" width="200" height="200">
+  <figcaption>
+    <span class="editor-name">더피 밴스 (Duffy Vance)</span>
+    <span class="editor-role">편집자 &middot; 가이드 집필</span>
+  </figcaption>
+</figure>
+
+### 누가 쓰는가
+
+더피 밴스가 CarModReview를 편집하고 가이드를 씁니다. 필명이며, 이 페이지에서 믿음으로
+받아들이셔야 하는 것은 그것 하나뿐입니다. 나머지는 확인 가능하거나, 의견이라고 표시되어
+있습니다.
+
+그는 아마추어라는 뜻의 도시 정비사입니다. 정비 자격증도, 리프트도, 정비소도 없습니다.
+대신 부품이 팔리는 방식에 대한 오래된 불만이 있고, 어떤 제품 페이지보다 장착에 대해 더
+많이 가르쳐 준 드라이브웨이가 있습니다. 도시에서 차를 굴린다는 점은 이 가이드의 성격과
+무관하지 않습니다. 어디에 주차하느냐에 따라 부품이 실제로 쓸만한지를 결정하는 것들 —
+연석 높이, 검사 규정, 소음 기준, 그리고 가지고 있지 않은 장비가 필요한 작업인지 — 으로
+계속 되돌아오는 이유입니다.
 
 ### 이 사이트가 있는 이유
 
@@ -69,6 +111,28 @@ CarModReview는 지루한 부분을 제대로 해보려는 시도입니다. 실�
 ## ES
 
 # Sobre CarModReview
+
+<figure class="editor">
+  <img src="avatar.svg" alt="Retrato ilustrado de Duffy Vance, editor de CarModReview" width="200" height="200">
+  <figcaption>
+    <span class="editor-name">Duffy Vance</span>
+    <span class="editor-role">Editor &middot; escribe las guías</span>
+  </figcaption>
+</figure>
+
+### Quién escribe esto
+
+Duffy Vance edita CarModReview y escribe las guías. El nombre es un seudónimo, y es lo único
+en esta página que se le pide aceptar por confianza. Todo lo demás es verificable o está
+etiquetado como opinión.
+
+Es un mecánico de ciudad en el sentido amateur: sin certificación profesional, sin elevador,
+sin taller. Lo que tiene es una discusión larga con la forma en que se venden las piezas, y
+una cochera que le ha enseñado más sobre montaje que cualquier ficha de producto. Ser
+conductor urbano no es incidental para cómo están escritas estas guías. Es la razón por la
+que vuelven una y otra vez a lo que de verdad decide si una pieza sirve donde uno se
+estaciona: altura al bordillo, normas de inspección, límites de ruido, y si un trabajo
+requiere equipo que uno no tiene.
 
 ### Por qué existe este sitio
 

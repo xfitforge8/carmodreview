@@ -331,6 +331,53 @@ strong { font-weight: 700; }
   color: var(--ink-3);
 }
 
+/* ---------- editor byline ---------- */
+
+/* The about page opens with an illustrated avatar and the pen name. It is
+   deliberately a drawing, not a photograph: the site's photography is licensed
+   stock and gets labelled as such, and a stock face presented as the person
+   writing would be the one dishonest thing on an otherwise sourced site. */
+.editor {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin: 30px 0 34px;
+  padding: 0;
+}
+
+.editor img {
+  width: 84px;
+  height: 84px;
+  flex: 0 0 84px;
+  border-radius: 50%;
+  border: 1px solid var(--rule);
+  background: var(--paper-2);
+}
+
+.editor figcaption {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 0;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+}
+
+.editor-name {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: -.2px;
+}
+
+.editor-role {
+  font-size: 13px;
+  color: var(--ink-3);
+}
+
+@media (max-width: 560px) {
+  .editor img { width: 64px; height: 64px; flex-basis: 64px; }
+}
+
 /* ---------- table ---------- */
 
 .table-wrap { overflow-x: auto; margin: 0 0 26px; }

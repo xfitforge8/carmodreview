@@ -698,6 +698,14 @@ def build():
     # style.css is tracked in the repo root now, not carried from _prev_docs
     shutil.copy(os.path.join(ROOT, 'style.css'), os.path.join(OUT, 'style.css'))
 
+    # The editor avatar, referenced from about-us.md. It lives in the repo root
+    # next to style.css for the same reason: rmtree above takes docs/ with it,
+    # and a missing avatar would leave a broken image on the about page.
+    for f in ('avatar.svg',):
+        p = os.path.join(ROOT, f)
+        if os.path.exists(p):
+            shutil.copy(p, os.path.join(OUT, f))
+
     # Google Search Console proves ownership by fetching this exact file at the
     # site root. It has to survive every rebuild -- rmtree at the top of build()
     # takes docs/ with it -- or verification lapses and Search Console drops the

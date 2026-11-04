@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" role="img" aria-label="Car Mod Review editor avatar">
+  <title>Car Mod Review — editorial avatar</title>
+  <defs>
+    <clipPath id="ring">
+      <circle cx="100" cy="100" r="96"/>
+    </clipPath>
+  </defs>
+
+  <!-- Warm paper ground, matching the site's --paper token -->
+  <circle cx="100" cy="100" r="98" fill="#fbfaf7"/>
+  <circle cx="100" cy="100" r="98" fill="none" stroke="#14161a" stroke-width="3"/>
+
+  <g clip-path="url(#ring)">
+    <!-- Shoulders / work shirt in the site's teal -->
+    <path d="M28 200c0-34 30-56 72-56s72 22 72 56v10H28z" fill="#1d5d5d"/>
+
+    <!-- Collar opening -->
+    <path d="M84 149c6 12 10 18 16 18s10-6 16-18" fill="none" stroke="#fbfaf7" stroke-width="3" stroke-linecap="round" opacity=".55"/>
+
+    <!-- Neck -->
+    <path d="M86 118h28v27c0 6-6 9-14 9s-14-3-14-9z" fill="#c98f68"/>
+
+    <!-- Head -->
+    <ellipse cx="100" cy="88" rx="35" ry="40" fill="#e0a97f"/>
+
+    <!-- Ear -->
+    <ellipse cx="64" cy="90" rx="5.5" ry="8" fill="#d09a72"/>
+
+    <!-- Hair: short, greying at the temples -->
+    <path d="M64 82c-2-26 14-40 36-40s38 14 36 40c-2-16-10-24-20-26-6 6-20 8-30 5-8-2-16 6-22 21z" fill="#3d434d"/>
+    <path d="M64 80c1-7 4-13 8-18-1 7-2 13-3 20z" fill="#8b8880" opacity=".85"/>
+    <path d="M136 80c-1-7-4-13-8-18 1 7 2 13 3 20z" fill="#8b8880" opacity=".85" transform="translate(-72 0)"/>
+
+    <!-- Beard: full but trimmed, kept clear of the mouth -->
+    <path d="M69 96c0 26 12 42 31 42s31-16 31-42c4 24-5 44-31 44S65 120 69 96z" fill="#4a515c"/>
+    <path d="M76 116c4 14 13 22 24 22s20-8 24-22c-2 18-11 27-24 27s-22-9-24-27z" fill="#4a515c"/>
+    <!-- Moustache -->
+    <path d="M85 108c5-4 10-5 15-5s10 1 15 5c-4 2-9 3-15 3s-11-1-15-3z" fill="#4a515c"/>
+
+    <!-- Eyes -->
+    <ellipse cx="87" cy="87" rx="3.4" ry="3.8" fill="#14161a"/>
+    <ellipse cx="113" cy="87" rx="3.4" ry="3.8" fill="#14161a"/>
+    <circle cx="88.2" cy="85.6" r="1.1" fill="#fbfaf7"/>
+    <circle cx="114.2" cy="85.6" r="1.1" fill="#fbfaf7"/>
+
+    <!-- Brows, slightly settled -->
+    <path d="M79 78c5-3 11-3 15-1" fill="none" stroke="#3d434d" stroke-width="2.6" stroke-linecap="round"/>
+    <path d="M106 77c4-2 10-2 15 1" fill="none" stroke="#3d434d" stroke-width="2.6" stroke-linecap="round"/>
+
+    <!-- Nose -->
+    <path d="M100 90v10c0 2-2 3-4 3" fill="none" stroke="#c98f68" stroke-width="2.4" stroke-linecap="round"/>
+
+    <!-- Mouth, just visible under the moustache -->
+    <path d="M92 118c4 3 12 3 16 0" fill="none" stroke="#8a5a45" stroke-width="2.2" stroke-linecap="round"/>
+  </g>
+
+  <!-- Website accent: a rust ring segment, echoing the masthead rule -->
+  <circle cx="100" cy="100" r="96" fill="none" stroke="#b4451f" stroke-width="3"
+          stroke-dasharray="150 453" stroke-linecap="round" transform="rotate(-45 100 100)"/>
+</svg>
