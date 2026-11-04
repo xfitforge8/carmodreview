@@ -73,7 +73,7 @@ def _site_config():
         return {}
 
 
-CONTACT_EMAIL = _site_config().get('contact_email') or 'officialcarmodreview@gmail.com'
+CONTACT_EMAIL = _site_config().get('contact_email') or 'contact@carmodreview.com'
 
 
 def stamp_email(html_text, email=None):

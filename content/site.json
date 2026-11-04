@@ -30,5 +30,5 @@
     "rule": "No rel=sponsored tag and no affiliate disclosure claim may appear until AFFILIATE_ID is set in build.py. Tagging a link sponsored before a real relationship exists is a false statement to Google and to readers."
   },
   "affiliate_programs": [],
-  "contact_email": "officialcarmodreview@gmail.com"
+  "contact_email": "contact@carmodreview.com"
 }
