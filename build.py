@@ -102,14 +102,82 @@ def inject_analytics(html_text):
 
 
 # ─────────────────────────────────────────────────── affiliate configuration
-# Empty until a real program approves the site. See affiliate_* helpers below
-# for what changes when this is filled in -- nothing else needs editing.
 #
-# AmericanTrucks runs its own in-house program rather than going through a
-# network, and issues the tracking parameter with the approval email.
-AFFILIATE_ID = ''
-AFFILIATE_PARAM = 'utm_source'          # parameter name the program gave you
-AFFILIATE_PARAM_IN_URL = False          # True if the id is already in the URL
+# Programs live in content/affiliate.json, not in this file. The site has to be
+# able to carry several at once -- RealTruck and Summit Racing both run on
+# Impact, Amazon runs its own network, eBay runs a third -- and each builds a
+# tracking link a different way. Hardcoding one host here made every other
+# program impossible to switch on.
+#
+# The file ships with every program disabled and empty IDs. Nothing is tagged,
+# no disclosure claims a relationship, and the build stays byte-identical until
+# an ID is actually pasted in. That is deliberate: rel="sponsored" on a link to
+# a merchant that has not approved you is a false statement to Google and to
+# the reader, so the default state must be "no relationship".
+#
+# See content/affiliate.json for the per-network link rules and what to paste
+# where. See affiliate-setup.md for the walk-through.
+AFFILIATE_CONFIG_PATH = os.path.join(SRC, 'affiliate.json')
+
+
+def _load_affiliate_config():
+    """Programs from content/affiliate.json, or an empty list if absent.
+
+    A missing or malformed file is not fatal: the site simply has no affiliate
+    relationships, which is exactly the state it shipped in for its first
+    months. Failing the build here would make the file's absence a deploy
+    blocker for a site that never had affiliates in the first place.
+    """
+    try:
+        with open(AFFILIATE_CONFIG_PATH, encoding='utf-8') as f:
+            data = json.load(f)
+        return data.get('programs') or []
+    except (OSError, ValueError):
+        return []
+
+
+PROGRAMS = _load_affiliate_config()
+
+
+def _enabled_programs():
+    """Programs with both an enabled flag and a non-empty ID.
+
+    Both conditions matter. 'enabled' alone lets a half-filled row through and
+    produces links tagged with an empty string; a non-empty ID alone would let
+    a program the site is not actually in start tagging links.
+    """
+    return [p for p in PROGRAMS if p.get('enabled') and str(p.get('id', '')).strip()]
+
+
+def active_hosts():
+    """Every hostname that belongs to a live affiliate program."""
+    return [p['host'].lower() for p in _enabled_programs() if p.get('host')]
+
+
+def program_for_url(url):
+    """The enabled program whose host matches this URL, or None.
+
+    A template-wrapped URL already points at the network's own host (eBay's
+    rover hosts), so it must be recognised as already tagged. Without the
+    template_host check a second pass would match 'ebay.com' inside the
+    encoded destination and wrap the wrapper again, nesting one rover link
+    inside another until the destination is unreadable.
+    """
+    lowered = url.lower()
+    for p in _enabled_programs():
+        tpl_host = (p.get('template_host') or '').lower()
+        if tpl_host and tpl_host in lowered:
+            return p
+        host = (p.get('host') or '').lower()
+        if host and host in lowered:
+            return p
+    return None
+
+
+# Legacy single-program names, kept so the rest of this file and any content
+# that refers to them keeps working. AFFILIATE_HOST is what the disclosure
+# logic keys off: any merchant the site links to commercially.
+AFFILIATE_HOST = 'americantrucks.com'
 
 CATEGORIES = {
     'Suspension':      ('suspension',      'Suspension',      '서스펜션',      'Suspensión'),
@@ -275,7 +343,13 @@ def md2html(text, rel=''):
         extensions=['extra', 'sane_lists', 'smarty'],
         output_format='html5',
     )
-    return resolve_links(out, rel)
+    out = resolve_links(out, rel)
+    # Articles write their product cards as literal HTML inside the markdown,
+    # so those anchors never pass through action() and would otherwise go out
+    # untagged even with a live program configured -- the site would look
+    # correctly set up while every click earned nothing. Tag here, at the one
+    # point every markdown body goes through.
+    return tag_affiliate_links(out, rel)
 
 
 # ───────────────────────────────────────────────── affiliate link handling
@@ -290,15 +364,13 @@ def md2html(text, rel=''):
 #                           The FTC-affiliate / Google-sponsored claim is false
 #                           in this state, so we must not emit it.
 #
-#   AFFILIATE_ID set     -> a real relationship exists. Every link to
-#                           AFFILIATE_HOST is tagged, carries
+#   a program is enabled -> a real relationship exists. Every link to that
+#                           program's host is tagged, carries
 #                           rel="sponsored nofollow noopener", and the page must
 #                           display a disclosure (enforced by
 #                           assert_disclosure(), which fails the build).
 #
-# When the token is filled in, the tags appear on the next build with no content
-# edits. Nothing else has to change.
-AFFILIATE_HOST = 'americantrucks.com'
+# With the token filled in, tags appear on the next build with no content edits.
 
 
 def _affiliate_programs():
@@ -316,32 +388,101 @@ def _affiliate_programs():
 
 
 def affiliate_active():
-    return bool(AFFILIATE_ID.strip())
+    """True when at least one program is switched on and has a real ID."""
+    return bool(_enabled_programs())
 
 
 def affiliate_url(url):
-    """Append the affiliate tag to a commercial URL, if we have one.
+    """Apply this URL's program tracking, if the site is in that program.
 
-    Handles the ?-vs-& separator so a product URL that already carries query
-    parameters does not end up with a broken doubled question mark.
+    Each network builds links differently, so the rule comes from the program's
+    own 'link_format' in affiliate.json rather than from a guess here. Guessing
+    wrong does not fail loudly -- it silently produces untracked links, which
+    means every sale earns nothing while the site looks correctly configured.
     """
-    if not affiliate_active() or AFFILIATE_HOST not in url:
+    program = program_for_url(url)
+    if program is None:
         return url
-    if AFFILIATE_PARAM_IN_URL:
-        # some programs put the id in the path, not the query
-        return url
-    sep = '&' if '?' in url else '?'
-    return f'{url}{sep}{AFFILIATE_PARAM}={AFFILIATE_ID}'
+
+    fmt = program.get('link_format') or 'query_param'
+    pid = str(program['id']).strip()
+
+    if fmt == 'query_param':
+        # Impact and most in-house programs: append ?param=id, joining with &
+        # when the product URL already carries query parameters.
+        param = program.get('param') or 'utm_source'
+        if f'{param}=' in url:
+            return url
+        sep = '&' if '?' in url else '?'
+        return f'{url}{sep}{param}={pid}'
+
+    if fmt == 'path_segment':
+        # Amazon Associates: the tag goes in the path as /dp/ASIN/ref=<tag>.
+        # Product URLs on this site are Amazon-format already, so insert the
+        # tag before any query string rather than after it.
+        tag = program.get('param') or 'tag'
+        head, _, query = url.partition('?')
+        head = head.rstrip('/')
+        if f'{tag}=' in url:
+            return url
+        out = f'{head}/{tag}={pid}'
+        return f'{out}?{query}' if query else out
+
+    if fmt == 'template':
+        # Programs that hand you a wrapper URL (eBay's rover links). 'template'
+        # holds it with {url} and {id} substituted, and the destination is
+        # percent-encoded so its own query string cannot break the wrapper.
+        from urllib.parse import quote
+        tpl = program.get('template') or ''
+        if not tpl:
+            # A template program with no template would otherwise emit an
+            # empty href. Leave the plain destination instead of a dead link.
+            return url
+        # Already wrapped: returning the input unchanged keeps repeated builds
+        # from nesting rover links inside each other.
+        tpl_host = (program.get('template_host') or '').lower()
+        if tpl_host and tpl_host in url.lower():
+            return url
+        return tpl.replace('{url}', quote(url, safe='')).replace('{id}', pid)
+
+    return url
 
 
 def affiliate_rel(url):
-    """rel attributes for an outbound link, depending on whether it is one."""
-    is_commercial = AFFILIATE_HOST in url
-    if is_commercial and affiliate_active():
+    """rel attributes for an outbound link, depending on whether it is one.
+
+    'sponsored' is decided per host, not globally. If RealTruck approves the
+    site but AmericanTrucks has not, an AmericanTrucks link is still an
+    ordinary commercial outlink: rel="nofollow", never rel="sponsored".
+    Claiming a paid relationship with a merchant that has no agreement is a
+    false statement to Google, and it is the kind of error that survives
+    review because the page looks correctly marked up.
+    """
+    if not url_links_to_merchant(url):
+        return 'rel="noopener" target="_blank"'
+    if program_for_url(url) is not None:
         return 'rel="sponsored nofollow noopener" target="_blank"'
-    if is_commercial:
-        return 'rel="nofollow noopener" target="_blank"'
-    return 'rel="noopener" target="_blank"'
+    return 'rel="nofollow noopener" target="_blank"'
+
+
+def merchant_hosts():
+    """Every host the site links to commercially, live program or not.
+
+    The disclosure is owed whenever a page links to a merchant at all -- a
+    page full of AmericanTrucks links needs one whether or not that program
+    has approved the site yet.
+    """
+    hosts = set(active_hosts())
+    hosts.add(AFFILIATE_HOST.lower())
+    for p in PROGRAMS:
+        if p.get('host'):
+            hosts.add(p['host'].lower())
+    return hosts
+
+
+def url_links_to_merchant(url):
+    lowered = url.lower()
+    return any(h in lowered for h in merchant_hosts())
 
 
 def action(url):
@@ -363,7 +504,7 @@ def tag_affiliate_links(html_text, url_prefix):
 
     def sub(m):
         open_q, url = m.group(1), m.group(2)
-        if AFFILIATE_HOST not in url:
+        if not url_links_to_merchant(url):
             return m.group(0)
         return f'href={open_q}{affiliate_url(url)}{open_q}'
 
@@ -371,13 +512,15 @@ def tag_affiliate_links(html_text, url_prefix):
 
     # Lift rel on those same anchors to sponsored. Done as one pass over each
     # <a ...> tag: find the href, decide the rel from it, then replace the
-    # existing rel attribute or insert one.
+    # existing rel attribute or insert one. A link earns rel="sponsored" only
+    # when ITS OWN merchant is a live program -- an AmericanTrucks link is not
+    # sponsored just because RealTruck approved the site.
     def rel_sub(m):
         tag_html = m.group(0)
         href_m = re.search(r'href=["\'](https?://[^"\']+)["\']', tag_html)
-        if not href_m or AFFILIATE_HOST not in href_m.group(1):
+        if not href_m or not url_links_to_merchant(href_m.group(1)):
             return tag_html
-        is_sponsored = affiliate_active()
+        is_sponsored = program_for_url(href_m.group(1)) is not None
         new_rels = 'sponsored nofollow noopener' if is_sponsored else 'nofollow noopener'
         if re.search(r'\brel=["\'][^"\']*["\']', tag_html):
             return re.sub(r'\brel=["\'][^"\']*["\']', f'rel="{new_rels}"', tag_html)
@@ -394,7 +537,13 @@ def assert_disclosure(html_text, where):
     Failing the build is deliberate: a silent miss here is a compliance problem
     that only shows up when a program audits the site, by which point the links
     have been live for months.
+
+    Checked whenever a page links to a merchant at all, not only when a program
+    is live: the obligation to disclose comes from having the links.
     """
+    if not any(url_links_to_merchant(u) for u in
+               re.findall(r'href=["\'](https?://[^"\']+)["\']', html_text)):
+        return
     if not affiliate_active():
         return
     if AFFILIATE_HOST not in html_text:
@@ -402,7 +551,7 @@ def assert_disclosure(html_text, where):
     lowered = html_text.lower()
     if 'affiliate' not in lowered and 'commission' not in lowered:
         raise SystemExit(
-            f'build failed: {where} carries {AFFILIATE_HOST} links but no '
+            f'build failed: {where} carries merchant links but no '
             f'disclosure. Add the disclosure block before shipping.')
 
 
@@ -518,10 +667,14 @@ DISCLOSURE = {
 
 
 def build_disclosure(lang, rel, body_html):
-    """The disclosure block, but only for pages that link to a retailer."""
-    if AFFILIATE_HOST not in body_html and not affiliate_active():
-        return ''
-    if AFFILIATE_HOST not in body_html:
+    """The disclosure block, but only for pages that link to a retailer.
+
+    Keyed on any merchant host, not just one: the disclosure is owed because
+    the page has commercial links, regardless of which store they point at or
+    whether that store's program has approved the site yet.
+    """
+    urls = re.findall(r'href=["\'](https?://[^"\']+)["\']', body_html)
+    if not any(url_links_to_merchant(u) for u in urls):
         return ''
     return DISCLOSURE[lang].format(rel=rel) + '\n'
 

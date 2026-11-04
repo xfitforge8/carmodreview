@@ -1,0 +1,87 @@
+{
+  "_readme": [
+    "Affiliate programs for carmodreview.com.",
+    "",
+    "Every program ships DISABLED with an empty id. Nothing is tagged and no",
+    "disclosure claims a relationship until you paste a real id and set",
+    "'enabled' to true. That default is deliberate: rel=\"sponsored\" on a link",
+    "to a merchant that has not approved you is a false statement to Google",
+    "and to the reader.",
+    "",
+    "To switch a program on: paste the ID your approval email gave you into",
+    "'id', set 'enabled': true, run `python3 build.py`, and commit.",
+    "Nothing else needs editing -- see affiliate-setup.md.",
+    "",
+    "link_format tells the build how that network builds a tracking link. It",
+    "is per-network because guessing wrong fails silently: the site looks",
+    "correctly configured while every click goes untracked and earns nothing.",
+    "",
+    "  query_param  -> url?param=id        (Impact, most in-house programs)",
+    "  path_segment -> url/param=id        (Amazon Associates)",
+    "  template     -> a wrapper URL with {url} and {id} substituted (eBay rover)"
+  ],
+  "programs": [
+    {
+      "name": "RealTruck",
+      "host": "realtruck.com",
+      "network": "impact",
+      "link_format": "query_param",
+      "param": "irclickid",
+      "id": "",
+      "enabled": false,
+      "commission": "competitive, rate not published",
+      "attribution_days": 30,
+      "note": "Apply via Impact. Impact usually issues a whole tracking URL from its dashboard rather than a single parameter -- if the dashboard gives you a full URL, use link_format 'template' and paste it into 'template' with {url} where the destination goes."
+    },
+    {
+      "name": "Summit Racing",
+      "host": "summitracing.com",
+      "network": "impact",
+      "link_format": "query_param",
+      "param": "irclickid",
+      "id": "",
+      "enabled": false,
+      "commission": "up to 5%",
+      "attribution_days": 7,
+      "note": "Runs on Impact, same campaign setup as RealTruck. Short 7-day window."
+    },
+    {
+      "name": "AmericanTrucks",
+      "host": "americantrucks.com",
+      "network": "in-house",
+      "link_format": "query_param",
+      "param": "utm_source",
+      "id": "",
+      "enabled": false,
+      "commission": "unknown - no public program",
+      "attribution_days": null,
+      "note": "No public affiliate program exists as of 5 Nov 2026. Every product card on the site already links here, so this is the highest-value host to get a deal with. Ask them directly, and ask whether they are covered under the RealTruck Impact campaign -- Turn5 is the parent of both. Unverified; ask rather than assume."
+    },
+    {
+      "name": "Amazon Associates",
+      "host": "amazon.com",
+      "network": "amazon",
+      "link_format": "query_param",
+      "param": "tag",
+      "id": "",
+      "enabled": false,
+      "commission": "4.50% (Automotive, fixed band)",
+      "attribution_days": 1,
+      "note": "Your tag looks like 'yourtag-20'. Amazon takes it as ?tag=... in the query string -- NOT as a path segment. 24-hour cookie plus an 89-day window for items already in the cart. A new account gets 180 days from applying to refer three sales or it is closed, so do not apply until the site has real traffic."
+    },
+    {
+      "name": "eBay Partner Network",
+      "host": "ebay.com",
+      "network": "epn",
+      "link_format": "template",
+      "param": "campid",
+      "template": "https://rover.ebay.com/rover/1/711-53200-19255-0/1?campid={id}&toolid=10001&mpre={url}",
+      "id": "",
+      "enabled": false,
+      "commission": "~1% on Motors parts",
+      "attribution_days": 1,
+      "note": "eBay issues 'rover' wrapper links: https://rover.ebay.com/rover/1/711-53200-19255-0/1?campid=YOUR_CAMPAIGN_ID&toolid=10001&mpre={url} . Paste that into 'template' with {url} left as a literal placeholder and {id} where your campaign id goes. Lowest rate of the set.",
+      "template_host": "rover.ebay.com"
+    }
+  ]
+}

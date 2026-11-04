@@ -1,0 +1,517 @@
+<title>Affiliate Programs</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  /* Parts-catalog palette: the site's own ink/paper/rust, so this reads as a
+     working document from carmodreview rather than a generic report. */
+  :root {
+    --bg: #f5f3ee;
+    --surface: #fffdf9;
+    --surface-2: #eeebe3;
+    --ink: #17181b;
+    --ink-2: #55595f;
+    --ink-3: #7c8087;
+    --rule: #d9d4c8;
+    --accent: #b4451f;
+    --accent-soft: #f0e2da;
+    --teal: #1d5d5d;
+    --ok: #2f6b3a;
+    --ok-soft: #e2ece3;
+    --warn: #8a5a12;
+    --warn-soft: #f5ead6;
+    --dead: #8b8f96;
+    --dead-soft: #eae8e3;
+    color-scheme: light;
+
+    --f-display: "Barlow Condensed", "Arial Narrow", system-ui, sans-serif;
+    --f-body: "IBM Plex Sans", system-ui, -apple-system, sans-serif;
+    --f-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #141518;
+      --surface: #1c1e22;
+      --surface-2: #24272c;
+      --ink: #ece9e2;
+      --ink-2: #a2a7ae;
+      --ink-3: #83888f;
+      --rule: #33373d;
+      --accent: #e0714a;
+      --accent-soft: #35241d;
+      --teal: #6fb3b3;
+      --ok: #7dbf8d;
+      --ok-soft: #1f2d23;
+      --warn: #d3a659;
+      --warn-soft: #2f2718;
+      --dead: #75797f;
+      --dead-soft: #22252a;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #141518;
+    --surface: #1c1e22;
+    --surface-2: #24272c;
+    --ink: #ece9e2;
+    --ink-2: #a2a7ae;
+    --ink-3: #83888f;
+    --rule: #33373d;
+    --accent: #e0714a;
+    --accent-soft: #35241d;
+    --teal: #6fb3b3;
+    --ok: #7dbf8d;
+    --ok-soft: #1f2d23;
+    --warn: #d3a659;
+    --warn-soft: #2f2718;
+    --dead: #75797f;
+    --dead-soft: #22252a;
+    color-scheme: dark;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--f-body);
+    font-size: 15px;
+    line-height: 1.55;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+    padding-block: 0;
+  }
+  .wrap { max-width: 1120px; margin: 0 auto; }
+
+  /* ---- masthead ---- */
+  .mast { padding-block: 34px 22px; border-bottom: 2px solid var(--ink); }
+  .eyebrow {
+    font-family: var(--f-mono); font-size: 11.5px; letter-spacing: .13em;
+    text-transform: uppercase; color: var(--accent); margin: 0 0 8px;
+  }
+  h1 {
+    font-family: var(--f-display); font-weight: 700; font-size: clamp(34px, 7vw, 52px);
+    line-height: .98; letter-spacing: -.005em; margin: 0 0 12px; text-wrap: balance;
+  }
+  .standfirst { color: var(--ink-2); max-width: 60ch; margin: 0; font-size: 15.5px; }
+
+  /* ---- stat strip ---- */
+  .stats {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    border-bottom: 1px solid var(--rule);
+  }
+  .stat { padding: 16px 16px 16px 0; border-right: 1px solid var(--rule); }
+  .stat:last-child { border-right: 0; }
+  .stat + .stat { padding-left: 16px; }
+  .stat .n {
+    font-family: var(--f-display); font-size: 30px; font-weight: 600;
+    line-height: 1; font-variant-numeric: tabular-nums; display: block;
+  }
+  .stat .k {
+    font-family: var(--f-mono); font-size: 10.5px; letter-spacing: .1em;
+    text-transform: uppercase; color: var(--ink-3); margin-top: 6px; display: block;
+  }
+  .stat .n.bad { color: var(--accent); }
+
+  /* ---- callout ---- */
+  .callout {
+    margin-block: 26px; padding: 18px 20px;
+    background: var(--warn-soft); border-left: 3px solid var(--warn);
+  }
+  .callout h2 {
+    font-family: var(--f-display); font-size: 19px; font-weight: 600;
+    margin: 0 0 8px; letter-spacing: .01em; text-transform: uppercase;
+  }
+  .callout p { margin: 0 0 8px; max-width: 72ch; color: var(--ink); }
+  .callout p:last-child { margin-bottom: 0; }
+
+  /* ---- section heads ---- */
+  .sec { margin-top: 40px; }
+  .sec > h2 {
+    font-family: var(--f-display); font-size: 15px; font-weight: 600;
+    letter-spacing: .14em; text-transform: uppercase; color: var(--ink-2);
+    margin: 0 0 14px; padding-bottom: 8px; border-bottom: 1px solid var(--rule);
+  }
+
+  /* ---- filter ---- */
+  .filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; align-items: center; }
+  .chip {
+    font-family: var(--f-mono); font-size: 11.5px; letter-spacing: .05em;
+    text-transform: uppercase; padding: 6px 11px; cursor: pointer;
+    background: var(--surface); color: var(--ink-2);
+    border: 1px solid var(--rule); border-radius: 2px;
+  }
+  .chip:hover { border-color: var(--ink-3); color: var(--ink); }
+  .chip[aria-pressed="true"] {
+    background: var(--ink); color: var(--bg); border-color: var(--ink);
+  }
+  .chip:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .count {
+    font-family: var(--f-mono); font-size: 11.5px; color: var(--ink-3);
+    margin-left: auto; letter-spacing: .04em;
+  }
+
+  /* ---- table ---- */
+  .tscroll { overflow-x: auto; border: 1px solid var(--rule); background: var(--surface); }
+  table { border-collapse: collapse; width: 100%; font-size: 13.5px; }
+  thead th {
+    font-family: var(--f-display); font-size: 12px; font-weight: 600;
+    letter-spacing: .11em; text-transform: uppercase; color: var(--ink-2);
+    text-align: left; padding: 11px 12px; background: var(--surface-2);
+    border-bottom: 1px solid var(--rule); white-space: nowrap;
+    position: sticky; top: 0; z-index: 1;
+  }
+  tbody td { padding: 12px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  tbody tr:last-child td { border-bottom: 0; }
+  tbody tr:hover td { background: var(--surface-2); }
+
+  .prog { font-weight: 600; font-size: 14px; display: block; line-height: 1.3; }
+  .prog-sub { color: var(--ink-3); font-size: 12px; display: block; margin-top: 2px; }
+  .num {
+    font-family: var(--f-mono); font-size: 12px; font-variant-numeric: tabular-nums;
+    color: var(--ink-3);
+  }
+  .cell-why { max-width: 30ch; color: var(--ink-2); font-size: 13px; }
+  .mono { font-family: var(--f-mono); font-size: 12px; }
+  .rate { font-family: var(--f-mono); font-size: 12.5px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .rate small { display: block; color: var(--ink-3); font-size: 10.5px; letter-spacing: .02em; }
+
+  .pill {
+    display: inline-block; font-family: var(--f-mono); font-size: 10.5px;
+    letter-spacing: .06em; text-transform: uppercase; padding: 3px 7px;
+    border-radius: 2px; white-space: nowrap; font-weight: 500;
+  }
+  .p-ok { background: var(--ok-soft); color: var(--ok); }
+  .p-warn { background: var(--accent-soft); color: var(--accent); }
+  .p-dead { background: var(--dead-soft); color: var(--dead); }
+
+  .go {
+    display: inline-block; font-family: var(--f-mono); font-size: 11.5px;
+    color: var(--accent); text-decoration: none;
+    border-bottom: 1px solid var(--accent); padding-bottom: 1px;
+    overflow-wrap: anywhere;
+  }
+  .go:hover { background: var(--accent-soft); }
+  .go:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .url { font-family: var(--f-mono); font-size: 11px; color: var(--ink-3); overflow-wrap: anywhere; display: block; margin-top: 5px; }
+
+  /* ---- ordered steps ---- */
+  ol.steps { list-style: none; counter-reset: s; padding: 0; margin: 0; display: grid; gap: 0; }
+  ol.steps li {
+    counter-increment: s; position: relative; padding: 14px 0 14px 46px;
+    border-bottom: 1px solid var(--rule);
+  }
+  ol.steps li:last-child { border-bottom: 0; }
+  ol.steps li::before {
+    content: counter(s); position: absolute; left: 0; top: 14px;
+    font-family: var(--f-display); font-size: 20px; font-weight: 600;
+    color: var(--accent); width: 30px; text-align: left;
+    font-variant-numeric: tabular-nums; line-height: 1.2;
+  }
+  ol.steps b { font-weight: 600; }
+  ol.steps p { margin: 3px 0 0; color: var(--ink-2); max-width: 74ch; font-size: 14px; }
+
+  /* ---- math block ---- */
+  .math {
+    background: var(--surface); border: 1px solid var(--rule);
+    padding: 18px 20px; font-family: var(--f-mono); font-size: 12.5px;
+    line-height: 2; font-variant-numeric: tabular-nums;
+  }
+  .math .row { display: flex; justify-content: space-between; gap: 16px; border-bottom: 1px dashed var(--rule); }
+  .math .row:last-child { border-bottom: 0; border-top: 1px solid var(--rule); margin-top: 4px; padding-top: 4px; font-weight: 500; }
+  .math .lab { color: var(--ink-2); }
+  .math .val { white-space: nowrap; }
+  .math-note { color: var(--ink-3); font-size: 12.5px; margin-top: 10px; max-width: 70ch; font-family: var(--f-body); }
+
+  footer {
+    margin-top: 46px; padding-block: 20px 40px; border-top: 2px solid var(--ink);
+    color: var(--ink-3); font-size: 12.5px;
+  }
+  footer p { margin: 0 0 6px; max-width: 78ch; }
+
+  @media (max-width: 760px) {
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .stat:nth-child(2) { border-right: 0; }
+    .stat:nth-child(3), .stat:nth-child(4) { border-top: 1px solid var(--rule); }
+    .stat:nth-child(3) { padding-left: 0; }
+    .stat:nth-child(4) { padding-left: 16px; }
+
+    /* table becomes stacked cards; the header row is redundant once each
+       cell carries its own label */
+    .tscroll { border: 0; background: transparent; overflow-x: visible; }
+    thead { display: none; }
+    table, tbody, tr, td { display: block; width: 100%; }
+    tbody tr {
+      background: var(--surface); border: 1px solid var(--rule);
+      margin-bottom: 10px; padding: 4px 0;
+    }
+    tbody tr:hover td { background: transparent; }
+    tbody td { border-bottom: 0; padding: 6px 14px; }
+    tbody td[data-l]::before {
+      content: attr(data-l); display: block;
+      font-family: var(--f-mono); font-size: 10px; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--ink-3); margin-bottom: 2px;
+    }
+    tbody td.td-num { padding-top: 10px; }
+    .cell-why { max-width: none; }
+  }
+</style>
+
+<div class="wrap">
+
+  <header class="mast">
+    <p class="eyebrow">carmodreview.com · prepared 5 November 2026</p>
+    <h1>Affiliate Programs</h1>
+    <p class="standfirst">Every program below was opened in a browser and checked today. Status is what the page actually said, not what a directory claimed — five of the obvious candidates turned out to be dead links, and those are listed too.</p>
+  </header>
+
+  <div class="stats">
+    <div class="stat"><span class="n">59</span><span class="k">URLs in sitemap</span></div>
+    <div class="stat"><span class="n bad">1</span><span class="k">Indexed by Google</span></div>
+    <div class="stat"><span class="n bad">6</span><span class="k">Visits, all-time</span></div>
+    <div class="stat"><span class="n">30</span><span class="k">Product links, 1 store</span></div>
+  </div>
+
+  <div class="callout">
+    <h2>Read this before you apply</h2>
+    <p>Approval is not the bottleneck and neither is the application form. Programs approve sites that already send buyers. At six visits, an affiliate manager has nothing to judge, so several will decline or simply not reply — that is normal and it is not a rejection of the site.</p>
+    <p>File the applications anyway. Approval takes one to three weeks, and you want it sitting there <em>before</em> traffic arrives, not applied for on the day it does. Just don't expect an approval to produce income on its own.</p>
+    <p>The bigger finding: <b>all 30 product links on the site point at americantrucks.com</b>, and AmericanTrucks has no public affiliate program. If a reader buys today, you earn nothing. That single fact is worth more than every other row on this page.</p>
+  </div>
+
+  <section class="sec">
+    <h2>Apply to these</h2>
+    <div class="filters">
+      <button class="chip" data-f="all" aria-pressed="true">All</button>
+      <button class="chip" data-f="1" aria-pressed="false">Start now</button>
+      <button class="chip" data-f="2" aria-pressed="false">After first sale</button>
+      <span class="count" id="count"></span>
+    </div>
+
+    <div class="tscroll">
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Program</th>
+            <th>Why it fits</th>
+            <th>Commission</th>
+            <th>Attribution</th>
+            <th>Apply / status</th>
+          </tr>
+        </thead>
+        <tbody id="rows">
+
+          <tr data-p="2">
+            <td class="td-num"><span class="num">01</span></td>
+            <td data-l="Program">
+              <span class="prog">Impact.com</span>
+              <span class="prog-sub">Partner marketplace</span>
+            </td>
+            <td class="cell-why" data-l="Why it fits">Not a merchant — the network. RealTruck and Summit Racing both run on it, so one free partner account unlocks both applications.</td>
+            <td class="rate" data-l="Commission">Free<small>to join as an affiliate</small></td>
+            <td class="rate" data-l="Attribution">—<small>network, not a program</small></td>
+            <td data-l="Apply / status">
+              <a class="go" href="https://partners.impact.com/" target="_blank" rel="noopener">Create partner account</a>
+              <span class="url">partners.impact.com</span>
+              <span class="pill p-ok" style="margin-top:6px">Verified live</span>
+            </td>
+          </tr>
+
+          <tr data-p="1">
+            <td class="td-num"><span class="num">02</span></td>
+            <td data-l="Program">
+              <span class="prog">RealTruck</span>
+              <span class="prog-sub">Truck &amp; Jeep accessories</span>
+            </td>
+            <td class="cell-why" data-l="Why it fits">The best content match on the list. Its catalog covers leveling kits, intakes, exhaust, wheels and brakes — all six category hubs on the site.</td>
+            <td class="rate" data-l="Commission">Competitive<small>rate not published</small></td>
+            <td class="rate" data-l="Attribution">30 days<small>stated on page</small></td>
+            <td data-l="Apply / status">
+              <a class="go" href="https://app.impact.com/campaign-promo-signup/RealTruck.brand?execution=e1s1#/?viewkey=signUpPreStart" target="_blank" rel="noopener">Apply via Impact</a>
+              <span class="url">realtruck.com/affiliate/</span>
+              <span class="pill p-ok" style="margin-top:6px">Verified live</span>
+            </td>
+          </tr>
+
+          <tr data-p="1">
+            <td class="td-num"><span class="num">03</span></td>
+            <td data-l="Program">
+              <span class="prog">Summit Racing</span>
+              <span class="prog-sub">Aftermarket parts, 1,500+ brands</span>
+            </td>
+            <td class="cell-why" data-l="Why it fits">Broadest catalog of the three — brakes, suspension, exhaust, wheels and engine parts from one merchant, so one approval covers most of the site.</td>
+            <td class="rate" data-l="Commission">Up to 5%<small>stated on page</small></td>
+            <td class="rate" data-l="Attribution">7 days<small>short — see note below</small></td>
+            <td data-l="Apply / status">
+              <a class="go" href="https://www.summitracing.com/summit-racing-affiliate" target="_blank" rel="noopener">Program page</a>
+              <span class="url">summitracing.com/summit-racing-affiliate</span>
+              <span class="pill p-ok" style="margin-top:6px">Verified live</span>
+            </td>
+          </tr>
+
+          <tr data-p="2">
+            <td class="td-num"><span class="num">04</span></td>
+            <td data-l="Program">
+              <span class="prog">Amazon Associates</span>
+              <span class="prog-sub">Everything, incl. tools &amp; fluids</span>
+            </td>
+            <td class="cell-why" data-l="Why it fits">Automotive pays a fixed <b>4.50%</b> on Amazon's own rate card — better than the 1–4% usually quoted. Fills the gaps no parts retailer covers: torque wrenches, jack stands, oil, brake cleaner.</td>
+            <td class="rate" data-l="Commission">4.50%<small>Automotive, fixed band</small></td>
+            <td class="rate" data-l="Attribution">24 hours<small>plus 89-day cart</small></td>
+            <td data-l="Apply / status">
+              <a class="go" href="https://affiliate-program.amazon.com/" target="_blank" rel="noopener">affiliate-program.amazon.com</a>
+              <span class="url">3 sales in 180 days to stay in</span>
+              <span class="pill p-ok" style="margin-top:6px">Verified live</span>
+            </td>
+          </tr>
+
+          <tr data-p="2">
+            <td class="td-num"><span class="num">05</span></td>
+            <td data-l="Program">
+              <span class="prog">AvantLink</span>
+              <span class="prog-sub">Affiliate network</span>
+            </td>
+            <td class="cell-why" data-l="Why it fits">One application that carries several auto merchants, including off-road and tire brands. Worth it purely to widen the net without more forms.</td>
+            <td class="rate" data-l="Commission">Free<small>varies by merchant</small></td>
+            <td class="rate" data-l="Attribution">—<small>varies by merchant</small></td>
+            <td data-l="Apply / status">
+              <a class="go" href="https://www.avantlink.com/" target="_blank" rel="noopener">Apply now</a>
+              <span class="url">avantlink.com</span>
+              <span class="pill p-ok" style="margin-top:6px">Verified live</span>
+            </td>
+          </tr>
+
+          <tr data-p="2">
+            <td class="td-num"><span class="num">06</span></td>
+            <td data-l="Program">
+              <span class="prog">eBay Partner Network</span>
+              <span class="prog-sub">New, used &amp; OEM parts</span>
+            </td>
+            <td class="cell-why" data-l="Why it fits">Where people go for OEM replacement and used parts — a real fit for the repair guides. Weakest economics of the six: roughly 1% on the Motors parts category.</td>
+            <td class="rate" data-l="Commission">~1–4%<small>Motors parts ≈ 1%</small></td>
+            <td class="rate" data-l="Attribution">24 hours</td>
+            <td data-l="Apply / status">
+              <a class="go" href="https://partner.ebay.com/campaign-promo-signup/eBay-Partner-Network.brand" target="_blank" rel="noopener">Sign up via eBay account</a>
+              <span class="url">partnernetwork.ebay.com</span>
+              <span class="pill p-ok" style="margin-top:6px">Verified live</span>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="sec">
+    <h2>Do it in this order</h2>
+    <ol class="steps">
+      <li>
+        <b>One Impact account.</b>
+        <p>Create the free partner account first. RealTruck and Summit Racing both run on Impact, so this is one form that unlocks two of the three strongest programs.</p>
+      </li>
+      <li>
+        <b>Apply to RealTruck, then Summit Racing.</b>
+        <p>RealTruck first because the 30-day window is four times Summit's 7-day one, and truck accessories suit the existing guides better. In the application, name carmodreview.com and point at the Silverado levelling-kit and cold-air-intake guides — those are the two with real photographs and product tables.</p>
+      </li>
+      <li>
+        <b>Email AmericanTrucks and ask directly.</b>
+        <p>There is no public program page, but every product link on the site goes to them, so a working relationship here converts existing traffic with no rewriting. Ask whether AmericanTrucks.com is covered under the RealTruck Impact campaign — Turn5 and RealTruck have been connected for a few years, and if they share a campaign this becomes a single approval. I could not verify that link, so ask rather than assume.</p>
+      </li>
+      <li>
+        <b>Hold Amazon until traffic exists — not for the rate.</b>
+        <p>At <b>4.50% on automotive</b> it beats Summit Racing on hardware and covers the consumables no parts retailer sells. The reason to wait is the clock: a new Associates account gets <b>180 days from applying</b> to refer three sales, and failing that test closes the door. Applying at six visits a month is a near-certain fail. Apply the month the site starts getting real visits.</p>
+      </li>
+      <li>
+        <b>Re-check the dead links in a month.</b>
+        <p>Program pages move often. The ones below all failed today and may well be back.</p>
+      </li>
+    </ol>
+  </section>
+
+  <section class="sec">
+    <h2>What this actually pays</h2>
+    <div class="math">
+      <div class="row"><span class="lab">Monthly visits (optimistic, year one)</span><span class="val">1,000</span></div>
+      <div class="row"><span class="lab">Click an affiliate link (2%)</span><span class="val">20</span></div>
+      <div class="row"><span class="lab">Convert at the store (4%)</span><span class="val">0.8 sales</span></div>
+      <div class="row"><span class="lab">Average order</span><span class="val">$400</span></div>
+      <div class="row"><span class="lab">Commission — Summit Racing at 5%</span><span class="val">≈ $16 / month</span></div>
+      <div class="row"><span class="lab">Commission — Amazon at 4.5%</span><span class="val">≈ $14 / month</span></div>
+    </div>
+    <p class="math-note">Every number above is an assumption, not a measurement — there is no traffic history to measure yet. The point is the shape of it: a parts site earns per order and truck parts are expensive, so a single $400 order is worth $14–20 depending on the program, but you need readers before any of it exists. Six visits produced six visits' worth of income.</p>
+  </section>
+
+  <section class="sec">
+    <h2>Checked and found dead</h2>
+    <div class="tscroll">
+      <table>
+        <thead>
+          <tr><th>Store</th><th>What I opened</th><th>What came back</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-l="Store"><span class="prog">AmericanTrucks</span><span class="prog-sub">every product card links here</span></td>
+            <td class="mono" data-l="What I opened">/affiliate-program.html<br>/affiliates.html</td>
+            <td class="cell-why" data-l="What came back">The site's own "NOPE. NOT HERE." 404 page. No public program.</td>
+          </tr>
+          <tr>
+            <td data-l="Store"><span class="prog">CJ Pony Parts</span></td>
+            <td class="mono" data-l="What I opened">/affiliate-program.html</td>
+            <td class="cell-why" data-l="What came back">Page titled "404 Not Found".</td>
+          </tr>
+          <tr>
+            <td data-l="Store"><span class="prog">Stage 3 Motorsports</span></td>
+            <td class="mono" data-l="What I opened">/affiliate-program</td>
+            <td class="cell-why" data-l="What came back">"The page you're looking for can't be found."</td>
+          </tr>
+          <tr>
+            <td data-l="Store"><span class="prog">JEGS</span></td>
+            <td class="mono" data-l="What I opened">/affiliate</td>
+            <td class="cell-why" data-l="What came back">404 - Page Not Found.</td>
+          </tr>
+          <tr>
+            <td data-l="Store"><span class="prog">Turn5</span><span class="prog-sub">AmericanTrucks' parent</span></td>
+            <td class="mono" data-l="What I opened">turn5.com/affiliate-program</td>
+            <td class="cell-why" data-l="What came back">HTTP ERROR 404. Its only public program is dealer pricing, not affiliates.</td>
+          </tr>
+          <tr>
+            <td data-l="Store"><span class="prog">RockAuto · Tire Rack · 4 Wheel Parts · CARiD · AutoAnything</span></td>
+            <td class="mono" data-l="What I opened">guessed program URLs</td>
+            <td class="cell-why" data-l="What came back">Pages would not load for me at all. Unknown, not dead — worth opening yourself.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <footer>
+    <p>Checked by opening each URL in a browser on 5 November 2026. Where a page loaded, the commission and attribution figures quoted are the store's own words; where it did not, the row says so instead of guessing.</p>
+    <p>I have not created any accounts or accepted any terms on your behalf. Applications need your tax details and your name, and both networks require you to accept their agreement personally.</p>
+  </footer>
+
+</div>
+
+<script>
+  (function () {
+    var rows = Array.prototype.slice.call(document.querySelectorAll('#rows tr'));
+    var chips = Array.prototype.slice.call(document.querySelectorAll('.chip'));
+    var count = document.getElementById('count');
+
+    function apply(f) {
+      var shown = 0;
+      rows.forEach(function (r) {
+        var on = (f === 'all') || (r.dataset.p === f);
+        r.hidden = !on;
+        if (on) shown++;
+      });
+      count.textContent = shown + ' of ' + rows.length;
+    }
+
+    chips.forEach(function (c) {
+      c.addEventListener('click', function () {
+        chips.forEach(function (o) { o.setAttribute('aria-pressed', String(o === c)); });
+        apply(c.dataset.f);
+      });
+    });
+
+    apply('all');
+  })();
+</script>
