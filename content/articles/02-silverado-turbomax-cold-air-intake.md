@@ -21,7 +21,7 @@ last_updated: 2026-05-12
 
 A cold air intake is the second thing most people buy after a leveling kit, and it's the modification with the widest gap between what marketing claims and what owners actually feel.
 
-The 2026 Silverado 1500 RST runs the 2.7L turbocharged four-cylinder — the TurboMax, rated at **310 hp and 430 lb-ft** per KBB's 2026 listing. It's a genuinely interesting engine: more torque than the old 4.3L V6 it replaced, and more low-end twist than you'd expect from a four. That turbocharger is also the reason an intake behaves differently on this truck than on a naturally aspirated 5.3L.
+The 2026 Silverado 1500 runs the 2.7L turbocharged four-cylinder — the TurboMax, rated at **310 hp and 430 lb-ft** per KBB's 2026 listing. It's a genuinely interesting engine: more torque than the old 4.3L V6 it replaced, and more low-end twist than you'd expect from a four. That turbocharger is also the reason an intake behaves differently on this truck than on a naturally aspirated 5.3L.
 
 ### What an intake can and cannot do
 
@@ -68,7 +68,7 @@ Don't buy it expecting a power gain you'll feel, and don't buy an open-cone desi
 
 콜드에어 인테이크는 레벨링 킷 다음으로 많이 사는 부품이고, 마케팅 문구와 오너가 실제로 느끼는 것 사이의 간격이 가장 큰 튜닝이기도 합니다.
 
-2026 실버라도 1500 RST는 2.7L 터보 4기통, 즉 TurboMax를 씁니다. KBB의 2026년 표기 기준 **310마력 / 430 lb-ft** 입니다. 꽤 흥미로운 엔진입니다. 대체한 4.3L V6보다 토크가 크고, 4기통에서 기대하기 어려운 저회전 토크를 냅니다. 그리고 그 터보가 있기 때문에, 이 트럭에서 인테이크의 거동은 자연흡기 5.3L과 다릅니다.
+2026 실버라도 1500은 2.7L 터보 4기통, 즉 TurboMax를 씁니다. KBB의 2026년 표기 기준 **310마력 / 430 lb-ft** 입니다. 꽤 흥미로운 엔진입니다. 대체한 4.3L V6보다 토크가 크고, 4기통에서 기대하기 어려운 저회전 토크를 냅니다. 그리고 그 터보가 있기 때문에, 이 트럭에서 인테이크의 거동은 자연흡기 5.3L과 다릅니다.
 
 ### 인테이크가 할 수 있는 것과 없는 것
 

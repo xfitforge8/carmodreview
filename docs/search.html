@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Search | Car Mod Review</title>
+<meta name="description" content="Search every Car Mod Review guide by part, system or problem.">
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://carmodreview.com/search.html">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap masthead-inner">
+    <div>
+      <a class="brand" href="index.html">Car Mod<span>.Review</span></a>
+      <span class="brand-sub">Car parts, checked against the published specs</span>
+    </div>
+    <nav class="nav">
+      <a href="index.html">All posts</a>
+      <a href="methodology.html">How we pick</a>
+      <a href="search.html">Search</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <h1>Search</h1>
+  <p class="dek">Every guide on the site, searched by title, summary and category.</p>
+  <form class="search-form" role="search" onsubmit="return false;">
+    <label class="sr-only" for="q">Search guides</label>
+    <input id="q" type="search" name="q" placeholder="offset, exhaust drone, brake bedding&hellip;"
+           autocomplete="off" autofocus>
+  </form>
+  <p class="search-status" id="status">Type to search.</p>
+  <ul class="search-results" id="results"></ul>
+  <noscript><p>Search needs JavaScript. Browse the <a href="index.html">full guide index</a> instead.</p></noscript>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><strong>Car Mod Review</strong> &mdash; car parts coverage that states its
+    sources and says when it doesn't know.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var INDEX = null, box = document.getElementById('q'),
+      out = document.getElementById('results'), status = document.getElementById('status');
+
+  function esc(s) {
+    return String(s).replace(/[&<>"]/g, function (c) {
+      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];
+    });
+  }
+
+  function render(items, q) {
+    if (!q) { out.innerHTML = ''; status.textContent = 'Type to search.'; return; }
+    if (!items.length) {
+      status.textContent = 'No guides match “' + q + '”.';
+      out.innerHTML = '';
+      return;
+    }
+    status.textContent = items.length + (items.length === 1 ? ' guide' : ' guides');
+    out.innerHTML = items.map(function (it) {
+      return '<li><a href="' + esc(it.u) + '">' + esc(it.t) + '</a>'
+           + '<p>' + esc(it.d) + '</p>'
+           + '<span class="meta">' + esc(it.c) + '</span></li>';
+    }).join('');
+  }
+
+  function score(it, terms) {
+    // title matches outrank summary matches, and every term must appear
+    // somewhere, so a two-word query cannot return a page that hits only one.
+    var t = it.t.toLowerCase(), d = it.d.toLowerCase(), c = it.c.toLowerCase();
+    var n = 0;
+    for (var i = 0; i < terms.length; i++) {
+      var term = terms[i], hit = false;
+      if (t.indexOf(term) >= 0) { n += 10; hit = true; }
+      if (c.indexOf(term) >= 0) { n += 4; hit = true; }
+      if (d.indexOf(term) >= 0) { n += 2; hit = true; }
+      if (!hit) return 0;
+    }
+    return n;
+  }
+
+  function run(q) {
+    if (!INDEX) return;
+    var terms = q.toLowerCase().split(/\s+/).filter(Boolean);
+    if (!terms.length) { render([], ''); return; }
+    var scored = [];
+    for (var i = 0; i < INDEX.length; i++) {
+      var s = score(INDEX[i], terms);
+      if (s > 0) scored.push([s, INDEX[i]]);
+    }
+    scored.sort(function (a, b) { return b[0] - a[0]; });
+    render(scored.slice(0, 30).map(function (x) { return x[1]; }), q);
+  }
+
+  // Read ?q= so a search can be linked and shared.
+  var initial = new URLSearchParams(location.search).get('q') || '';
+  box.value = initial;
+
+  fetch('search-index.json')
+    .then(function (r) { return r.json(); })
+    .then(function (data) { INDEX = data; run(box.value); })
+    .catch(function () { status.textContent = 'Search is unavailable right now.'; });
+
+  box.addEventListener('input', function () { run(box.value); });
+})();
+</script>
+
+</body>
+</html>

@@ -37,7 +37,7 @@ Checklist:
 | — | `homepage.md` | Home | EN/KR/ES | ~700 |
 | — | `legal/affiliate-disclosure.md` | Legal | EN/KR/ES | ~1,100 |
 | — | `legal/privacy-policy.md` | Legal | EN/KR/ES | ~1,900 |
-| 01 | `articles/01-silverado-rst-leveling-kit.md` | Suspension | EN/KR | ~1,500 |
+| 01 | `articles/01-silverado-leveling-kit.md` | Suspension | EN/KR | ~1,500 |
 | 02 | `articles/02-silverado-turbomax-cold-air-intake.md` | Engine | EN/KR | ~1,500 |
 | 03 | `articles/03-silverado-4x4-tire-buying-guide.md` | Wheels & Tires | EN/KR | ~1,700 |
 | 04 | `articles/04-wheels-buying-guide.md` | Wheels & Tires | EN/KR/ES | ~1,600 |

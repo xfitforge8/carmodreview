@@ -1,0 +1,1 @@
+A diagnostic tool plugged into a car engine bay. Fault codes tell you what the ECU saw, not what to change.

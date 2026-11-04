@@ -1,0 +1,1 @@
+Shock absorbers on an off-road vehicle. Damping is what controls the spring, and it is matched to the spring rate.

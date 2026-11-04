@@ -25,7 +25,7 @@ Here's how to think about it without the marketing.
 
 ### Start with load, not looks
 
-Load index is the number that decides whether your tire is correct for the truck. On a 2026 Silverado 1500 RST, curb weight runs about **4,940 lb for the Double Cab and 5,010 lb for the Crew Cab** per KBB's 2026 listing — and that's empty, before passengers, fuel, tongue weight, or cargo.
+Load index is the number that decides whether your tire is correct for the truck. On a 2026 Silverado 1500, curb weight runs about **4,940 lb for the Double Cab and 5,010 lb for the Crew Cab** per KBB's 2026 listing — and that's empty, before passengers, fuel, tongue weight, or cargo.
 
 That means you need a tire rated comfortably above the axle load you'll actually carry. Two common ratings on these trucks:
 
@@ -34,7 +34,7 @@ That means you need a tire rated comfortably above the axle load you'll actually
 
 **The E-rated trap:** Load Range E tires carry much higher maximum inflation pressures and have substantially stiffer sidewalls. On a 5,000 lb half-ton running light, that stiffness means a harsh ride, worse small-bump compliance, and — this is the part nobody mentions — **less contact patch grip** because the tire doesn't conform to the road. An E-rated tire on an empty half-ton is over-specification, and you feel it every single mile.
 
-Buy E-rated if you actually tow near the RST's published capacity — **13,000 lb (Double Cab) and 13,200 lb (Crew Cab)** with the 2.7L, up to about **13,300 lb** with the diesel, per KBB. Otherwise SL is the better tire for how you actually use the truck.
+Buy E-rated if you actually tow near the truck's published capacity — **13,000 lb (Double Cab) and 13,200 lb (Crew Cab)** with the 2.7L, up to about **13,300 lb** with the diesel, per KBB. Otherwise SL is the better tire for how you actually use the truck.
 
 ### Size: what you're really choosing
 
@@ -68,7 +68,7 @@ Rotate every 5,000–7,500 miles, and on a 4x4 use a cross-pattern rotation that
 
 ### The honest recommendation
 
-For a 2026 Silverado 1500 RST 4x4 that mostly commutes and tows occasionally:
+For a 2026 Silverado 1500 4x4 that mostly commutes and tows occasionally:
 
 **SL-rated all-terrain tires in the factory size, 3PMSF if you have real winters, rotated on schedule, pressure set by chalk test.** Buy the tire for the driving you do, not the driving in the brochure. If you later find yourself actually towing near capacity regularly, move up to E-rated at that point — and budget for the ride quality change.
 
@@ -84,7 +84,7 @@ The performance gain from a good tire over a cheap one is larger than the gain f
 
 ### 겉모습이 아니라 하중에서 시작하세요
 
-하중지수(load index)가 그 타이어가 이 트럭에 맞는지를 결정하는 숫자입니다. 2026 실버라도 1500 RST의 KBB 2026년 표기 공차중량은 **더블캡 약 4,940 lb, 크루캡 약 5,010 lb** 입니다. 승객, 연료, 견인 하중, 화물을 싣기 전의 빈 차 무게입니다.
+하중지수(load index)가 그 타이어가 이 트럭에 맞는지를 결정하는 숫자입니다. 2026 실버라도 1500의 KBB 2026년 표기 공차중량은 **더블캡 약 4,940 lb, 크루캡 약 5,010 lb** 입니다. 승객, 연료, 견인 하중, 화물을 싣기 전의 빈 차 무게입니다.
 
 즉 실제로 지게 될 축 하중보다 넉넉하게 높은 등급의 타이어가 필요합니다. 이 트럭에서 흔한 두 가지 등급은 이렇습니다.
 
@@ -93,7 +93,7 @@ The performance gain from a good tire over a cheap one is larger than the gain f
 
 **E 등급의 함정:** E 등급 타이어는 최대 공기압이 훨씬 높고 사이드월이 상당히 뻣뻣합니다. 5,000 lb 하프톤이 가볍게 다니는 조건에서는 그 뻣뻣함이 곧 승차감 저하, 작은 요철 흡수 능력 저하, 그리고 — 아무도 말하지 않는 부분인데 — **접지력 감소**로 이어집니다. 타이어가 노면에 순응하지 못하기 때문입니다. 빈 하프톤에 E 등급은 과잉 스펙이고, 그건 매 마일 체감됩니다.
 
-KBB 기준 RST의 공개 견인력인 **13,000 lb(더블캡) / 13,200 lb(크루캡, 2.7L), 디젤 기준 최대 약 13,300 lb** 에 근접해서 실제로 견인한다면 E 등급을 사세요. 아니라면 SL이 실제 사용 방식에 더 맞는 타이어입니다.
+KBB 기준 공개 견인력인 **13,000 lb(더블캡) / 13,200 lb(크루캡, 2.7L), 디젤 기준 최대 약 13,300 lb** 에 근접해서 실제로 견인한다면 E 등급을 사세요. 아니라면 SL이 실제 사용 방식에 더 맞는 타이어입니다.
 
 ### 사이즈: 정말로 고르고 있는 것
 
@@ -127,7 +127,7 @@ KBB 기준 RST의 공개 견인력인 **13,000 lb(더블캡) / 13,200 lb(크루�
 
 ### 솔직한 권고
 
-주로 출퇴근하고 가끔 견인하는 2026 실버라도 1500 RST 4x4라면:
+주로 출퇴근하고 가끔 견인하는 2026 실버라도 1500 4x4라면:
 
 **순정 사이즈의 SL 등급 올터레인, 진짜 겨울이 있다면 3PMSF, 규정 주기대로 로테이션, 분필 테스트로 정한 공기압.** 브로셔 속 주행이 아니라 실제로 하는 주행에 맞춰 타이어를 고르세요. 나중에 정말로 최대 견인에 가깝게 자주 끈다면 그때 E 등급으로 올리고, 승차감 변화를 예산에 넣으세요.
 
@@ -135,4 +135,4 @@ KBB 기준 RST의 공개 견인력인 **13,000 lb(더블캡) / 13,200 lb(크루�
 
 ---
 
-> **Editor's note (remove before publishing):** Load index and towing figures cited to KBB's 2026 Silverado 1500 RST listing — re-verify against GM's trailering guide and the specific tire's sidewall before publishing. Replace mpg estimates with real-world figures once you have your own.
+> **Editor's note (remove before publishing):** Load index and towing figures cited to KBB's 2026 Silverado 1500 listing — re-verify against GM's trailering guide and the specific tire's sidewall before publishing. Replace mpg estimates with real-world figures once you have your own.

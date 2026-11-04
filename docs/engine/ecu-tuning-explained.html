@@ -110,7 +110,15 @@
         "en",
         "ko",
         "es"
-      ]
+      ],
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://carmodreview.com/search.html?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
     }
   ]
 }
@@ -127,6 +135,7 @@
     <nav class="nav">
       <a href="../index.html">All posts</a>
       <a href="../methodology.html">How we pick</a>
+      <a href="../search.html">Search</a>
       <a href="../contact.html">Contact</a>
     </nav>
   </div>
@@ -171,7 +180,12 @@
 <p><strong>Piggyback.</strong> An inline module that intercepts sensor signals and modifies them before the factory ECU sees them — adding fuel pressure, altering the manifold pressure signal, and so on. The factory ECU stays in place and unaware.</p>
 <p>Advantages: removable in minutes, often undetectable at the dealer, cheaper, and preserves the factory calibration&rsquo;s safety strategies. Disadvantages: the factory ECU is fighting the piggyback&rsquo;s corrections, so it can learn around them over time; adaptation limits vary by platform; and it can&rsquo;t change transmission logic at all. On some platforms piggybacks work extremely well, on others the ECU eventually trims them out.</p>
 <p><strong>Standalone.</strong> A complete replacement ECU. Total control, and total responsibility — cold start, idle quality, every emissions device, and every safety strategy now depend on your calibration. Appropriate for a dedicated race car or a heavily built engine. Not appropriate for a daily driver, and not something to learn on.</p>
-<h3>What to expect, honestly</h3>
+<figure class="fig fig--photo">
+    <img src="../img/photos/ecu-tuning-explained/02-10490631.jpg" alt="A mechanic using a laptop inside a car for diagnostics. Reading data is not the same as changing the calibration." loading="lazy" width="800" height="1200" decoding="async">
+    <figcaption>A mechanic using a laptop inside a car for diagnostics. Reading data is not the same as changing the calibration.</figcaption>
+  </figure>
+
+  <h3>What to expect, honestly</h3>
 <p>We won&rsquo;t give you a horsepower number, because it depends enormously on fuel octane, altitude, ambient temperature, the specific platform, and whether supporting hardware is installed. What is generally true:</p>
 <ul>
 <li><strong>Turbo engines gain far more from a tune than naturally aspirated ones.</strong> On a turbo, the tune changes boost targets — a large lever. On an NA engine, the tune can only optimize fuel and timing — a small lever.</li>
@@ -179,6 +193,10 @@
 <li><strong>Supporting hardware matters.</strong> A tune on stock hardware is limited by the hardware. A tune plus a high-flow downpipe on a turbo car is where the real numbers live.</li>
 <li><strong>The first gains feel dramatic; the next ones get expensive.</strong> Stage 1 to Stage 2 often costs several times more for a fraction of the additional gain.</li>
 </ul>
+<figure class="fig fig--photo">
+    <img src="../img/photos/ecu-tuning-explained/03-4116172.jpg" alt="A diagnostic tool plugged into a car engine bay. Fault codes tell you what the ECU saw, not what to change." loading="lazy" width="1400" height="933" decoding="async">
+    <figcaption>A diagnostic tool plugged into a car engine bay. Fault codes tell you what the ECU saw, not what to change.</figcaption>
+  </figure>
 <h3>The warranty conversation</h3>
 <p>This is the part the marketing skips. Be clear-eyed about it:</p>
 <p><strong>In the United States</strong>, the Magnuson-Moss Warranty Act generally prevents a manufacturer from voiding your entire warranty simply because an aftermarket part is installed. The burden is on the manufacturer to show that the aftermarket part caused the specific failure being denied. In practice:</p>

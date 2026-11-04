@@ -230,6 +230,7 @@ PAGE = """<!DOCTYPE html>
     <nav class="nav">
       <a href="{rel}index.html">{all_posts}</a>
       <a href="{rel}methodology.html">{how}</a>
+      <a href="{rel}search.html">Search</a>
       <a href="{rel}contact.html">Contact</a>
     </nav>
   </div>
@@ -321,8 +322,8 @@ def render_page(*, lang, title, desc, canonical, body_html, rel, jsonld='',
 def site_jsonld():
     """Organization + WebSite graph, emitted on every page.
 
-    WebSite carries a SearchAction only if a site search exists, which this one
-    does not, so it is omitted rather than declared falsely.
+    WebSite carries a SearchAction, which is only declared because search.html
+    actually exists and honours the q= parameter.
     """
     return ('<script type="application/ld+json">\n' + json.dumps({
         '@context': 'https://schema.org',
@@ -345,6 +346,13 @@ def site_jsonld():
                 'name': 'Car Mod Review',
                 'publisher': {'@id': f'{DOMAIN}/#org'},
                 'inLanguage': ['en', 'ko', 'es'],
+                # site search is real (search.html), so declaring it is honest
+                'potentialAction': {
+                    '@type': 'SearchAction',
+                    'target': {'@type': 'EntryPoint',
+                               'urlTemplate': f'{DOMAIN}/search.html?q={{search_term_string}}'},
+                    'query-input': 'required name=search_term_string',
+                },
             },
         ],
     }, ensure_ascii=False, indent=2) + '\n</script>')
@@ -450,6 +458,7 @@ def build():
 
     index_entries = []
     feed_items = []
+    search_items = []
     for a in arts:
         meta = a['meta']
         meta['langs_all'] = set(a['langs'])
@@ -528,6 +537,13 @@ def build():
             jsonld = (article_jsonld(title, seo_desc, canon, published, date,
                                      catlabel if code == 'en' else cat, code, hero_img)
                       + breadcrumb_jsonld(trail))
+            search_items.append({
+                'u': canon.replace(DOMAIN, '') or '/',
+                't': title,
+                'd': seo_desc,
+                'c': (catlabel if code == 'en' else (catkr if code == 'kr' else cates)),
+                'l': code,
+            })
             if code == 'en':
                 feed_items.append({'title': title, 'desc': seo_desc,
                                    'url': canon, 'published': published,
@@ -546,8 +562,41 @@ def build():
     build_static_pages(index_entries)
     build_category_pages(arts)
     build_legacy_pages()
+    build_redirects()
     build_sitemap(arts)
     build_feed(feed_items)
+    build_search(search_items)
+
+
+# Pages that moved. GitHub Pages is static and cannot issue a 301, so a page
+# that changes its URL would simply 404 for anyone holding the old link. A stub
+# at the old path forward to the new one instead.
+REDIRECTS = {
+    'suspension/silverado-rst-leveling-kit.html': 'silverado-leveling-kit.html',
+    'kr/suspension/silverado-rst-leveling-kit.html': 'silverado-leveling-kit.html',
+}
+
+
+def build_redirects():
+    """Emit meta-refresh stubs for URLs that have moved."""
+    for old, new in REDIRECTS.items():
+        dst = os.path.join(OUT, old)
+        os.makedirs(os.path.dirname(dst), exist_ok=True)
+        full = f'{DOMAIN}/{old.rsplit("/", 1)[0]}/{new}'
+        # relative, so the stub works whether it is served from the domain root
+        # or from a project subpath
+        open(dst, 'w', encoding='utf-8').write(
+            f'<!DOCTYPE html>\n<html lang="en">\n<head>\n'
+            f'<meta charset="UTF-8">\n'
+            f'<title>Moved</title>\n'
+            f'<meta name="robots" content="noindex, follow">\n'
+            f'<link rel="canonical" href="{full}">\n'
+            f'<meta http-equiv="refresh" content="0; url={new}">\n'
+            f'</head>\n<body>\n'
+            f'<p>This guide moved to <a href="{new}">{full}</a>.</p>\n'
+            f'</body>\n</html>\n'
+        )
+    print(f'  redirects: {len(REDIRECTS)} stub(s)')
 
 
 def build_legacy_pages():
@@ -578,6 +627,8 @@ def build_legacy_pages():
         # and reading-time byline; strip them so no page contradicts the
         # site-wide removal of both
         txt = re.sub(r'\s*<div class="disclosure">.*?</div>\s*', '\n', txt, flags=re.S)
+        txt = re.sub(r'\s*<p[^>]*>\s*<strong>Affiliate note:</strong>.*?</p>\s*', '\n', txt, flags=re.S)
+        txt = re.sub(r'\s*<p[^>]*>\s*We earn commissions?[^<]*</p>\s*', '\n', txt, flags=re.S)
         txt = re.sub(r'\s*<span>\d+\s+min read</span>', '', txt)
         open(dst, 'w', encoding='utf-8').write(txt)
         n += 1
@@ -637,6 +688,10 @@ def build_static_pages(index_entries):
         if m:
             inner = m.group(1)
             inner = re.sub(r'</?article>', '', inner)
+            # the money section belongs on a page about funding, and there is no
+            # longer one; how products get picked is the whole subject here
+            inner = re.sub(r'\s*<h2>How we make money.*?(?=<h2)', '\n\n  ', inner,
+                           flags=re.S)
             page = render_page(
                 lang='en', title='How we pick products | Car Mod Review',
                 desc='Our selection method: how products are compared, ranked and sourced.',
@@ -822,6 +877,143 @@ def build_category_pages(arts):
             os.makedirs(d, exist_ok=True)
             open(os.path.join(d, 'index.html'), 'w', encoding='utf-8').write(page)
     print(f'  wrote {len(by_cat)} category hubs x3 langs')
+
+
+SEARCH_PAGE = r"""<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Search | Car Mod Review</title>
+<meta name="description" content="Search every Car Mod Review guide by part, system or problem.">
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="{domain}/search.html">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap masthead-inner">
+    <div>
+      <a class="brand" href="index.html">Car Mod<span>.Review</span></a>
+      <span class="brand-sub">Car parts, checked against the published specs</span>
+    </div>
+    <nav class="nav">
+      <a href="index.html">All posts</a>
+      <a href="methodology.html">How we pick</a>
+      <a href="search.html">Search</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <h1>Search</h1>
+  <p class="dek">Every guide on the site, searched by title, summary and category.</p>
+  <form class="search-form" role="search" onsubmit="return false;">
+    <label class="sr-only" for="q">Search guides</label>
+    <input id="q" type="search" name="q" placeholder="offset, exhaust drone, brake bedding&hellip;"
+           autocomplete="off" autofocus>
+  </form>
+  <p class="search-status" id="status">Type to search.</p>
+  <ul class="search-results" id="results"></ul>
+  <noscript><p>Search needs JavaScript. Browse the <a href="index.html">full guide index</a> instead.</p></noscript>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><strong>Car Mod Review</strong> &mdash; car parts coverage that states its
+    sources and says when it doesn't know.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var INDEX = null, box = document.getElementById('q'),
+      out = document.getElementById('results'), status = document.getElementById('status');
+
+  function esc(s) {
+    return String(s).replace(/[&<>"]/g, function (c) {
+      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];
+    });
+  }
+
+  function render(items, q) {
+    if (!q) { out.innerHTML = ''; status.textContent = 'Type to search.'; return; }
+    if (!items.length) {
+      status.textContent = 'No guides match “' + q + '”.';
+      out.innerHTML = '';
+      return;
+    }
+    status.textContent = items.length + (items.length === 1 ? ' guide' : ' guides');
+    out.innerHTML = items.map(function (it) {
+      return '<li><a href="' + esc(it.u) + '">' + esc(it.t) + '</a>'
+           + '<p>' + esc(it.d) + '</p>'
+           + '<span class="meta">' + esc(it.c) + '</span></li>';
+    }).join('');
+  }
+
+  function score(it, terms) {
+    // title matches outrank summary matches, and every term must appear
+    // somewhere, so a two-word query cannot return a page that hits only one.
+    var t = it.t.toLowerCase(), d = it.d.toLowerCase(), c = it.c.toLowerCase();
+    var n = 0;
+    for (var i = 0; i < terms.length; i++) {
+      var term = terms[i], hit = false;
+      if (t.indexOf(term) >= 0) { n += 10; hit = true; }
+      if (c.indexOf(term) >= 0) { n += 4; hit = true; }
+      if (d.indexOf(term) >= 0) { n += 2; hit = true; }
+      if (!hit) return 0;
+    }
+    return n;
+  }
+
+  function run(q) {
+    if (!INDEX) return;
+    var terms = q.toLowerCase().split(/\s+/).filter(Boolean);
+    if (!terms.length) { render([], ''); return; }
+    var scored = [];
+    for (var i = 0; i < INDEX.length; i++) {
+      var s = score(INDEX[i], terms);
+      if (s > 0) scored.push([s, INDEX[i]]);
+    }
+    scored.sort(function (a, b) { return b[0] - a[0]; });
+    render(scored.slice(0, 30).map(function (x) { return x[1]; }), q);
+  }
+
+  // Read ?q= so a search can be linked and shared.
+  var initial = new URLSearchParams(location.search).get('q') || '';
+  box.value = initial;
+
+  fetch('search-index.json')
+    .then(function (r) { return r.json(); })
+    .then(function (data) { INDEX = data; run(box.value); })
+    .catch(function () { status.textContent = 'Search is unavailable right now.'; });
+
+  box.addEventListener('input', function () { run(box.value); });
+})();
+</script>
+
+</body>
+</html>
+"""
+
+
+def build_search(items):
+    """Emit search-index.json and search.html.
+
+    A static site has no server to query, so the index is a flat JSON file the
+    page filters in the browser. It covers English only: the captions and
+    summaries are English, and mixing three languages into one result list
+    returns near-duplicates for every query.
+    """
+    en = [i for i in items if i['l'] == 'en']
+    payload = [{'u': i['u'], 't': i['t'], 'd': i['d'], 'c': i['c']} for i in en]
+    with open(os.path.join(OUT, 'search-index.json'), 'w', encoding='utf-8') as f:
+        json.dump(payload, f, ensure_ascii=False, indent=0)
+    open(os.path.join(OUT, 'search.html'), 'w', encoding='utf-8').write(
+        SEARCH_PAGE.replace("{domain}", DOMAIN))
+    print(f'  search: {len(payload)} guides indexed')
 
 
 def build_feed(items):

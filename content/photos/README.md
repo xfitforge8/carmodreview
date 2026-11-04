@@ -28,7 +28,7 @@ describing something the frame does not contain.
    article file:
 
    ```
-   content/photos/silverado-rst-leveling-kit/
+   content/photos/silverado-leveling-kit/
    ```
 
 2. Put the image in it. `.jpg` `.jpeg` `.png` `.webp` `.avif` all work. Name it
@@ -38,8 +38,8 @@ describing something the frame does not contain.
 3. Add the caption as a `.txt` with the same basename:
 
    ```
-   content/photos/silverado-rst-leveling-kit/01-33324954.jpg
-   content/photos/silverado-rst-leveling-kit/01-33324954.txt
+   content/photos/silverado-leveling-kit/01-33324954.jpg
+   content/photos/silverado-leveling-kit/01-33324954.txt
    ```
 
    One line of plain text. **No `.txt` means no caption** — the figure still

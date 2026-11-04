@@ -1,0 +1,1 @@
+A tread depth gauge in a tire. Depth is a wear measurement, not a specification — it does not tell you the load rating.
