@@ -1,10 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" role="img" aria-label="Car Mod Review">
-  <!-- Favicon. Drawn for the tab strip first: at 16px the car has to read as a
-       shape, not a picture, so the body sits wide and low, the wheels are large
-       and dark, and the window is one solid mass rather than a thin outline. -->
-  <rect width="32" height="32" rx="7" fill="#b4451f"/>
-  <path d="M2.2 24.2 V18.4 Q2.2 15.7 4.9 15.7 H7.5 L10.4 9.6 Q11.2 8 13 8 H19 Q20.8 8 21.6 9.6 L24.5 15.7 H27.1 Q29.8 15.7 29.8 18.4 V24.2 Z" fill="#fbfaf7"/>
-  <path d="M11.2 10.5 H20.8 L23 15.2 H9 Z" fill="#14161a"/>
-  <circle cx="9.6" cy="24" r="5.3" fill="#14161a"/>
-  <circle cx="22.4" cy="24" r="5.3" fill="#14161a"/>
+  <rect width="32" height="32" rx="7" fill="#f2ece2"/>
+  <rect x="0.5" y="0.5" width="31" height="31" rx="6.5" fill="none" stroke="#14161a" stroke-opacity="0.3"/>
+  <g transform="translate(16 16) scale(1.05) translate(-16.1 -18.15)">
+    <path d="M2.0 24.6 V14.8 H9.0 L11.0 8.8 H19.6 V13.2 H30.2 V24.6 Z" fill="#c0392b"/>
+    <path d="M10.9 14.2 L12.5 9.6 H18.6 V14.2 Z" fill="#14161a"/>
+    <rect x="20.0" y="13.2" width="9.6" height="1.1" fill="#f2ece2"/>
+    <circle cx="7.8" cy="23.0" r="4.5" fill="#14161a"/><circle cx="7.8" cy="23.0" r="1.6" fill="#f2ece2"/>
+    <circle cx="25.2" cy="23.0" r="4.5" fill="#14161a"/><circle cx="25.2" cy="23.0" r="1.6" fill="#f2ece2"/>
+  </g>
 </svg>
