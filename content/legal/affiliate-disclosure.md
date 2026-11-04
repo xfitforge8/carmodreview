@@ -62,7 +62,7 @@ published specifications and documentation, and the page says so.
 
 ### Questions
 
-Contact: editorial@carmodreview.com
+Contact: {email}
 
 ---
 
@@ -119,7 +119,7 @@ Contact: editorial@carmodreview.com
 
 ### 문의
 
-이메일: editorial@carmodreview.com
+이메일: {email}
 
 ---
 
@@ -185,4 +185,4 @@ lo indica.
 
 ### Contacto
 
-Correo electrónico: editorial@carmodreview.com
+Correo electrónico: {email}

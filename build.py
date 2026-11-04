@@ -58,6 +58,34 @@ def analytics_tag():
     return CF_BEACON_SNIPPET.format(token=CF_BEACON_TOKEN)
 
 
+# ──────────────────────────────────────────────────────── contact address
+# Read from site.json so there is one place to change it. It used to be written
+# literally into three content files plus two contact blocks in this file, which
+# is how the site ended up publishing three different domain addresses -- none
+# of which existed. Gmail is the honest choice until a real mailbox exists; the
+# privacy policy promises a 30-day response, so the address behind it has to be
+# one somebody reads.
+def _site_config():
+    try:
+        with open(os.path.join(SRC, 'site.json'), encoding='utf-8') as f:
+            return json.load(f)
+    except (OSError, ValueError):
+        return {}
+
+
+CONTACT_EMAIL = _site_config().get('contact_email') or 'officialcarmodreview@gmail.com'
+
+
+def stamp_email(html_text, email=None):
+    """Rewrite the contact placeholder in authored markdown.
+
+    Content files carry {email} rather than a literal address, so changing the
+    mailbox is a one-line edit to site.json and a rebuild, not a hunt through
+    three languages of legal text.
+    """
+    return html_text.replace('{email}', email or CONTACT_EMAIL)
+
+
 def inject_analytics(html_text):
     """Add the beacon to a hand-written page that does not go through PAGE.
 
@@ -989,7 +1017,8 @@ def build_static_pages(index_entries):
             page = render_page(
                 lang=code, title=f'{title} | Car Mod Review',
                 desc=legal_desc, canonical=alts[code],
-                body_html=f'  <h1>{html.escape(title)}</h1>\n' + md2html(md, '../../' if prefix else '../'),
+                body_html=stamp_email(f'  <h1>{html.escape(title)}</h1>\n'
+                                      + md2html(md, '../../' if prefix else '../')),
                 rel='../../' if prefix else '../', alts=alts, og_type='article')
             d = os.path.join(OUT, *( ([prefix.strip('/')] if prefix else []) + ['legal'] ))
             os.makedirs(d, exist_ok=True)
@@ -1006,7 +1035,7 @@ def build_static_pages(index_entries):
     number is. Corrections get priority over everything else, and we will publish
     the fix with a note.</p>
   </div>
-  <p><strong>Email:</strong> <a href="mailto:hello@carmodreview.com">hello@carmodreview.com</a></p>
+  <p><strong>Email:</strong> <a href="mailto:{email}">{email}</a></p>
   <p><strong>Products / PR:</strong> we do not accept paid placement. If you want a part
   considered for a guide, send the published specs and the manufacturer documentation,
   not a press release.</p>
@@ -1015,7 +1044,8 @@ def build_static_pages(index_entries):
     page = render_page(lang='en', title='Contact | Car Mod Review',
                        desc='How to reach Car Mod Review, how corrections are handled, '
                             'and why we do not accept paid placement.',
-                       canonical=f'{DOMAIN}/contact.html', body_html=contact_inner, rel='')
+                       canonical=f'{DOMAIN}/contact.html',
+                       body_html=stamp_email(contact_inner), rel='')
     open(os.path.join(OUT, 'contact.html'), 'w', encoding='utf-8').write(page)
 
     terms_inner = """
@@ -1038,13 +1068,13 @@ def build_static_pages(index_entries):
   <p>We link to retailers and manufacturers we do not control and are not
   responsible for their content, pricing or policies.</p>
   <h2>Contact</h2>
-  <p><a href="mailto:hello@carmodreview.com">hello@carmodreview.com</a></p>
+  <p><a href="mailto:{email}">{email}</a></p>
 """
     page = render_page(lang='en', title='Terms of Service | Car Mod Review',
                        desc='The terms that govern use of Car Mod Review: accuracy, '
                             'accuracy, liability and external links.',
                        canonical=f'{DOMAIN}/legal/terms-of-service.html',
-                       body_html=terms_inner, rel='../')
+                       body_html=stamp_email(terms_inner), rel='../')
     open(os.path.join(OUT, 'legal', 'terms-of-service.html'), 'w', encoding='utf-8').write(page)
 
     # a 404 has nothing to index and nothing to rank; letting it be indexed

@@ -50,7 +50,7 @@ Depending on where you live, you may have the right to:
 
 **South Korea (PIPA):** You may request access to, correction of, or deletion of your personal information at any time.
 
-To exercise any of these rights, email **privacy@carmodreview.com**. We respond within 30 days.
+To exercise any of these rights, email **{email}**. We respond within 30 days.
 
 ### Managing cookies
 
@@ -74,7 +74,7 @@ We may update this policy. Material changes will be noted with a revised "last u
 
 ### Contact
 
-**privacy@carmodreview.com**
+**{email}**
 
 ---
 
@@ -125,7 +125,7 @@ We may update this policy. Material changes will be noted with a revised "last u
 
 **대한민국 거주자(개인정보 보호법):** 언제든지 개인정보의 열람, 정정, 삭제를 요청할 수 있습니다.
 
-위 권리를 행사하시려면 **privacy@carmodreview.com** 으로 이메일을 보내주십시오. 30일 이내에 회신합니다.
+위 권리를 행사하시려면 **{email}** 으로 이메일을 보내주십시오. 30일 이내에 회신합니다.
 
 ### 쿠키 관리
 
@@ -149,7 +149,7 @@ We may update this policy. Material changes will be noted with a revised "last u
 
 ### 문의
 
-**privacy@carmodreview.com**
+**{email}**
 
 ---
 
@@ -200,7 +200,7 @@ Según su lugar de residencia, puede tener derecho a:
 
 **Corea del Sur (PIPA):** Puede solicitar el acceso, la corrección o la eliminación de su información personal en cualquier momento.
 
-Para ejercer cualquiera de estos derechos, escriba a **privacy@carmodreview.com**. Respondemos en un plazo de 30 días.
+Para ejercer cualquiera de estos derechos, escriba a **{email}**. Respondemos en un plazo de 30 días.
 
 ### Gestión de cookies
 
@@ -224,4 +224,4 @@ Podemos actualizar esta política. Los cambios importantes se indicarán con una
 
 ### Contacto
 
-**privacy@carmodreview.com**
+**{email}**
