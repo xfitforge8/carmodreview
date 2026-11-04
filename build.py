@@ -22,6 +22,7 @@ OUT = os.path.join(ROOT, 'docs')
 PHOTO_ROOT = os.path.join(SRC, 'photos')
 DOMAIN = 'https://carmodreview.com'
 
+import photos
 from photos import (inject_photos, find_photos, photo_html, category_photo,
                     CATEGORY_SOURCE)
 
@@ -376,6 +377,8 @@ def build():
     if os.path.isdir(OUT):
         shutil.rmtree(OUT)
     os.makedirs(OUT, exist_ok=True)
+    # photo width/height must describe the resized file the browser fetches
+    photos.configure(PHOTO_ROOT, os.path.join(OUT, 'img', 'photos'))
 
     # keep the hand-written assets that aren't generated
     shutil.copy(os.path.join(SRC, '..', 'docs', 'CNAME'), os.path.join(OUT, 'CNAME')) \
@@ -416,8 +419,7 @@ def build():
                 srcp = os.path.join(dirpath, f)
                 relp = os.path.relpath(srcp, PHOTO_ROOT)
                 dst = os.path.join(OUT, 'img', 'photos', relp)
-                os.makedirs(os.path.dirname(dst), exist_ok=True)
-                shutil.copy(srcp, dst)
+                photos.publish_image(srcp, dst)
 
     index_entries = []
     feed_items = []

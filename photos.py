@@ -14,10 +14,37 @@ photo appears uncaptioned rather than with an invented description.
 import os
 import re
 import html
+import shutil
 import subprocess
 import functools
 
 IMG_EXT = ('.jpg', '.jpeg', '.png', '.webp', '.avif')
+
+# Photos display at no more than 620px tall and one column wide, so 1600px
+# originals at 300-500 KB each send every visitor far more pixels than any of
+# them sees. GitHub Pages is static and does no per-request work, so the build
+# is the only place this can be fixed.
+MAX_EDGE = 1200
+JPEG_QUALITY = 72
+_PUBLISHED = {}
+
+# Set by build.py to content/photos, and to docs/img/photos. Width and height
+# have to describe the file the browser actually downloads, which is the
+# resized copy, not the original on disk in content/.
+SOURCE_ROOT = None
+OUT_ROOT = None
+
+
+def configure(source_root, out_root):
+    global SOURCE_ROOT, OUT_ROOT
+    SOURCE_ROOT, OUT_ROOT = source_root, out_root
+
+
+def _published_path(src):
+    """Where this photo lands in the built site."""
+    if not (SOURCE_ROOT and OUT_ROOT):
+        return src
+    return os.path.join(OUT_ROOT, os.path.relpath(src, SOURCE_ROOT))
 
 
 @functools.lru_cache(maxsize=None)
@@ -39,6 +66,30 @@ def _dimensions(path):
     except (OSError, subprocess.SubprocessError):
         pass
     return None
+
+
+def publish_image(src, dst):
+    """Write an image to dst, downscaled and recompressed when that saves bytes.
+
+    Falls back to a plain copy if sips is missing or the result is not smaller,
+    so a build on another platform still produces every figure.
+    """
+    os.makedirs(os.path.dirname(dst), exist_ok=True)
+    if src in _PUBLISHED:
+        return
+    try:
+        # resize AND recompress in one pass: -Z alone keeps the original JPEG
+        # quality, which is why it barely moved the byte count.
+        cmd = ['sips', '-Z', str(MAX_EDGE),
+               '-s', 'format', 'jpeg', '-s', 'formatOptions', str(JPEG_QUALITY),
+               src, '--out', dst]
+        subprocess.run(cmd, capture_output=True, timeout=60, check=True)
+        if not os.path.exists(dst) or os.path.getsize(dst) >= os.path.getsize(src):
+            raise OSError('no saving')
+    except (OSError, subprocess.SubprocessError):
+        shutil.copy(src, dst)
+    _PUBLISHED[src] = dst
+
 
 def find_photos(photo_root, slug):
     """Real photographs on disk for this slug, in filename order."""
@@ -71,7 +122,7 @@ def photo_html(paths, slug, code, rel, hero=False):
         alt = cap or name
         role = ' fig--hero' if (hero and i == 0) else ''
         fig_cap = f'\n    <figcaption>{html.escape(cap)}</figcaption>' if cap else ''
-        size = _dimensions(p)
+        size = _dimensions(_published_path(p))
         dims = f' width="{size[0]}" height="{size[1]}"' if size else ''
         out.append(
             f'\n  <figure class="fig fig--photo{role}">\n'
