@@ -80,6 +80,88 @@ Take the **piggyback** if you want removable, modest gains and can't risk the de
 
 Tune for the fuel you can actually buy, support it with the hardware the calibration assumes, and log it. The power is real. So is the warranty trade.
 
+### What the three approaches cost on a Silverado 1500
+
+Prices and review counts as the listings showed them on 4 November 2026. These
+are ordered by how reversible they are, which is the same axis as the warranty
+risk this article has been describing.
+
+<div class="pick">
+  <div class="pick-label">Least reversible risk &mdash; best value</div>
+  <h3>Edge Pulsar LT Inline Control Module (19&ndash;21 V8 Silverado 1500)</h3>
+  <div class="pick-price">$649.95 &middot; 132 reviews</div>
+  <p>This is the piggyback option from the section above: an inline module that
+  sits between the truck and its sensors, adjusts throttle response and a few
+  behaviours, and comes back out again. It does not reflash the ECU, which is
+  precisely why it is the pick for anyone who cannot risk the warranty
+  conversation.</p>
+  <p>132 reviews is the strongest evidence base of any tuner we looked at for
+  this truck. Understand what it is not: it does not change boost targets the way
+  a flash does, so it delivers throttle sharpness and drivability rather than the
+  full result.</p>
+  <dl class="spec">
+    <div><dt>Price</dt><dd>$649.95</dd></div>
+    <div><dt>Fitment</dt><dd>2019&ndash;2021 V8 Silverado 1500 (2022 LD)</dd></div>
+    <div><dt>Type</dt><dd>Inline piggyback module</dd></div>
+    <div><dt>Reversible</dt><dd>Yes &mdash; unplug and remove</dd></div>
+    <div><dt>Owner reviews</dt><dd>132</dd></div>
+  </dl>
+  <p class="buyrow"><a class="buy" href="https://www.americantrucks.com/superchips-silverado1500-pulsar-lt-inline-control-module-22451.html" rel="nofollow noopener" target="_blank">See the Edge Pulsar LT&nbsp;&rarr;</a> <span class="buy-note">list price checked 4 Nov 2026</span></p>
+</div>
+
+<div class="pick">
+  <div class="pick-label">The real result, and the real risk</div>
+  <h3>HP Tuners MPVI4 with 8 Universal Credits (22&ndash;26 V8 Silverado 1500)</h3>
+  <div class="pick-price">$799.91</div>
+  <p>This is the ECU flash route: MPVI4 hardware plus the credits needed to
+  license and write a calibration. It is the only thing on this page that changes
+  boost targets and shift logic, which the earlier section identifies as where the
+  measurable change actually lives.</p>
+  <p>Buy it knowing exactly what it is. Credits are consumed licensing a specific
+  vehicle, the calibration is only as good as whoever writes it, and a flashed
+  ECU is the modification most likely to be detected and most likely to affect a
+  powertrain warranty claim. No review count is published on this listing, which
+  is itself worth noticing at this price.</p>
+  <dl class="spec">
+    <div><dt>Price</dt><dd>$799.91</dd></div>
+    <div><dt>Fitment</dt><dd>2022&ndash;2026 V8 Silverado 1500</dd></div>
+    <div><dt>Type</dt><dd>ECU flash &mdash; hardware plus 8 credits</dd></div>
+    <div><dt>Reversible</dt><dd>Yes, but the flash is logged</dd></div>
+  </dl>
+  <p class="buyrow"><a class="buy" href="https://www.americantrucks.com/hp-tuners-silverado1500-mpvi4-tuner-8-universal-credits-m04-000-08.html" rel="nofollow noopener" target="_blank">See the HP Tuners MPVI4&nbsp;&rarr;</a> <span class="buy-note">list price checked 4 Nov 2026</span></p>
+</div>
+
+<div class="pick">
+  <div class="pick-label">If you have the earlier truck</div>
+  <h3>Livernois Motorsports MyCalibrator Touch Tuner (14&ndash;20 5.3L Silverado 1500)</h3>
+  <div class="pick-price">$599.99 &middot; 13 reviews</div>
+  <p>A hand-held flash device with a calibration from a tuner with a long history
+  on GM trucks, for the 2014&ndash;2020 5.3L. This is the closest thing here to
+  the "one purchase, one known-good calibration" approach &mdash; you are buying
+  someone else's work rather than a toolkit and a learning curve.</p>
+  <p>That is the trade: less control, less risk of writing a bad file yourself.
+  If you want to learn calibration, this is not the product for you.</p>
+  <dl class="spec">
+    <div><dt>Price</dt><dd>$599.99</dd></div>
+    <div><dt>Fitment</dt><dd>2014&ndash;2020, 5.3L Silverado 1500</dd></div>
+    <div><dt>Type</dt><dd>Hand-held flash with supplied calibration</dd></div>
+    <div><dt>Owner reviews</dt><dd>13</dd></div>
+  </dl>
+  <p class="buyrow"><a class="buy" href="https://www.americantrucks.com/livernois-motorsports-53silverado1500-mycalibrator-touch-tuner-lpp611105.html" rel="nofollow noopener" target="_blank">See the MyCalibrator&nbsp;&rarr;</a> <span class="buy-note">list price checked 4 Nov 2026</span></p>
+</div>
+
+<div class="callout">
+  <div class="callout-title">Before you buy any of these</div>
+  <p>None of these listings states a CARB executive order number or a
+  certification status, and tuning is the modification most likely to fail an
+  emissions inspection. <strong>If your state inspects, confirm legality for your
+  specific truck before ordering.</strong> We are not going to imply compliance
+  the listings do not claim.</p>
+  <p>No horsepower or torque gains are printed here, because none of these
+  listings publishes a verified figure and we did not test any of them. Any number
+  on this page pretending otherwise would be invented.</p>
+</div>
+
 ---
 
 ## KR
