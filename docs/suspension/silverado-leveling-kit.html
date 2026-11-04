@@ -219,6 +219,33 @@
 <p>If you&rsquo;re chasing actual off-road capability: skip the leveling kit entirely and buy a proper lift with corrected geometry. A leveling kit is a stance modification, and there&rsquo;s nothing wrong with admitting that&rsquo;s what you want. Just don&rsquo;t let a marketing page convince you it&rsquo;s a performance upgrade.</p>
 <hr>
 
+  <section class="comments" id="comments">
+    <h2>Comments</h2>
+    <p class="comments-intro">No account needed. A name is enough.</p>
+    <div id="waline"></div>
+    <script type="module">
+      import { init } from 'https://cdn.jsdelivr.net/npm/@waline/client@3/dist/waline.js';
+      // The site themes itself with prefers-color-scheme, so hand Waline a
+      // boolean rather than a selector: a selector like html:not([data-theme])
+      // also matches in light mode, which would render comments dark on a
+      // light page.
+      var mq = window.matchMedia("(prefers-color-scheme: dark)");
+      var waline = init({
+        el: "#waline",
+        serverURL: 'https://carmodreview-comments.vercel.app',
+        path: '/suspension/silverado-leveling-kit.html',
+        lang: 'en-US',
+        dark: mq.matches,
+        requiredMeta: ["nick"],
+        pageSize: 20,
+        search: false,
+      });
+      mq.addEventListener("change", function (e) {
+        waline.update({ dark: e.matches });
+      });
+    </script>
+  </section>
+
 </article>
 </div>
 </main>

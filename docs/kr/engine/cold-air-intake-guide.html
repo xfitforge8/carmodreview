@@ -206,6 +206,33 @@
 <p>인테이크는 애프터마켓에서 가장 과대 판매되는 튜닝 중 하나입니다. 좋은 구매일 수 있습니다. 소리를 위해서, 그리고 튠 패키지의 일부로서. 단독 출력 튜닝으로는 좋은 구매인 경우가 드뭅니다. 둘 중 무엇을 하는지 알고 사세요. 필터 오일을 적절히 유지하거나 드라이 매체를 쓰고, MAF를 청소하세요.</p>
 <hr>
 
+  <section class="comments" id="comments">
+    <h2>댓글</h2>
+    <p class="comments-intro">계정은 필요 없습니다. 이름만 있으면 됩니다.</p>
+    <div id="waline"></div>
+    <script type="module">
+      import { init } from 'https://cdn.jsdelivr.net/npm/@waline/client@3/dist/waline.js';
+      // The site themes itself with prefers-color-scheme, so hand Waline a
+      // boolean rather than a selector: a selector like html:not([data-theme])
+      // also matches in light mode, which would render comments dark on a
+      // light page.
+      var mq = window.matchMedia("(prefers-color-scheme: dark)");
+      var waline = init({
+        el: "#waline",
+        serverURL: 'https://carmodreview-comments.vercel.app',
+        path: '/kr/engine/cold-air-intake-guide.html',
+        lang: 'ko',
+        dark: mq.matches,
+        requiredMeta: ["nick"],
+        pageSize: 20,
+        search: false,
+      });
+      mq.addEventListener("change", function (e) {
+        waline.update({ dark: e.matches });
+      });
+    </script>
+  </section>
+
 </article>
 </div>
 </main>

@@ -207,6 +207,33 @@
 <p>무엇보다 올바른 핏을 먼저 사세요. 제대로 맞고 이상적인 무게보다 2 lb 무거운 휠이, 오프셋이 틀린 가벼운 휠보다 나은 차를 만들어 줍니다. 오프셋을 맞추고, 하중 등급을 확인하고, 허브링과 올바른 러그 하드웨어를 쓰고, 그다음 예산에 따라 제조 방식을 고르세요. 나머지는 미학이고, 미학도 정당한 이유입니다. 다만 숫자를 이기게 두지는 마세요.</p>
 <hr>
 
+  <section class="comments" id="comments">
+    <h2>댓글</h2>
+    <p class="comments-intro">계정은 필요 없습니다. 이름만 있으면 됩니다.</p>
+    <div id="waline"></div>
+    <script type="module">
+      import { init } from 'https://cdn.jsdelivr.net/npm/@waline/client@3/dist/waline.js';
+      // The site themes itself with prefers-color-scheme, so hand Waline a
+      // boolean rather than a selector: a selector like html:not([data-theme])
+      // also matches in light mode, which would render comments dark on a
+      // light page.
+      var mq = window.matchMedia("(prefers-color-scheme: dark)");
+      var waline = init({
+        el: "#waline",
+        serverURL: 'https://carmodreview-comments.vercel.app',
+        path: '/kr/wheels-tires/wheels-buying-guide.html',
+        lang: 'ko',
+        dark: mq.matches,
+        requiredMeta: ["nick"],
+        pageSize: 20,
+        search: false,
+      });
+      mq.addEventListener("change", function (e) {
+        waline.update({ dark: e.matches });
+      });
+    </script>
+  </section>
+
 </article>
 </div>
 </main>

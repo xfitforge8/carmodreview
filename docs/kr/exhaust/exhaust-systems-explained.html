@@ -213,6 +213,33 @@
 <p>전개 가속 사운드 클립이 아니라 순항 특성을 기준으로 사세요. 주행 시간의 99%를 부분 스로틀로 보내고, 그 소리와 함께 살아야 합니다.</p>
 <hr>
 
+  <section class="comments" id="comments">
+    <h2>댓글</h2>
+    <p class="comments-intro">계정은 필요 없습니다. 이름만 있으면 됩니다.</p>
+    <div id="waline"></div>
+    <script type="module">
+      import { init } from 'https://cdn.jsdelivr.net/npm/@waline/client@3/dist/waline.js';
+      // The site themes itself with prefers-color-scheme, so hand Waline a
+      // boolean rather than a selector: a selector like html:not([data-theme])
+      // also matches in light mode, which would render comments dark on a
+      // light page.
+      var mq = window.matchMedia("(prefers-color-scheme: dark)");
+      var waline = init({
+        el: "#waline",
+        serverURL: 'https://carmodreview-comments.vercel.app',
+        path: '/kr/exhaust/exhaust-systems-explained.html',
+        lang: 'ko',
+        dark: mq.matches,
+        requiredMeta: ["nick"],
+        pageSize: 20,
+        search: false,
+      });
+      mq.addEventListener("change", function (e) {
+        waline.update({ dark: e.matches });
+      });
+    </script>
+  </section>
+
 </article>
 </div>
 </main>

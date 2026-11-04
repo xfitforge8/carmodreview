@@ -226,6 +226,33 @@
 <p>Buy for correct fitment first. A wheel that fits properly and is 2 lb heavier than the ideal will give you a better car than a lighter wheel with the wrong offset. Get the offset right, verify load rating, use hub-centric rings and correct lug hardware, then choose construction based on budget. Everything else is aesthetics, and aesthetics are a legitimate reason. Just don&rsquo;t let them override the numbers.</p>
 <hr>
 
+  <section class="comments" id="comments">
+    <h2>Comments</h2>
+    <p class="comments-intro">No account needed. A name is enough.</p>
+    <div id="waline"></div>
+    <script type="module">
+      import { init } from 'https://cdn.jsdelivr.net/npm/@waline/client@3/dist/waline.js';
+      // The site themes itself with prefers-color-scheme, so hand Waline a
+      // boolean rather than a selector: a selector like html:not([data-theme])
+      // also matches in light mode, which would render comments dark on a
+      // light page.
+      var mq = window.matchMedia("(prefers-color-scheme: dark)");
+      var waline = init({
+        el: "#waline",
+        serverURL: 'https://carmodreview-comments.vercel.app',
+        path: '/wheels-tires/wheels-buying-guide.html',
+        lang: 'en-US',
+        dark: mq.matches,
+        requiredMeta: ["nick"],
+        pageSize: 20,
+        search: false,
+      });
+      mq.addEventListener("change", function (e) {
+        waline.update({ dark: e.matches });
+      });
+    </script>
+  </section>
+
 </article>
 </div>
 </main>

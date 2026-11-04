@@ -27,12 +27,12 @@ DOMAIN = 'https://carmodreview.com'
 # name and an email — no account, which is the difference between a comment
 # section people use and one they don't.
 #
-# Setup, once: deploy the Waline server on Vercel's free Hobby plan against a
-# free Neon Postgres database (https://waline.js.org/en/guide/deploy/vercel.html),
-# bind it to a subdomain, and paste that URL in below. Until WALINE_SERVER_URL is
-# set the comment block renders nothing at all, so the build never ships an empty
-# box or a script that 404s.
-WALINE_SERVER_URL = ''      # e.g. 'https://comments.carmodreview.com'
+# Live server: a Vercel Hobby deployment (free) against Neon Postgres (free),
+# source at github.com/xfitforge8/carmodreview-comments. Waline does not create
+# its own tables, so that repo bootstraps the schema on the first request.
+# Until WALINE_SERVER_URL is set the comment block renders nothing at all, so the
+# build never ships an empty box or a script that 404s.
+WALINE_SERVER_URL = 'https://carmodreview-comments.vercel.app'
 
 import photos
 from photos import (inject_photos, find_photos, photo_html, category_photo,

@@ -198,6 +198,33 @@
 <p>No la compre esperando una ganancia de potencia que vaya a sentir, y no compre un diseño de cono abierto que respire aire caliente del vano motor en el tráfico de julio. Caja sellada, toma de aire en el guardabarros de fábrica, filtro ligeramente aceitado, MAF limpio en cada servicio. Esa es la versión de esta modificación que no le cuesta un sensor y un sábado volviendo a diagnosticar un código de mezcla pobre.</p>
 <hr>
 
+  <section class="comments" id="comments">
+    <h2>Comentarios</h2>
+    <p class="comments-intro">No hace falta cuenta. Con un nombre es suficiente.</p>
+    <div id="waline"></div>
+    <script type="module">
+      import { init } from 'https://cdn.jsdelivr.net/npm/@waline/client@3/dist/waline.js';
+      // The site themes itself with prefers-color-scheme, so hand Waline a
+      // boolean rather than a selector: a selector like html:not([data-theme])
+      // also matches in light mode, which would render comments dark on a
+      // light page.
+      var mq = window.matchMedia("(prefers-color-scheme: dark)");
+      var waline = init({
+        el: "#waline",
+        serverURL: 'https://carmodreview-comments.vercel.app',
+        path: '/es/engine/silverado-27-turbomax-cold-air-intake.html',
+        lang: 'es',
+        dark: mq.matches,
+        requiredMeta: ["nick"],
+        pageSize: 20,
+        search: false,
+      });
+      mq.addEventListener("change", function (e) {
+        waline.update({ dark: e.matches });
+      });
+    </script>
+  </section>
+
 </article>
 </div>
 </main>
