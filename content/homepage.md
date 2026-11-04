@@ -28,16 +28,16 @@ Every guide here starts with a 2026 Silverado 1500 RST 4x4 in a driveway. When w
 
 | | |
 |---|---|
-| [Wheels & Tires](#) | Offset, load range, tire sizing, 4x4 diameter matching |
-| [Suspension](#) | Leveling, lifting, springs vs coilovers, geometry correction |
-| [Engine & Intake](#) | Cold air, filtration, MAF care, real vs claimed gains |
-| [Exhaust](#) | Cat-back vs axle-back, drone, materials, legality |
-| [Brakes](#) | Pad compounds, rotor choices, fluid, bedding |
-| [Tuning](#) | Flash vs piggyback, warranty reality, data logging |
+| [Wheels & Tires](cat:wheels-tires) | Offset, load range, tire sizing, 4x4 diameter matching |
+| [Suspension](cat:suspension) | Leveling, lifting, springs vs coilovers, geometry correction |
+| [Engine & Intake](cat:engine) | Cold air, filtration, MAF care, real vs claimed gains |
+| [Exhaust](cat:exhaust) | Cat-back vs axle-back, drone, materials, legality |
+| [Brakes](cat:brakes) | Pad compounds, rotor choices, fluid, bedding |
+| [Tuning](cat:tuning) | Flash vs piggyback, warranty reality, data logging |
 
 ### Our promise on money
 
-We earn affiliate commissions. Commission never decides whether something is recommended or where it ranks. Some parts we rate highly pay us nothing; some parts that pay well are ones we tell you to skip. [Full disclosure →](#)
+We earn affiliate commissions. Commission never decides whether something is recommended or where it ranks. Some parts we rate highly pay us nothing; some parts that pay well are ones we tell you to skip. [Full disclosure →](page:legal/affiliate-disclosure)
 
 ### Bilingual by design
 
@@ -73,16 +73,16 @@ Every guide is published in English, Korean, and Spanish. Good practical knowled
 
 | | |
 |---|---|
-| [휠 & 타이어](#) | 오프셋, 하중 등급, 타이어 사이즈, 4x4 지름 매칭 |
-| [서스펜션](#) | 레벨링, 리프트, 스프링 vs 코일오버, 기하학 보정 |
-| [엔진 & 인테이크](#) | 콜드에어, 여과, MAF 관리, 실제 이득 vs 주장 |
-| [배기](#) | 캣백 vs 액슬백, 드론, 재질, 합법성 |
-| [브레이크](#) | 패드 컴파운드, 디스크 선택, 플루이드, 베딩 |
-| [튜닝](#) | 플래시 vs 피기백, 보증의 현실, 데이터 로깅 |
+| [휠 & 타이어](cat:engine) | 오프셋, 하중 등급, 타이어 사이즈, 4x4 지름 매칭 |
+| [서스펜션](cat:engine) | 레벨링, 리프트, 스프링 vs 코일오버, 기하학 보정 |
+| [엔진 & 인테이크](cat:engine) | 콜드에어, 여과, MAF 관리, 실제 이득 vs 주장 |
+| [배기](cat:engine) | 캣백 vs 액슬백, 드론, 재질, 합법성 |
+| [브레이크](cat:engine) | 패드 컴파운드, 디스크 선택, 플루이드, 베딩 |
+| [튜닝](cat:engine) | 플래시 vs 피기백, 보증의 현실, 데이터 로깅 |
 
 ### 돈에 대한 약속
 
-저희는 제휴 수수료를 받습니다. 수수료는 추천 여부나 순위를 결정하지 않습니다. 높게 평가하는 부품 중에는 수수료가 0원인 것도 있고, 수수료가 좋은 부품 중에는 건너뛰라고 말하는 것도 있습니다. [전체 고지 →](#)
+저희는 제휴 수수료를 받습니다. 수수료는 추천 여부나 순위를 결정하지 않습니다. 높게 평가하는 부품 중에는 수수료가 0원인 것도 있고, 수수료가 좋은 부품 중에는 건너뛰라고 말하는 것도 있습니다. [전체 고지 →](page:legal/affiliate-disclosure)
 
 ### 설계 단계부터 이중 언어
 
@@ -118,16 +118,16 @@ Cada guía aquí empieza con una Silverado 1500 RST 4x4 de 2026 en un camino de 
 
 | | |
 |---|---|
-| [Llantas y neumáticos](#) | Offset, índice de carga, medidas, igualación de diámetro en 4x4 |
-| [Suspensión](#) | Nivelación, elevación, muelles vs coilovers, corrección de geometría |
-| [Motor y admisión](#) | Aire frío, filtración, cuidado del MAF, ganancias reales vs prometidas |
-| [Escape](#) | Cat-back vs axle-back, zumbido, materiales, legalidad |
-| [Frenos](#) | Compuestos de pastilla, elección de disco, líquido, asentamiento |
-| [Reprogramación](#) | Flash vs piggyback, la realidad de la garantía, registro de datos |
+| [Llantas y neumáticos](cat:engine) | Offset, índice de carga, medidas, igualación de diámetro en 4x4 |
+| [Suspensión](cat:engine) | Nivelación, elevación, muelles vs coilovers, corrección de geometría |
+| [Motor y admisión](cat:engine) | Aire frío, filtración, cuidado del MAF, ganancias reales vs prometidas |
+| [Escape](cat:engine) | Cat-back vs axle-back, zumbido, materiales, legalidad |
+| [Frenos](cat:engine) | Compuestos de pastilla, elección de disco, líquido, asentamiento |
+| [Reprogramación](cat:engine) | Flash vs piggyback, la realidad de la garantía, registro de datos |
 
 ### Nuestra promesa sobre el dinero
 
-Ganamos comisiones de afiliación. La comisión nunca decide si algo se recomienda ni en qué posición se clasifica. Algunas piezas que valoramos mucho no nos pagan nada; algunas que pagan bien son las que le decimos que se salte. [Divulgación completa →](#)
+Ganamos comisiones de afiliación. La comisión nunca decide si algo se recomienda ni en qué posición se clasifica. Algunas piezas que valoramos mucho no nos pagan nada; algunas que pagan bien son las que le decimos que se salte. [Divulgación completa →](page:legal/affiliate-disclosure)
 
 ### Bilingüe por diseño
 

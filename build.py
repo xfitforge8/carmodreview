@@ -92,9 +92,27 @@ def split_langs(body):
         start = mk.end()
         end = marks[i + 1].start() if i + 1 < len(marks) else len(body)
         out[lang] = body[start:end]
-    # anything after the last language block that starts with a non-lang H2
-    # (e.g. "## Vehicle of Record" in about-us) stays in the last lang section,
-    # which is what we want, so nothing to strip here.
+
+    # A shared H1 that sits above the first language marker is the page title
+    # for every language; about-us.md is written that way. Prepend it to any
+    # section that does not open with its own H1 so no page renders headless.
+    preamble = body[:marks[0].start()]
+    h1 = re.search(r'^#[ \t]+[^\n]+', preamble, re.M)
+    if h1:
+        for lang, sec in out.items():
+            if not re.search(r'^#[ \t]+[^\n]+', sec, re.M):
+                out[lang] = h1.group(0) + '\n\n' + sec.lstrip('\n')
+
+    # A trailing non-language H2 (e.g. "## Vehicle of Record") is written in
+    # English and belongs on the English page, not glued onto the last
+    # language block, which may be Korean or Spanish.
+    last = marks[-1].group(1).lower()
+    sec = out.get(last, '')
+    m = re.search(r'^##[ \t]+(?!(?:EN|KR|ES)\b)[^\n]*$', sec, re.M)
+    if m:
+        tail = sec[m.start():]
+        out[last] = sec[:m.start()].rstrip()
+        out['en'] = (out.get('en', '').rstrip() + '\n\n' + tail).strip()
     return out, trailing
 
 
@@ -118,12 +136,34 @@ def extract_unverified(md_text):
     return m.group(1).strip() if m else None
 
 
-def md2html(text):
-    return markdown.markdown(
+def resolve_links(html_text, rel=''):
+    """Rewrite internal placeholder links written in markdown.
+
+    `cat:<slug>`  -> the category hub for the current language
+    `page:<path>` -> a static page (legal, about, contact, methodology)
+
+    A category with no hub of its own is redirected to the article that covers
+    it, so we never emit a link to a page that does not exist.
+    """
+    hubless = {'tuning': 'engine/ecu-tuning-explained.html'}
+
+    def cat_sub(m):
+        slug = m.group(1)
+        if slug in hubless:
+            return f'href="{rel}{hubless[slug]}"'
+        return f'href="{rel}{slug}/index.html"'
+    html_text = re.sub(r'href="cat:([a-z0-9-]+)"', cat_sub, html_text)
+    html_text = re.sub(r'href="page:([a-z0-9/.-]+)"', r'href="' + rel + r'\1.html"', html_text)
+    return html_text
+
+
+def md2html(text, rel=''):
+    out = markdown.markdown(
         text,
         extensions=['extra', 'sane_lists', 'smarty'],
         output_format='html5',
     )
+    return resolve_links(out, rel)
 
 
 def action(url):
@@ -290,6 +330,7 @@ def build():
     index_entries = []
     for a in arts:
         meta = a['meta']
+        meta['langs_all'] = set(a['langs'])
         cat = meta.get('category', 'Engine')
         catslug, catlabel, catkr, cates = CATEGORIES.get(cat, ('engine', cat, cat, cat))
         slug = meta.get('slug') or slugify(a['file'])
@@ -329,12 +370,12 @@ def build():
                              f'    <span>{mins} {UI[code]["minread"]}</span>\n'
                              f'  </div>\n')
             body_html.append(disclosure_html(code))
-            body_html.append(md2html(inner))
+            body_html.append(md2html(inner, '../' if not prefix else '../../'))
             if unver:
                 body_html.append(
                     f'\n  <div class="unverified">\n'
                     f'    <h3>{UI[code]["verified"]}</h3>\n'
-                    f'    {md2html(unver)}\n'
+                    f'    {md2html(unver, "../" if not prefix else "../../")}\n'
                     f'  </div>\n')
 
             rel = '../' if not prefix else '../../'
@@ -354,7 +395,30 @@ def build():
 
     build_static_pages(index_entries)
     build_category_pages(arts)
+    build_legacy_pages()
     build_sitemap(arts)
+
+
+def build_legacy_pages():
+    """Carry the hand-written pages that predate this generator forward verbatim.
+
+    These are real published articles, not generated output; rmtree at the top
+    of build() would otherwise delete them.
+    """
+    prev = os.path.join(ROOT, '_prev_docs')
+    legacy = ['cold-air-intakes/best-cold-air-intake-f150-50l.html',
+              'cold-air-intakes/index.html']
+    n = 0
+    for relp in legacy:
+        src = os.path.join(prev, relp)
+        if not os.path.exists(src):
+            continue
+        dst = os.path.join(OUT, relp)
+        os.makedirs(os.path.dirname(dst), exist_ok=True)
+        shutil.copy(src, dst)
+        n += 1
+    if n:
+        print(f'  carried forward {n} legacy page(s)')
 
 
 def build_static_pages(index_entries):
@@ -373,7 +437,7 @@ def build_static_pages(index_entries):
             md = clean_md(langs_home[code])
             # the dek is the first blockquote-ish bold line
             title = 'Car Mod Review'
-            body = md2html(md)
+            body = md2html(md, rel)
             page = render_page(
                 lang=code, title=title if code != 'en' else
                 'Car Mod Review — Car, Truck & SUV Parts, Ranked',
@@ -393,7 +457,7 @@ def build_static_pages(index_entries):
                                   else 'Sobre CarModReview'),
                 desc='Who writes CarModReview, what vehicle we test on, and what we will not do.',
                 canonical=f'{DOMAIN}{prefix}/about.html',
-                body_html=md2html(md), rel=rel,
+                body_html=md2html(md, rel), rel=rel,
                 alts={'en': f'{DOMAIN}/about.html', 'kr': f'{DOMAIN}/kr/about.html',
                       'es': f'{DOMAIN}/es/about.html'})
             d = os.path.join(OUT, prefix.strip('/')) if prefix else OUT
@@ -423,6 +487,9 @@ def build_static_pages(index_entries):
             if code not in langs:
                 continue
             md = clean_md(langs[code])
+            # these pages get their own <h1> below; drop any heading the
+            # source carries (the shared trilingual one, or a per-language one)
+            md = re.sub(r'^#[ \t]+[^\n]*\n', '', md, count=1).strip()
             title = {'en': 'Affiliate Disclosure' if slug == 'affiliate-disclosure' else 'Privacy Policy',
                      'kr': '제휴 고지' if slug == 'affiliate-disclosure' else '개인정보 처리방침',
                      'es': 'Divulgación de afiliación' if slug == 'affiliate-disclosure' else 'Política de privacidad'}[code]
@@ -432,7 +499,7 @@ def build_static_pages(index_entries):
             page = render_page(
                 lang=code, title=f'{title} | Car Mod Review',
                 desc=title, canonical=alts[code],
-                body_html=f'  <h1>{html.escape(title)}</h1>\n' + md2html(md),
+                body_html=f'  <h1>{html.escape(title)}</h1>\n' + md2html(md, '../../' if prefix else '../'),
                 rel='../../' if prefix else '../', alts=alts, og_type='article')
             d = os.path.join(OUT, *( ([prefix.strip('/')] if prefix else []) + ['legal'] ))
             os.makedirs(d, exist_ok=True)
@@ -471,7 +538,7 @@ def build_static_pages(index_entries):
   <h2>Affiliate relationships</h2>
   <p>Some outbound links are affiliate links. If you buy through them we may earn a
   commission at no extra cost to you. See our
-  <a href="legal/affiliate-disclosure.html">affiliate disclosure</a>.</p>
+  <a href="affiliate-disclosure.html">affiliate disclosure</a>.</p>
   <h2>Accuracy</h2>
   <p>Prices, availability and specifications change without notice. Figures are
   reported as they appeared on the date stated on each page. We make no warranty
@@ -503,6 +570,8 @@ def build_static_pages(index_entries):
 def index_list_html(index_entries, code, rel):
     by_cat = {}
     for e in index_entries:
+        if code not in (e[7].get('langs_all') or set()):
+            continue
         by_cat.setdefault(e[3], []).append(e)
     out = [f'\n  <h2>{UI[code]["nav_cats"]}</h2>\n']
     for catslug, items in by_cat.items():
@@ -515,6 +584,12 @@ def index_list_html(index_entries, code, rel):
             t = re.sub(r'^#+\s*', '', t or slug).strip().strip('"')
             out.append(f'    <li><a href="{rel}{cs}/{slug}.html">{html.escape(t)}</a>'
                        f'<div class="meta">{date}</div></li>\n')
+        out.append('  </ul>\n')
+
+    if code == 'en':
+        out.append('  <h2>Also published</h2>\n  <ul class="post-list">\n')
+        out.append('    <li><a href="cold-air-intakes/index.html">Cold air intakes</a>'
+                   '<div class="meta">F-150 5.0L buying guide</div></li>\n')
         out.append('  </ul>\n')
     return ''.join(out)
 
@@ -529,6 +604,8 @@ def build_category_pages(arts):
             rel = '../../' if prefix else '../'
             rows = []
             for a in items:
+                if code not in a['langs']:
+                    continue
                 meta = a['meta']
                 slug = meta.get('slug') or slugify(a['file'])
                 t = (meta.get('title') or {}).get(code) or (meta.get('title') or {}).get('en')
@@ -536,6 +613,8 @@ def build_category_pages(arts):
                 d = str(meta.get('last_updated', ''))
                 rows.append(f'    <li><a href="{slug}.html">{html.escape(t)}</a>'
                             f'<div class="meta">{d}</div></li>\n')
+            if not rows:
+                continue
             name = cl if code == 'en' else (ck if code == 'kr' else ce)
             inner = (f'  <div class="kicker">Car Mod Review</div>\n'
                      f'  <h1>{html.escape(name)}</h1>\n'
@@ -570,6 +649,10 @@ def build_sitemap(arts):
     for c in cats:
         for code, _, prefix in LANGS:
             urls.append((f'{DOMAIN}{prefix}/{c}/index.html', today))
+
+    # hand-written pages carried forward from the pre-generator site
+    urls.append((f'{DOMAIN}/cold-air-intakes/', '2026-10-30'))
+    urls.append((f'{DOMAIN}/cold-air-intakes/best-cold-air-intake-f150-50l.html', '2026-10-30'))
 
     sm = ['<?xml version="1.0" encoding="UTF-8"?>',
           '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
