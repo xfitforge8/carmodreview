@@ -690,6 +690,55 @@ EDITOR = {
 }
 
 
+RELATED_LABEL = {
+    'en': 'Related guides',
+    'kr': '관련 가이드',
+    'es': 'Guías relacionadas',
+}
+
+
+def build_related(lang, rel, entries, current_slug, current_cat):
+    """Links from the foot of an article to the other guides in its category.
+
+    Every article on the site used to link to zero other articles in its own
+    body. The only paths between pages were the sidebar's six "recent posts"
+    and the category hubs, so a guide that fell out of the recent window was
+    reachable only by going Home -> category -> guide. Google reads that as a
+    deep, sparsely linked site and crawls it accordingly: it had indexed 3 of
+    59 URLs. An explicit related block gives every article a short, stable path
+    to its siblings in both directions.
+
+    Same-category first, because that is the link a reader actually wants; the
+    list is capped at four so it stays a pointer and not a second navigation.
+    Nothing is invented here -- these are the same entries the sidebar uses.
+    """
+    if not entries:
+        return ''
+    same, other = [], []
+    lrel = lang_root(rel, lang)
+    for date, slug, cat, cs, cl, ck, ce, meta in entries:
+        if slug == current_slug:
+            continue
+        if lang not in (meta.get('langs_all') or set()):
+            continue
+        title = (meta.get('title') or {}).get(lang) or \
+                (meta.get('title') or {}).get('en') or slug
+        title = re.sub(r'^#+\s*', '', title).strip().strip('"')
+        catlabel = {'en': cl, 'kr': ck, 'es': ce}[lang]
+        row = (f'        <li><a href="{lrel}{cs}/{slug}.html">'
+               f'{html.escape(title)}</a>'
+               f'<span class="side-cat">{html.escape(catlabel)}</span>'
+               f'</li>\n')
+        (same if cat == current_cat else other).append(row)
+    rows = (same + other)[:4]
+    if not rows:
+        return ''
+    return (f'\n  <div class="related">\n'
+            f'    <h2 class="related-title">{RELATED_LABEL[lang]}</h2>\n'
+            f'    <ul class="side-list">\n{"".join(rows)}    </ul>\n'
+            f'  </div>\n')
+
+
 def build_share(lang, canonical, title):
     """Share links for the foot of an article.
 
@@ -740,6 +789,24 @@ def build_disclosure(lang, rel, body_html):
     return DISCLOSURE[lang].format(rel=rel) + '\n'
 
 
+def lang_root(rel, lang):
+    """Path prefix that stays inside the reader's language.
+
+    `rel` alone is the way back to the site root, so on a localised page it
+    climbs straight out of /kr/ or /es/. Every sidebar and related link was
+    built as rel+path, which meant a reader on a Korean guide who clicked the
+    next guide in the rail landed on the English one -- and, for a crawler, left
+    the Korean pages with no internal links pointing at them at all.
+
+    Not used for the masthead or footer nav: about/ exists in all three
+    languages but methodology, contact and terms do not, so a language-relative
+    prefix there would advertise URLs that are not built. Those links keep
+    pointing at the English page, which does exist.
+    """
+    seg = {'en': '', 'kr': 'kr/', 'es': 'es/'}[lang]
+    return rel + seg
+
+
 def default_sidebar(lang, rel, entries=None):
     """The right-hand panel: recent posts, then categories.
 
@@ -763,6 +830,7 @@ def default_sidebar(lang, rel, entries=None):
     }[lang]
 
     recent = ''
+    lrel = lang_root(rel, lang)
     if entries:
         # Newest first. Entries are keyed by last_updated, so a guide that was
         # genuinely revised floats up -- which is the honest ordering for a site
@@ -777,7 +845,7 @@ def default_sidebar(lang, rel, entries=None):
             title = re.sub(r'^#+\s*', '', title).strip().strip('"')
             catlabel = {'en': cl, 'kr': ck, 'es': ce}[lang]
             rows.append(
-                f'        <li><a href="{rel}{cs}/{slug}.html">{html.escape(title)}</a>'
+                f'        <li><a href="{lrel}{cs}/{slug}.html">{html.escape(title)}</a>'
                 f'<span class="side-cat">{html.escape(catlabel)}</span></li>\n')
         if rows:
             recent = (f'    <div class="side-block">\n'
@@ -787,7 +855,7 @@ def default_sidebar(lang, rel, entries=None):
                       f'    </div>\n')
 
     items = ''.join(
-        f'        <li><a href="{rel}{HUBLESS.get(slug, slug + "/index.html")}">'
+        f'        <li><a href="{lrel}{HUBLESS.get(slug, slug + "/index.html")}">'
         f'{html.escape(label)}</a></li>\n'
         for slug, label in ((c[0], c[labels[lang]]) for c in CATEGORIES.values())
     )
@@ -1107,7 +1175,8 @@ def build():
             editor_name, editor_role = EDITOR[code]
             body_html.append(f'  <div class="byline">\n'
                              f'    <span class="byline-author">{UI[code]["by"]} '
-                             f'<a href="{rel}about.html">{html.escape(editor_name)}</a>, '
+                             f'<a href="{lang_root(rel, code)}about.html">'
+                             f'{html.escape(editor_name)}</a>, '
                              f'{html.escape(editor_role)}</span>\n'
                              f'    <span>{UI[code]["published"]} {published}{revised}</span>\n'
                              f'  </div>\n')
@@ -1122,6 +1191,7 @@ def build():
                     f'    {md2html(unver, rel)}\n'
                     f'  </div>\n')
 
+            body_html.append(build_related(code, rel, sidebar_entries, slug, cat))
             body_html.append(build_share(code, altmap[code], title))
 
             canon = altmap[code]
@@ -1720,8 +1790,23 @@ def build_feed(items):
 
 
 def build_sitemap(arts):
+    """Write sitemap.xml and robots.txt.
+
+    lastmod has to be true or it is worse than absent. Google only honours the
+    field while it stays consistent, and this file used to stamp
+    datetime.date.today() on the 30 static and hub URLs -- so every single
+    deploy announced that a third of the site had just changed, on a site whose
+    articles were last revised in May. That is the classic signal that trains a
+    crawler to ignore lastmod entirely.
+
+      * articles  -> the real last_updated from the frontmatter
+      * hubs      -> the newest last_updated among the guides they list
+      * static    -> no lastmod at all; a page rendered from a shared template
+                     has no honest per-page date to report
+    """
     urls = []
     today = datetime.date.today().isoformat()
+    newest_by_cat = {}
     for a in arts:
         cs = CATEGORIES.get(a['meta'].get('category'), ('engine',))[0]
         slug = a['meta'].get('slug') or slugify(a['file'])
@@ -1729,6 +1814,8 @@ def build_sitemap(arts):
         for code, _, prefix in LANGS:
             if code in a['langs']:
                 urls.append((f'{DOMAIN}{prefix}/{cs}/{slug}.html', d))
+                if d > newest_by_cat.get(cs, ''):
+                    newest_by_cat[cs] = d
     # Static pages do not all exist in every language — about, methodology,
     # contact and terms are per-language authored, not generated. List a URL only
     # when build_static_pages actually writes it, or the sitemap advertises 404s.
@@ -1739,11 +1826,10 @@ def build_sitemap(arts):
         for code, _, prefix in LANGS:
             if os.path.exists(os.path.join(OUT, *(prefix.strip('/').split('/')
                                                  if prefix else []), path)):
-                urls.append((f'{DOMAIN}{prefix}/{path}', today))
-    cats = sorted({CATEGORIES.get(a['meta'].get('category'), ('engine',))[0] for a in arts})
-    for c in cats:
+                urls.append((f'{DOMAIN}{prefix}/{path}', None))
+    for c in sorted(newest_by_cat):
         for code, _, prefix in LANGS:
-            urls.append((f'{DOMAIN}{prefix}/{c}/index.html', today))
+            urls.append((f'{DOMAIN}{prefix}/{c}/index.html', newest_by_cat[c]))
 
     # hand-written pages carried forward from the pre-generator site
     urls.append((f'{DOMAIN}/cold-air-intakes/', '2026-10-30'))
@@ -1752,7 +1838,8 @@ def build_sitemap(arts):
     sm = ['<?xml version="1.0" encoding="UTF-8"?>',
           '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for u, d in urls:
-        sm.append(f'  <url><loc>{u}</loc><lastmod>{d}</lastmod></url>')
+        sm.append(f'  <url><loc>{u}</loc></url>' if d is None
+                  else f'  <url><loc>{u}</loc><lastmod>{d}</lastmod></url>')
     sm.append('</urlset>')
     open(os.path.join(OUT, 'sitemap.xml'), 'w', encoding='utf-8').write('\n'.join(sm) + '\n')
 

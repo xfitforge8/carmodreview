@@ -742,6 +742,27 @@ footer p { margin: 0 0 10px; }
   color: var(--rust);
 }
 
+/* ---------- related guides ---------- */
+
+/* Sits above the share block and reuses the sidebar list styling so the two
+   read as the same kind of pointer. It exists for crawlers as much as readers:
+   before it, no article linked to any other article in its own body. */
+.related {
+  margin: 44px 0 0;
+  padding-top: 20px;
+  border-top: 1px solid var(--rule);
+}
+
+.related-title {
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin: 0 0 12px;
+}
+
 /* ---------- share ---------- */
 
 .share {
