@@ -6,14 +6,16 @@ title:
 slug: cold-air-intake-guide
 category: Engine
 status: draft
-last_updated: 2026-11-01
+last_updated: 2026-11-03
 ---
 
 # Cold Air Intake: What It Does, What It Doesn't, and the MAF Problem
 
 ## EN
 
-This is the same underlying guide we wrote for our own truck, generalised so it applies to any platform. If you've read our Silverado piece, the mechanism here is identical — only the specific engine differs.
+This guide generalises the same mechanism covered in the Silverado piece, so it applies to any
+platform. If you have read that article, the physics here is identical — only the specific engine
+differs.
 
 ### What the factory airbox is actually for
 

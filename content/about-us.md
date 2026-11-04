@@ -2,42 +2,40 @@
 
 ## EN
 
-### We started in a driveway, not a boardroom
+### Why this site exists
 
-CarModReview exists because of one truck.
+Shopping for car parts is a research problem that most of the internet has made worse. A search for almost any modification returns a stack of pages that repeat the manufacturer's marketing copy, quote the same unverified horsepower figure, and rank products by commission rate rather than by whether they work.
 
-In 2026 I bought a Silverado 1500 RST 4x4 with the leather package — a truck I'd wanted for years and immediately started changing. Nothing extreme at first. A leveling kit, because the factory rake bothered me every time I walked up to it. Then wheels. Then a cold air intake. Then a tune, which is the point where I learned that half the forum advice I'd been following was written by people who had never touched the part they were recommending.
+CarModReview is an attempt to do the boring part properly: read the actual documentation, compare the published numbers, and write down where each figure came from. When something cannot be verified, that is what the page says.
 
-That was the problem. Searching for real information about a specific modification meant wading through affiliate-driven listicles, one-star reviews with no explanation, five-star reviews that read like press releases, and forum threads from 2014 about a different generation of the truck. The signal was buried under the noise, and none of it told me what actually happened after 20,000 miles.
+### How a guide gets written
 
-So I started documenting my own build — every part, what it cost, what it did, and what broke.
+Every guide is built the same way:
 
-### What we actually do
+- **Start with primary documentation.** Manufacturer fitment charts, torque specifications, warranty terms and installation manuals — not product listing summaries, which routinely contradict the manual.
+- **Compare published specifications side by side**, so the difference between a $180 part and a $600 part is visible: where it is real, and where it is packaging.
+- **Name the source for every number.** If a towing figure comes from a manufacturer's chart, the page says so. Figures we cannot trace to a primary source do not appear as claims.
+- **Keep the install notes honest** — the hardware that seizes, the step that assumes a lift, the torque value that differs between the manual and the forum.
 
-Every product that gets reviewed here is treated the same way:
+### What we do not do
 
-- **We read the manufacturer's own documentation** — torque specs, compatibility charts, warranty language — instead of trusting a product listing summary.
-- **We compare published specifications side by side** so you can see where a $180 part and a $600 part actually differ, and where they don't.
-- **We cite where numbers come from.** If a towing figure came from a manufacturer's chart, we say so. If it came from our own scale, we say that instead.
-- **We write down the install friction** — the rusted bolt, the missing hardware, the step where the instructions lied. That's the part that decides whether a project takes an afternoon or a weekend.
+We do not present manufacturer claims as independent testing. This site does not publish dyno results, decibel readings, or measured performance figures unless a specific source is cited on the page and can be checked.
 
-We are a small operation built around one truck. That has limits, and we're upfront about them: if we haven't tested something on our own vehicle, we tell you it's a documentation-based assessment rather than first-hand experience. We'd rather be clear about the difference than pretend every article is a lab report.
+That restraint costs us the confident tone that parts content usually adopts. It is the reason the guides are worth reading.
 
-### Our commitment to objectivity
+If a page changes because we learned something — a spec was revised, a part was discontinued, a company changed suppliers — the article is updated and the change is noted.
 
-We earn money through affiliate links. That is how a site like this stays alive, and we're not going to pretend otherwise. What we promise is narrower and more useful:
+### How the site is funded
 
-**Commission never decides whether a product is recommended, and never decides where it ranks.** Some of the parts we rate most highly pay us nothing. Some of the parts that pay the best commission are ones we tell you not to buy. When we can't verify a claim, we say so rather than filling the gap with confident-sounding language.
+We earn commissions through affiliate links. That is how a publication like this stays alive, and we are not going to pretend otherwise.
 
-If a review changes because we learned something new — a part failed, a company changed suppliers, a spec was revised — we update the article and note what changed.
-
-### Why bilingual
-
-The modification community is global, and a lot of the best practical knowledge about these trucks sits in Korean-language forums and shops that English-speaking owners never see — and vice versa. Every article on this site is published in English and Korean so that information moves in both directions instead of pooling in one language.
+The promise we make is narrower than "unbiased" and more useful than it: **commission never decides whether a product is recommended, and never decides where it ranks.** Some parts we rate highly pay us nothing. Some parts that pay well are ones we tell you to skip.
 
 ### What's next
 
-The Silverado is the test bed for everything here. As the build progresses — suspension, intake and exhaust, wheels and tires, lighting, and eventually forced induction — the reviews grow with it. If you're working on the same truck, or a completely different one, the method is the same: document what's real, price it honestly, and write down what nobody told you.
+Coverage is expanding deliberately rather than broadly — suspension, intake, exhaust, wheels and tires, brakes and tuning first, then lighting, interior and maintenance.
+
+If you are working on a vehicle we have not covered and want a category prioritised, say so. It genuinely changes the order.
 
 Thanks for reading.
 
@@ -45,48 +43,49 @@ Thanks for reading.
 
 ## KR
 
-### 이 사이트는 회의실이 아니라 집 앞마당에서 시작됐습니다
+### 이 사이트가 있는 이유
 
-CarModReview는 트럭 한 대에서 시작됐습니다.
+자동차 부품을 고르는 일은 리서치 문제인데, 인터넷은 그 문제를 대부분 더 나쁘게 만들어 놓았습니다. 어떤 튜닝이든 검색해 보면, 제조사 마케팅 문구를 그대로 옮겨 적고, 검증되지 않은 같은 마력 수치를 인용하고, 부품이 실제로 작동하는지가 아니라 수수료율 순으로 줄을 세운 글만 잔뜩 나옵니다.
 
-2026년, 저는 레더 패키지가 들어간 Silverado 1500 RST 4x4를 구입했습니다. 몇 년을 바라던 트럭이었고, 차를 받자마자 손을 대기 시작했습니다. 처음엔 대단한 것도 아니었습니다. 차 앞에 설 때마다 신경 쓰이던 앞고랑(rake) 때문에 레벨링 킷을 달았고, 그다음엔 휠, 그다음엔 콜드에어 인테이크를 달았습니다. 그리고 튠을 올리면서 깨달았습니다. 제가 그때까지 따라온 포럼 조언의 절반은, 정작 자기가 추천한 부품을 한 번도 만져보지 않은 사람들이 쓴 글이었다는 걸요.
+CarModReview는 지루한 부분을 제대로 해보려는 시도입니다. 실제 문서를 읽고, 공개된 수치를 비교하고, 각 숫자가 어디서 왔는지 적어둡니다. 확인할 수 없는 것은 확인할 수 없다고 씁니다.
 
-문제는 그거였습니다. 특정 튜닝 하나에 대한 진짜 정보를 찾으려면, 수수료로 굴러가는 랭킹 글과, 이유도 없는 1점 리뷰와, 보도자료처럼 읽히는 5점 리뷰와, 다른 세대 트럭 이야기를 하는 2014년 포럼 스레드 사이를 헤매야 했습니다. 신호는 소음에 파묻혀 있었고, 정작 궁금한 "2만 마일 뒤에 어떻게 됐는지"는 아무도 말해주지 않았습니다.
+### 가이드가 만들어지는 방식
 
-그래서 제 차를 직접 기록하기 시작했습니다. 어떤 부품을, 얼마에 사서, 어떤 효과가 있었고, 무엇이 망가졌는지.
+모든 가이드는 같은 순서로 작성됩니다.
 
-### 저희가 실제로 하는 일
+- **1차 문서에서 출발합니다.** 제조사 호환표, 토크 스펙, 보증 조건, 설치 매뉴얼 — 제품 페이지 요약은 쓰지 않습니다. 그 요약은 매뉴얼과 어긋나는 경우가 흔합니다.
+- **공개된 스펙을 나란히 비교합니다.** 18만 원짜리 부품과 60만 원짜리 부품의 차이가 실제로 어디에 있는지, 그리고 어디에는 없는지 보이도록.
+- **모든 숫자의 출처를 밝힙니다.** 견인력 수치가 제조사 표에서 온 것이면 그렇게 씁니다. 1차 자료로 추적할 수 없는 숫자는 주장으로 싣지 않습니다.
+- **설치 노트를 정직하게 남깁니다** — 녹붙은 하드웨어, 리프트를 전제한 단계, 매뉴얼과 포럼이 서로 다른 토크 값.
 
-여기서 리뷰되는 모든 제품은 같은 방식으로 다룹니다.
+### 저희가 하지 않는 것
 
-- **제조사 자체 문서를 읽습니다** — 토크 스펙, 호환성 표, 보증 문구까지. 제품 페이지 요약을 믿는 대신에요.
-- **공개된 스펙을 나란히 비교합니다** — 18만 원짜리 부품과 60만 원짜리 부품이 실제로 어디서 갈리고, 어디서 갈리지 않는지 보이도록.
-- **숫자의 출처를 밝힙니다.** 견인력 수치가 제조사 표에서 온 것이면 그렇다고 쓰고, 저희가 직접 잰 것이면 그렇게 씁니다.
-- **설치 과정의 마찰을 기록합니다** — 녹슨 볼트, 빠진 하드웨어, 설명서가 거짓말한 단계까지. 작업이 반나절이냐 주말이냐를 가르는 건 그 부분입니다.
+제조사의 주장을 독립적인 검증인 것처럼 제시하지 않습니다. 이 사이트는 페이지에 출처가 명시되고 확인 가능하지 않은 한, 다이노 수치나 데시벨 측정값, 자체 측정 성능 수치를 싣지 않습니다.
 
-저희는 트럭 한 대를 중심으로 움직이는 작은 팀입니다. 한계가 있고, 그걸 숨기지 않습니다. 제 차에서 직접 검증하지 못한 것은 "직접 경험"이 아니라 "문서 기반 검토"라고 알려드립니다. 모든 글을 실험 보고서인 척하는 것보다, 그 차이를 분명히 하는 편이 낫습니다.
+그 절제는 부품 콘텐츠가 흔히 취하는 자신감 넘치는 어조를 포기하는 대가입니다. 대신 이 가이드들을 읽을 만하게 만드는 이유이기도 합니다.
 
-### 객관성에 대한 약속
+스펙이 개정됐거나, 부품이 단종됐거나, 업체가 공급처를 바꿨거나 하는 이유로 페이지가 바뀌면, 글을 수정하고 무엇이 바뀌었는지 밝힙니다.
 
-저희는 제휴(affiliate) 링크로 수익을 냅니다. 이런 사이트가 굴러가려면 필요한 일이고, 아닌 척하지 않겠습니다. 대신 드리는 약속은 더 좁고 더 쓸모 있습니다.
+### 수익 구조
 
-**수수료는 추천 여부를 결정하지 않고, 순위도 결정하지 않습니다.** 저희가 가장 높게 평가하는 부품 중에는 수수료가 0원인 것도 있습니다. 수수료가 가장 잘 나오는 부품 중에는 사지 말라고 말하는 것도 있습니다. 확인할 수 없는 주장은, 그럴듯한 문장으로 메우는 대신 확인할 수 없다고 씁니다.
+저희는 제휴 링크를 통해 수수료를 받습니다. 이런 출판물이 굴러가려면 필요한 일이고, 아닌 척하지 않겠습니다.
 
-새로운 사실을 알게 되어 평가가 바뀌면 — 부품이 고장 났다거나, 업체가 공급처를 바꿨다거나, 스펙이 개정됐다거나 — 글을 수정하고 무엇이 바뀌었는지 밝힙니다.
-
-### 왜 이중 언어인가
-
-튜닝 커뮤니티는 전 세계에 있고, 이 트럭들에 관한 가장 좋은 실전 지식 중 상당수는 영어권 오너들이 절대 못 보는 한국어 포럼과 정비소에 있습니다. 반대도 마찬가지고요. 이 사이트의 모든 글을 영어와 한국어로 함께 발행하는 이유는, 정보가 한쪽 언어에 고이지 않고 양방향으로 흐르게 하기 위해서입니다.
+대신 드리는 약속은 "편향 없음"보다 좁고, 더 쓸모 있습니다. **수수료는 추천 여부를 결정하지 않고, 순위도 결정하지 않습니다.** 저희가 높게 평가하는 부품 중에는 수수료가 0원인 것도 있고, 수수료가 잘 나오는 부품 중에는 사지 말라고 말하는 것도 있습니다.
 
 ### 앞으로
 
-Silverado는 이 사이트의 모든 것의 시험대입니다. 서스펜션, 인테이크와 배기, 휠과 타이어, 라이팅, 그리고 결국엔 과급기까지 — 빌드가 진행되는 만큼 리뷰도 함께 늘어납니다. 같은 트럭을 만지고 계시든, 전혀 다른 차를 만지고 계시든, 방법은 같습니다. 진짜를 기록하고, 가격을 정직하게 밝히고, 아무도 알려주지 않은 것을 적어두는 것.
+커버리지는 넓게가 아니라 의도적으로 넓혀갑니다. 서스펜션, 인테이크, 배기, 휠과 타이어, 브레이크, 튜닝을 먼저 다루고, 그다음 라이팅, 인테리어, 정비 순으로 이어집니다.
+
+아직 다루지 않은 차량을 만지고 계시고 특정 카테고리를 먼저 보고 싶으시면 알려주세요. 순서는 실제로 바뀝니다.
 
 읽어주셔서 감사합니다.
 
 ---
 
-## Vehicle of Record
+## Reference Vehicle
+
+The guides are written against the platform below. Specifications referenced on this site come from
+manufacturer documentation for this vehicle, not from instrumented testing.
 
 | | |
 |---|---|
@@ -94,6 +93,6 @@ Silverado는 이 사이트의 모든 것의 시험대입니다. 서스펜션, �
 | **Trim** | RST |
 | **Drivetrain** | 4x4 |
 | **Interior** | Leather |
-| **Role** | Primary test vehicle for all reviews |
+| **Role** | Reference platform for fitment and specification research |
 
 *Disclosure: CarModReview earns commissions from qualifying purchases made through links on this site. Commission rates do not influence ratings, rankings, or recommendations.*

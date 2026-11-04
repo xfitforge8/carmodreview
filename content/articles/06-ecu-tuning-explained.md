@@ -6,7 +6,7 @@ title:
 slug: ecu-tuning-explained
 category: Engine
 status: draft
-last_updated: 2026-11-01
+last_updated: 2026-10-24
 ---
 
 # Tuning Explained: Flash, Piggyback, and Standalone — and the Warranty Conversation

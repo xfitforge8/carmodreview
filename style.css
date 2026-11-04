@@ -1,0 +1,442 @@
+/* Car Mod Review — base styles */
+
+:root {
+  --ink: #14161a;
+  --ink-2: #3d434d;
+  --ink-3: #6b7280;
+  --paper: #fbfaf7;
+  --paper-2: #f2f0ea;
+  --rule: #ddd8cd;
+  --rust: #b4451f;
+  --rust-dk: #8a3417;
+  --teal: #1d5d5d;
+  --maxw: 720px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ink: #eceae5;
+    --ink-2: #b9b6ad;
+    --ink-3: #8b8880;
+    --paper: #16181c;
+    --paper-2: #1e2126;
+    --rule: #31353c;
+    --rust: #e2764b;
+    --rust-dk: #f0956f;
+    --teal: #6fb8b8;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: ui-serif, Georgia, "Iowan Old Style", "Times New Roman", serif;
+  font-size: 18px;
+  line-height: 1.68;
+}
+
+.wrap {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ---------- masthead ---------- */
+
+.masthead {
+  border-bottom: 2px solid var(--ink);
+  padding: 22px 0 16px;
+  margin-bottom: 44px;
+}
+
+.masthead-inner {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.brand {
+  font-family: ui-sans-serif, -apple-system, "Segoe UI", system-ui, sans-serif;
+  font-weight: 800;
+  font-size: 24px;
+  letter-spacing: -.6px;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.brand span { color: var(--rust); }
+
+.brand-sub {
+  display: block;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-top: 3px;
+}
+
+.nav {
+  display: flex;
+  gap: 18px;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.nav a {
+  color: var(--ink-2);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
+}
+
+.nav a:hover { border-bottom-color: var(--rust); color: var(--rust); }
+
+/* ---------- article ---------- */
+
+article { padding-bottom: 60px; }
+
+.kicker {
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: var(--rust);
+  margin-bottom: 12px;
+}
+
+h1 {
+  font-size: clamp(29px, 5.2vw, 42px);
+  line-height: 1.14;
+  letter-spacing: -.9px;
+  margin: 0 0 16px;
+  font-weight: 700;
+}
+
+.dek {
+  font-size: 20px;
+  line-height: 1.55;
+  color: var(--ink-2);
+  margin: 0 0 26px;
+}
+
+.byline {
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: 13px;
+  color: var(--ink-3);
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 11px 0;
+  margin-bottom: 34px;
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+h2 {
+  font-size: clamp(22px, 3.4vw, 27px);
+  letter-spacing: -.4px;
+  margin: 46px 0 14px;
+  line-height: 1.24;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 19px;
+  margin: 30px 0 8px;
+  font-weight: 700;
+  letter-spacing: -.2px;
+}
+
+p { margin: 0 0 19px; }
+
+a { color: var(--rust-dk); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+a:hover { color: var(--rust); }
+
+ul, ol { margin: 0 0 19px; padding-left: 24px; }
+li { margin-bottom: 8px; }
+
+strong { font-weight: 700; }
+
+/* ---------- disclosure ---------- */
+
+.disclosure {
+  background: var(--paper-2);
+  border-left: 3px solid var(--rust);
+  padding: 14px 18px;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--ink-2);
+  margin: 0 0 34px;
+}
+
+/* ---------- pick cards ---------- */
+
+.pick {
+  border: 1px solid var(--rule);
+  border-top: 4px solid var(--rust);
+  padding: 26px 24px;
+  margin: 0 0 30px;
+  background: var(--paper-2);
+}
+
+.pick-label {
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: var(--rust);
+  margin-bottom: 8px;
+}
+
+.pick h3 {
+  margin: 0 0 4px;
+  font-size: 22px;
+}
+
+.pick-price {
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: 14px;
+  color: var(--ink-3);
+  margin-bottom: 16px;
+}
+
+.pick p { font-size: 17px; }
+
+.spec {
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: 13.5px;
+  border-top: 1px solid var(--rule);
+  margin-top: 16px;
+  padding-top: 14px;
+  color: var(--ink-2);
+}
+
+.spec div { display: flex; gap: 10px; padding: 3px 0; }
+.spec dt { flex: 0 0 128px; color: var(--ink-3); margin: 0; }
+.spec dd { margin: 0; }
+
+.buyrow {
+  margin: 18px 0 0;
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.buy {
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--rust-dk);
+  text-decoration: none;
+  border-bottom: 2px solid var(--rust);
+  padding-bottom: 1px;
+}
+
+.buy:hover { color: var(--rust); }
+
+.buy-note {
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: 12px;
+  color: var(--ink-3);
+}
+
+/* ---------- table ---------- */
+
+.table-wrap { overflow-x: auto; margin: 0 0 26px; }
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: 13.5px;
+}
+
+th, td {
+  text-align: left;
+  padding: 9px 12px;
+  border-bottom: 1px solid var(--rule);
+  vertical-align: top;
+}
+
+th {
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  border-bottom: 2px solid var(--ink);
+}
+
+tbody tr:hover { background: var(--paper-2); }
+
+/* ---------- callout ---------- */
+
+.callout {
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--teal);
+  background: var(--paper-2);
+  padding: 16px 20px;
+  margin: 0 0 26px;
+  font-size: 16.5px;
+}
+
+.callout p:last-child { margin-bottom: 0; }
+
+.callout-title {
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 8px;
+}
+
+.unverified {
+  border: 1px dashed var(--rule);
+  padding: 16px 20px;
+  margin: 34px 0 0;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: 13.5px;
+  color: var(--ink-2);
+  line-height: 1.6;
+}
+
+.unverified h3 {
+  font-size: 13px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin: 0 0 10px;
+}
+
+/* ---------- footer ---------- */
+
+footer {
+  border-top: 2px solid var(--ink);
+  margin-top: 50px;
+  padding: 26px 0 60px;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: 13px;
+  color: var(--ink-3);
+  line-height: 1.6;
+}
+
+footer a { color: var(--ink-2); }
+footer p { margin: 0 0 10px; }
+
+/* ---------- index list ---------- */
+
+/* ---------- figures ---------- */
+
+.fig {
+  margin: 30px 0 32px;
+  padding: 0;
+}
+
+.fig img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 3px;
+}
+
+.fig--diagram {
+  /* the SVGs carry their own paper background and dark ink, so this card stays
+     light in both themes rather than framing a light drawing in a dark box */
+  background: #fbfaf7;
+  border: 1px solid #ddd8cd;
+  border-radius: 4px;
+  padding: 14px 14px 0;
+}
+
+.fig--diagram img {
+  background: #fbfaf7;
+  border-radius: 0;
+}
+
+.fig--diagram figcaption { color: #3d434d; }
+
+.fig--diagram .fig-kicker { color: #b4451f; }
+
+.fig--photo img {
+  border: 1px solid var(--rule);
+}
+
+.fig figcaption {
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--ink-2);
+  padding: 10px 2px 12px;
+  margin: 0;
+}
+
+.fig--photo figcaption { padding: 9px 2px 0; }
+
+.fig-kicker {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--rust);
+  margin-right: 7px;
+  white-space: nowrap;
+}
+
+/* a figure that sits directly under the dek, before the first section */
+.fig--lede { margin-top: 8px; }
+
+@media (max-width: 560px) {
+  .fig--diagram { padding: 8px 8px 0; }
+  .fig figcaption { font-size: 12.5px; }
+}
+
+/* ---------- post list ---------- */
+
+.post-list { list-style: none; padding: 0; margin: 0; }
+
+.post-list li {
+  border-bottom: 1px solid var(--rule);
+  padding: 20px 0;
+}
+
+.post-list a {
+  font-size: 21px;
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: -.3px;
+  color: var(--ink);
+  display: block;
+  line-height: 1.3;
+}
+
+.post-list a:hover { color: var(--rust-dk); }
+
+.post-list .meta {
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: 12.5px;
+  color: var(--ink-3);
+  margin-top: 5px;
+}
+
+@media (max-width: 560px) {
+  body { font-size: 17px; }
+  .pick { padding: 20px 16px; }
+  .spec dt { flex: 0 0 96px; }
+  .masthead { margin-bottom: 32px; }
+}

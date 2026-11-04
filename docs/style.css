@@ -341,6 +341,73 @@ footer p { margin: 0 0 10px; }
 
 /* ---------- index list ---------- */
 
+/* ---------- figures ---------- */
+
+.fig {
+  margin: 30px 0 32px;
+  padding: 0;
+}
+
+.fig img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 3px;
+}
+
+.fig--diagram {
+  /* the SVGs carry their own paper background and dark ink, so this card stays
+     light in both themes rather than framing a light drawing in a dark box */
+  background: #fbfaf7;
+  border: 1px solid #ddd8cd;
+  border-radius: 4px;
+  padding: 14px 14px 0;
+}
+
+.fig--diagram img {
+  background: #fbfaf7;
+  border-radius: 0;
+}
+
+.fig--diagram figcaption { color: #3d434d; }
+
+.fig--diagram .fig-kicker { color: #b4451f; }
+
+.fig--photo img {
+  border: 1px solid var(--rule);
+}
+
+.fig figcaption {
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--ink-2);
+  padding: 10px 2px 12px;
+  margin: 0;
+}
+
+.fig--photo figcaption { padding: 9px 2px 0; }
+
+.fig-kicker {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--rust);
+  margin-right: 7px;
+  white-space: nowrap;
+}
+
+/* a figure that sits directly under the dek, before the first section */
+.fig--lede { margin-top: 8px; }
+
+@media (max-width: 560px) {
+  .fig--diagram { padding: 8px 8px 0; }
+  .fig figcaption { font-size: 12.5px; }
+}
+
+/* ---------- post list ---------- */
+
 .post-list { list-style: none; padding: 0; margin: 0; }
 
 .post-list li {

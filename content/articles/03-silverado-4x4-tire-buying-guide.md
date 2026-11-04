@@ -5,7 +5,7 @@ title:
 slug: silverado-4x4-tire-buying-guide
 category: Wheels & Tires
 status: draft
-last_updated: 2026-11-01
+last_updated: 2026-10-09
 ---
 
 # Tire Buying for a Mostly-Street Silverado 4x4: Load Range, Size, and the E-Rated Trap

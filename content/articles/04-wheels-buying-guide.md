@@ -6,7 +6,7 @@ title:
 slug: wheels-buying-guide
 category: Wheels & Tires
 status: draft
-last_updated: 2026-11-01
+last_updated: 2026-10-15
 ---
 
 # How to Buy Aftermarket Wheels: Offset, Width, and What Actually Matters

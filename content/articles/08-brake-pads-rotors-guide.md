@@ -6,7 +6,7 @@ title:
 slug: brake-pads-rotors-guide
 category: Brakes
 status: draft
-last_updated: 2026-11-01
+last_updated: 2026-10-31
 ---
 
 # Brake Pads and Rotors: The Upgrade That Actually Makes You Faster

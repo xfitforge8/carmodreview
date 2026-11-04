@@ -1,6 +1,6 @@
 # Affiliate Disclosure / 제휴 고지 / Divulgación de Afiliados
 
-**Last updated: November 1, 2026**
+**Last updated: November 4, 2026**
 
 ---
 

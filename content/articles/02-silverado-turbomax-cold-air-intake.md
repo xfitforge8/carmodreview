@@ -5,7 +5,7 @@ title:
 slug: silverado-27-turbomax-cold-air-intake
 category: Engine
 status: draft
-last_updated: 2026-11-01
+last_updated: 2026-10-04
 ---
 
 # Cold Air Intake on the 2.7L TurboMax Silverado: Worth It or Just Noise?
@@ -34,7 +34,7 @@ Let's separate the mechanisms, because "adds 15 hp" collapses three different th
 
 ### Realistic expectations on the 2.7L
 
-Our position: **we have not dyno-tested our truck**, so we won't hand you a horsepower number. What we can tell you is what the mechanism supports and what owners consistently report.
+Our position: **no dyno figures are published here**, because no instrumented before/after test was run. What follows is what the mechanism supports and what owners consistently report across public forums.
 
 - Expect a **noticeable change in sound**, especially under load and during spool.
 - Expect **little to no seat-of-the-pants power change** without a tune. If someone tells you they felt 20 hp, ask if they also installed a tune at the same time — they usually did.
@@ -104,4 +104,4 @@ Don't buy it expecting a power gain you'll feel, and don't buy an open-cone desi
 
 ---
 
-> **Editor's note (remove before publishing):** No dyno figures are given deliberately — we've not measured our own truck. If you later run a before/after dyno, insert the numbers here and remove this note. Verify KBB spec citation is still current at publish time.
+> **Editor's note (remove before publishing):** No dyno figures are given deliberately — no instrumented before/after test was run. If a dyno run is ever completed, insert the numbers here and remove this note. Verify the KBB spec citation is still current at publish time.

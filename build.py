@@ -11,7 +11,7 @@ Design contract (matches the existing hand-written pages):
   * Every page: affiliate disclosure above the fold, "What we could not verify"
     block before the footer, real publish dates only.
 """
-import os, re, json, html, shutil, datetime, sys
+import os, re, json, html, shutil, datetime, sys, subprocess
 
 import markdown
 import yaml
@@ -19,7 +19,11 @@ import yaml
 ROOT = os.path.expanduser('~/carmodreview')
 SRC = os.path.join(ROOT, 'content')
 OUT = os.path.join(ROOT, 'docs')
+PHOTO_ROOT = os.path.join(SRC, 'photos')
 DOMAIN = 'https://carmodreview.com'
+
+from figures import (inject_figures, inject_home_figures, find_photos,
+                     diagram_html)
 
 CATEGORIES = {
     'Suspension':      ('suspension',      'Suspension',      '서스펜션',      'Suspensión'),
@@ -241,9 +245,9 @@ PAGE = """<!DOCTYPE html>
 """
 
 TAGLINE = {
-    'en': 'Car parts, tested against the marketing',
-    'kr': '마케팅이 아니라 실물로 검증하는 자동차 부품',
-    'es': 'Piezas de auto puestas a prueba contra el marketing',
+    'en': 'Car parts, checked against the published specs',
+    'kr': '공개 스펙과 대조하는 자동차 부품 정보',
+    'es': 'Piezas de auto contrastadas con las especificaciones publicadas',
 }
 
 
@@ -322,10 +326,28 @@ def build():
     # grab the assets we want to preserve from the existing site
     prev = os.path.join(ROOT, '_prev_docs')
     if os.path.isdir(prev):
-        for asset in ('style.css', 'og.png'):
+        for asset in ('og.png',):
             p = os.path.join(prev, asset)
             if os.path.exists(p):
                 shutil.copy(p, os.path.join(OUT, asset))
+    # style.css is tracked in the repo root now, not carried from _prev_docs
+    shutil.copy(os.path.join(ROOT, 'style.css'), os.path.join(OUT, 'style.css'))
+
+    # diagrams: regenerate so a content edit can never ship a stale figure
+    subprocess.run(['python3', os.path.join(ROOT, 'make_diagrams.py')],
+                   check=True, capture_output=True)
+    # real photos the owner supplied, if any exist yet. Only image files are
+    # published — the sidecar captions and the README stay out of the build.
+    if os.path.isdir(PHOTO_ROOT):
+        for dirpath, _, files in os.walk(PHOTO_ROOT):
+            for f in files:
+                if not f.lower().endswith(('.jpg', '.jpeg', '.png', '.webp', '.avif')):
+                    continue
+                srcp = os.path.join(dirpath, f)
+                relp = os.path.relpath(srcp, PHOTO_ROOT)
+                dst = os.path.join(OUT, 'img', 'photos', relp)
+                os.makedirs(os.path.dirname(dst), exist_ok=True)
+                shutil.copy(srcp, dst)
 
     index_entries = []
     for a in arts:
@@ -370,15 +392,18 @@ def build():
                              f'    <span>{mins} {UI[code]["minread"]}</span>\n'
                              f'  </div>\n')
             body_html.append(disclosure_html(code))
-            body_html.append(md2html(inner, '../' if not prefix else '../../'))
+            rel = '../' if not prefix else '../../'
+            art_html = md2html(inner, rel)
+            art_html = inject_figures(art_html, slug, code, rel,
+                                      find_photos(PHOTO_ROOT, slug))
+            body_html.append(art_html)
             if unver:
                 body_html.append(
                     f'\n  <div class="unverified">\n'
                     f'    <h3>{UI[code]["verified"]}</h3>\n'
-                    f'    {md2html(unver, "../" if not prefix else "../../")}\n'
+                    f'    {md2html(unver, rel)}\n'
                     f'  </div>\n')
 
-            rel = '../' if not prefix else '../../'
             canon = altmap[code]
             page = render_page(
                 lang=code, title=title, desc=dek or title, canonical=canon,
@@ -403,7 +428,8 @@ def build_legacy_pages():
     """Carry the hand-written pages that predate this generator forward verbatim.
 
     These are real published articles, not generated output; rmtree at the top
-    of build() would otherwise delete them.
+    of build() would otherwise delete them. The F-150 guide also gets the intake
+    diagram spliced in, since it predates the figure pipeline.
     """
     prev = os.path.join(ROOT, '_prev_docs')
     legacy = ['cold-air-intakes/best-cold-air-intake-f150-50l.html',
@@ -415,7 +441,12 @@ def build_legacy_pages():
             continue
         dst = os.path.join(OUT, relp)
         os.makedirs(os.path.dirname(dst), exist_ok=True)
-        shutil.copy(src, dst)
+        txt = open(src, encoding='utf-8').read()
+        if relp.endswith('best-cold-air-intake-f150-50l.html'):
+            fig = diagram_html('intake-path', 'en', '../')
+            txt = txt.replace('  <h2>The short answer</h2>',
+                              fig + '  <h2>The short answer</h2>', 1)
+        open(dst, 'w', encoding='utf-8').write(txt)
         n += 1
     if n:
         print(f'  carried forward {n} legacy page(s)')
@@ -438,6 +469,8 @@ def build_static_pages(index_entries):
             # the dek is the first blockquote-ish bold line
             title = 'Car Mod Review'
             body = md2html(md, rel)
+            body = inject_home_figures(body, code, rel,
+                                       find_photos(PHOTO_ROOT, 'home'))
             page = render_page(
                 lang=code, title=title if code != 'en' else
                 'Car Mod Review — Car, Truck & SUV Parts, Ranked',
@@ -529,7 +562,7 @@ def build_static_pages(index_entries):
 
     terms_inner = """
   <h1>Terms of Service</h1>
-  <p><em>Last updated 1 November 2026.</em></p>
+  <p><em>Last updated 4 November 2026.</em></p>
   <h2>What this site is</h2>
   <p>Car Mod Review publishes research and opinion about automotive parts. It is
   general information, not professional advice. Modification can affect your

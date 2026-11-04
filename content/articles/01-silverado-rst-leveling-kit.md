@@ -5,7 +5,7 @@ title:
 slug: silverado-rst-leveling-kit
 category: Suspension
 status: draft
-last_updated: 2026-11-01
+last_updated: 2026-09-29
 ---
 
 # Leveling Kit on a 2026 Silverado 1500 RST 4x4: What It Actually Changes

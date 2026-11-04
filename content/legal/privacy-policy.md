@@ -1,6 +1,6 @@
 # Privacy Policy / 개인정보 처리방침 / Política de Privacidad
 
-**Last updated: November 1, 2026**
+**Last updated: November 4, 2026**
 
 ---
 
