@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" role="img" aria-label="Car Mod Review">
+  <rect width="32" height="32" rx="6" fill="#b4451f"/>
+  <path d="M3 21.5 V18.6 Q3 16.2 5.4 16.2 H8.4 L11.2 9.8 Q11.7 8.7 12.9 8.7 H19.1 Q20.3 8.7 20.8 9.8 L23.6 16.2 H26.6 Q29 16.2 29 18.6 V21.5 Z" fill="#fbfaf7"/>
+  <path d="M12.6 10.2 H19.4 L21.6 15.4 H10.4 Z" fill="#14161a"/>
+  <circle cx="10.4" cy="21.5" r="4" fill="#14161a"/>
+  <circle cx="10.4" cy="21.5" r="1.5" fill="#fbfaf7"/>
+  <circle cx="21.6" cy="21.5" r="4" fill="#14161a"/>
+  <circle cx="21.6" cy="21.5" r="1.5" fill="#fbfaf7"/>
+</svg>

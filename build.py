@@ -430,6 +430,12 @@ PAGE = """<!DOCTYPE html>
 <meta name="twitter:description" content="{desc}">
 <meta name="twitter:image" content="{og_image}">
 <link rel="alternate" type="application/rss+xml" title="Car Mod Review" href="{domain}/feed.xml">
+<!-- Icons are absolute paths on purpose: pages live at /, /es/ and /kr/, so a
+     relative href would resolve to /es/favicon.ico and 404 in two languages. -->
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
 <link rel="stylesheet" href="{rel}style.css">
 {jsonld}{analytics}
 </head>
@@ -712,6 +718,40 @@ def build():
         p = os.path.join(ROOT, f)
         if os.path.exists(p):
             shutil.copy(p, os.path.join(OUT, f))
+
+    # Browser-tab icon set. All of these live in the repo root and are copied
+    # here because rmtree wiped them from docs/. Missing icons are silent --
+    # the tab just shows a blank page glyph -- so they are easy to lose without
+    # noticing. favicon.ico is what older browsers and Safari pinned tabs
+    # fetch; the SVG is what modern browsers prefer; the PNGs cover iOS home
+    # screens and Android. Regenerated from favicon.svg with:
+    #   sips -s format png favicon.svg --out out.png --resampleWidth N
+    for f in ('favicon.ico', 'favicon.svg', 'apple-touch-icon.png',
+              'icon-192.png', 'icon-512.png'):
+        p = os.path.join(ROOT, f)
+        if os.path.exists(p):
+            shutil.copy(p, os.path.join(OUT, f))
+        else:
+            print(f'    ! icon missing from repo root: {f}')
+
+    # Web app manifest. Android Chrome uses these icons when a reader adds the
+    # site to a home screen; without a manifest it falls back to a screenshot.
+    # Written rather than copied because it is five lines and lives nowhere else.
+    with open(os.path.join(OUT, 'site.webmanifest'), 'w', encoding='utf-8') as fh:
+        json.dump({
+            'name': 'Car Mod Review',
+            'short_name': 'Car Mod Review',
+            'description': 'Car and truck parts guides built from published '
+                           'specifications, with every source named.',
+            'start_url': '/',
+            'display': 'browser',
+            'background_color': '#fbfaf7',
+            'theme_color': '#14161a',
+            'icons': [
+                {'src': '/icon-192.png', 'sizes': '192x192', 'type': 'image/png'},
+                {'src': '/icon-512.png', 'sizes': '512x512', 'type': 'image/png'},
+            ],
+        }, fh, indent=2)
 
     # Google Search Console proves ownership by fetching this exact file at the
     # site root. It has to survive every rebuild -- rmtree at the top of build()
