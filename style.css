@@ -49,14 +49,16 @@ body {
 /* The page shell is wider than the article because it now carries a rail. */
 body > main.wrap { max-width: 1080px; }
 
-/* ---------- two-column layout with left rail ---------- */
+/* ---------- two-column layout: article left, panel right ---------- */
 
-/* Wider than the old 720px single column so the rail sits beside the article
-   instead of squeezing it. The article keeps roughly its previous measure. */
+/* Article carries the reading measurement, so it gets the flexible track and
+   the panel gets a fixed one. The panel is on the right to match the blog
+   layouts readers already know; source order stays article-then-panel so the
+   heading structure and the reading order remain correct with CSS off. */
 .layout {
   display: grid;
-  grid-template-columns: 168px minmax(0, 1fr);
-  gap: 44px;
+  grid-template-columns: minmax(0, 1fr) 224px;
+  gap: 52px;
   align-items: start;
   max-width: 1000px;
   margin: 0 auto;
@@ -66,9 +68,16 @@ body > main.wrap { max-width: 1080px; }
   position: sticky;
   top: 24px;
   font-family: ui-sans-serif, system-ui, sans-serif;
+  /* A sticky element taller than the viewport strands its own scrollbar and
+     cuts the last block off. Cap it and let the panel scroll on its own. */
+  max-height: calc(100vh - 48px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
 }
 
-.side-block { margin-bottom: 28px; }
+.side-block { margin-bottom: 30px; }
+.side-block:last-child { margin-bottom: 0; }
 
 .side-title {
   font-size: 10px;
@@ -91,6 +100,19 @@ body > main.wrap { max-width: 1080px; }
 
 .side-list li { margin: 0 0 7px; }
 
+/* Recent posts: title on its own line, category as a quiet caption beneath.
+   The category is a label, not a link, so it must not look tappable. */
+.side-list--posts li { margin: 0 0 13px; }
+.side-list--posts a { display: block; line-height: 1.35; }
+.side-cat {
+  display: block;
+  font-size: 10.5px;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-top: 2px;
+}
+
 .side-list a {
   color: var(--ink-2);
   text-decoration: none;
@@ -104,16 +126,20 @@ body > main.wrap { max-width: 1080px; }
 
 /* Below the rail's useful width, stack it above the article rather than
    letting it crush the text measure. */
-@media (max-width: 820px) {
+@media (max-width: 900px) {
   .layout {
     grid-template-columns: 1fr;
     gap: 0;
   }
+  /* Stacked, the panel follows the article. It loses its own scroll or it
+     would trap part of the page in a fixed-height box. */
   .side {
     position: static;
-    border-bottom: 1px solid var(--rule);
-    padding-bottom: 18px;
-    margin-bottom: 26px;
+    max-height: none;
+    overflow: visible;
+    border-top: 1px solid var(--rule);
+    padding-top: 22px;
+    margin-top: 40px;
   }
   .side-list {
     display: flex;
@@ -121,6 +147,9 @@ body > main.wrap { max-width: 1080px; }
     gap: 6px 18px;
   }
   .side-list li { margin: 0; }
+  /* Titles are long; a wrapped flex row of them reads as a paragraph. */
+  .side-list--posts { display: block; }
+  .side-list--posts li { margin: 0 0 11px; }
 }
 
 /* ---------- masthead ---------- */

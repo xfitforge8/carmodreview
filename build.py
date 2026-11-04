@@ -608,12 +608,12 @@ PAGE = """<!DOCTYPE html>
 
 <main class="wrap">
 {disclosure_block}<div class="layout">
-<aside class="side">
-{sidebar}
-</aside>
 <article>
 {body}
 </article>
+<aside class="side">
+{sidebar}
+</aside>
 </div>
 </main>
 
@@ -679,32 +679,68 @@ def build_disclosure(lang, rel, body_html):
     return DISCLOSURE[lang].format(rel=rel) + '\n'
 
 
-def default_sidebar(lang, rel):
-    """Category list for the left rail, the way a blog sidebar conventionally works.
+def default_sidebar(lang, rel, entries=None):
+    """The right-hand panel: recent posts, then categories.
 
-    Order follows CATEGORIES exactly — the same order the homepage lists the
+    Order follows CATEGORIES exactly -- the same order the homepage lists the
     categories in. It used to be sorted alphabetically by label, which put
     "Brakes" first in the rail and "Suspension" first in the body: two different
     orders for the same six things on the same page, with no way for a reader to
     reconcile them. Editorial order is a decision; alphabetical by translated
     label is just a property of the words.
+
+    Recent posts come first because that is what a reader arriving from search
+    actually wants: something else to read, not a taxonomy. The list is drawn
+    from the same index_entries the homepage uses, so the two can never drift
+    apart.
     """
     labels = {'en': 1, 'kr': 2, 'es': 3}
-    head = {'en': 'Categories', 'kr': '카테고리', 'es': 'Categorías'}[lang]
+    t = {
+        'en': ('Recent posts', 'Categories'),
+        'kr': ('최근 글', '카테고리'),
+        'es': ('Artículos recientes', 'Categorías'),
+    }[lang]
+
+    recent = ''
+    if entries:
+        # Newest first. Entries are keyed by last_updated, so a guide that was
+        # genuinely revised floats up -- which is the honest ordering for a site
+        # whose whole claim is that it keeps its figures current.
+        ordered = sorted(entries, key=lambda e: (e[0], e[1]), reverse=True)[:6]
+        rows = []
+        for date, slug, cat, cs, cl, ck, ce, meta in ordered:
+            if lang not in (meta.get('langs_all') or set()):
+                continue
+            title = (meta.get('title') or {}).get(lang) or \
+                    (meta.get('title') or {}).get('en') or slug
+            title = re.sub(r'^#+\s*', '', title).strip().strip('"')
+            catlabel = {'en': cl, 'kr': ck, 'es': ce}[lang]
+            rows.append(
+                f'        <li><a href="{rel}{cs}/{slug}.html">{html.escape(title)}</a>'
+                f'<span class="side-cat">{html.escape(catlabel)}</span></li>\n')
+        if rows:
+            recent = (f'    <div class="side-block">\n'
+                      f'      <h2 class="side-title">{t[0]}</h2>\n'
+                      f'      <ul class="side-list side-list--posts">\n'
+                      f'{"".join(rows)}      </ul>\n'
+                      f'    </div>\n')
+
     items = ''.join(
         f'        <li><a href="{rel}{HUBLESS.get(slug, slug + "/index.html")}">'
         f'{html.escape(label)}</a></li>\n'
         for slug, label in ((c[0], c[labels[lang]]) for c in CATEGORIES.values())
     )
-    return (f'    <div class="side-block">\n'
-            f'      <h2 class="side-title">{head}</h2>\n'
+    cats = (f'    <div class="side-block">\n'
+            f'      <h2 class="side-title">{t[1]}</h2>\n'
             f'      <ul class="side-list">\n{items}      </ul>\n'
             f'    </div>\n')
+
+    return recent + cats
 
 
 def render_page(*, lang, title, desc, canonical, body_html, rel, jsonld='',
                 og_type='website', alts=None, og_image=None, robots=None,
-                sidebar=''):
+                sidebar='', entries=None):
     alts = alts or {}
     alt = ''
     if alts:
@@ -729,7 +765,7 @@ def render_page(*, lang, title, desc, canonical, body_html, rel, jsonld='',
         disclosure_block=build_disclosure(lang, rel, body_html),
         alt_en=alts.get('en', canonical), alt_kr=alts.get('kr', canonical),
         alt_es=alts.get('es', canonical),
-        sidebar=sidebar or default_sidebar(lang, rel),
+        sidebar=sidebar or default_sidebar(lang, rel, entries),
     )
 
 
@@ -938,6 +974,20 @@ def build():
     index_entries = []
     feed_items = []
     search_items = []
+    # Built from the same source as index_entries below, but before the render
+    # loop: the sidebar on every page lists recent posts, and a page cannot wait
+    # for a list that is only finished after it has been written.
+    sidebar_entries = []
+    for a in arts:
+        m = a['meta']
+        cslug, clabel, ckr, ces = CATEGORIES.get(m.get('category', 'Engine'),
+                                                 ('engine', 'Engine', '엔진', 'Motor'))
+        sidebar_entries.append((
+            str(m.get('last_updated', '2026-11-01')),
+            m.get('slug') or slugify(a['file']),
+            m.get('category', 'Engine'), cslug, clabel, ckr, ces,
+            {'title': m.get('title') or {}, 'langs_all': set(a['langs'])},
+        ))
     for a in arts:
         meta = a['meta']
         meta['langs_all'] = set(a['langs'])
@@ -1031,6 +1081,7 @@ def build():
                 lang=code, title=page_title, desc=seo_desc, canonical=canon,
                 body_html='\n'.join(body_html), rel=rel,
                 jsonld=jsonld, og_type='article', alts=altmap, og_image=hero_img,
+                entries=sidebar_entries,
             )
             outdir = os.path.join(OUT, *( ([prefix.strip('/')] if prefix else []) + [catslug] ))
             os.makedirs(outdir, exist_ok=True)
@@ -1038,8 +1089,8 @@ def build():
                 f.write(page)
     print(f'  wrote {len(arts)} articles x {len(LANGS)} langs')
 
-    build_static_pages(index_entries)
-    build_category_pages(arts)
+    build_static_pages(index_entries, sidebar_entries)
+    build_category_pages(arts, sidebar_entries)
     build_legacy_pages()
     build_redirects()
     build_sitemap(arts)
@@ -1126,7 +1177,7 @@ def build_legacy_pages():
         print(f'  carried forward {n} legacy page(s)')
 
 
-def build_static_pages(index_entries):
+def build_static_pages(index_entries, sidebar_entries=None):
     """homepage, about, methodology, contact, legal x3, 404"""
     meta_about, body_about = read_doc(os.path.join(SRC, 'about-us.md'))
     langs_about, _ = split_langs(body_about)
@@ -1151,7 +1202,7 @@ def build_static_pages(index_entries):
                 desc='Car and truck parts guides built from published specifications, '
                      'with every source named. No invented numbers and no unverified claims.',
                 canonical=alts[code], body_html=body + '\n' + index_list_html(index_entries, code, rel),
-                rel=rel, alts=alts)
+                rel=rel, alts=alts, entries=index_entries)
             d = os.path.join(OUT, prefix.strip('/')) if prefix else OUT
             os.makedirs(d, exist_ok=True)
             open(os.path.join(d, 'index.html'), 'w', encoding='utf-8').write(page)
@@ -1169,7 +1220,7 @@ def build_static_pages(index_entries):
                       'es': 'Quién escribe CarModReview, cómo se escribe una guía y lo que '
                             'este sitio no hace.'}[code],
                 canonical=f'{DOMAIN}{prefix}/about.html',
-                body_html=md2html(md, rel), rel=rel,
+                body_html=md2html(md, rel), rel=rel, entries=sidebar_entries,
                 alts={'en': f'{DOMAIN}/about.html', 'kr': f'{DOMAIN}/kr/about.html',
                       'es': f'{DOMAIN}/es/about.html'})
             d = os.path.join(OUT, prefix.strip('/')) if prefix else OUT
@@ -1190,7 +1241,8 @@ def build_static_pages(index_entries):
             page = render_page(
                 lang='en', title='How we pick products | Car Mod Review',
                 desc='Our selection method: how products are compared, ranked and sourced.',
-                canonical=f'{DOMAIN}/methodology.html', body_html=inner, rel='')
+                canonical=f'{DOMAIN}/methodology.html', body_html=inner, rel='',
+                entries=sidebar_entries)
             open(os.path.join(OUT, 'methodology.html'), 'w', encoding='utf-8').write(page)
 
     # legal pages x3 languages. The affiliate disclosure is published now that
@@ -1236,7 +1288,8 @@ def build_static_pages(index_entries):
                 desc=legal_desc, canonical=alts[code],
                 body_html=stamp_email(f'  <h1>{html.escape(title)}</h1>\n'
                                       + md2html(md, '../../' if prefix else '../')),
-                rel='../../' if prefix else '../', alts=alts, og_type='article')
+                rel='../../' if prefix else '../', alts=alts, og_type='article',
+                entries=sidebar_entries)
             d = os.path.join(OUT, *( ([prefix.strip('/')] if prefix else []) + ['legal'] ))
             os.makedirs(d, exist_ok=True)
             open(os.path.join(d, f'{slug}.html'), 'w', encoding='utf-8').write(page)
@@ -1262,7 +1315,8 @@ def build_static_pages(index_entries):
                        desc='How to reach Car Mod Review, how corrections are handled, '
                             'and why we do not accept paid placement.',
                        canonical=f'{DOMAIN}/contact.html',
-                       body_html=stamp_email(contact_inner), rel='')
+                       body_html=stamp_email(contact_inner), rel='',
+                       entries=sidebar_entries)
     open(os.path.join(OUT, 'contact.html'), 'w', encoding='utf-8').write(page)
 
     terms_inner = """
@@ -1291,7 +1345,8 @@ def build_static_pages(index_entries):
                        desc='The terms that govern use of Car Mod Review: accuracy, '
                             'accuracy, liability and external links.',
                        canonical=f'{DOMAIN}/legal/terms-of-service.html',
-                       body_html=stamp_email(terms_inner), rel='../')
+                       body_html=stamp_email(terms_inner), rel='../',
+                       entries=sidebar_entries)
     open(os.path.join(OUT, 'legal', 'terms-of-service.html'), 'w', encoding='utf-8').write(page)
 
     # a 404 has nothing to index and nothing to rank; letting it be indexed
@@ -1300,7 +1355,8 @@ def build_static_pages(index_entries):
                      desc='That page does not exist. Browse the guides index instead.',
                      canonical=f'{DOMAIN}/404.html', robots='noindex, follow',
                      body_html='  <h1>Not found</h1>\n  <p>That page does not exist. '
-                               '<a href="index.html">Start from the homepage</a>.</p>', rel='')
+                               '<a href="index.html">Start from the homepage</a>.</p>', rel='',
+                     entries=sidebar_entries)
     open(os.path.join(OUT, '404.html'), 'w', encoding='utf-8').write(nf)
     print('  wrote static pages')
 
@@ -1357,7 +1413,7 @@ def index_list_html(index_entries, code, rel):
     return ''.join(out)
 
 
-def build_category_pages(arts):
+def build_category_pages(arts, sidebar_entries=None):
     by_cat = {}
     for a in arts:
         by_cat.setdefault(a['meta'].get('category', 'Engine'), []).append(a)
@@ -1406,7 +1462,8 @@ def build_category_pages(arts):
                                desc=(f'{name} guides built from published specifications — '
                                      'fitment, sizing and what the numbers actually mean.'),
                                canonical=alts[code], body_html=inner, rel=rel, alts=alts,
-                               jsonld=hub_jsonld, og_image=hub_img)
+                               jsonld=hub_jsonld, og_image=hub_img,
+                               entries=sidebar_entries)
             d = os.path.join(OUT, *( ([prefix.strip('/')] if prefix else []) + [cs] ))
             os.makedirs(d, exist_ok=True)
             open(os.path.join(d, 'index.html'), 'w', encoding='utf-8').write(page)
