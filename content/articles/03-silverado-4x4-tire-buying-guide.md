@@ -77,6 +77,88 @@ For a 2026 Silverado 1500 4x4 that mostly commutes and tows occasionally:
 
 The performance gain from a good tire over a cheap one is larger than the gain from most bolt-on engine parts. Spend here first.
 
+### Three all-terrains that fit, priced honestly
+
+Prices and review counts as the listings showed them on 4 November 2026. All of
+these are 33-inch all-terrains, which is the size most people land on for a
+mostly-street 4x4 &mdash; big enough to look right, small enough not to demand a
+regear or a lift.
+
+<div class="pick">
+  <div class="pick-label">Best value</div>
+  <h3>Milestar Patagonia A/T R (33" &mdash; 285/70R17)</h3>
+  <div class="pick-price">$176.95 &middot; 54 reviews &middot; open box from $123.87</div>
+  <p>The Patagonia is the tire this guide's argument points at: an all-terrain
+  that costs half what the boutique brands charge and, on the review count
+  available, does not appear to be failing in the way cheap tires usually fail.
+  Fifty-four reviews is enough to see a pattern, not enough to be certain.</p>
+  <p>Be honest about what the price buys and what it doesn't. A tire at $177 is
+  not going to match a Mickey Thompson for wet grip at the limit or for
+  treadlife under a loaded truck. For commuting, occasional towing and winter
+  that is mostly cold rain, it is the rational purchase.</p>
+  <dl class="spec">
+    <div><dt>Price</dt><dd>$176.95 each</dd></div>
+    <div><dt>Size</dt><dd>285/70R17 &mdash; approx. 33"</dd></div>
+    <div><dt>Type</dt><dd>All-terrain</dd></div>
+    <div><dt>Owner reviews</dt><dd>54</dd></div>
+  </dl>
+  <p class="buyrow"><a class="buy" href="https://www.americantrucks.com/milestar-silverado1500-patagonia-at-r-all-terrain-tire-285-70r17-24695003.html" rel="nofollow noopener" target="_blank">See the Patagonia A/T R&nbsp;&rarr;</a> <span class="buy-note">list price checked 4 Nov 2026</span></p>
+</div>
+
+<div class="pick">
+  <div class="pick-label">Best all-round</div>
+  <h3>NITTO Ridge Grappler A/T (33" &mdash; 285/70R17)</h3>
+  <div class="pick-price">$300.00 &middot; 33 reviews</div>
+  <p>The Ridge Grappler is what people buy when they want the aggressive
+  sidewall look without the mud-terrain noise, and it is the middle of this
+  group on price. NITTO has a long reputation on trucks and the listing carries
+  a working review count.</p>
+  <p>It is roughly $120 a corner more than the Milestar &mdash; about $480 across
+  four. Whether that is worth it depends on how much of your driving is wet or
+  loaded. If you tow regularly, yes. If you commute, the honest answer is that
+  you are buying appearance as much as grip, and that is a legitimate thing to
+  buy as long as you know that is what it is.</p>
+  <dl class="spec">
+    <div><dt>Price</dt><dd>$300.00 each</dd></div>
+    <div><dt>Size</dt><dd>285/70R17 &mdash; approx. 33"</dd></div>
+    <div><dt>Type</dt><dd>All-terrain, aggressive sidewall</dd></div>
+    <div><dt>Owner reviews</dt><dd>33</dd></div>
+  </dl>
+  <p class="buyrow"><a class="buy" href="https://www.americantrucks.com/nitto-silverado1500-ridge-grappler-all-terrain-tire-285-70r17-217710.html" rel="nofollow noopener" target="_blank">See the Ridge Grappler&nbsp;&rarr;</a> <span class="buy-note">list price checked 4 Nov 2026</span></p>
+</div>
+
+<div class="pick">
+  <div class="pick-label">If you tow</div>
+  <h3>Mickey Thompson Baja Boss A/T (33" &mdash; 285/70R17)</h3>
+  <div class="pick-price">$307.89 &middot; 41 reviews</div>
+  <p>The Baja Boss is the one to buy if you actually use the truck, because it
+  is the tire here most likely to be offered in a heavier load range for towing
+  &mdash; and this article has spent several sections explaining why that matters.
+  It is within $8 of the NITTO, so the choice between them is about which
+  construction you can actually get in your size, not about price.</p>
+  <p>Mickey Thompson is a name with a real off-road history rather than a
+  marketing department, and 41 reviews is a reasonable evidence base.</p>
+  <dl class="spec">
+    <div><dt>Price</dt><dd>$307.89 each</dd></div>
+    <div><dt>Size</dt><dd>285/70R17 &mdash; approx. 33"</dd></div>
+    <div><dt>Type</dt><dd>All-terrain</dd></div>
+    <div><dt>Owner reviews</dt><dd>41</dd></div>
+  </dl>
+  <p class="buyrow"><a class="buy" href="https://www.americantrucks.com/mickey-thompson-silverado1500-baja-boss-a-t-tire-285-70r17-90000049676.html" rel="nofollow noopener" target="_blank">See the Baja Boss A/T&nbsp;&rarr;</a> <span class="buy-note">list price checked 4 Nov 2026</span></p>
+</div>
+
+<div class="callout">
+  <div class="callout-title">Read this before you pick a load range</div>
+  <p>These listings quote sizes, not load ranges, and the load range is the whole
+  subject of this article. <strong>Confirm the load range on the specific SKU
+  before ordering</strong> &mdash; the same tyre name is often sold in both SL and
+  E, and the listing does not always make it obvious which you are buying.</p>
+  <p>We have not tested wet braking, treadlife or snow performance on any of
+  these, and none of the listings publishes measured data. Review counts are
+  reported instead of average scores because star ratings render inconsistently
+  across these pages.</p>
+</div>
+
 ---
 
 ## KR
