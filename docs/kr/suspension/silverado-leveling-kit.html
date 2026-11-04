@@ -204,34 +204,6 @@
 <p>견인이나 적재를 자주 한다면: <strong>기울기는 그대로 두세요.</strong> 뒤 에어백을 사세요. 비슷한 돈으로 실제 쓸 수 있는 능력을 얻습니다.</p>
 <p>진짜 오프로드 능력을 원한다면: 레벨링 킷을 건너뛰고 기하학이 보정된 정식 리프트를 사세요. 레벨링 킷은 자세 튜닝이고, 그걸 원한다고 말하는 데 부끄러울 건 없습니다. 다만 마케팅 페이지가 그걸 성능 업그레이드라고 설득하게 두지만 마세요.</p>
 <hr>
-
-  <section class="comments" id="comments">
-    <h2>댓글</h2>
-    <p class="comments-intro">계정은 필요 없습니다. 이름만 있으면 됩니다.</p>
-    <div id="waline"></div>
-    <script type="module">
-      import { init } from 'https://cdn.jsdelivr.net/npm/@waline/client@3/dist/waline.js';
-      // The site themes itself with prefers-color-scheme, so hand Waline a
-      // boolean rather than a selector: a selector like html:not([data-theme])
-      // also matches in light mode, which would render comments dark on a
-      // light page.
-      var mq = window.matchMedia("(prefers-color-scheme: dark)");
-      var waline = init({
-        el: "#waline",
-        serverURL: 'https://carmodreview-comments.vercel.app',
-        path: '/kr/suspension/silverado-leveling-kit.html',
-        lang: 'ko',
-        dark: mq.matches,
-        requiredMeta: ["nick"],
-        pageSize: 20,
-        search: false,
-      });
-      mq.addEventListener("change", function (e) {
-        waline.update({ dark: e.matches });
-      });
-    </script>
-  </section>
-
 </article>
 </div>
 </main>

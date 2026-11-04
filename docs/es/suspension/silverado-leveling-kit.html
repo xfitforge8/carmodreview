@@ -204,34 +204,6 @@
 <p>Si remolca o carga con regularidad: <strong>deje el rake en paz.</strong> Compre bolsas de aire traseras. Obtendrá más capacidad útil por un dinero similar.</p>
 <p>Si busca capacidad real fuera del asfalto: olvídese del kit de nivelación y compre una elevación de verdad con geometría corregida. Un kit de nivelación es una modificación de postura, y no tiene nada de malo admitir que es eso lo que quiere. Simplemente no deje que una página de marketing lo convenza de que es una mejora de rendimiento.</p>
 <hr>
-
-  <section class="comments" id="comments">
-    <h2>Comentarios</h2>
-    <p class="comments-intro">No hace falta cuenta. Con un nombre es suficiente.</p>
-    <div id="waline"></div>
-    <script type="module">
-      import { init } from 'https://cdn.jsdelivr.net/npm/@waline/client@3/dist/waline.js';
-      // The site themes itself with prefers-color-scheme, so hand Waline a
-      // boolean rather than a selector: a selector like html:not([data-theme])
-      // also matches in light mode, which would render comments dark on a
-      // light page.
-      var mq = window.matchMedia("(prefers-color-scheme: dark)");
-      var waline = init({
-        el: "#waline",
-        serverURL: 'https://carmodreview-comments.vercel.app',
-        path: '/es/suspension/silverado-leveling-kit.html',
-        lang: 'es',
-        dark: mq.matches,
-        requiredMeta: ["nick"],
-        pageSize: 20,
-        search: false,
-      });
-      mq.addEventListener("change", function (e) {
-        waline.update({ dark: e.matches });
-      });
-    </script>
-  </section>
-
 </article>
 </div>
 </main>

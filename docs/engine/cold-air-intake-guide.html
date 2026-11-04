@@ -224,34 +224,6 @@ differs.</p>
 <h3>Bottom line</h3>
 <p>Intakes are one of the most oversold modifications in the aftermarket. They can be a good purchase for sound, and as part of a tuned package. They are rarely a good purchase as a standalone power modification. Buy one knowing which of those you&rsquo;re doing, keep the filter properly oiled or use dry media, and clean the MAF.</p>
 <hr>
-
-  <section class="comments" id="comments">
-    <h2>Comments</h2>
-    <p class="comments-intro">No account needed. A name is enough.</p>
-    <div id="waline"></div>
-    <script type="module">
-      import { init } from 'https://cdn.jsdelivr.net/npm/@waline/client@3/dist/waline.js';
-      // The site themes itself with prefers-color-scheme, so hand Waline a
-      // boolean rather than a selector: a selector like html:not([data-theme])
-      // also matches in light mode, which would render comments dark on a
-      // light page.
-      var mq = window.matchMedia("(prefers-color-scheme: dark)");
-      var waline = init({
-        el: "#waline",
-        serverURL: 'https://carmodreview-comments.vercel.app',
-        path: '/engine/cold-air-intake-guide.html',
-        lang: 'en-US',
-        dark: mq.matches,
-        requiredMeta: ["nick"],
-        pageSize: 20,
-        search: false,
-      });
-      mq.addEventListener("change", function (e) {
-        waline.update({ dark: e.matches });
-      });
-    </script>
-  </section>
-
 </article>
 </div>
 </main>

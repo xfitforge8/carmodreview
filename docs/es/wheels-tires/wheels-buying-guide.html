@@ -206,34 +206,6 @@
 <h3>El orden correcto</h3>
 <p>Compre primero por ajuste correcto. Una llanta que encaja bien y pesa 2 lb más que la ideal le dará un coche mejor que una llanta más ligera con el offset equivocado. Acierte con el offset, verifique la capacidad de carga, use anillos centradores y tornillería correcta, y luego elija la construcción según el presupuesto. Todo lo demás es estética, y la estética es una razón legítima: simplemente no deje que gane a los números.</p>
 <hr>
-
-  <section class="comments" id="comments">
-    <h2>Comentarios</h2>
-    <p class="comments-intro">No hace falta cuenta. Con un nombre es suficiente.</p>
-    <div id="waline"></div>
-    <script type="module">
-      import { init } from 'https://cdn.jsdelivr.net/npm/@waline/client@3/dist/waline.js';
-      // The site themes itself with prefers-color-scheme, so hand Waline a
-      // boolean rather than a selector: a selector like html:not([data-theme])
-      // also matches in light mode, which would render comments dark on a
-      // light page.
-      var mq = window.matchMedia("(prefers-color-scheme: dark)");
-      var waline = init({
-        el: "#waline",
-        serverURL: 'https://carmodreview-comments.vercel.app',
-        path: '/es/wheels-tires/wheels-buying-guide.html',
-        lang: 'es',
-        dark: mq.matches,
-        requiredMeta: ["nick"],
-        pageSize: 20,
-        search: false,
-      });
-      mq.addEventListener("change", function (e) {
-        waline.update({ dark: e.matches });
-      });
-    </script>
-  </section>
-
 </article>
 </div>
 </main>

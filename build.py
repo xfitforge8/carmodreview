@@ -22,18 +22,6 @@ OUT = os.path.join(ROOT, 'docs')
 PHOTO_ROOT = os.path.join(SRC, 'photos')
 DOMAIN = 'https://carmodreview.com'
 
-# Reader comments. GitHub Pages is static, so comments need a hosted backend.
-# Waline is the one that is free, ad-free, and lets a reader post with just a
-# name and an email — no account, which is the difference between a comment
-# section people use and one they don't.
-#
-# Live server: a Vercel Hobby deployment (free) against Neon Postgres (free),
-# source at github.com/xfitforge8/carmodreview-comments. Waline does not create
-# its own tables, so that repo bootstraps the schema on the first request.
-# Until WALINE_SERVER_URL is set the comment block renders nothing at all, so the
-# build never ships an empty box or a script that 404s.
-WALINE_SERVER_URL = 'https://carmodreview-comments.vercel.app'
-
 import photos
 from photos import (inject_photos, find_photos, photo_html, category_photo,
                     CATEGORY_SOURCE)
@@ -563,7 +551,6 @@ def build():
                     f'  </div>\n')
 
             canon = altmap[code]
-            body_html.append(comments_html(code, canon.replace(DOMAIN, '') or '/'))
             shots = find_photos(PHOTO_ROOT, slug)
             hero_img = (f'{DOMAIN}/img/photos/{slug}/{os.path.basename(shots[0])}'
                         if shots else None)
@@ -836,56 +823,6 @@ def build_static_pages(index_entries):
                                '<a href="index.html">Start from the homepage</a>.</p>', rel='')
     open(os.path.join(OUT, '404.html'), 'w', encoding='utf-8').write(nf)
     print('  wrote static pages')
-
-
-def comments_html(code, thread):
-    """Comment section for the foot of an article.
-
-    Returns '' when no comment backend is configured, so the build never ships a
-    heading over an empty box or a script pointing at a server that isn't there.
-
-    `thread` is the page path, so a thread follows its URL and each language gets
-    its own. Waline is loaded as an ES module because v3 split its stylesheet out
-    of the JS; without the paired <link> the widget renders unstyled.
-
-    `login` is deliberately left unset. Setting it to a provider list would force
-    an account before anyone could post, which is the whole thing we're avoiding.
-    """
-    if not WALINE_SERVER_URL:
-        return ''
-    head = {'en': 'Comments', 'kr': '댓글', 'es': 'Comentarios'}[code]
-    intr = {'en': 'No account needed. A name is enough.',
-            'kr': '계정은 필요 없습니다. 이름만 있으면 됩니다.',
-            'es': 'No hace falta cuenta. Con un nombre es suficiente.'}[code]
-    lang = {'en': 'en-US', 'kr': 'ko', 'es': 'es'}[code]
-    return (
-        f'\n  <section class="comments" id="comments">\n'
-        f'    <h2>{head}</h2>\n'
-        f'    <p class="comments-intro">{intr}</p>\n'
-        f'    <div id="waline"></div>\n'
-        f'    <script type="module">\n'
-        f'      import {{ init }} from '
-        f"'https://cdn.jsdelivr.net/npm/@waline/client@3/dist/waline.js';\n"
-        f'      // The site themes itself with prefers-color-scheme, so hand Waline a\n'
-        f'      // boolean rather than a selector: a selector like html:not([data-theme])\n'
-        f'      // also matches in light mode, which would render comments dark on a\n'
-        f'      // light page.\n'
-        f'      var mq = window.matchMedia("(prefers-color-scheme: dark)");\n'
-        f'      var waline = init({{\n'
-        f'        el: "#waline",\n'
-        f'        serverURL: {WALINE_SERVER_URL!r},\n'
-        f'        path: {thread!r},\n'
-        f'        lang: {lang!r},\n'
-        f'        dark: mq.matches,\n'
-        f'        requiredMeta: ["nick"],\n'
-        f'        pageSize: 20,\n'
-        f'        search: false,\n'
-        f'      }});\n'
-        f'      mq.addEventListener("change", function (e) {{\n'
-        f'        waline.update({{ dark: e.matches }});\n'
-        f'      }});\n'
-        f'    </script>\n'
-        f'  </section>\n')
 
 
 def index_list_html(index_entries, code, rel):

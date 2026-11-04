@@ -218,34 +218,6 @@
 <p><strong>Llantas todoterreno con clasificación SL en la medida de fábrica, 3PMSF si tiene inviernos de verdad, rotadas según el calendario y con la presión ajustada por la prueba de la tiza.</strong> Compre la llanta para la conducción que hace, no para la del folleto. Si más adelante se encuentra remolcando cerca de la capacidad con regularidad, páse a E en ese momento y presupueste el cambio de confort.</p>
 <p>La ganancia de rendimiento de una buena llanta sobre una barata es mayor que la de casi cualquier pieza de motor atornillada. Gaste aquí primero.</p>
 <hr>
-
-  <section class="comments" id="comments">
-    <h2>Comentarios</h2>
-    <p class="comments-intro">No hace falta cuenta. Con un nombre es suficiente.</p>
-    <div id="waline"></div>
-    <script type="module">
-      import { init } from 'https://cdn.jsdelivr.net/npm/@waline/client@3/dist/waline.js';
-      // The site themes itself with prefers-color-scheme, so hand Waline a
-      // boolean rather than a selector: a selector like html:not([data-theme])
-      // also matches in light mode, which would render comments dark on a
-      // light page.
-      var mq = window.matchMedia("(prefers-color-scheme: dark)");
-      var waline = init({
-        el: "#waline",
-        serverURL: 'https://carmodreview-comments.vercel.app',
-        path: '/es/wheels-tires/silverado-4x4-tire-buying-guide.html',
-        lang: 'es',
-        dark: mq.matches,
-        requiredMeta: ["nick"],
-        pageSize: 20,
-        search: false,
-      });
-      mq.addEventListener("change", function (e) {
-        waline.update({ dark: e.matches });
-      });
-    </script>
-  </section>
-
 </article>
 </div>
 </main>
