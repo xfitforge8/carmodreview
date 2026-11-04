@@ -1,2 +1,6 @@
 .DS_Store
 _ovf.html
+_prev_docs/
+.DS_Store
+__pycache__/
+*.pyc
