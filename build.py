@@ -11,7 +11,8 @@ Design contract (matches the existing hand-written pages):
   * Every page: "What we could not verify"
     block before the footer, real publish dates only.
 """
-import os, re, json, html, shutil, datetime, sys, subprocess
+import os
+import re, json, html, shutil, datetime, sys, subprocess
 
 import markdown
 import yaml
@@ -718,6 +719,14 @@ def build():
         p = os.path.join(ROOT, f)
         if os.path.exists(p):
             shutil.copy(p, os.path.join(OUT, f))
+
+    # IndexNow key file. Bing, Yandex and Naver fetch /<key>.txt to prove the
+    # submitter controls the domain; without it their submissions are rejected.
+    # It must sit at the site root and be reachable, so it is copied every build
+    # for the same reason as the icons: rmtree takes docs/ with it.
+    for f in os.listdir(ROOT):
+        if f.endswith('.txt') and len(f) == 36 and re.fullmatch(r'[0-9a-f]{32}\.txt', f):
+            shutil.copy(os.path.join(ROOT, f), os.path.join(OUT, f))
 
     # Browser-tab icon set. All of these live in the repo root and are copied
     # here because rmtree wiped them from docs/. Missing icons are silent --

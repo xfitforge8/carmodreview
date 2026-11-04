@@ -1,0 +1,41 @@
+# Security headers for carmodreview.com.
+#
+# Applied at the Cloudflare edge rather than sent by GitHub Pages, which does
+# not let us set response headers. A transform rule is the supported way to add
+# them to a proxied static site.
+#
+# Deliberately NOT included: Content-Security-Policy. The site loads the
+# Cloudflare analytics beacon from a third-party origin, and a CSP written
+# without testing it would break that beacon or the site itself. Setting a
+# header that fails closed is worse than not setting it, so this is left for a
+# change that can be verified in a browser.
+#
+# X-XSS-Protection is also omitted on purpose: it is deprecated, and the
+# legacy filter it re-enables introduced vulnerabilities of its own.
+
+_set_headers:
+  - name: X-Content-Type-Options
+    value: nosniff
+    # Stops the browser guessing a MIME type, which is what turns an uploaded
+    # or mislabelled file into executable script.
+
+  - name: X-Frame-Options
+    value: SAMEORIGIN
+    # Blocks the site being framed. Note this is the older companion to
+    # CSP frame-ancestors; it is kept because it still covers old browsers.
+
+  - name: Referrer-Policy
+    value: strict-origin-when-cross-origin
+    # Without this, browsers send the full URL of a guide to AmericanTrucks
+    # when a reader clicks an affiliate link. That leaks your traffic and
+    # keyword data to a third party on every outbound click. This sends only
+    # the origin (https://carmodreview.com), which is what analytics needs.
+
+  - name: Permissions-Policy
+    value: geolocation=(), microphone=(), camera=()
+    # The site uses none of these, so nothing may request them.
+
+  - name: Strict-Transport-Security
+    value: max-age=31536000; includeSubDomains
+    # One year. No preload token: preload is effectively irreversible and
+    # should not be committed to without a deliberate decision.
