@@ -1230,7 +1230,7 @@ def build():
 
     build_static_pages(index_entries, sidebar_entries)
     build_category_pages(arts, sidebar_entries)
-    build_legacy_pages()
+    build_legacy_pages(sidebar_entries)
     build_redirects()
     build_sitemap(arts)
     build_feed(feed_items)
@@ -1268,7 +1268,7 @@ def build_redirects():
     print(f'  redirects: {len(REDIRECTS)} stub(s)')
 
 
-def build_legacy_pages():
+def build_legacy_pages(sidebar_entries=None):
     """Carry the hand-written pages that predate this generator forward verbatim.
 
     These are real published articles, not generated output; rmtree at the top
@@ -1300,6 +1300,37 @@ def build_legacy_pages():
         txt = re.sub(r'\s*<p[^>]*>\s*<strong>Affiliate note:</strong>.*?</p>\s*', '\n', txt, flags=re.S)
         txt = re.sub(r'\s*<p[^>]*>\s*We earn commissions?[^<]*</p>\s*', '\n', txt, flags=re.S)
         txt = re.sub(r'\s*<span>\d+\s+min read</span>', '', txt)
+
+        # The legacy pages were written before there was a named editor, so the
+        # byline says only "Published <date>" and the JSON-LD credits the
+        # Organization as author. Every generated article credits the Person.
+        # Two different authors on one site is a contradiction a search engine
+        # has to resolve by trusting neither, so bring the old page in line.
+        if relp.endswith('best-cold-air-intake-f150-50l.html'):
+            name, role = EDITOR['en']
+            txt = txt.replace(
+                '  <div class="byline">\n'
+                '    <span>Published 30 October 2026</span>\n'
+                '    <span>14 products compared</span>\n'
+                '  </div>',
+                '  <div class="byline">\n'
+                f'    <span class="byline-author">{UI["en"]["by"]} '
+                f'<a href="../about.html">{html.escape(name)}</a>, '
+                f'{html.escape(role)}</span>\n'
+                '    <span>Published 30 October 2026</span>\n'
+                '    <span>14 products compared</span>\n'
+                '  </div>', 1)
+            txt = txt.replace(
+                '"author": {\n        "@id": "https://carmodreview.com/#org"\n      },',
+                '"author": {\n        "@type": "Person",\n'
+                f'        "name": "{name}",\n'
+                '        "url": "https://carmodreview.com/about.html"\n      },', 1)
+            # and give it the same related block the generated articles get, or
+            # it stays the one page with no route to its siblings
+            rel_html = build_related('en', '../', sidebar_entries,
+                                     'cold-air-intake', 'Engine')
+            if rel_html:
+                txt = txt.replace('</article>', rel_html + '</article>', 1)
 
         # affiliate tagging and the matching disclosure, for pages that bypass
         # render_page and so never pass through action()
