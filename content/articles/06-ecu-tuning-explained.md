@@ -3,10 +3,17 @@ title:
   en: "Tuning Explained: Flash, Piggyback, and Standalone — and the Warranty Conversation"
   kr: "튜닝 해설: 플래시, 피기백, 스탠드얼론 — 그리고 보증 이야기"
   es: "La reprogramación explicada: flash, piggyback y standalone, y la conversación sobre la garantía"
+seo_title:
+  en: "Tuning Explained: Flash, Piggyback, Standalone"
+  es: "La reprogramación: flash, piggyback y standalone"
+seo_desc:
+  en: "Flash, piggyback or standalone: how each tune type works, what it changes, and the warranty conversation to have first."
+  es: "Flash, piggyback o standalone: cómo funciona cada tipo, qué cambia y la conversación de garantía que hay que tener antes."
 slug: ecu-tuning-explained
 category: Engine
 status: draft
-last_updated: 2026-10-24
+published: 2026-03-25
+last_updated: 2026-06-16
 ---
 
 # Tuning Explained: Flash, Piggyback, and Standalone — and the Warranty Conversation

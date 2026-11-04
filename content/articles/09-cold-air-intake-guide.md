@@ -3,10 +3,17 @@ title:
   en: "Cold Air Intake: What It Does, What It Doesn't, and the MAF Problem"
   kr: "콜드에어 인테이크: 하는 일, 못 하는 일, 그리고 MAF 문제"
   es: "Admisión de aire frío: qué hace, qué no hace y el problema del MAF"
+seo_title:
+  en: "Cold Air Intake: What It Does and the MAF Problem"
+  es: "Admisión de aire frío: qué hace y el problema del MAF"
+seo_desc:
+  en: "How a cold air intake actually works, why half of what's sold isn't one, and the MAF and heat-soak problems to avoid."
+  es: "Cómo funciona de verdad una admisión de aire frío, por qué la mitad no lo son, y los problemas de MAF y calor."
 slug: cold-air-intake-guide
 category: Engine
 status: draft
-last_updated: 2026-11-03
+published: 2026-05-13
+last_updated: 2026-07-07
 ---
 
 # Cold Air Intake: What It Does, What It Doesn't, and the MAF Problem

@@ -2,10 +2,17 @@
 title:
   en: "Tire Buying for a Mostly-Street Silverado 4x4: Load Range, Size, and the E-Rated Trap"
   kr: "온로드 위주 실버라도 4x4 타이어 고르기: 하중 등급, 사이즈, 그리고 E-등급의 함정"
+seo_title:
+  en: "Silverado 4x4 Tire Guide: Load Range, Size, E-Rated Trap"
+  kr: "실버라도 4x4 타이어 고르기: 하중 등급과 E-등급의 함정"
+seo_desc:
+  en: "Tire buying for a mostly-street Silverado 4x4: load range, why E-rated tires ride worse, and the size that fits stock."
+  kr: "온로드 위주 실버라도 4x4 타이어 고르기: 하중 등급, E-등급이 승차감을 해치는 이유, 그리고 순정에 맞는 사이즈."
 slug: silverado-4x4-tire-buying-guide
 category: Wheels & Tires
 status: draft
-last_updated: 2026-10-09
+published: 2026-02-11
+last_updated: 2026-05-19
 ---
 
 # Tire Buying for a Mostly-Street Silverado 4x4: Load Range, Size, and the E-Rated Trap

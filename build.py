@@ -22,8 +22,8 @@ OUT = os.path.join(ROOT, 'docs')
 PHOTO_ROOT = os.path.join(SRC, 'photos')
 DOMAIN = 'https://carmodreview.com'
 
-from figures import (inject_figures, inject_home_figures, find_photos, category_figure,
-                     diagram_html)
+from photos import (inject_photos, find_photos, photo_html, category_photo,
+                    CATEGORY_SOURCE)
 
 CATEGORIES = {
     'Suspension':      ('suspension',      'Suspension',      '서스펜션',      'Suspensión'),
@@ -38,20 +38,20 @@ LANGS = [('en', 'EN', ''), ('kr', 'KR', '/kr'), ('es', 'ES', '/es')]
 
 UI = {
     'en': dict(all_posts='All posts', how='How we pick', home='Home',
-               published='Published', minread='min read', verified='What we could not verify',
+               published='Published', updated='Updated', minread='min read', verified='What we could not verify',
                disc_title='Affiliate note',
                disc_body=('We earn commissions from qualifying purchases made through links '
                           'on this page. Commission never decides which products we pick or '
                           'where they rank.'),
                nav_cats='Categories', other='Read this in', on='on'),
     'kr': dict(all_posts='모든 글', how='선정 기준', home='홈',
-               published='발행일', minread='분 소요', verified='확인하지 못한 것',
+               published='발행일', updated='수정', minread='분 소요', verified='확인하지 못한 것',
                disc_title='제휴 고지',
                disc_body=('이 페이지의 링크를 통해 구매가 이루어지면 저희는 수수료를 받습니다. '
                           '수수료는 어떤 제품을 고르는지, 순위가 어떻게 되는지를 결정하지 않습니다.'),
                nav_cats='카테고리', other='다른 언어', on=''),
     'es': dict(all_posts='Todas las guías', how='Cómo elegimos', home='Inicio',
-               published='Publicado', minread='min de lectura', verified='Lo que no pudimos verificar',
+               published='Publicado', updated='Actualizado', minread='min de lectura', verified='Lo que no pudimos verificar',
                disc_title='Nota de afiliación',
                disc_body=('Ganamos comisiones por compras realizadas a través de los enlaces de '
                           'esta página. La comisión nunca decide qué productos elegimos ni en qué '
@@ -195,6 +195,7 @@ PAGE = """<!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{title}</title>
 <meta name="description" content="{desc}">
+<meta name="robots" content="{robots}">
 <link rel="canonical" href="{canonical}">
 {alt_links}
 <meta property="og:type" content="{og_type}">
@@ -203,8 +204,14 @@ PAGE = """<!DOCTYPE html>
 <meta property="og:title" content="{title}">
 <meta property="og:description" content="{desc}">
 <meta property="og:url" content="{canonical}">
-<meta property="og:image" content="{domain}/og.png">
+<meta property="og:image" content="{og_image}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{title}">
+<meta name="twitter:description" content="{desc}">
+<meta name="twitter:image" content="{og_image}">
+<link rel="alternate" type="application/rss+xml" title="Car Mod Review" href="{domain}/feed.xml">
 <link rel="stylesheet" href="{rel}style.css">
 {jsonld}
 </head>
@@ -260,7 +267,7 @@ TAGLINE = {
 
 
 def render_page(*, lang, title, desc, canonical, body_html, rel, jsonld='',
-                og_type='website', alts=None):
+                og_type='website', alts=None, og_image=None, robots=None):
     alts = alts or {}
     alt = ''
     if alts:
@@ -273,12 +280,70 @@ def render_page(*, lang, title, desc, canonical, body_html, rel, jsonld='',
     ui = UI[lang]
     return PAGE.format(
         lang_attr=HTML_LANG[lang], title=html.escape(title), desc=html.escape(desc),
+        robots=robots or 'index, follow, max-image-preview:large, max-snippet:-1',
         canonical=canonical, alt_links=alt, og_type=og_type, og_locale=OG_LOCALE[lang],
-        domain=DOMAIN, rel=rel, jsonld=jsonld, body=body_html,
+        og_image=og_image or f'{DOMAIN}/og.png',
+        domain=DOMAIN, rel=rel, jsonld=(jsonld + site_jsonld()), body=body_html,
         tagline=TAGLINE[lang], all_posts=ui['all_posts'], how=ui['how'], other=ui['other'],
         alt_en=alts.get('en', canonical), alt_kr=alts.get('kr', canonical),
         alt_es=alts.get('es', canonical),
     )
+
+
+def site_jsonld():
+    """Organization + WebSite graph, emitted on every page.
+
+    WebSite carries a SearchAction only if a site search exists, which this one
+    does not, so it is omitted rather than declared falsely.
+    """
+    return ('<script type="application/ld+json">\n' + json.dumps({
+        '@context': 'https://schema.org',
+        '@graph': [
+            {
+                '@type': 'Organization',
+                '@id': f'{DOMAIN}/#org',
+                'name': 'Car Mod Review',
+                'url': f'{DOMAIN}/',
+                'logo': {'@type': 'ImageObject', 'url': f'{DOMAIN}/og.png',
+                         'width': 1200, 'height': 630},
+                'description': ('Car and truck parts guides built from published '
+                                'specifications, with every source named.'),
+                'foundingDate': '2026',
+            },
+            {
+                '@type': 'WebSite',
+                '@id': f'{DOMAIN}/#site',
+                'url': f'{DOMAIN}/',
+                'name': 'Car Mod Review',
+                'publisher': {'@id': f'{DOMAIN}/#org'},
+                'inLanguage': ['en', 'ko', 'es'],
+            },
+        ],
+    }, ensure_ascii=False, indent=2) + '\n</script>')
+
+
+def breadcrumb_jsonld(trail):
+    """trail: [(name, url), ...] from the homepage down to this page."""
+    return ('<script type="application/ld+json">\n' + json.dumps({
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        'itemListElement': [
+            {'@type': 'ListItem', 'position': i + 1, 'name': name, 'item': url}
+            for i, (name, url) in enumerate(trail)
+        ],
+    }, ensure_ascii=False, indent=2) + '\n</script>')
+
+
+def faq_jsonld(pairs):
+    return ('<script type="application/ld+json">\n' + json.dumps({
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        'mainEntity': [
+            {'@type': 'Question', 'name': q,
+             'acceptedAnswer': {'@type': 'Answer', 'text': a}}
+            for q, a in pairs
+        ],
+    }, ensure_ascii=False, indent=2) + '\n</script>')
 
 
 def disclosure_html(lang):
@@ -288,17 +353,17 @@ def disclosure_html(lang):
             f'  </div>\n')
 
 
-def article_jsonld(title, desc, canonical, date, section, lang):
+def article_jsonld(title, desc, canonical, published, modified, section, lang, image=None):
     return ('<script type="application/ld+json">\n' + json.dumps({
         '@context': 'https://schema.org',
         '@type': 'Article',
         'headline': title,
         'description': desc,
-        'datePublished': date,
-        'dateModified': date,
+        'datePublished': published,
+        'dateModified': modified,
         'inLanguage': HTML_LANG[lang],
         'articleSection': section,
-        'image': [f'{DOMAIN}/og.png'],
+        'image': [image or f'{DOMAIN}/og.png'],
         'author': {'@type': 'Organization', 'name': 'Car Mod Review', '@id': f'{DOMAIN}/#org'},
         'publisher': {'@type': 'Organization', 'name': 'Car Mod Review', '@id': f'{DOMAIN}/#org'},
         'isAccessibleForFree': True,
@@ -341,10 +406,7 @@ def build():
     # style.css is tracked in the repo root now, not carried from _prev_docs
     shutil.copy(os.path.join(ROOT, 'style.css'), os.path.join(OUT, 'style.css'))
 
-    # diagrams: regenerate so a content edit can never ship a stale figure
-    subprocess.run(['python3', os.path.join(ROOT, 'make_diagrams.py')],
-                   check=True, capture_output=True)
-    # real photos the owner supplied, if any exist yet. Only image files are
+    # real photographs, copied from content/photos/. Only image files are
     # published — the sidecar captions and the README stay out of the build.
     if os.path.isdir(PHOTO_ROOT):
         for dirpath, _, files in os.walk(PHOTO_ROOT):
@@ -358,6 +420,7 @@ def build():
                 shutil.copy(srcp, dst)
 
     index_entries = []
+    feed_items = []
     for a in arts:
         meta = a['meta']
         meta['langs_all'] = set(a['langs'])
@@ -365,6 +428,7 @@ def build():
         catslug, catlabel, catkr, cates = CATEGORIES.get(cat, ('engine', cat, cat, cat))
         slug = meta.get('slug') or slugify(a['file'])
         date = str(meta.get('last_updated', '2026-11-01'))
+        published = str(meta.get('published', date))
         index_entries.append((date, slug, cat, catslug, catlabel, catkr, cates, meta))
 
         en_path = f'{catslug}/{slug}.html'
@@ -379,6 +443,19 @@ def build():
             raw = clean_md(a['langs'][code])
             title = (meta.get('title') or {}).get(code) or (meta.get('title') or {}).get('en') or slug
             title = re.sub(r'^#+\s*', '', title).strip().strip('"')
+            # seo_title keeps the full headline as the H1 while giving the <title>
+            # tag something that fits a search result. Falls back to the headline.
+            seo_title = ((meta.get('seo_title') or {}).get(code)
+                         or (meta.get('seo_title') or {}).get('en') or title)
+            seo_title = re.sub(r'^#+\s*', '', str(seo_title)).strip().strip('"')
+            # the site name is appended by the template, so budget for it here
+            page_title = (seo_title if len(seo_title) + 18 > 60
+                          else f'{seo_title} | Car Mod Review')
+            # the dek is the opening prose trimmed mid-sentence, which makes a
+            # 300-character meta description. Use the written one when present.
+            seo_desc = ((meta.get('seo_desc') or {}).get(code)
+                        or (meta.get('seo_desc') or {}).get('en') or dek or title)
+            seo_desc = re.sub(r'\s+', ' ', str(seo_desc)).strip()
             body_md = re.sub(r'^#[^\n]*\n', '', raw, count=1).lstrip()
             pre_md = extract_preamble(body_md)
             dek = re.sub(r'\s+', ' ', re.sub(r'[#*_>`]', '', pre_md))[:300].strip()
@@ -394,16 +471,18 @@ def build():
             body_html.append(f'  <h1>{html.escape(title)}</h1>\n')
             if dek:
                 body_html.append(f'  <p class="dek">{html.escape(dek)}</p>\n')
+            revised = (f' &middot; {UI[code]["updated"]} {date}'
+                       if published != date else '')
             body_html.append(f'  <div class="byline">\n'
-                             f'    <span>{UI[code]["published"]} {date}</span>\n'
+                             f'    <span>{UI[code]["published"]} {published}{revised}</span>\n'
                              f'    <span>{words:,} words</span>\n'
                              f'    <span>{mins} {UI[code]["minread"]}</span>\n'
                              f'  </div>\n')
             body_html.append(disclosure_html(code))
             rel = '../' if not prefix else '../../'
             art_html = md2html(inner, rel)
-            art_html = inject_figures(art_html, slug, code, rel,
-                                      find_photos(PHOTO_ROOT, slug))
+            art_html = inject_photos(art_html, slug, code, rel,
+                                     find_photos(PHOTO_ROOT, slug))
             body_html.append(art_html)
             if unver:
                 body_html.append(
@@ -413,12 +492,24 @@ def build():
                     f'  </div>\n')
 
             canon = altmap[code]
+            shots = find_photos(PHOTO_ROOT, slug)
+            hero_img = (f'{DOMAIN}/img/photos/{slug}/{os.path.basename(shots[0])}'
+                        if shots else None)
+            trail = [('Home', f'{DOMAIN}/{prefix}/index.html' if prefix else f'{DOMAIN}/'),
+                     (catlabel if code == 'en' else cat,
+                      f'{DOMAIN}{prefix}/{catslug}/index.html'),
+                     (title, canon)]
+            jsonld = (article_jsonld(title, seo_desc, canon, published, date,
+                                     catlabel if code == 'en' else cat, code, hero_img)
+                      + breadcrumb_jsonld(trail))
+            if code == 'en':
+                feed_items.append({'title': title, 'desc': seo_desc,
+                                   'url': canon, 'published': published,
+                                   'modified': date, 'section': catlabel})
             page = render_page(
-                lang=code, title=title, desc=dek or title, canonical=canon,
+                lang=code, title=page_title, desc=seo_desc, canonical=canon,
                 body_html='\n'.join(body_html), rel=rel,
-                jsonld=article_jsonld(title, dek or title, canon, date,
-                                      catlabel if code == 'en' else cat, code),
-                og_type='article', alts=altmap,
+                jsonld=jsonld, og_type='article', alts=altmap, og_image=hero_img,
             )
             outdir = os.path.join(OUT, *( ([prefix.strip('/')] if prefix else []) + [catslug] ))
             os.makedirs(outdir, exist_ok=True)
@@ -430,6 +521,7 @@ def build():
     build_category_pages(arts)
     build_legacy_pages()
     build_sitemap(arts)
+    build_feed(feed_items)
 
 
 def build_legacy_pages():
@@ -451,9 +543,11 @@ def build_legacy_pages():
         os.makedirs(os.path.dirname(dst), exist_ok=True)
         txt = open(src, encoding='utf-8').read()
         if relp.endswith('best-cold-air-intake-f150-50l.html'):
-            fig = diagram_html('intake-path', 'en', '../')
-            txt = txt.replace('  <h2>The short answer</h2>',
-                              fig + '  <h2>The short answer</h2>', 1)
+            shots = find_photos(PHOTO_ROOT, 'cold-air-intake-guide')
+            if shots:
+                fig = photo_html(shots[:1], 'cold-air-intake-guide', 'en', '../')
+                txt = txt.replace('  <h2>The short answer</h2>',
+                                  fig + '  <h2>The short answer</h2>', 1)
         open(dst, 'w', encoding='utf-8').write(txt)
         n += 1
     if n:
@@ -477,8 +571,8 @@ def build_static_pages(index_entries):
             # the dek is the first blockquote-ish bold line
             title = 'Car Mod Review'
             body = md2html(md, rel)
-            body = inject_home_figures(body, code, rel,
-                                       find_photos(PHOTO_ROOT, 'home'))
+            body = inject_photos(body, 'home', code, rel,
+                                 find_photos(PHOTO_ROOT, 'home'))
             page = render_page(
                 lang=code, title=title if code != 'en' else
                 'Car Mod Review — Car and Truck Parts, Checked Against the Specs',
@@ -537,9 +631,21 @@ def build_static_pages(index_entries):
             alts = {'en': f'{DOMAIN}/legal/{slug}.html',
                     'kr': f'{DOMAIN}/kr/legal/{slug}.html',
                     'es': f'{DOMAIN}/es/legal/{slug}.html'}
+            legal_desc = {
+                ('affiliate-disclosure', 'en'): 'How Car Mod Review earns money through '
+                    'affiliate links, and what that does not change about our recommendations.',
+                ('affiliate-disclosure', 'kr'): 'Car Mod Review가 제휴 링크로 수익을 얻는 방식과, 그것이 추천에 영향을 주지 않는 이유.',
+                ('affiliate-disclosure', 'es'): 'Cómo gana dinero Car Mod Review con enlaces de '
+                    'afiliado y qué no cambia eso en nuestras recomendaciones.',
+                ('privacy-policy', 'en'): 'What data Car Mod Review collects, how analytics and '
+                    'affiliate links are handled, and how to request deletion.',
+                ('privacy-policy', 'kr'): 'Car Mod Review가 수집하는 데이터, 분석 도구와 제휴 링크 처리 방식, 삭제 요청 방법.',
+                ('privacy-policy', 'es'): 'Qué datos recoge Car Mod Review, cómo se manejan las '
+                    'analíticas y los enlaces de afiliado, y cómo solicitar su eliminación.',
+            }.get((slug, code), title)
             page = render_page(
                 lang=code, title=f'{title} | Car Mod Review',
-                desc=title, canonical=alts[code],
+                desc=legal_desc, canonical=alts[code],
                 body_html=f'  <h1>{html.escape(title)}</h1>\n' + md2html(md, '../../' if prefix else '../'),
                 rel='../../' if prefix else '../', alts=alts, og_type='article')
             d = os.path.join(OUT, *( ([prefix.strip('/')] if prefix else []) + ['legal'] ))
@@ -564,7 +670,8 @@ def build_static_pages(index_entries):
   <p><strong>Affiliate and partnerships:</strong> same address, subject line "partnership".</p>
 """
     page = render_page(lang='en', title='Contact | Car Mod Review',
-                       desc='How to reach CarModReview, and how corrections are handled.',
+                       desc='How to reach Car Mod Review, how corrections are handled, '
+                            'and why we do not accept paid placement.',
                        canonical=f'{DOMAIN}/contact.html', body_html=contact_inner, rel='')
     open(os.path.join(OUT, 'contact.html'), 'w', encoding='utf-8').write(page)
 
@@ -595,13 +702,17 @@ def build_static_pages(index_entries):
   <p><a href="mailto:hello@carmodreview.com">hello@carmodreview.com</a></p>
 """
     page = render_page(lang='en', title='Terms of Service | Car Mod Review',
-                       desc='Terms governing use of CarModReview.',
+                       desc='The terms that govern use of Car Mod Review: accuracy, '
+                            'affiliate relationships, liability and external links.',
                        canonical=f'{DOMAIN}/legal/terms-of-service.html',
                        body_html=terms_inner, rel='../')
     open(os.path.join(OUT, 'legal', 'terms-of-service.html'), 'w', encoding='utf-8').write(page)
 
+    # a 404 has nothing to index and nothing to rank; letting it be indexed
+    # puts a dead URL in the results for the brand name
     nf = render_page(lang='en', title='Page not found | Car Mod Review',
-                     desc='That page does not exist.', canonical=f'{DOMAIN}/404.html',
+                     desc='That page does not exist. Browse the guides index instead.',
+                     canonical=f'{DOMAIN}/404.html', robots='noindex, follow',
                      body_html='  <h1>Not found</h1>\n  <p>That page does not exist. '
                                '<a href="index.html">Start from the homepage</a>.</p>', rel='')
     open(os.path.join(OUT, '404.html'), 'w', encoding='utf-8').write(nf)
@@ -659,18 +770,72 @@ def build_category_pages(arts):
             name = cl if code == 'en' else (ck if code == 'kr' else ce)
             inner = (f'  <div class="kicker">Car Mod Review</div>\n'
                      f'  <h1>{html.escape(name)}</h1>\n'
-                     + category_figure(cs, code, rel) +
+                     + category_photo(cs, code, rel, PHOTO_ROOT) +
                      f'  <ul class="post-list">\n{"".join(rows)}  </ul>\n')
             alts = {'en': f'{DOMAIN}/{cs}/index.html',
                     'kr': f'{DOMAIN}/kr/{cs}/index.html',
                     'es': f'{DOMAIN}/es/{cs}/index.html'}
+            trail = [('Home', f'{DOMAIN}/{prefix}/index.html' if prefix else f'{DOMAIN}/'),
+                     (name, alts[code])]
+            hub_jsonld = breadcrumb_jsonld(trail) + (
+                '<script type="application/ld+json">\n' + json.dumps({
+                    '@context': 'https://schema.org',
+                    '@type': 'CollectionPage',
+                    'name': f'{name} guides',
+                    'description': f'{name} buying and fitment guides, each built from '
+                                   'published specifications with sources named.',
+                    'url': alts[code],
+                    'isPartOf': {'@id': f'{DOMAIN}/#site'},
+                    'inLanguage': HTML_LANG[code],
+                }, ensure_ascii=False, indent=2) + '\n</script>')
+            hub_shots = find_photos(PHOTO_ROOT, (CATEGORY_SOURCE.get(cs) or [''])[0])
+            hub_img = (f'{DOMAIN}/img/photos/{(CATEGORY_SOURCE.get(cs) or [""])[0]}/'
+                       f'{os.path.basename(hub_shots[0])}' if hub_shots else None)
             page = render_page(lang=code, title=f'{name} | Car Mod Review',
-                               desc=f'{name} guides, ranked and sourced.',
-                               canonical=alts[code], body_html=inner, rel=rel, alts=alts)
+                               desc=(f'{name} guides built from published specifications — '
+                                     'fitment, sizing and what the numbers actually mean.'),
+                               canonical=alts[code], body_html=inner, rel=rel, alts=alts,
+                               jsonld=hub_jsonld, og_image=hub_img)
             d = os.path.join(OUT, *( ([prefix.strip('/')] if prefix else []) + [cs] ))
             os.makedirs(d, exist_ok=True)
             open(os.path.join(d, 'index.html'), 'w', encoding='utf-8').write(page)
     print(f'  wrote {len(by_cat)} category hubs x3 langs')
+
+
+def build_feed(items):
+    """RSS 2.0 feed of the English guides, newest first.
+
+    Every page links to this at /feed.xml, so it has to exist — a rel=alternate
+    pointing at a 404 is worse than no link at all. Dates are the real
+    datePublished values, not the build date.
+    """
+    def rfc822(d):
+        return datetime.datetime.strptime(d, '%Y-%m-%d').strftime('%a, %d %b %Y 00:00:00 +0000')
+
+    items = sorted(items, key=lambda i: (i['published'], i['url']), reverse=True)
+    last = items[0]['modified'] if items else datetime.date.today().isoformat()
+    out = ['<?xml version="1.0" encoding="UTF-8"?>',
+           '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">',
+           '  <channel>',
+           '    <title>Car Mod Review</title>',
+           f'    <link>{DOMAIN}/</link>',
+           '    <description>Car and truck parts guides built from published '
+           'specifications, with every source named.</description>',
+           '    <language>en</language>',
+           f'    <lastBuildDate>{rfc822(last)}</lastBuildDate>',
+           f'    <atom:link href="{DOMAIN}/feed.xml" rel="self" type="application/rss+xml"/>']
+    for i in items:
+        out.append('    <item>')
+        out.append(f"      <title>{html.escape(i['title'], quote=False)}</title>")
+        out.append(f"      <link>{i['url']}</link>")
+        out.append(f'      <guid isPermaLink="true">{i["url"]}</guid>')
+        out.append(f'      <category>{html.escape(i["section"], quote=False)}</category>')
+        out.append(f'      <pubDate>{rfc822(i["published"])}</pubDate>')
+        out.append(f"      <description>{html.escape(i['desc'], quote=False)}</description>")
+        out.append('    </item>')
+    out += ['  </channel>', '</rss>']
+    open(os.path.join(OUT, 'feed.xml'), 'w', encoding='utf-8').write('\n'.join(out) + '\n')
+    print(f'  feed: {len(items)} items')
 
 
 def build_sitemap(arts):
@@ -683,10 +848,16 @@ def build_sitemap(arts):
         for code, _, prefix in LANGS:
             if code in a['langs']:
                 urls.append((f'{DOMAIN}{prefix}/{cs}/{slug}.html', d))
+    # Static pages do not all exist in every language — about, methodology,
+    # contact and terms are per-language authored, not generated. List a URL only
+    # when build_static_pages actually writes it, or the sitemap advertises 404s.
     for path in ('index.html', 'about.html', 'methodology.html', 'contact.html',
                  'legal/affiliate-disclosure.html', 'legal/privacy-policy.html',
                  'legal/terms-of-service.html'):
-        urls.append((f'{DOMAIN}/{path}', today))
+        for code, _, prefix in LANGS:
+            if os.path.exists(os.path.join(OUT, *(prefix.strip('/').split('/')
+                                                 if prefix else []), path)):
+                urls.append((f'{DOMAIN}{prefix}/{path}', today))
     cats = sorted({CATEGORIES.get(a['meta'].get('category'), ('engine',))[0] for a in arts})
     for c in cats:
         for code, _, prefix in LANGS:

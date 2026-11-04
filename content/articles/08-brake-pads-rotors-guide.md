@@ -3,10 +3,17 @@ title:
   en: "Brake Pads and Rotors: The Upgrade That Actually Makes You Faster"
   kr: "브레이크 패드와 디스크: 실제로 더 빨라지게 만드는 업그레이드"
   es: "Pastillas y discos de freno: la mejora que de verdad te hace más rápido"
+seo_title:
+  en: "Brake Pads and Rotors: The Upgrade That Makes You Faster"
+  es: "Pastillas y discos de freno: qué mejora de verdad"
+seo_desc:
+  en: "Brake pads and rotors: what upgrading actually changes, bedding procedure, and the pads that trade dust for bite."
+  es: "Pastillas y discos de freno: qué cambia de verdad una mejora, el rodaje correcto y las pastillas que cambian polvo por mordiente."
 slug: brake-pads-rotors-guide
 category: Brakes
 status: draft
-last_updated: 2026-10-31
+published: 2026-04-22
+last_updated: 2026-06-30
 ---
 
 # Brake Pads and Rotors: The Upgrade That Actually Makes You Faster

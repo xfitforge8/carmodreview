@@ -82,17 +82,4 @@ CarModReview는 지루한 부분을 제대로 해보려는 시도입니다. 실�
 
 ---
 
-## Reference Vehicle
-
-The guides are written against the platform below. Specifications referenced on this site come from
-manufacturer documentation for this vehicle, not from instrumented testing.
-
-| | |
-|---|---|
-| **Year / Model** | 2026 Chevrolet Silverado 1500 |
-| **Trim** | RST |
-| **Drivetrain** | 4x4 |
-| **Interior** | Leather |
-| **Role** | Reference platform for fitment and specification research |
-
 *Disclosure: CarModReview earns commissions from qualifying purchases made through links on this site. Commission rates do not influence ratings, rankings, or recommendations.*

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Car Mod Review</title>
+    <link>https://carmodreview.com/</link>
+    <description>Car and truck parts guides built from published specifications, with every source named.</description>
+    <language>en</language>
+    <lastBuildDate>Tue, 07 Jul 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://carmodreview.com/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Cold Air Intake: What It Does, What It Doesn't, and the MAF Problem</title>
+      <link>https://carmodreview.com/engine/cold-air-intake-guide.html</link>
+      <guid isPermaLink="true">https://carmodreview.com/engine/cold-air-intake-guide.html</guid>
+      <category>Engine &amp; Intake</category>
+      <pubDate>Wed, 13 May 2026 00:00:00 +0000</pubDate>
+      <description>How a cold air intake actually works, why half of what's sold isn't one, and the MAF and heat-soak problems to avoid.</description>
+    </item>
+    <item>
+      <title>Brake Pads and Rotors: The Upgrade That Actually Makes You Faster</title>
+      <link>https://carmodreview.com/brakes/brake-pads-rotors-guide.html</link>
+      <guid isPermaLink="true">https://carmodreview.com/brakes/brake-pads-rotors-guide.html</guid>
+      <category>Brakes</category>
+      <pubDate>Wed, 22 Apr 2026 00:00:00 +0000</pubDate>
+      <description>Brake pads and rotors: what upgrading actually changes, bedding procedure, and the pads that trade dust for bite.</description>
+    </item>
+    <item>
+      <title>Suspension Upgrades: Springs, Coilovers, and Why Cheap Kits Ruin Cars</title>
+      <link>https://carmodreview.com/suspension/suspension-upgrades-guide.html</link>
+      <guid isPermaLink="true">https://carmodreview.com/suspension/suspension-upgrades-guide.html</guid>
+      <category>Suspension</category>
+      <pubDate>Wed, 08 Apr 2026 00:00:00 +0000</pubDate>
+      <description>Springs, coilovers and the cheap kits that ruin rides: how each upgrade works and where the money is worth spending.</description>
+    </item>
+    <item>
+      <title>Tuning Explained: Flash, Piggyback, and Standalone — and the Warranty Conversation</title>
+      <link>https://carmodreview.com/engine/ecu-tuning-explained.html</link>
+      <guid isPermaLink="true">https://carmodreview.com/engine/ecu-tuning-explained.html</guid>
+      <category>Engine &amp; Intake</category>
+      <pubDate>Wed, 25 Mar 2026 00:00:00 +0000</pubDate>
+      <description>Flash, piggyback or standalone: how each tune type works, what it changes, and the warranty conversation to have first.</description>
+    </item>
+    <item>
+      <title>Exhaust Systems Explained: Cat-Back vs Axle-Back, Sound vs Drone, and Legal Reality</title>
+      <link>https://carmodreview.com/exhaust/exhaust-systems-explained.html</link>
+      <guid isPermaLink="true">https://carmodreview.com/exhaust/exhaust-systems-explained.html</guid>
+      <category>Exhaust</category>
+      <pubDate>Wed, 11 Mar 2026 00:00:00 +0000</pubDate>
+      <description>Cat-back vs axle-back, why drone happens, and what the law says. An exhaust guide with the mechanisms named.</description>
+    </item>
+    <item>
+      <title>How to Buy Aftermarket Wheels: Offset, Width, and What Actually Matters</title>
+      <link>https://carmodreview.com/wheels-tires/wheels-buying-guide.html</link>
+      <guid isPermaLink="true">https://carmodreview.com/wheels-tires/wheels-buying-guide.html</guid>
+      <category>Wheels &amp; Tires</category>
+      <pubDate>Wed, 25 Feb 2026 00:00:00 +0000</pubDate>
+      <description>How offset and width actually change how a car drives, and which wheel specs matter once you look past marketing.</description>
+    </item>
+    <item>
+      <title>Tire Buying for a Mostly-Street Silverado 4x4: Load Range, Size, and the E-Rated Trap</title>
+      <link>https://carmodreview.com/wheels-tires/silverado-4x4-tire-buying-guide.html</link>
+      <guid isPermaLink="true">https://carmodreview.com/wheels-tires/silverado-4x4-tire-buying-guide.html</guid>
+      <category>Wheels &amp; Tires</category>
+      <pubDate>Wed, 11 Feb 2026 00:00:00 +0000</pubDate>
+      <description>Tire buying for a mostly-street Silverado 4x4: load range, why E-rated tires ride worse, and the size that fits stock.</description>
+    </item>
+    <item>
+      <title>Cold Air Intake on the 2.7L TurboMax Silverado: Worth It or Just Noise?</title>
+      <link>https://carmodreview.com/engine/silverado-27-turbomax-cold-air-intake.html</link>
+      <guid isPermaLink="true">https://carmodreview.com/engine/silverado-27-turbomax-cold-air-intake.html</guid>
+      <category>Engine &amp; Intake</category>
+      <pubDate>Wed, 28 Jan 2026 00:00:00 +0000</pubDate>
+      <description>Cold air intake on the 2.7L TurboMax Silverado: what it can and cannot do, and the MAF failure nobody warns you about.</description>
+    </item>
+    <item>
+      <title>Leveling Kit on a 2026 Silverado 1500 RST 4x4: What It Actually Changes</title>
+      <link>https://carmodreview.com/suspension/silverado-rst-leveling-kit.html</link>
+      <guid isPermaLink="true">https://carmodreview.com/suspension/silverado-rst-leveling-kit.html</guid>
+      <category>Suspension</category>
+      <pubDate>Wed, 14 Jan 2026 00:00:00 +0000</pubDate>
+      <description>What a leveling kit changes on a 2026 Silverado 1500 RST 4x4: ride height, geometry, alignment, and the parts that wear.</description>
+    </item>
+  </channel>
+</rss>

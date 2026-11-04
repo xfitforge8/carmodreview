@@ -3,10 +3,17 @@ title:
   en: "How to Buy Aftermarket Wheels: Offset, Width, and What Actually Matters"
   kr: "애프터마켓 휠 구매 가이드: 오프셋, 폭, 그리고 실제로 중요한 것"
   es: "Cómo comprar llantas de aleación: offset, ancho y lo que realmente importa"
+seo_title:
+  en: "Aftermarket Wheels: Offset, Width, and What Matters"
+  es: "Cómo comprar llantas de aleación: offset y ancho"
+seo_desc:
+  en: "How offset and width actually change how a car drives, and which wheel specs matter once you look past marketing."
+  es: "Cómo el offset y el ancho cambian de verdad el comportamiento del coche, y qué especificaciones importan."
 slug: wheels-buying-guide
 category: Wheels & Tires
 status: draft
-last_updated: 2026-10-15
+published: 2026-02-25
+last_updated: 2026-06-02
 ---
 
 # How to Buy Aftermarket Wheels: Offset, Width, and What Actually Matters

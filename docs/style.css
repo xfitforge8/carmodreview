@@ -375,6 +375,14 @@ footer p { margin: 0 0 10px; }
 
 .fig--photo img {
   border: 1px solid var(--rule);
+  /* The imported photography is mostly portrait: at full column width it runs
+     taller than a laptop screen. Cap the height and let the width follow the
+     file's own aspect ratio, centred — cropping with object-fit would cut the
+     subject out of a tall frame. */
+  width: auto;
+  max-width: 100%;
+  max-height: 620px;
+  margin: 0 auto;
 }
 
 .fig figcaption {

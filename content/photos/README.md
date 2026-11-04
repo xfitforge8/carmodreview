@@ -1,68 +1,77 @@
 # Photos
 
-Drop real photographs here and they appear on the site at the next build. Nothing
-in this folder is required — the site builds and looks complete without it.
+Real photographs, placed into articles at build time. The build publishes only the
+image files — this README and the `.txt` caption sidecars stay out of the site.
 
-The build only publishes image files. This README and any `.txt` caption files
-stay out of the published site.
+## What is in here now
 
-## How to add a photo to an article
+Licensed stock photography from Pexels, chosen because a real photograph of the
+actual component beats a drawing, and because the Pexels licence permits commercial
+use without requiring attribution.
 
-1. Make a folder named after the article slug. The slug is the `slug:` line at
-   the top of the article file, e.g. `silverado-rst-leveling-kit`.
+Every image here must satisfy all four of these:
+
+1. **It actually shows what the caption says it shows.** This is the one that goes
+   wrong. Verify against the source page's own description, not against your memory
+   of the thumbnail.
+2. **The licence permits commercial use.** Pexels does. Most "free photo" sites do
+   not, and manufacturer press images almost never do.
+3. **The caption names the photographer and the source.** Pexels does not require
+   it; we do it anyway, because a caption that names its source is the entire
+   editorial position of this site.
+4. **It is never presented as evidence of our own testing.** A photo illustrates a
+   component. It is not proof that we installed, measured or drove anything.
+
+**What is still forbidden:** an image presented as first-hand work when it is not,
+a stock photo of an unrelated car standing in for a specific vehicle, or a caption
+describing something the frame does not contain.
+
+## Adding a photo to an article
+
+1. Make a folder named after the article slug — the `slug:` line at the top of the
+   article file:
 
    ```
    content/photos/silverado-rst-leveling-kit/
    ```
 
-2. Put the image in it. All of these extensions work:
+2. Put the image in it. `.jpg` `.jpeg` `.png` `.webp` `.avif` all work. Name it
+   `NN-<pexelsid>.jpg` so the source stays traceable from the filename. Files are
+   used in filename order.
 
-   `.jpg` `.jpeg` `.png` `.webp` `.avif`
-
-3. Optionally, add a caption. Create a text file with the same name as the image
-   but a `.txt` extension:
+3. Add the caption as a `.txt` with the same basename:
 
    ```
-   content/photos/silverado-rst-leveling-kit/front-spring.jpg
-   content/photos/silverado-rst-leveling-kit/front-spring.txt
+   content/photos/silverado-rst-leveling-kit/01-33324954.jpg
+   content/photos/silverado-rst-leveling-kit/01-33324954.txt
    ```
 
-   The `.txt` holds one line of plain text, which becomes the caption. **With no
-   `.txt` the figure still appears but carries no caption.** No caption is ever
-   generated for you — an invented one would be a claim the photo does not
-   support.
+   One line of plain text. **No `.txt` means no caption** — the figure still
+   appears, uncaptioned. A caption is never generated, because an invented one is
+   a claim the photo does not support.
 
 4. Run `python3 build.py`.
 
-Photos appear in filename order, all on the English article page. They land
-after the diagrams, distributed between the article's section headings.
+The first photo is the hero, above the opening prose. The rest go one per section
+heading, at the end of each section. Photos appear on the English page only —
+captions are written in English and are not machine-translated onto the KR/ES pages.
 
-## How to add a photo to the homepage
+## Homepage and category hubs
 
-Make a folder named `home` instead:
+- `content/photos/home/` — homepage figures.
+- A category hub borrows the lead photo of its most representative article; the
+  mapping is `CATEGORY_SOURCE` in `photos.py`.
 
-```
-content/photos/home/
-```
+## Checking a caption before you commit
 
-Same rules apply.
+Open the photo's Pexels page and read its `h1`. That is the source's own
+description. If your caption describes something else, the caption is wrong.
+Do not rely on a description of an image you have not verified — thumbnails and
+memory are both unreliable, and a wrong caption is worse than no photo.
 
-## What to photograph
+## Image dimensions
 
-Anything you actually own and can point a camera at. Useful frames for an
-install or fitment guide:
-
-- the part on the vehicle, in daylight
-- the mounting point before the part goes on
-- a measurement against a tape or a rule
-- the part next to the stock component for scale
-- a warning sign worth showing — a scored rotor, a worn pad, a cracked boot
-
-## What not to do
-
-Do not put stock photography or images from a manufacturer's website here. They
-are not licensed for this use, and a photo that implies first-hand testing when
-there was none is exactly the kind of claim this site exists to avoid.
-
-If a photo is not yours, leave it out and cite the source in the article text
-instead.
+`photos.py` reads each file's real pixel size at build time and emits matching
+`width`/`height` attributes, so the page reserves the right space before the image
+loads. Do not hand-write those attributes; the CSS caps tall portrait images at
+620px and keeps their aspect ratio.

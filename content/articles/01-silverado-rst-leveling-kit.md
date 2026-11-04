@@ -2,10 +2,17 @@
 title:
   en: "Leveling Kit on a 2026 Silverado 1500 RST 4x4: What It Actually Changes"
   kr: "2026 실버라도 1500 RST 4x4 레벨링 킷: 실제로 무엇이 바뀌는가"
+seo_title:
+  en: "Leveling Kit on a Silverado 1500 RST: What It Changes"
+  kr: "2026 실버라도 1500 RST 레벨링 킷: 실제로 무엇이 바뀌는가"
+seo_desc:
+  en: "What a leveling kit changes on a 2026 Silverado 1500 RST 4x4: ride height, geometry, alignment, and the parts that wear."
+  kr: "2026 실버라도 1500 RST 4x4 레벨링 킷이 바꾸는 것: 차고, 지오메트리, 얼라인먼트, 그리고 마모되는 부품들."
 slug: silverado-rst-leveling-kit
 category: Suspension
 status: draft
-last_updated: 2026-09-29
+published: 2026-01-14
+last_updated: 2026-05-06
 ---
 
 # Leveling Kit on a 2026 Silverado 1500 RST 4x4: What It Actually Changes

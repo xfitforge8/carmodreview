@@ -3,10 +3,17 @@ title:
   en: "Suspension Upgrades: Springs, Coilovers, and Why Cheap Kits Ruin Cars"
   kr: "서스펜션 업그레이드: 스프링, 코일오버, 그리고 저렴한 킷이 차를 망치는 이유"
   es: "Mejoras de suspensión: muelles, coilovers y por qué los kits baratos arruinan el coche"
+seo_title:
+  en: "Suspension Upgrades: Springs, Coilovers, Cheap Kits"
+  es: "Mejoras de suspensión: muelles y coilovers"
+seo_desc:
+  en: "Springs, coilovers and the cheap kits that ruin rides: how each upgrade works and where the money is worth spending."
+  es: "Muelles, coilovers y los kits baratos que arruinan el coche: cómo funciona cada mejora y dónde vale la pena gastar."
 slug: suspension-upgrades-guide
 category: Suspension
 status: draft
-last_updated: 2026-10-27
+published: 2026-04-08
+last_updated: 2026-06-23
 ---
 
 # Suspension Upgrades: Springs, Coilovers, and Why Cheap Kits Ruin Cars

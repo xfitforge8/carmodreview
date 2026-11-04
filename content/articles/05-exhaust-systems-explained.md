@@ -3,10 +3,17 @@ title:
   en: "Exhaust Systems Explained: Cat-Back vs Axle-Back, Sound vs Drone, and Legal Reality"
   kr: "배기 시스템 해설: 캣백 vs 액슬백, 사운드 vs 드론, 그리고 법적 현실"
   es: "Sistemas de escape explicados: cat-back vs axle-back, sonido vs zumbido y la realidad legal"
+seo_title:
+  en: "Exhaust Systems: Cat-Back vs Axle-Back Explained"
+  es: "Sistemas de escape: cat-back vs axle-back"
+seo_desc:
+  en: "Cat-back vs axle-back, why drone happens, and what the law says. An exhaust guide with the mechanisms named."
+  es: "Cat-back vs axle-back, por qué aparece el zumbido y qué dice la ley. Una guía con los mecanismos explicados."
 slug: exhaust-systems-explained
 category: Exhaust
 status: draft
-last_updated: 2026-10-20
+published: 2026-03-11
+last_updated: 2026-06-09
 ---
 
 # Exhaust Systems Explained: Cat-Back vs Axle-Back, Sound vs Drone, and Legal Reality
