@@ -127,7 +127,13 @@ def photo_html(paths, slug, code, rel, hero=False):
         out.append(
             f'\n  <figure class="fig fig--photo{role}">\n'
             f'    <img src="{rel}img/photos/{slug}/{name}" alt="{html.escape(alt)}" '
-            f'loading="lazy"{dims} decoding="async">'
+            # The hero image is the Largest Contentful Paint element: the browser
+            # measures LCP when it finishes painting it. loading="lazy" tells the
+            # browser to defer it until after layout, which delays LCP by roughly
+            # the image's full download time. Every other photo stays lazy so it
+            # does not compete for bandwidth with the hero.
+            f'{"fetchpriority=\"high\"" if (hero and i == 0) else "loading=\"lazy\""}'
+            f'{dims} decoding="async">'
             f'{fig_cap}\n'
             f'  </figure>\n'
         )
