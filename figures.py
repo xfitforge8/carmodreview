@@ -179,6 +179,60 @@ def _diagram_figure(name, code, rel, cap):
     )
 
 
+# One diagram per category hub, so a hub is never a bare list of links.
+CATEGORY_DIAGRAMS = {
+    'wheels-tires': 'wheel-offset',
+    'suspension': 'leveling-geometry',
+    'engine': 'filter-types',
+    'exhaust': 'exhaust-layout',
+    'brakes': 'pad-temp-window',
+    'tuning': 'tuning-compare',
+}
+
+CATEGORY_CAPTIONS = {
+    'wheel-offset': {
+        'en': 'Offset, backspacing and load rating decide fitment before anything else does.',
+        'kr': '오프셋, 백스페이싱, 하중 등급이 다른 무엇보다 먼저 장착 가능 여부를 결정합니다.',
+        'es': 'Offset, backspacing e índice de carga deciden la compatibilidad antes que nada más.',
+    },
+    'leveling-geometry': {
+        'en': 'Raising a truck changes suspension geometry, not just its stance.',
+        'kr': '차를 올리면 차고만이 아니라 서스펜션 기하학이 바뀝니다.',
+        'es': 'Elevar un vehículo cambia la geometría de la suspensión, no solo su postura.',
+    },
+    'filter-types': {
+        'en': 'Where the filter draws its air matters more than what the box is called.',
+        'kr': '필터가 어디서 공기를 끌어오는지가 박스의 이름보다 중요합니다.',
+        'es': 'De dónde toma el aire el filtro importa más que cómo se llame la caja.',
+    },
+    'exhaust-layout': {
+        'en': 'What a cat-back replaces and what an axle-back replaces are different things.',
+        'kr': '캣백이 교체하는 범위와 액슬백이 교체하는 범위는 다릅니다.',
+        'es': 'Lo que sustituye un cat-back y lo que sustituye un axle-back no es lo mismo.',
+    },
+    'pad-temp-window': {
+        'en': 'Pad compound choice is a temperature question, not a brand question.',
+        'kr': '패드 컴파운드 선택은 브랜드가 아니라 온도에 관한 문제입니다.',
+        'es': 'Elegir compuesto de pastilla es una cuestión de temperatura, no de marca.',
+    },
+    'tuning-compare': {
+        'en': 'Flash and piggyback both change engine behaviour, and neither is warranty-safe.',
+        'kr': '플래시와 피기백 모두 엔진 거동을 바꾸며, 둘 다 보증에 안전하지 않습니다.',
+        'es': 'Flash y piggyback cambian el comportamiento del motor, y ninguno es seguro para la garantía.',
+    },
+}
+
+
+def category_figure(category_slug, code, rel):
+    """A single diagram for a category hub, or '' when the hub has none."""
+    name = CATEGORY_DIAGRAMS.get(category_slug)
+    if not name:
+        return ''
+    cap = (CATEGORY_CAPTIONS.get(name, {}).get(code)
+           or CATEGORY_CAPTIONS.get(name, {}).get('en', ''))
+    return _diagram_figure(name, code, rel, cap)
+
+
 def diagram_html(name, code, rel):
     """One labelled diagram figure. Source SVG lives at docs/img/diagrams/."""
     cap = DIAGRAM_CAPTIONS.get(name, {}).get(code) or DIAGRAM_CAPTIONS.get(name, {}).get('en', '')

@@ -22,7 +22,7 @@ OUT = os.path.join(ROOT, 'docs')
 PHOTO_ROOT = os.path.join(SRC, 'photos')
 DOMAIN = 'https://carmodreview.com'
 
-from figures import (inject_figures, inject_home_figures, find_photos,
+from figures import (inject_figures, inject_home_figures, find_photos, category_figure,
                      diagram_html)
 
 CATEGORIES = {
@@ -147,17 +147,25 @@ def resolve_links(html_text, rel=''):
     `page:<path>` -> a static page (legal, about, contact, methodology)
 
     A category with no hub of its own is redirected to the article that covers
-    it, so we never emit a link to a page that does not exist.
+    it, so we never emit a link to a page that does not exist. A few pages are
+    emitted under a different filename than the content file (about-us.md becomes
+    about.html), so those are mapped explicitly.
     """
     hubless = {'tuning': 'engine/ecu-tuning-explained.html'}
+    page_alias = {'about-us': 'about'}
 
     def cat_sub(m):
         slug = m.group(1)
         if slug in hubless:
             return f'href="{rel}{hubless[slug]}"'
         return f'href="{rel}{slug}/index.html"'
+
+    def page_sub(m):
+        path = m.group(1)
+        return f'href="{rel}{page_alias.get(path, path)}.html"'
+
     html_text = re.sub(r'href="cat:([a-z0-9-]+)"', cat_sub, html_text)
-    html_text = re.sub(r'href="page:([a-z0-9/.-]+)"', r'href="' + rel + r'\1.html"', html_text)
+    html_text = re.sub(r'href="page:([a-z0-9/.-]+)"', page_sub, html_text)
     return html_text
 
 
@@ -606,7 +614,7 @@ def index_list_html(index_entries, code, rel):
         if code not in (e[7].get('langs_all') or set()):
             continue
         by_cat.setdefault(e[3], []).append(e)
-    out = [f'\n  <h2>{UI[code]["nav_cats"]}</h2>\n']
+    out = [f'\n  <h2 id="guides">{UI[code]["nav_cats"]}</h2>\n']
     for catslug, items in by_cat.items():
         label = items[0][4] if code == 'en' else (items[0][5] if code == 'kr' else items[0][6])
         out.append(f'  <h3><a href="{rel}{catslug}/index.html">{html.escape(label)}</a></h3>\n')
@@ -651,6 +659,7 @@ def build_category_pages(arts):
             name = cl if code == 'en' else (ck if code == 'kr' else ce)
             inner = (f'  <div class="kicker">Car Mod Review</div>\n'
                      f'  <h1>{html.escape(name)}</h1>\n'
+                     + category_figure(cs, code, rel) +
                      f'  <ul class="post-list">\n{"".join(rows)}  </ul>\n')
             alts = {'en': f'{DOMAIN}/{cs}/index.html',
                     'kr': f'{DOMAIN}/kr/{cs}/index.html',

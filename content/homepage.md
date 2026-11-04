@@ -8,7 +8,7 @@
 
 Parts coverage for people who want to know what a product actually is before they buy it.
 
-[ Browse Guides ] [ About Us ] [ How We Review ]
+[Browse guides](#guides) · [About us](page:about-us) · [How this site is funded](page:legal/affiliate-disclosure)
 
 ---
 
@@ -51,7 +51,7 @@ We earn affiliate commissions. Commission never decides whether something is rec
 
 부품을 사기 전에 그 부품이 실제로 무엇인지 알고 싶은 사람을 위한 글.
 
-[ 가이드 보기 ] [ 소개 ] [ 리뷰 방법 ]
+[가이드 보기](#guides) · [소개](page:about-us) · [수익 구조](page:legal/affiliate-disclosure)
 
 ---
 
@@ -94,7 +94,7 @@ We earn affiliate commissions. Commission never decides whether something is rec
 
 Información de piezas para quien quiere saber qué es realmente un producto antes de comprarlo.
 
-[ Ver guías ] [ Sobre nosotros ] [ Cómo reseñamos ]
+[Ver guías](#guides) · [Sobre nosotros](page:about-us) · [Cómo se financia el sitio](page:legal/affiliate-disclosure)
 
 ---
 
