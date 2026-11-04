@@ -481,9 +481,9 @@ def build_static_pages(index_entries):
                                        find_photos(PHOTO_ROOT, 'home'))
             page = render_page(
                 lang=code, title=title if code != 'en' else
-                'Car Mod Review — Car, Truck & SUV Parts, Ranked',
-                desc='Car, truck and SUV parts ranked three ways: price, design, all-round value. '
-                     'We name our sources and say when we do not know.',
+                'Car Mod Review — Car and Truck Parts, Checked Against the Specs',
+                desc='Car and truck parts guides built from published specifications, '
+                     'with every source named. No invented numbers and no unverified claims.',
                 canonical=alts[code], body_html=body + '\n' + index_list_html(index_entries, code, rel),
                 rel=rel, alts=alts)
             d = os.path.join(OUT, prefix.strip('/')) if prefix else OUT
@@ -496,7 +496,7 @@ def build_static_pages(index_entries):
                 lang=code, title=('About CarModReview' if code == 'en'
                                   else '소개 | Car Mod Review' if code == 'kr'
                                   else 'Sobre CarModReview'),
-                desc='Who writes CarModReview, what vehicle we test on, and what we will not do.',
+                desc='Who writes CarModReview, how a guide gets written, and what this site will not do.',
                 canonical=f'{DOMAIN}{prefix}/about.html',
                 body_html=md2html(md, rel), rel=rel,
                 alts={'en': f'{DOMAIN}/about.html', 'kr': f'{DOMAIN}/kr/about.html',
