@@ -26,7 +26,8 @@
   ],
   "monetization": {
     "status": "pending",
-    "plan": "Amazon Associates once site is live and approved",
-    "rule": "No affiliate link may carry rel=sponsored until a real affiliate relationship exists."
-  }
+    "plan": "Apply to AmericanTrucks in-house program once photography exists",
+    "rule": "No rel=sponsored tag and no affiliate disclosure claim may appear until AFFILIATE_ID is set in build.py. Tagging a link sponsored before a real relationship exists is a false statement to Google and to readers."
+  },
+  "affiliate_programs": []
 }
