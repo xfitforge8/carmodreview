@@ -17,7 +17,6 @@ This policy explains what information CarModReview ("we", "us") collects, why, a
 **Cookies.** We use cookies and similar technologies for three purposes:
 - **Essential** — site functionality, security, remembering preferences.
 - **Analytics** — understanding which pages are useful (e.g., Google Analytics).
-- **Affiliate tracking** — recording that a purchase originated from our link, so a retailer credits us. These cookies are set by the retailer or affiliate network, not by us directly.
 
 ### Affiliate and third-party cookies
 

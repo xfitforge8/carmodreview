@@ -8,7 +8,7 @@ No framework, no build step in CI. Run locally, commit the output.
 Design contract (matches the existing hand-written pages):
   * English is the primary route at /<category>/<slug>.html
   * Korean and Spanish are alternates at /kr/... and /es/...
-  * Every page: affiliate disclosure above the fold, "What we could not verify"
+  * Every page: "What we could not verify"
     block before the footer, real publish dates only.
 """
 import os, re, json, html, shutil, datetime, sys, subprocess
@@ -36,6 +36,10 @@ CATEGORIES = {
 }
 
 LANGS = [('en', 'EN', ''), ('kr', 'KR', '/kr'), ('es', 'ES', '/es')]
+
+# Categories with no hub page of their own; their nav entry points at the article
+# that covers them, so no page ever links to a URL that does not exist.
+HUBLESS = {'tuning': 'engine/ecu-tuning-explained.html'}
 
 UI = {
     'en': dict(all_posts='All posts', how='How we pick', home='Home',
@@ -152,13 +156,12 @@ def resolve_links(html_text, rel=''):
     emitted under a different filename than the content file (about-us.md becomes
     about.html), so those are mapped explicitly.
     """
-    hubless = {'tuning': 'engine/ecu-tuning-explained.html'}
     page_alias = {'about-us': 'about'}
 
     def cat_sub(m):
         slug = m.group(1)
-        if slug in hubless:
-            return f'href="{rel}{hubless[slug]}"'
+        if slug in HUBLESS:
+            return f'href="{rel}{HUBLESS[slug]}"'
         return f'href="{rel}{slug}/index.html"'
 
     def page_sub(m):
@@ -233,21 +236,24 @@ PAGE = """<!DOCTYPE html>
 </header>
 
 <main class="wrap">
+<div class="layout">
+<aside class="side">
+{sidebar}
+</aside>
 <article>
 {body}
 </article>
+</div>
 </main>
 
 <footer>
   <div class="wrap">
     <p><strong>Car Mod Review</strong> &mdash; car parts coverage that states its
     sources and says when it doesn't know.</p>
-    <p>We earn commissions from links on this site. We do not accept payment for placement.</p>
     <p>
       <a href="{rel}methodology.html">{how}</a> &middot;
       <a href="{rel}contact.html">Contact</a> &middot;
       <a href="{rel}about.html">About</a> &middot;
-      <a href="{rel}legal/affiliate-disclosure.html">Affiliate disclosure</a> &middot;
       <a href="{rel}legal/privacy-policy.html">Privacy</a> &middot;
       <a href="{rel}legal/terms-of-service.html">Terms</a>
     </p>
@@ -267,8 +273,28 @@ TAGLINE = {
 }
 
 
+def default_sidebar(lang, rel):
+    """Category list for the left rail, the way a blog sidebar conventionally works.
+
+    Built from CATEGORIES, so a new category appears here automatically.
+    """
+    labels = {'en': 1, 'kr': 2, 'es': 3}
+    cats = sorted(CATEGORIES.values(), key=lambda c: c[labels[lang]].lower())
+    head = {'en': 'Categories', 'kr': '카테고리', 'es': 'Categorías'}[lang]
+    items = ''.join(
+        f'        <li><a href="{rel}{HUBLESS.get(c[0], c[0] + "/index.html")}">'
+        f'{html.escape(c[labels[lang]])}</a></li>\n'
+        for c in cats
+    )
+    return (f'    <div class="side-block">\n'
+            f'      <h2 class="side-title">{head}</h2>\n'
+            f'      <ul class="side-list">\n{items}      </ul>\n'
+            f'    </div>\n')
+
+
 def render_page(*, lang, title, desc, canonical, body_html, rel, jsonld='',
-                og_type='website', alts=None, og_image=None, robots=None):
+                og_type='website', alts=None, og_image=None, robots=None,
+                sidebar=''):
     alts = alts or {}
     alt = ''
     if alts:
@@ -288,6 +314,7 @@ def render_page(*, lang, title, desc, canonical, body_html, rel, jsonld='',
         tagline=TAGLINE[lang], all_posts=ui['all_posts'], how=ui['how'], other=ui['other'],
         alt_en=alts.get('en', canonical), alt_kr=alts.get('kr', canonical),
         alt_es=alts.get('es', canonical),
+        sidebar=sidebar or default_sidebar(lang, rel),
     )
 
 
@@ -477,10 +504,7 @@ def build():
                        if published != date else '')
             body_html.append(f'  <div class="byline">\n'
                              f'    <span>{UI[code]["published"]} {published}{revised}</span>\n'
-                             f'    <span>{words:,} words</span>\n'
-                             f'    <span>{mins} {UI[code]["minread"]}</span>\n'
                              f'  </div>\n')
-            body_html.append(disclosure_html(code))
             rel = '../' if not prefix else '../../'
             art_html = md2html(inner, rel)
             art_html = inject_photos(art_html, slug, code, rel,
@@ -550,6 +574,11 @@ def build_legacy_pages():
                 fig = photo_html(shots[:1], 'cold-air-intake-guide', 'en', '../')
                 txt = txt.replace('  <h2>The short answer</h2>',
                                   fig + '  <h2>The short answer</h2>', 1)
+        # these pages predate the generator and carry their own affiliate note
+        # and reading-time byline; strip them so no page contradicts the
+        # site-wide removal of both
+        txt = re.sub(r'\s*<div class="disclosure">.*?</div>\s*', '\n', txt, flags=re.S)
+        txt = re.sub(r'\s*<span>\d+\s+min read</span>', '', txt)
         open(dst, 'w', encoding='utf-8').write(txt)
         n += 1
     if n:
@@ -614,9 +643,10 @@ def build_static_pages(index_entries):
                 canonical=f'{DOMAIN}/methodology.html', body_html=inner, rel='')
             open(os.path.join(OUT, 'methodology.html'), 'w', encoding='utf-8').write(page)
 
-    # legal pages x3 languages
-    for fn, slug in (('affiliate-disclosure.md', 'affiliate-disclosure'),
-                     ('privacy-policy.md', 'privacy-policy')):
+    # legal pages x3 languages. The affiliate disclosure is deliberately not
+    # generated: the site carries no affiliate links, so a disclosure page would
+    # describe a relationship that does not exist.
+    for fn, slug in (('privacy-policy.md', 'privacy-policy'),):
         meta, body = read_doc(os.path.join(SRC, 'legal', fn))
         langs, _ = split_langs(body)
         os.makedirs(os.path.join(OUT, 'legal'), exist_ok=True)
@@ -627,20 +657,14 @@ def build_static_pages(index_entries):
             # these pages get their own <h1> below; drop any heading the
             # source carries (the shared trilingual one, or a per-language one)
             md = re.sub(r'^#[ \t]+[^\n]*\n', '', md, count=1).strip()
-            title = {'en': 'Affiliate Disclosure' if slug == 'affiliate-disclosure' else 'Privacy Policy',
-                     'kr': '제휴 고지' if slug == 'affiliate-disclosure' else '개인정보 처리방침',
-                     'es': 'Divulgación de afiliación' if slug == 'affiliate-disclosure' else 'Política de privacidad'}[code]
+            title = {'en': 'Privacy Policy', 'kr': '개인정보 처리방침',
+                     'es': 'Política de privacidad'}[code]
             alts = {'en': f'{DOMAIN}/legal/{slug}.html',
                     'kr': f'{DOMAIN}/kr/legal/{slug}.html',
                     'es': f'{DOMAIN}/es/legal/{slug}.html'}
             legal_desc = {
-                ('affiliate-disclosure', 'en'): 'How Car Mod Review earns money through '
-                    'affiliate links, and what that does not change about our recommendations.',
-                ('affiliate-disclosure', 'kr'): 'Car Mod Review가 제휴 링크로 수익을 얻는 방식과, 그것이 추천에 영향을 주지 않는 이유.',
-                ('affiliate-disclosure', 'es'): 'Cómo gana dinero Car Mod Review con enlaces de '
-                    'afiliado y qué no cambia eso en nuestras recomendaciones.',
-                ('privacy-policy', 'en'): 'What data Car Mod Review collects, how analytics and '
-                    'affiliate links are handled, and how to request deletion.',
+                ('privacy-policy', 'en'): 'What data Car Mod Review collects, how analytics are '
+                    'handled, and how to request deletion.',
                 ('privacy-policy', 'kr'): 'Car Mod Review가 수집하는 데이터, 분석 도구와 제휴 링크 처리 방식, 삭제 요청 방법.',
                 ('privacy-policy', 'es'): 'Qué datos recoge Car Mod Review, cómo se manejan las '
                     'analíticas y los enlaces de afiliado, y cómo solicitar su eliminación.',
@@ -669,7 +693,7 @@ def build_static_pages(index_entries):
   <p><strong>Products / PR:</strong> we do not accept paid placement. If you want a part
   considered for a guide, send the published specs and the manufacturer documentation,
   not a press release.</p>
-  <p><strong>Affiliate and partnerships:</strong> same address, subject line "partnership".</p>
+  <p><strong>Partnerships:</strong> same address, subject line "partnership".</p>
 """
     page = render_page(lang='en', title='Contact | Car Mod Review',
                        desc='How to reach Car Mod Review, how corrections are handled, '
@@ -685,10 +709,6 @@ def build_static_pages(index_entries):
   general information, not professional advice. Modification can affect your
   vehicle's safety, warranty, emissions compliance and resale value. Verify
   fitment and legality for your specific vehicle and jurisdiction before buying.</p>
-  <h2>Affiliate relationships</h2>
-  <p>Some outbound links are affiliate links. If you buy through them we may earn a
-  commission at no extra cost to you. See our
-  <a href="affiliate-disclosure.html">affiliate disclosure</a>.</p>
   <h2>Accuracy</h2>
   <p>Prices, availability and specifications change without notice. Figures are
   reported as they appeared on the date stated on each page. We make no warranty
@@ -705,7 +725,7 @@ def build_static_pages(index_entries):
 """
     page = render_page(lang='en', title='Terms of Service | Car Mod Review',
                        desc='The terms that govern use of Car Mod Review: accuracy, '
-                            'affiliate relationships, liability and external links.',
+                            'accuracy, liability and external links.',
                        canonical=f'{DOMAIN}/legal/terms-of-service.html',
                        body_html=terms_inner, rel='../')
     open(os.path.join(OUT, 'legal', 'terms-of-service.html'), 'w', encoding='utf-8').write(page)
@@ -854,7 +874,7 @@ def build_sitemap(arts):
     # contact and terms are per-language authored, not generated. List a URL only
     # when build_static_pages actually writes it, or the sitemap advertises 404s.
     for path in ('index.html', 'about.html', 'methodology.html', 'contact.html',
-                 'legal/affiliate-disclosure.html', 'legal/privacy-policy.html',
+                 'legal/privacy-policy.html',
                  'legal/terms-of-service.html'):
         for code, _, prefix in LANGS:
             if os.path.exists(os.path.join(OUT, *(prefix.strip('/').split('/')

@@ -8,7 +8,7 @@
 
 Parts coverage for people who want to know what a product actually is before they buy it.
 
-[Browse guides](#guides) · [About us](page:about-us) · [How this site is funded](page:legal/affiliate-disclosure)
+[Browse guides](#guides) · [About us](page:about-us)
 
 ---
 
@@ -39,7 +39,6 @@ Nothing here is presented as a dyno result or a measured figure unless the sourc
 
 ### Our promise on money
 
-We earn affiliate commissions. Commission never decides whether something is recommended or where it ranks. Some parts we rate highly pay us nothing; some parts that pay well are ones we tell you to skip. [Full disclosure →](page:legal/affiliate-disclosure)
 
 ---
 
@@ -51,7 +50,7 @@ We earn affiliate commissions. Commission never decides whether something is rec
 
 부품을 사기 전에 그 부품이 실제로 무엇인지 알고 싶은 사람을 위한 글.
 
-[가이드 보기](#guides) · [소개](page:about-us) · [수익 구조](page:legal/affiliate-disclosure)
+[가이드 보기](#guides) · [소개](page:about-us)
 
 ---
 
@@ -82,7 +81,6 @@ We earn affiliate commissions. Commission never decides whether something is rec
 
 ### 돈에 대한 약속
 
-저희는 제휴 수수료를 받습니다. 수수료는 추천 여부나 순위를 결정하지 않습니다. 높게 평가하는 부품 중에는 수수료가 0원인 것도 있고, 수수료가 좋은 부품 중에는 건너뛰라고 말하는 것도 있습니다. [전체 고지 →](page:legal/affiliate-disclosure)
 
 ---
 
@@ -94,7 +92,7 @@ We earn affiliate commissions. Commission never decides whether something is rec
 
 Información de piezas para quien quiere saber qué es realmente un producto antes de comprarlo.
 
-[Ver guías](#guides) · [Sobre nosotros](page:about-us) · [Cómo se financia el sitio](page:legal/affiliate-disclosure)
+[Ver guías](#guides) · [Sobre nosotros](page:about-us)
 
 ---
 
@@ -125,4 +123,3 @@ Aquí no se presenta ninguna cifra de banco de potencia ni medición propia sin 
 
 ### Nuestra promesa sobre el dinero
 
-Ganamos comisiones de afiliación. La comisión nunca decide si algo se recomienda ni en qué posición se clasifica. Algunas piezas que valoramos mucho no nos pagan nada; algunas que pagan bien son las que le decimos que se salte. [Divulgación completa →](page:legal/affiliate-disclosure)

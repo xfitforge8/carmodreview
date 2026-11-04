@@ -25,12 +25,6 @@ That restraint costs us the confident tone that parts content usually adopts. It
 
 If a page changes because we learned something — a spec was revised, a part was discontinued, a company changed suppliers — the article is updated and the change is noted.
 
-### How the site is funded
-
-We earn commissions through affiliate links. That is how a publication like this stays alive, and we are not going to pretend otherwise.
-
-The promise we make is narrower than "unbiased" and more useful than it: **commission never decides whether a product is recommended, and never decides where it ranks.** Some parts we rate highly pay us nothing. Some parts that pay well are ones we tell you to skip.
-
 ### What's next
 
 Coverage is expanding deliberately rather than broadly — suspension, intake, exhaust, wheels and tires, brakes and tuning first, then lighting, interior and maintenance.
@@ -66,12 +60,6 @@ CarModReview는 지루한 부분을 제대로 해보려는 시도입니다. 실�
 
 스펙이 개정됐거나, 부품이 단종됐거나, 업체가 공급처를 바꿨거나 하는 이유로 페이지가 바뀌면, 글을 수정하고 무엇이 바뀌었는지 밝힙니다.
 
-### 수익 구조
-
-저희는 제휴 링크를 통해 수수료를 받습니다. 이런 출판물이 굴러가려면 필요한 일이고, 아닌 척하지 않겠습니다.
-
-대신 드리는 약속은 "편향 없음"보다 좁고, 더 쓸모 있습니다. **수수료는 추천 여부를 결정하지 않고, 순위도 결정하지 않습니다.** 저희가 높게 평가하는 부품 중에는 수수료가 0원인 것도 있고, 수수료가 잘 나오는 부품 중에는 사지 말라고 말하는 것도 있습니다.
-
 ### 앞으로
 
 커버리지는 넓게가 아니라 의도적으로 넓혀갑니다. 서스펜션, 인테이크, 배기, 휠과 타이어, 브레이크, 튜닝을 먼저 다루고, 그다음 라이팅, 인테리어, 정비 순으로 이어집니다.
@@ -79,7 +67,3 @@ CarModReview는 지루한 부분을 제대로 해보려는 시도입니다. 실�
 아직 다루지 않은 차량을 만지고 계시고 특정 카테고리를 먼저 보고 싶으시면 알려주세요. 순서는 실제로 바뀝니다.
 
 읽어주셔서 감사합니다.
-
----
-
-*Disclosure: CarModReview earns commissions from qualifying purchases made through links on this site. Commission rates do not influence ratings, rankings, or recommendations.*

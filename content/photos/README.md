@@ -5,21 +5,17 @@ image files — this README and the `.txt` caption sidecars stay out of the site
 
 ## What is in here now
 
-Licensed stock photography from Pexels, chosen because a real photograph of the
-actual component beats a drawing, and because the Pexels licence permits commercial
-use without requiring attribution.
+Licensed stock photography, chosen because a real photograph of the actual component
+beats a drawing. Every image must be licensed for commercial use.
 
 Every image here must satisfy all four of these:
 
 1. **It actually shows what the caption says it shows.** This is the one that goes
    wrong. Verify against the source page's own description, not against your memory
    of the thumbnail.
-2. **The licence permits commercial use.** Pexels does. Most "free photo" sites do
-   not, and manufacturer press images almost never do.
-3. **The caption names the photographer and the source.** Pexels does not require
-   it; we do it anyway, because a caption that names its source is the entire
-   editorial position of this site.
-4. **It is never presented as evidence of our own testing.** A photo illustrates a
+2. **The licence permits commercial use.** Many "free photo" sites do not, and
+   manufacturer press images almost never do.
+3. **It is never presented as evidence of our own testing.** A photo illustrates a
    component. It is not proof that we installed, measured or drove anything.
 
 **What is still forbidden:** an image presented as first-hand work when it is not,
@@ -36,7 +32,7 @@ describing something the frame does not contain.
    ```
 
 2. Put the image in it. `.jpg` `.jpeg` `.png` `.webp` `.avif` all work. Name it
-   `NN-<pexelsid>.jpg` so the source stays traceable from the filename. Files are
+   `NN-<sourceid>.jpg` so the file stays traceable to where it came from. Files are
    used in filename order.
 
 3. Add the caption as a `.txt` with the same basename:
@@ -64,10 +60,12 @@ captions are written in English and are not machine-translated onto the KR/ES pa
 
 ## Checking a caption before you commit
 
-Open the photo's Pexels page and read its `h1`. That is the source's own
-description. If your caption describes something else, the caption is wrong.
-Do not rely on a description of an image you have not verified — thumbnails and
-memory are both unreliable, and a wrong caption is worse than no photo.
+Read the description on the page the image came from. If your caption describes
+something else, the caption is wrong. Do not rely on a description of an image you
+have not verified — thumbnails and memory are both unreliable, and a wrong caption
+is worse than no photo.
+
+Captions do not name the source or the photographer; they describe what is in frame.
 
 ## Image dimensions
 

@@ -42,15 +42,11 @@ If you believe a recommendation on this site is inaccurate or commercially motiv
 
 ### Photography
 
-Photographs on this site are licensed stock images, not pictures of our own vehicles,
-and they are credited to the photographer in the caption on each figure. Pexels images
-are used under the [Pexels licence](https://www.pexels.com/license/), which permits free
-commercial use and modification without a required attribution — we credit the
-photographer anyway, because a caption that names its source is the point.
+Photographs on this site are licensed stock images, not pictures of our own vehicles.
 
-An image on this site illustrates a component or a setting; it is never presented as
-evidence of a test we performed. Where a guide describes how a part behaves, that
-conclusion comes from published specifications and documentation, and the page says so.
+An image here illustrates a component or a setting. It is never presented as evidence of
+a test we performed. Where a guide describes how a part behaves, that conclusion comes
+from published specifications and documentation, and the page says so.
 
 ### Questions
 
@@ -96,7 +92,7 @@ Amazon Associate로서 저희는 적격 구매를 통해 수익을 얻습니다.
 
 ### 사진
 
-이 사이트의 사진은 저희 차량을 촬영한 것이 아니라 라이선스를 취득한 스톡 이미지이며, 각 사진의 캡션에 촬영자를 명시합니다. Pexels 이미지는 [Pexels 라이선스](https://www.pexels.com/license/)에 따라 사용하며, 이 라이선스는 상업적 이용과 수정을 무료로 허용하고 출처 표기를 요구하지 않습니다. 그래도 저희는 촬영자를 표기합니다. 출처를 밝히는 캡션이야말로 이 사이트의 핵심이기 때문입니다.
+이 사이트의 사진은 라이선스를 취득한 스톡 이미지이며, 저희 차량을 촬영한 것이 아닙니다.
 
 사진은 부품이나 정비 환경을 보여주는 용도이며, 저희가 수행한 시험의 증거로 제시되지 않습니다. 부품의 거동에 관한 서술은 공개된 스펙과 문서에 근거하며, 페이지에 그렇게 밝힙니다.
 
@@ -144,16 +140,13 @@ Si considera que una recomendación de este sitio es inexacta o está motivada c
 
 ### Fotografía
 
-Las fotografías de este sitio son imágenes de stock con licencia, no imágenes de nuestros
-propios vehículos, y se acreditan al fotógrafo en el pie de cada figura. Las imágenes de
-Pexels se utilizan bajo la [licencia de Pexels](https://www.pexels.com/license/), que
-permite el uso comercial gratuito y la modificación sin atribución obligatoria; aun así
-acreditamos al fotógrafo, porque un pie de foto que nombra su fuente es el punto.
+Las fotografías de este sitio son imágenes de stock con licencia; no son imágenes de
+nuestros propios vehículos.
 
-Una imagen en este sitio ilustra un componente o un entorno de trabajo; nunca se presenta
-como prueba de una prueba que hayamos realizado. Cuando una guía describe cómo se comporta
-una pieza, esa conclusión proviene de especificaciones y documentación publicadas, y la
-página lo indica.
+Una imagen aquí ilustra un componente o un entorno de trabajo. Nunca se presenta como
+prueba de una prueba que hayamos realizado. Cuando una guía describe cómo se comporta una
+pieza, esa conclusión proviene de especificaciones y documentación publicadas, y la página
+lo indica.
 
 ### Contacto
 
