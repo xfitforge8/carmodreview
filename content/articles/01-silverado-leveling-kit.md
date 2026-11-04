@@ -2,12 +2,15 @@
 title:
   en: "What a Leveling Kit Does to a Silverado 1500 — and What It Costs You"
   kr: "실버라도 1500 레벨링 킷: 무엇이 바뀌고 무엇을 잃는가"
+  es: "Qué le hace un kit de nivelación a un Silverado 1500, y cuánto le cuesta"
 seo_title:
   en: "Leveling Kit on a Silverado 1500: What It Changes"
   kr: "실버라도 1500 레벨링 킷: 실제로 무엇이 바뀌는가"
+  es: "Kit de nivelación en un Silverado 1500: qué cambia"
 seo_desc:
   en: "What a leveling kit changes on a Silverado 1500 4x4: ride height, geometry, alignment, and the parts that wear."
   kr: "실버라도 1500 4x4 레벨링 킷이 바꾸는 것: 차고, 지오메트리, 얼라인먼트, 그리고 마모되는 부품들."
+  es: "Qué cambia un kit de nivelación en un Silverado 1500 4x4: altura, geometría, alineación y las piezas que se desgastan."
 slug: silverado-leveling-kit
 category: Suspension
 status: draft
@@ -124,6 +127,62 @@ If you're chasing actual off-road capability: skip the leveling kit entirely and
 견인이나 적재를 자주 한다면: **기울기는 그대로 두세요.** 뒤 에어백을 사세요. 비슷한 돈으로 실제 쓸 수 있는 능력을 얻습니다.
 
 진짜 오프로드 능력을 원한다면: 레벨링 킷을 건너뛰고 기하학이 보정된 정식 리프트를 사세요. 레벨링 킷은 자세 튜닝이고, 그걸 원한다고 말하는 데 부끄러울 건 없습니다. 다만 마케팅 페이지가 그걸 성능 업그레이드라고 설득하게 두지만 마세요.
+
+---
+
+
+## ES
+
+La primera modificación que hace la mayoría de los dueños de un Silverado no es de rendimiento. Es de postura.
+
+Párese frente a un Silverado 1500 2026 de fábrica y el frontal queda visiblemente más bajo que la parte trasera. Es intencional. GM introduce una inclinación hacia atrás (rake) para que la camioneta quede nivelada cuando se carga la caja o se engancha un remolque. Es una decisión de ingeniería sensata que en un estacionamiento se ve mal. Un kit de nivelación es la solución, y es la primera modificación más común en estas camionetas.
+
+Esto es lo que hace un kit de nivelación, cuánto cuesta en realidad y dónde quedan los compromisos.
+
+### Qué es un kit de nivelación
+
+Un kit de nivelación sube el frontal de la camioneta para igualarlo con la parte trasera. En un Silverado 1500 2026 se presenta de dos formas:
+
+**Kit de separadores de puntal.** Un separador mecanizado en aluminio o poliuretano que se atornilla sobre el conjunto del puntal delantero. Es la opción más barata, a alturas moderadas (1,5 a 2 pulgadas) no cambia mucho el confort de marcha y en muchos casos se puede instalar sin desarmar el puntal. Es lo que la mayoría entiende por «kit de nivelación».
+
+**Sustitución completa del puntal.** Un puntal de reemplazo completo con la elevación integrada, a menudo con amortiguación regulable. Cuesta más, pero permite corregir la geometría correctamente y mejorar el confort al mismo tiempo.
+
+Para un Silverado 1500 4x4 de uso mayormente en calle, un separador de puntal de 1,5 a 2 pulgadas es la respuesta estándar. Por encima de 2 pulgadas ya se entra en terreno de corrección de geometría y el cálculo cambia.
+
+### El costo real no es el kit
+
+El separador en sí cuesta entre 80 y 250 dólares según la marca y el material. Ahí no es donde se va el dinero. Hay que presupuestar:
+
+- **Alineación.** Obligatoria después de cualquier cambio de altura en la suspensión delantera. Saltársela es el error más común y se come las llantas rápido.
+- **Mano de obra o su propio sábado.** Los separadores de puntal en estas camionetas son un trabajo de bricolaje moderado. Necesitará un compresor de resortes si desarma, torres de apoyo adecuadas y una llave dinamométrica que realmente use. Calcule de 3 a 5 horas para alguien que lo hace por primera vez.
+- **Brazos de control superiores nuevos, por encima de unas 2 pulgadas.** Más allá de ese punto los brazos de fábrica no logran mantener la caída y el avance correctos, y aparecen bloqueos de rótula y valores de alineación malos.
+
+### Lo que la propia camioneta cambia
+
+El nivel de equipamiento cambia la apariencia, no la arquitectura de la suspensión. Todos los Silverado 1500 4x4 2026 usan el mismo esquema de puntal delantero, así que un kit de nivelación se instala igual en cualquier versión. Lo que sí cambia entre camionetas es el peso y el uso que se les da:
+
+- El peso en vacío ronda los **4.940 lb (Double Cab)** y los **5.010 lb (Crew Cab)** según la ficha de KBB para 2026.
+- Las motorizaciones de la gama incluyen el **cuatro cilindros turboalimentado 2.7L (TurboMax)** con **310 hp y 430 lb-ft**, el **V8 5.3L**, el **V8 6.2L** y el **turbodiésel 3.0L Duramax**.
+- La capacidad de remolque publicada es de **13.000 lb (Double Cab)** y **13.200 lb (Crew Cab)** con el 2.7L, y hasta unos **13.300 lb** con el diésel según las cifras de KBB.
+
+Eso importa para un kit de nivelación de una forma concreta: **si remolca cerca del límite superior de ese rango, piénselo dos veces antes de elevar el frontal.** Nivelar la camioneta elimina parte del rake de diseño, lo que significa que la parte trasera se hunde más a la vista con el peso del enganche y que los faros apuntan más alto de noche. Si remolca con frecuencia y peso, un kit de bolsas de aire traseras o un muelle auxiliar es una mejor primera compra que un separador delantero.
+
+### A qué renuncia
+
+Cuatro cosas que conviene saber antes de comprar:
+
+1. **Orientación de los faros.** Elevar el frontal apunta las luces bajas hacia arriba. Vuelva a orientarlas después de instalar. No es cosmético; los conductores que vienen de frente le van a destellar y es un asunto de seguridad.
+2. **Aerodinámica y consumo.** Pequeño pero real. Espere una ligera caída del consumo en carretera con 2 pulgadas.
+3. **Conversaciones sobre la garantía de fábrica.** Un separador por sí solo generalmente no anula la garantía, pero si falla un componente del frontal, el concesionario va a mirar la modificación. Guarde los recibos y conozca el marco Magnuson-Moss en Estados Unidos, según el cual la carga de la prueba recae en ellos para demostrar que la modificación causó la falla.
+4. **Ángulo de los palieres.** Los palieres delanteros del 4x4 trabajan con un ángulo más pronunciado después de una elevación. Con 1,5 a 2 pulgadas normalmente no hay problema. Más allá, está acortando la vida de las juntas homocinéticas.
+
+### Por dónde ir
+
+Si quiere que la camioneta se vea derecha y la usa casi siempre en pavimento: un **separador de puntal de 1,5 pulgadas, una alineación correcta y los faros reorientados**. Nada más. No compre el kit de 3 pulgadas porque se ve mejor en una foto de producto.
+
+Si remolca o carga con regularidad: **deje el rake en paz.** Compre bolsas de aire traseras. Obtendrá más capacidad útil por un dinero similar.
+
+Si busca capacidad real fuera del asfalto: olvídese del kit de nivelación y compre una elevación de verdad con geometría corregida. Un kit de nivelación es una modificación de postura, y no tiene nada de malo admitir que es eso lo que quiere. Simplemente no deje que una página de marketing lo convenza de que es una mejora de rendimiento.
 
 ---
 

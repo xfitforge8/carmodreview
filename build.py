@@ -22,6 +22,18 @@ OUT = os.path.join(ROOT, 'docs')
 PHOTO_ROOT = os.path.join(SRC, 'photos')
 DOMAIN = 'https://carmodreview.com'
 
+# Reader comments. GitHub Pages is static, so comments need a hosted backend.
+# Waline is the one that is free, ad-free, and lets a reader post with just a
+# name and an email — no account, which is the difference between a comment
+# section people use and one they don't.
+#
+# Setup, once: deploy the Waline server on Vercel's free Hobby plan against a
+# free Neon Postgres database (https://waline.js.org/en/guide/deploy/vercel.html),
+# bind it to a subdomain, and paste that URL in below. Until WALINE_SERVER_URL is
+# set the comment block renders nothing at all, so the build never ships an empty
+# box or a script that 404s.
+WALINE_SERVER_URL = ''      # e.g. 'https://comments.carmodreview.com'
+
 import photos
 from photos import (inject_photos, find_photos, photo_html, category_photo,
                     CATEGORY_SOURCE)
@@ -48,20 +60,31 @@ UI = {
                disc_body=('We earn commissions from qualifying purchases made through links '
                           'on this page. Commission never decides which products we pick or '
                           'where they rank.'),
-               nav_cats='Categories', other='Read this in', on='on'),
+               nav_cats='Categories', other='Read this in', on='on',
+               search='Search', contact='Contact', about='About', privacy='Privacy',
+               terms='Terms',
+               foot_tag=('car parts coverage that states its sources and says when it '
+                         "doesn't know.")),
     'kr': dict(all_posts='모든 글', how='선정 기준', home='홈',
                published='발행일', updated='수정', minread='분 소요', verified='확인하지 못한 것',
                disc_title='제휴 고지',
                disc_body=('이 페이지의 링크를 통해 구매가 이루어지면 저희는 수수료를 받습니다. '
                           '수수료는 어떤 제품을 고르는지, 순위가 어떻게 되는지를 결정하지 않습니다.'),
-               nav_cats='카테고리', other='다른 언어', on=''),
+               nav_cats='카테고리', other='다른 언어', on='',
+               search='검색', contact='문의', about='소개', privacy='개인정보처리방침',
+               terms='이용약관',
+               foot_tag='출처를 밝히고, 모르는 것은 모른다고 말하는 자동차 부품 정보.'),
     'es': dict(all_posts='Todas las guías', how='Cómo elegimos', home='Inicio',
                published='Publicado', updated='Actualizado', minread='min de lectura', verified='Lo que no pudimos verificar',
                disc_title='Nota de afiliación',
                disc_body=('Ganamos comisiones por compras realizadas a través de los enlaces de '
                           'esta página. La comisión nunca decide qué productos elegimos ni en qué '
                           'posición se clasifican.'),
-               nav_cats='Categorías', other='Leer en', on=''),
+               nav_cats='Categorías', other='Leer en', on='',
+               search='Buscar', contact='Contacto', about='Sobre nosotros',
+               privacy='Privacidad', terms='Términos',
+               foot_tag=('información de piezas de auto que cita sus fuentes y dice '
+                         'cuándo no lo sabe.')),
 }
 
 SITE_URLS = {'en': '', 'kr': '/kr', 'es': '/es'}
@@ -230,8 +253,8 @@ PAGE = """<!DOCTYPE html>
     <nav class="nav">
       <a href="{rel}index.html">{all_posts}</a>
       <a href="{rel}methodology.html">{how}</a>
-      <a href="{rel}search.html">Search</a>
-      <a href="{rel}contact.html">Contact</a>
+      <a href="{rel}search.html">{search}</a>
+      <a href="{rel}contact.html">{contact}</a>
     </nav>
   </div>
 </header>
@@ -249,14 +272,13 @@ PAGE = """<!DOCTYPE html>
 
 <footer>
   <div class="wrap">
-    <p><strong>Car Mod Review</strong> &mdash; car parts coverage that states its
-    sources and says when it doesn't know.</p>
+    <p><strong>Car Mod Review</strong> &mdash; {foot_tag}</p>
     <p>
       <a href="{rel}methodology.html">{how}</a> &middot;
-      <a href="{rel}contact.html">Contact</a> &middot;
-      <a href="{rel}about.html">About</a> &middot;
-      <a href="{rel}legal/privacy-policy.html">Privacy</a> &middot;
-      <a href="{rel}legal/terms-of-service.html">Terms</a>
+      <a href="{rel}contact.html">{contact}</a> &middot;
+      <a href="{rel}about.html">{about}</a> &middot;
+      <a href="{rel}legal/privacy-policy.html">{privacy}</a> &middot;
+      <a href="{rel}legal/terms-of-service.html">{terms}</a>
     </p>
     <p class="lang-switch">{other}: <a href="{alt_en}">English</a> &middot;
       <a href="{alt_kr}">한국어</a> &middot; <a href="{alt_es}">Español</a></p>
@@ -317,6 +339,8 @@ def render_page(*, lang, title, desc, canonical, body_html, rel, jsonld='',
         og_image=og_image or f'{DOMAIN}/og.png',
         domain=DOMAIN, rel=rel, jsonld=(jsonld + site_jsonld()), body=body_html,
         tagline=TAGLINE[lang], all_posts=ui['all_posts'], how=ui['how'], other=ui['other'],
+        search=ui['search'], contact=ui['contact'], about=ui['about'],
+        privacy=ui['privacy'], terms=ui['terms'], foot_tag=ui['foot_tag'],
         alt_en=alts.get('en', canonical), alt_kr=alts.get('kr', canonical),
         alt_es=alts.get('es', canonical),
         sidebar=sidebar or default_sidebar(lang, rel),
@@ -531,6 +555,7 @@ def build():
                     f'  </div>\n')
 
             canon = altmap[code]
+            body_html.append(comments_html(code, canon.replace(DOMAIN, '') or '/'))
             shots = find_photos(PHOTO_ROOT, slug)
             hero_img = (f'{DOMAIN}/img/photos/{slug}/{os.path.basename(shots[0])}'
                         if shots else None)
@@ -676,7 +701,12 @@ def build_static_pages(index_entries):
                 lang=code, title=('About CarModReview' if code == 'en'
                                   else '소개 | Car Mod Review' if code == 'kr'
                                   else 'Sobre CarModReview'),
-                desc='Who writes CarModReview, how a guide gets written, and what this site will not do.',
+                desc={'en': 'Who writes CarModReview, how a guide gets written, and what '
+                             'this site will not do.',
+                      'kr': 'CarModReview를 누가 쓰는지, 가이드가 어떻게 만들어지는지, '
+                            '그리고 이 사이트가 하지 않는 것.',
+                      'es': 'Quién escribe CarModReview, cómo se escribe una guía y lo que '
+                            'este sitio no hace.'}[code],
                 canonical=f'{DOMAIN}{prefix}/about.html',
                 body_html=md2html(md, rel), rel=rel,
                 alts={'en': f'{DOMAIN}/about.html', 'kr': f'{DOMAIN}/kr/about.html',
@@ -798,6 +828,56 @@ def build_static_pages(index_entries):
                                '<a href="index.html">Start from the homepage</a>.</p>', rel='')
     open(os.path.join(OUT, '404.html'), 'w', encoding='utf-8').write(nf)
     print('  wrote static pages')
+
+
+def comments_html(code, thread):
+    """Comment section for the foot of an article.
+
+    Returns '' when no comment backend is configured, so the build never ships a
+    heading over an empty box or a script pointing at a server that isn't there.
+
+    `thread` is the page path, so a thread follows its URL and each language gets
+    its own. Waline is loaded as an ES module because v3 split its stylesheet out
+    of the JS; without the paired <link> the widget renders unstyled.
+
+    `login` is deliberately left unset. Setting it to a provider list would force
+    an account before anyone could post, which is the whole thing we're avoiding.
+    """
+    if not WALINE_SERVER_URL:
+        return ''
+    head = {'en': 'Comments', 'kr': '댓글', 'es': 'Comentarios'}[code]
+    intr = {'en': 'No account needed. A name is enough.',
+            'kr': '계정은 필요 없습니다. 이름만 있으면 됩니다.',
+            'es': 'No hace falta cuenta. Con un nombre es suficiente.'}[code]
+    lang = {'en': 'en-US', 'kr': 'ko', 'es': 'es'}[code]
+    return (
+        f'\n  <section class="comments" id="comments">\n'
+        f'    <h2>{head}</h2>\n'
+        f'    <p class="comments-intro">{intr}</p>\n'
+        f'    <div id="waline"></div>\n'
+        f'    <script type="module">\n'
+        f'      import {{ init }} from '
+        f"'https://cdn.jsdelivr.net/npm/@waline/client@3/dist/waline.js';\n"
+        f'      // The site themes itself with prefers-color-scheme, so hand Waline a\n'
+        f'      // boolean rather than a selector: a selector like html:not([data-theme])\n'
+        f'      // also matches in light mode, which would render comments dark on a\n'
+        f'      // light page.\n'
+        f'      var mq = window.matchMedia("(prefers-color-scheme: dark)");\n'
+        f'      var waline = init({{\n'
+        f'        el: "#waline",\n'
+        f'        serverURL: {WALINE_SERVER_URL!r},\n'
+        f'        path: {thread!r},\n'
+        f'        lang: {lang!r},\n'
+        f'        dark: mq.matches,\n'
+        f'        requiredMeta: ["nick"],\n'
+        f'        pageSize: 20,\n'
+        f'        search: false,\n'
+        f'      }});\n'
+        f'      mq.addEventListener("change", function (e) {{\n'
+        f'        waline.update({{ dark: e.matches }});\n'
+        f'      }});\n'
+        f'    </script>\n'
+        f'  </section>\n')
 
 
 def index_list_html(index_entries, code, rel):

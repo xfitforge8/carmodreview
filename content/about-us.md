@@ -63,3 +63,38 @@ CarModReview는 지루한 부분을 제대로 해보려는 시도입니다. 실�
 커버리지는 넓게가 아니라 의도적으로 넓혀갑니다. 서스펜션, 인테이크, 배기, 휠과 타이어, 브레이크, 튜닝을 먼저 다루고, 그다음 라이팅, 인테리어, 정비 순으로 이어집니다.
 
 아직 다루지 않은 차량을 만지고 계시고 특정 카테고리를 먼저 보고 싶으시면 알려주세요. 순서는 실제로 바뀝니다.
+
+---
+
+## ES
+
+# Sobre CarModReview
+
+### Por qué existe este sitio
+
+Comprar piezas de auto es un problema de investigación que buena parte de internet ha empeorado. Una búsqueda de casi cualquier modificación devuelve una pila de páginas que repiten el texto de marketing del fabricante, citan la misma cifra de potencia sin verificar y ordenan los productos por tasa de comisión en lugar de por si funcionan.
+
+CarModReview intenta hacer bien la parte aburrida: leer la documentación real, comparar las cifras publicadas y anotar de dónde sale cada una. Cuando algo no se puede verificar, la página lo dice.
+
+### Cómo se escribe una guía
+
+Todas las guías se construyen igual:
+
+- **Se parte de la documentación primaria.** Tablas de compatibilidad del fabricante, especificaciones de par, condiciones de garantía y manuales de instalación. No resúmenes de fichas de producto, que contradicen el manual con frecuencia.
+- **Se comparan las especificaciones publicadas lado a lado**, para que la diferencia entre una pieza de 180 dólares y una de 600 sea visible: dónde es real y dónde es empaque.
+- **Se nombra la fuente de cada número.** Si una cifra de remolque sale de una tabla del fabricante, la página lo dice. Las cifras que no se pueden rastrear hasta una fuente primaria no aparecen como afirmaciones.
+- **Las notas de instalación dicen lo que pasa**: la tornillería que se agarrota, el paso que da por hecho un elevador, el valor de par que difiere entre el manual y el foro.
+
+### Lo que no hacemos
+
+No presentamos las afirmaciones del fabricante como pruebas independientes. Este sitio no publica resultados de banco de potencia, mediciones de decibelios ni cifras de rendimiento medidas, a menos que la página cite una fuente concreta y verificable.
+
+Esa contención nos cuesta el tono seguro que suele adoptar el contenido de repuestos. Es también la razón por la que vale la pena leer las guías.
+
+Si una página cambia porque aprendimos algo, sea que se revisó una especificación, se descontinuó una pieza o un proveedor cambió de suministrador, el artículo se actualiza y se anota el cambio.
+
+### Lo que viene
+
+La cobertura se amplía de forma deliberada y no indiscriminada: primero suspensión, admisión, escape, llantas y ruedas, frenos y reprogramación, después iluminación, interior y mantenimiento.
+
+Si está trabajando en un vehículo que no hemos cubierto y quiere que prioricemos una categoría, dígalo. Realmente cambia el orden.

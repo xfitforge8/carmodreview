@@ -2,12 +2,15 @@
 title:
   en: "Tire Buying for a Mostly-Street Silverado 4x4: Load Range, Size, and the E-Rated Trap"
   kr: "온로드 위주 실버라도 4x4 타이어 고르기: 하중 등급, 사이즈, 그리고 E-등급의 함정"
+  es: "Comprar llantas para un Silverado 4x4 de calle: índice de carga, medida y la trampa de la E"
 seo_title:
   en: "Silverado 4x4 Tire Guide: Load Range, Size, E-Rated Trap"
   kr: "실버라도 4x4 타이어 고르기: 하중 등급과 E-등급의 함정"
+  es: "Llantas para Silverado 4x4: carga, medida y la trampa E"
 seo_desc:
   en: "Tire buying for a mostly-street Silverado 4x4: load range, why E-rated tires ride worse, and the size that fits stock."
   kr: "온로드 위주 실버라도 4x4 타이어 고르기: 하중 등급, E-등급이 승차감을 해치는 이유, 그리고 순정에 맞는 사이즈."
+  es: "Comprar llantas para un Silverado 4x4 de uso urbano: índice de carga, por qué las E rinden peor y la medida que entra de fábrica."
 slug: silverado-4x4-tire-buying-guide
 category: Wheels & Tires
 status: draft
@@ -132,6 +135,66 @@ KBB 기준 공개 견인력인 **13,000 lb(더블캡) / 13,200 lb(크루캡, 2.7
 **순정 사이즈의 SL 등급 올터레인, 진짜 겨울이 있다면 3PMSF, 규정 주기대로 로테이션, 분필 테스트로 정한 공기압.** 브로셔 속 주행이 아니라 실제로 하는 주행에 맞춰 타이어를 고르세요. 나중에 정말로 최대 견인에 가깝게 자주 끈다면 그때 E 등급으로 올리고, 승차감 변화를 예산에 넣으세요.
 
 좋은 타이어가 저렴한 타이어보다 주는 성능 향상은 대부분의 볼트온 엔진 부품보다 큽니다. 여기에 먼저 쓰세요.
+
+---
+
+
+## ES
+
+Las llantas son la modificación con mejor retorno en cualquier camioneta, y la que más se compra por razones equivocadas. El error típico es comprar para la camioneta que imagina conducir (lodo, rocas, un rancho de caza) cuando el 90% de sus kilómetros son trayectos al trabajo y algún remolque ocasional.
+
+Así conviene pensarlo, sin el marketing.
+
+### Empiece por la carga, no por la apariencia
+
+El índice de carga es el número que decide si su llanta es correcta para la camioneta. En un Silverado 1500 2026, el peso en vacío ronda los **4.940 lb (Double Cab) y 5.010 lb (Crew Cab)** según la ficha de KBB para 2026, y eso es en vacío: antes de pasajeros, combustible, peso del enganche o carga.
+
+Eso significa que necesita una llanta con clasificación cómodamente por encima de la carga por eje que realmente va a llevar. Dos clasificaciones comunes en estas camionetas:
+
+- **Load Range SL (carga estándar).** Normalmente entre 2.600 y 2.800 lb por llanta en las medidas habituales del Silverado. Suficiente para una media tonelada que remolca de vez en cuando y no se acerca a la carga útil máxima.
+- **Load Range E.** Alrededor de 3.400 lb por llanta. Es la que la gente elige por defecto buscando credibilidad de «trabajo pesado».
+
+**La trampa de la E:** las llantas Load Range E llevan presiones máximas mucho más altas y flancos bastante más rígidos. En una media tonelada de 5.000 lb que va ligera de peso, esa rigidez se traduce en marcha dura, peor absorción de los baches pequeños y, la parte que nadie menciona, **menos superficie de contacto con el suelo**, porque la llanta no se adapta al asfalto. Una E en una media tonelada vacía es sobreespecificación, y se siente en cada kilómetro.
+
+Compre E si de verdad remolca cerca de la capacidad publicada de la camioneta: **13.000 lb (Double Cab) y 13.200 lb (Crew Cab)** con el 2.7L, y hasta unos **13.300 lb** con el diésel, según KBB. Si no es su caso, SL es la mejor llanta para el uso que realmente le da.
+
+### Qué decide la medida
+
+Las llantas más grandes se ven bien en estas camionetas y le cuestan de maneras concretas y medibles:
+
+| Cambio | Costo real |
+|---|---|
+| Llanta más alta (mayor diámetro) | El velocímetro y el odómetro leen por debajo de lo real, la relación de transmisión efectiva baja, la aceleración y el remolque se sienten más flojos |
+| Llanta más ancha | Más resistencia a la rodadura, más riesgo de aquaplaning en agua estancada, más peso no suspendido |
+| Llanta más pesada (construcción LT, dibujo agresivo) | La masa rotacional equivale a unas 3 veces la masa estática para acelerar; la distancia de frenado crece |
+
+La transmisión 4x4 añade una regla: **mantenga las cuatro llantas igualadas en diámetro.** Una diferencia de apenas unas décimas de pulgada en la circunferencia entre el eje delantero y el trasero deja trabajando la caja de transferencia de forma continua sobre asfalto. Es el error de llantas más caro que puede cometer en un 4x4, y es la razón por la que nunca debe cambiar una sola llanta en estas camionetas.
+
+### El dibujo, según el uso
+
+**Carretera/todas las estaciones (H/T, AS):** La mejor para una camioneta que va al trabajo y remolca. Silenciosa, de larga duración, mejor frenado en mojado, mejor consumo. Si sale del asfalto dos veces al año hacia grava, esta es la llanta correcta.
+
+**Todoterreno (A/T):** El compromiso razonable y la categoría más popular aquí. Busque la marca de tres picos de montaña con copo de nieve (3PMSF) si tiene inviernos de verdad. Es una certificación real, no marketing. Las A/T le cuestan aproximadamente 1 o 2 mpg y algo de frenado en mojado frente a una AS.
+
+**Lodo (M/T):** Ruidosas, mal agarre en mojado sobre asfalto, se desgastan rápido y son genuinamente peores en la mayoría de las situaciones que enfrenta una camioneta de calle. Cómprelas solo si realmente anda en lodo.
+
+### La pregunta de la presión
+
+Use la presión que indica la etiqueta del marco de la puerta y luego ajústela según la carga. Esa cifra corresponde a la camioneta en su condición de carga útil nominal, que no es como la conducimos la mayoría cuando va vacía. La prueba de la tiza es gratis y le dice más que cualquier mensaje de foro: cubra una franja del dibujo de lado a lado con tiza, avance en línea recta un tramo corto sobre asfalto seco y observe el patrón de desgaste. Desgaste en el centro significa exceso de presión; desgaste en ambos bordes significa presión baja; desgaste parejo significa que está bien.
+
+Hágalo una vez con la camioneta vacía y otra con carga, y conocerá sus dos números. Revise las presiones cada mes, porque las llantas de camioneta pierden alrededor de 1 psi al mes y cerca de 1 psi por cada 10 °F de caída de temperatura.
+
+### Rotación y la regla del 4x4
+
+Rote cada 5.000 a 7.500 millas, y en un 4x4 use un patrón cruzado que mantenga las cuatro llantas dentro de una ventana estrecha de circunferencia. Saltarse las rotaciones en un 4x4 no solo desgasta las llantas de forma despareja. Crea la diferencia de diámetro que se come las cajas de transferencia.
+
+### Qué ponerle a la camioneta
+
+Para un Silverado 1500 4x4 2026 que en su mayoría va al trabajo y remolca de vez en cuando:
+
+**Llantas todoterreno con clasificación SL en la medida de fábrica, 3PMSF si tiene inviernos de verdad, rotadas según el calendario y con la presión ajustada por la prueba de la tiza.** Compre la llanta para la conducción que hace, no para la del folleto. Si más adelante se encuentra remolcando cerca de la capacidad con regularidad, páse a E en ese momento y presupueste el cambio de confort.
+
+La ganancia de rendimiento de una buena llanta sobre una barata es mayor que la de casi cualquier pieza de motor atornillada. Gaste aquí primero.
 
 ---
 

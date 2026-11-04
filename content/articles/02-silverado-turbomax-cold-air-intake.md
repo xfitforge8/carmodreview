@@ -2,12 +2,15 @@
 title:
   en: "Cold Air Intake on the 2.7L TurboMax Silverado: Noise, Power, or Neither?"
   kr: "2.7L TurboMax 실버라도 콜드에어 인테이크: 효과인가, 소음인가?"
+  es: "Admisión de aire frío en el Silverado 2.7L TurboMax: ¿ruido, potencia o ninguna de las dos?"
 seo_title:
   en: "Cold Air Intake on the 2.7L TurboMax Silverado"
   kr: "2.7L TurboMax 실버라도 콜드에어 인테이크"
+  es: "Admisión de aire frío en el Silverado 2.7L TurboMax"
 seo_desc:
   en: "Cold air intake on the 2.7L TurboMax Silverado: what it can and cannot do, and the MAF failure nobody warns you about."
   kr: "2.7L TurboMax 실버라도 콜드에어 인테이크: 할 수 있는 것과 없는 것, 그리고 아무도 경고하지 않는 MAF 고장."
+  es: "Admisión de aire frío en el Silverado 2.7L TurboMax: qué puede y qué no puede hacer, y la falla del MAF que nadie le advierte."
 slug: silverado-27-turbomax-cold-air-intake
 category: Engine
 status: draft
@@ -108,6 +111,54 @@ Don't buy it expecting a power gain you'll feel, and don't buy an open-cone desi
 이 트럭에서 인테이크는 흡기음이 목적이라면 사세요. 그 이유만으로도 괜찮은 구매입니다.
 
 체감할 수 있는 출력 향상을 기대하고 사지는 마시고, 7월 정체 구간에서 뜨거운 엔진룸 공기를 마시는 오픈 콘형도 사지 마세요. 밀폐형 박스, 공장 펜더 흡기, 오일을 적게 바른 필터, 매 서비스마다 MAF 청소. 센서 하나와 린 코드 재진단에 주말을 날리지 않는 버전의 이 튜닝입니다.
+
+---
+
+
+## ES
+
+Una admisión de aire frío es la segunda cosa que compra la mayoría después de un kit de nivelación, y es la modificación donde hay una brecha más amplia entre lo que promete el marketing y lo que el dueño realmente siente.
+
+El Silverado 1500 2026 lleva el cuatro cilindros turboalimentado 2.7L, el TurboMax, con **310 hp y 430 lb-ft** según la ficha de KBB para 2026. Es un motor interesante de verdad: más par que el 4.3L V6 al que reemplazó y más empuje a bajo régimen del que uno esperaría de un cuatro cilindros. Ese turbo es también la razón por la que una admisión se comporta distinto en esta camioneta que en un 5.3L atmosférico.
+
+### Qué puede y qué no puede hacer una admisión
+
+Conviene separar los mecanismos, porque «añade 15 hp» junta tres cosas distintas en un solo número.
+
+**Dónde puede ayudar:** Una caja de aire de fábrica está diseñada primero para reducir ruido y segundo para fluir: los silenciadores del resonador y el aislamiento acústico de la caja añaden restricción. En un motor turboalimentado, reducir la restricción antes del turbo puede hacer que este gire algo más rápido, lo que se siente como una respuesta algo más inmediata al acelerador más que como potencia máxima. Hay una mejora real, aunque modesta, disponible aquí, y más en un motor turbo que en uno atmosférico.
+
+**Dónde no puede:** El sensor de flujo de aire, el cuerpo de aceleración y la calibración de la ECU siguen siendo los cuellos de botella. Una admisión atornillada no puede cambiar los objetivos de presión del turbo. La gestión del motor se ajustará alrededor del aire extra que llegue y mantendrá la potencia que tiene ordenada. Si no cambia la reprogramación, lo que cambia sobre todo es el sonido.
+
+**Qué obtiene realmente:** Ruido de admisión al acelerar. En un cuatro cilindros turbo es un soplido y un tableteo notorios, más dramáticos que la ganancia de potencia. Muchos dueños compran una admisión solo por eso y quedan contentos, lo que es una razón legítima. Simplemente no se diga a sí mismo que es una preparación de rendimiento.
+
+### Dos fallas que conviene conocer
+
+**1. Filtro aceitado y el MAF.** Muchas admisiones de posventa usan filtros de gasa de algodón aceitada. El exceso de aceite es el modo de falla clásico: el aceite migra aguas abajo, cubre el hilo caliente del sensor de flujo de aire y produce ralentí irregular, códigos de mezcla pobre y finalmente un P0171. Si elige uno aceitado, use menos aceite del que indican las instrucciones y limpie el MAF con limpiador específico para MAF, nunca con limpiador de frenos, cuando dé servicio al filtro.
+
+**2. Calor acumulado y el verdadero «aire frío».** La mitad de lo que se vende como admisión de aire frío toma aire desde dentro del vano motor. En una camioneta que pasa rato al ralentí en el tráfico o que trabaja con calor de verano, la temperatura del aire de admisión sube y la ECU retrasa el encendido. Una caja sellada que toma aire de la ubicación de fábrica en el guardabarros suele ser mejor que un cono abierto con pantalla térmica. Fíjese en de dónde toma aire el filtro, no en el nombre de la marca.
+
+### Expectativas realistas en el 2.7L
+
+Nuestra postura: **aquí no se publican cifras de banco de potencia**, porque no se hizo una prueba instrumentada de antes y después. Lo que sigue es lo que sostiene el mecanismo y lo que los dueños reportan de forma consistente en foros públicos.
+
+- Espere un **cambio notorio en el sonido**, sobre todo bajo carga y durante el soplado del turbo.
+- Espere **poca o ninguna ganancia de potencia perceptible** sin reprogramación. Si alguien le dice que sintió 20 hp, pregúntele si también instaló una reprogramación al mismo tiempo. Normalmente sí.
+- Espere una **posible ganancia pequeña de eficiencia** si la caja de fábrica era realmente restrictiva, y prácticamente nada si no lo era. Las admisiones modernas de fábrica en motores turbo son mejores de lo que la posventa quiere que usted crea.
+
+### Dónde conviene gastar el dinero primero
+
+Si su objetivo es rendimiento real en este motor, la admisión está cerca del fondo de la lista. En orden aproximado de retorno por dólar en un 2.7L TurboMax:
+
+1. **Una reprogramación.** Es lo único que cambia los objetivos de presión del turbo y la lógica de cambios. También es la modificación con más probabilidad de afectar su garantía. Téngalo claro antes de hacerlo.
+2. **Neumáticos.** En una camioneta 4x4 son en buena medida su contacto con el suelo, y los de fábrica para todas las estaciones son un compromiso.
+3. **Reducción de peso.** Gratis, y una caja más ligera supone una diferencia medible en una camioneta de 5.000 lb.
+4. **Admisión y escape.** Sonido y carácter, más una pequeña ganancia real una vez reprogramado.
+
+### Qué versión comprar
+
+Compre una admisión para esta camioneta por el ruido de admisión, y sepa que es eso lo que está comprando. Es una buena compra por esa razón.
+
+No la compre esperando una ganancia de potencia que vaya a sentir, y no compre un diseño de cono abierto que respire aire caliente del vano motor en el tráfico de julio. Caja sellada, toma de aire en el guardabarros de fábrica, filtro ligeramente aceitado, MAF limpio en cada servicio. Esa es la versión de esta modificación que no le cuesta un sensor y un sábado volviendo a diagnosticar un código de mezcla pobre.
 
 ---
 
