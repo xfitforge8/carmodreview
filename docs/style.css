@@ -49,6 +49,13 @@ body {
 /* The page shell is wider than the article because it now carries a rail. */
 body > main.wrap { max-width: 1080px; }
 
+/* Header and footer sit on the same shell as main. Left at the 720px reading
+   measure the masthead had no room for the nav plus a search field and wrapped
+   the search onto its own row even on a desktop. The reading measure still
+   applies to prose, which is the only place it was ever meant to apply. */
+.masthead > .wrap,
+footer > .wrap { max-width: 1080px; }
+
 /* ---------- two-column layout: article left, panel right ---------- */
 
 /* Article carries the reading measurement, so it gets the flexible track and
@@ -190,6 +197,24 @@ body > main.wrap { max-width: 1080px; }
   margin-top: 3px;
 }
 
+/* Nav and search travel together as one right-hand group. Left as siblings they
+   wrapped: the flex container would break between them and drop the search onto
+   a second row even at 1280px. */
+.masthead-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  /* Must not shrink below its children or flex will size it a few pixels
+     short and wrap the search under the nav. If the whole group no longer
+     fits beside the brand, the outer masthead wraps it to its own row.
+     min-width:0 is what lets it shrink on a phone instead of forcing the
+     whole document wider than the viewport. */
+  flex: 0 1 auto;
+  min-width: 0;
+  max-width: 100%;
+  margin-left: auto;
+}
+
 .nav {
   display: flex;
   gap: 18px;
@@ -206,6 +231,55 @@ body > main.wrap { max-width: 1080px; }
 }
 
 .nav a:hover { border-bottom-color: var(--rust); color: var(--rust); }
+
+/* Header search. Sized to the nav's own scale rather than the big 17px field
+   on search.html: this one is a way in, not the place you do the reading. */
+.nav-search {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  flex: 1 1 210px;
+  min-width: 0;
+  max-width: 210px;
+}
+
+.nav-search input[type="search"] {
+  flex: 1 1 auto;
+  min-width: 0;
+  width: 100%;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: 13px;
+  padding: 6px 9px;
+  border: 1px solid var(--rule);
+  border-right: 0;
+  border-radius: 3px 0 0 3px;
+  background: var(--paper);
+  color: var(--ink);
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.nav-search input[type="search"]::placeholder { color: var(--ink-3); }
+
+.nav-search input[type="search"]:focus {
+  outline: 2px solid var(--rust);
+  outline-offset: 1px;
+  border-color: var(--rust);
+}
+
+.nav-search button {
+  flex: 0 0 auto;
+  font-size: 14px;
+  line-height: 1;
+  padding: 7px 10px;
+  border: 1px solid var(--rule);
+  border-radius: 0 3px 3px 0;
+  background: var(--paper-2);
+  color: var(--ink-2);
+  cursor: pointer;
+}
+
+.nav-search button:hover { border-color: var(--rust); color: var(--rust); }
 
 /* ---------- article ---------- */
 
@@ -248,6 +322,12 @@ h1 {
   gap: 14px;
   flex-wrap: wrap;
 }
+
+/* The author is the first thing in the byline and the only part of it that is
+   a person rather than a date, so it carries the emphasis. */
+.byline-author { color: var(--ink-2); }
+.byline-author a { color: var(--ink); text-decoration: none; font-weight: 600; }
+.byline-author a:hover { color: var(--rust); text-decoration: underline; }
 
 h2 {
   font-size: clamp(22px, 3.4vw, 27px);
@@ -660,6 +740,54 @@ footer p { margin: 0 0 10px; }
   letter-spacing: 1.2px;
   text-transform: uppercase;
   color: var(--rust);
+}
+
+/* ---------- share ---------- */
+
+.share {
+  margin: 46px 0 0;
+  padding-top: 20px;
+  border-top: 1px solid var(--rule);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.share-label {
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.share-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.share-list a {
+  display: inline-block;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 6px 11px;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  color: var(--ink-2);
+  text-decoration: none;
+}
+
+.share-list a:hover {
+  border-color: var(--rust);
+  color: var(--rust);
+  background: var(--paper-2);
 }
 
 .sr-only {

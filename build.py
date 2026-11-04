@@ -202,7 +202,7 @@ UI = {
                           'on this page. Commission never decides which products we pick or '
                           'where they rank.'),
                nav_cats='Categories', other='Read this in', on='on',
-               search='Search', contact='Contact', about='About', privacy='Privacy',
+               search='Search', search_label='Search guides', by='By', contact='Contact', about='About', privacy='Privacy',
                terms='Terms', disclosure='Affiliate disclosure',
                foot_tag=('car parts coverage that states its sources and says when it '
                          "doesn't know.")),
@@ -212,7 +212,7 @@ UI = {
                disc_body=('이 페이지의 링크를 통해 구매가 이루어지면 저희는 수수료를 받습니다. '
                           '수수료는 어떤 제품을 고르는지, 순위가 어떻게 되는지를 결정하지 않습니다.'),
                nav_cats='카테고리', other='다른 언어', on='',
-               search='검색', contact='문의', about='소개', privacy='개인정보처리방침',
+               search='검색', search_label='가이드 검색', by='글쓴이', contact='문의', about='소개', privacy='개인정보처리방침',
                terms='이용약관', disclosure='제휴 고지',
                foot_tag='출처를 밝히고, 모르는 것은 모른다고 말하는 자동차 부품 정보.'),
     'es': dict(all_posts='Todas las guías', how='Cómo elegimos', home='Inicio',
@@ -222,7 +222,7 @@ UI = {
                           'esta página. La comisión nunca decide qué productos elegimos ni en qué '
                           'posición se clasifican.'),
                nav_cats='Categorías', other='Leer en', on='',
-               search='Buscar', contact='Contacto', about='Sobre nosotros',
+               search='Buscar', search_label='Buscar guías', by='Por', contact='Contacto', about='Sobre nosotros',
                privacy='Privacidad', terms='Términos', disclosure='Divulgación de afiliados',
                foot_tag=('información de piezas de auto que cita sus fuentes y dice '
                          'cuándo no lo sabe.')),
@@ -597,12 +597,18 @@ PAGE = """<!DOCTYPE html>
       <a class="brand" href="{rel}index.html">Car Mod<span>.Review</span></a>
       <span class="brand-sub">{tagline}</span>
     </div>
-    <nav class="nav">
-      <a href="{rel}index.html">{all_posts}</a>
-      <a href="{rel}methodology.html">{how}</a>
-      <a href="{rel}search.html">{search}</a>
-      <a href="{rel}contact.html">{contact}</a>
-    </nav>
+    <div class="masthead-right">
+      <nav class="nav">
+        <a href="{rel}index.html">{all_posts}</a>
+        <a href="{rel}methodology.html">{how}</a>
+        <a href="{rel}contact.html">{contact}</a>
+      </nav>
+      <form class="nav-search" action="{rel}search.html" method="get" role="search">
+        <label class="sr-only" for="navq">{search_label}</label>
+        <input id="navq" type="search" name="q" placeholder="{search}" autocomplete="off">
+        <button type="submit" aria-label="{search_label}">&#8981;</button>
+      </form>
+    </div>
   </div>
 </header>
 
@@ -664,6 +670,61 @@ DISCLOSURE = {
            'elegimos ni en qué orden las clasificamos. '
            '<a href="{rel}legal/affiliate-disclosure.html">Divulgación completa</a>.</div>'),
 }
+
+
+SHARE_LABEL = {
+    'en': 'Share',
+    'kr': '공유',
+    'es': 'Compartir',
+}
+
+# The byline. Duffy Vance is a pen name, stated as one on the About page, so the
+# site never implies a verifiable legal identity it cannot produce. Naming the
+# author in the byline and in the Article JSON-LD keeps the page and its
+# structured data saying the same thing -- previously the visible page named
+# nobody while the markup credited an Organization.
+EDITOR = {
+    'en': ('Duffy Vance', 'Editor'),
+    'kr': ('더피 밴스', '편집자'),
+    'es': ('Duffy Vance', 'Editor'),
+}
+
+
+def build_share(lang, canonical, title):
+    """Share links for the foot of an article.
+
+    Plain links, no third-party script and no tracking pixel: each one is just
+    the network's own share URL with the article's absolute address in it. That
+    keeps the page free of the 200 KB of JavaScript the usual share widgets
+    pull in, and it means a share works with JavaScript disabled.
+
+    The email link deliberately opens the reader's own mail client with the
+    title and address pre-filled rather than using a mailto: with a body -- a
+    subject and link is enough, and a pre-written body would be putting words
+    in the reader's mouth.
+    """
+    from urllib.parse import quote
+    u = quote(canonical, safe='')
+    t = quote(title, safe='')
+    items = (
+        ('facebook', 'Facebook',
+         f'https://www.facebook.com/sharer/sharer.php?u={u}'),
+        ('x', 'X',
+         f'https://twitter.com/intent/tweet?url={u}&text={t}'),
+        ('linkedin', 'LinkedIn',
+         f'https://www.linkedin.com/sharing/share-offsite/?url={u}'),
+        ('email', 'Email',
+         f'mailto:?subject={t}&body={u}'),
+    )
+    links = ''.join(
+        f'      <li><a class="share-{key}" href="{html.escape(href)}"'
+        f'{" target=\"_blank\" rel=\"noopener\"" if key != "email" else ""}>{name}</a></li>\n'
+        for key, name, href in items
+    )
+    return (f'  <div class="share">\n'
+            f'    <span class="share-label">{SHARE_LABEL[lang]}</span>\n'
+            f'    <ul class="share-list">\n{links}    </ul>\n'
+            f'  </div>\n')
 
 
 def build_disclosure(lang, rel, body_html):
@@ -759,7 +820,8 @@ def render_page(*, lang, title, desc, canonical, body_html, rel, jsonld='',
         domain=DOMAIN, rel=rel, jsonld=(jsonld + site_jsonld()), body=body_html,
         analytics=('\n' + analytics_tag()) if analytics_tag() else '',
         tagline=TAGLINE[lang], all_posts=ui['all_posts'], how=ui['how'], other=ui['other'],
-        search=ui['search'], contact=ui['contact'], about=ui['about'],
+        search=ui['search'], search_label=ui['search_label'], by=ui['by'], contact=ui['contact'],
+        about=ui['about'],
         privacy=ui['privacy'], terms=ui['terms'], foot_tag=ui['foot_tag'],
         disclosure=ui['disclosure'],
         disclosure_block=build_disclosure(lang, rel, body_html),
@@ -850,7 +912,8 @@ def article_jsonld(title, desc, canonical, published, modified, section, lang, i
         'inLanguage': HTML_LANG[lang],
         'articleSection': section,
         'image': [image or f'{DOMAIN}/og.png'],
-        'author': {'@type': 'Organization', 'name': 'Car Mod Review', '@id': f'{DOMAIN}/#org'},
+        'author': {'@type': 'Person', 'name': EDITOR['en'][0],
+                   'url': f'{DOMAIN}/about.html'},
         'publisher': {'@type': 'Organization', 'name': 'Car Mod Review', '@id': f'{DOMAIN}/#org'},
         'isAccessibleForFree': True,
         'mainEntityOfPage': {'@type': 'WebPage', '@id': canonical},
@@ -1040,10 +1103,14 @@ def build():
                 body_html.append(f'  <p class="dek">{html.escape(dek)}</p>\n')
             revised = (f' &middot; {UI[code]["updated"]} {date}'
                        if published != date else '')
+            rel = '../' if not prefix else '../../'
+            editor_name, editor_role = EDITOR[code]
             body_html.append(f'  <div class="byline">\n'
+                             f'    <span class="byline-author">{UI[code]["by"]} '
+                             f'<a href="{rel}about.html">{html.escape(editor_name)}</a>, '
+                             f'{html.escape(editor_role)}</span>\n'
                              f'    <span>{UI[code]["published"]} {published}{revised}</span>\n'
                              f'  </div>\n')
-            rel = '../' if not prefix else '../../'
             art_html = md2html(inner, rel)
             art_html = inject_photos(art_html, slug, code, rel,
                                      find_photos(PHOTO_ROOT, slug))
@@ -1054,6 +1121,8 @@ def build():
                     f'    <h3>{UI[code]["verified"]}</h3>\n'
                     f'    {md2html(unver, rel)}\n'
                     f'  </div>\n')
+
+            body_html.append(build_share(code, altmap[code], title))
 
             canon = altmap[code]
             shots = find_photos(PHOTO_ROOT, slug)
@@ -1489,12 +1558,19 @@ SEARCH_PAGE = r"""<!DOCTYPE html>
       <a class="brand" href="index.html">Car Mod<span>.Review</span></a>
       <span class="brand-sub">Car parts, checked against the published specs</span>
     </div>
-    <nav class="nav">
-      <a href="index.html">All posts</a>
-      <a href="methodology.html">How we pick</a>
-      <a href="search.html">Search</a>
-      <a href="contact.html">Contact</a>
-    </nav>
+    <div class="masthead-right">
+      <nav class="nav">
+        <a href="index.html">All posts</a>
+        <a href="methodology.html">How we pick</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <form class="nav-search" action="search.html" method="get" role="search">
+        <label class="sr-only" for="navq">Search guides</label>
+        <input id="navq" type="search" name="q" placeholder="Search" autocomplete="off"
+               value="">
+        <button type="submit" aria-label="Search guides">&#8981;</button>
+      </form>
+    </div>
   </div>
 </header>
 
