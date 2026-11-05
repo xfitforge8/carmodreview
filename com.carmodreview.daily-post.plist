@@ -14,11 +14,14 @@
   <key>WorkingDirectory</key>
   <string>/Users/raykim/carmodreview</string>
 
-  <!-- 16:20 local. Afternoon US time catches the evening scroll on the west
-       coast and is still same-day for most of the US. -->
+  <!-- 09:20 local, not 16:20. A Short's first two hours decide whether the
+       algorithm keeps showing it, and 09:20 Pacific is lunchtime on the east
+       coast and mid-afternoon in the UK -- a full day of US traffic ahead of
+       it. 16:20 Pacific spends the useful window on people already going to
+       bed. -->
   <key>StartCalendarInterval</key>
   <dict>
-    <key>Hour</key><integer>16</integer>
+    <key>Hour</key><integer>9</integer>
     <key>Minute</key><integer>20</integer>
   </dict>
 
@@ -27,8 +30,9 @@
   <key>StandardErrorPath</key>
   <string>/Users/raykim/carmodreview/social/upload.log</string>
 
-  <!-- If the Mac is asleep at 16:20, run at the next wake rather than skipping
-       the day entirely. -->
+  <!-- If the Mac is asleep at 09:20, launchd runs the job at the next wake
+       rather than skipping the day. RunAtLoad stays false so loading the
+       agent does not post anything immediately. -->
   <key>RunAtLoad</key>
   <false/>
 </dict>

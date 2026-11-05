@@ -7,9 +7,10 @@ article file, pulls the headline numbers straight out of it, and refuses to run
 if it cannot find them. Nothing is retyped from memory into a caption, which is
 the way a number drifts between the page and the video.
 
-What it does not do: it does not animate a cover or show a product. There is no
-b-roll of these parts because we have not photographed any, so the cards carry
-the figures and the page carries the detail.
+Each card carries a real photograph of the product it names, fetched from that
+product's own listing by fetch_products.py. Nothing here is generated: a short
+that shows a part has to show that part, or it is the same stock-photo filler it
+was meant to replace.
 
   python3 make_short.py tonneau-covers-explained
   python3 make_short.py tonneau-covers-explained --out ~/Desktop
@@ -24,6 +25,9 @@ import tempfile
 
 ROOT = os.path.expanduser('~/carmodreview')
 OUT = os.path.join(ROOT, 'docs')
+# Product photographs, one directory per article, keyed by pick position.
+# Fetched from the retailer's own listing by fetch_products.py.
+PRODUCT_ROOT = os.path.join(ROOT, 'content', 'products')
 
 W, H = 1080, 1920
 FPS = 30
@@ -79,19 +83,122 @@ def esc(text):
 
 
 def wrap(text, width):
-    """Greedy wrap, because drawtext has no wrapping of its own."""
-    words, lines, cur = text.split(), [], ''
-    for w in words:
-        trial = (cur + ' ' + w).strip()
-        if len(trial) <= width:
-            cur = trial
-        else:
+    """Greedy wrap, because drawtext has no wrapping of its own.
+
+    A single word longer than `width` is hard-split rather than left to run off
+    the frame. drawtext does not wrap and does not clip, so 'carmodreview.com'
+    at 82px simply continued past the right edge and out of the video -- the
+    card looked like a deliberate crop rather than a bug.
+    """
+    lines, cur = [], ''
+    for chunk in text.split('\n'):
+        if cur:
+            lines.append(cur)
+            cur = ''
+        for w in chunk.split():
+            trial = (cur + ' ' + w).strip()
+            if len(trial) <= width:
+                cur = trial
+                continue
             if cur:
                 lines.append(cur)
+            while len(w) > width:
+                lines.append(w[:width])
+                w = w[width:]
             cur = w
-    if cur:
-        lines.append(cur)
-    return lines
+        if cur:
+            lines.append(cur)
+            cur = ''
+    return [l for l in lines if l]
+
+
+# Words that cannot end a sentence. A card whose sub-line stops on one of
+# these reads as text that was cut, not text that finished: "...is removed
+# rather", "...in the range we". Shared by both the word-boundary and the
+# punctuation-boundary cut, because a comma cut can land on one just as easily.
+_DANGLE = {
+    'a', 'an', 'the', 'and', 'or', 'but', 'of', 'to', 'in', 'on', 'at',
+    'for', 'from', 'with', 'by', 'as', 'is', 'are', 'was', 'were', 'be',
+    'that', 'which', 'than', 'then', 'so', 'if', 'when', 'while', 'into',
+    'over', 'under', 'about', 'its', 'this', 'these', 'those', 'any',
+    'all', 'more', 'most', 'not', 'no', 'you', 'your', 'it',
+    'rather', 'we', 'they', 'our', 'their', 'also', 'very',
+    'just', 'even', 'still', 'only', 'both', 'each', 'same', 'other',
+}
+# Finds the final word of a string, ignoring trailing punctuation. Two things
+# went wrong here before it worked. The pattern anchored with \b, which fails
+# once a full stop has been appended -- "rather." has no word boundary after
+# the dot, so every cut passed. And it was applied with .match(), which only
+# anchors at the start of the string, so even a correct pattern would have
+# found nothing. It must be .search().
+_DANGLING_TAIL = re.compile(
+    r'(?:^|\s)(' + '|'.join(sorted(_DANGLE)) + r')[.,;:]?$', re.I)
+
+
+def fit_words(text, width, max_lines):
+    """Trim `text` to at most `max_lines` wrapped lines, always ending cleanly.
+
+    Three bugs lived in the naive version of this, and each showed up on
+    screen. Character-count truncation put the cut wherever the count landed,
+    so a sub-line ended "rather than an open cone with..." -- one orphaned word,
+    reading as broken rather than cut. Counting the lines before the ellipsis
+    was appended meant the "..." itself pushed the result one line past the
+    budget, and the layout silently clipped it. And a plain word-boundary cut
+    leaves dangling connectives: "the money over...", "puts it ahead of..."
+    are not truncated sentences, they are sentences that stopped.
+
+    So the cut is taken at the last real clause boundary that fits -- a comma,
+    colon, semicolon or full stop the article itself wrote -- and closed with a
+    full stop. Every candidate is collected rather than stopping at the first
+    separator type, because the best break is often the last comma and not the
+    first colon. Only when no punctuation fits at all does it fall back to a
+    word cut that avoids ending on a connective.
+    """
+    text = re.sub(r'\s+', ' ', text).strip()
+
+    def closed(cand):
+        cand = cand.rstrip(' ,;:-')
+        return cand if cand.endswith(('.', '!', '?')) else cand + '.'
+
+    def fits(cand):
+        return len(wrap(cand, width)) <= max_lines
+
+    if fits(text):
+        return closed(text)
+
+    # A cut at a comma can manufacture a fragment that reads as a claim:
+    # "If the goal is sound and the budget is tight." is a subordinate clause
+    # with a full stop bolted on, and on a card it looks like the video's
+    # conclusion. Any candidate opening with a subordinator is rejected, and
+    # the cut falls further back to a word boundary with an ellipsis.
+    SUBORD = re.compile(r'^(?:if|when|while|since|although|though|unless|'
+                        r'because|after|before|once|as|until)\b', re.I)
+    best = ''
+    for m in re.finditer(r'[,;:.]\s', text):
+        cand = closed(text[:m.start()])
+        if SUBORD.match(cand):
+            continue
+        # A punctuation cut is no safer than a word cut: "...is removed rather
+        # than managed" cut at an earlier comma gives "...is removed rather.",
+        # and "in the range we checked" gives "...in the range we." Both are
+        # the same defect -- a line ending on a word that needs what follows.
+        if _DANGLING_TAIL.search(cand):
+            continue
+        if len(cand) > len(best) and fits(cand):
+            best = cand
+    if best:
+        return best
+
+    # No punctuation break fits inside the budget. Drop whole words, skipping
+    # any cut that would end the line on a word that cannot end a sentence.
+    words = text.split()
+    for end in range(len(words), 3, -1):
+        cand = closed(' '.join(words[:end]))
+        if _DANGLING_TAIL.search(cand):
+            continue
+        if fits(cand):
+            return cand
+    return closed(' '.join(words[:4]))
 
 
 def probe_duration(path):
@@ -102,49 +209,352 @@ def probe_duration(path):
     return int(s['width']), int(s['height'])
 
 
-def card(main, sub=None, kicker=None, seconds=4.0, accent=False):
+def product_image(product_root, slug, pos):
+    """Path to the photograph for one pick, or None.
+
+    Accepts any image extension because fetch_products.py decides the extension
+    from the file's magic bytes -- the retailer's image service names every file
+    .jpg and serves WebP. Returns None rather than raising: a short without a
+    photo is still publishable, a short that crashes because one image is
+    missing is not.
+    """
+    d = os.path.join(product_root, slug)
+    if not os.path.isdir(d):
+        return None
+    for f in sorted(os.listdir(d)):
+        if f.startswith(f'{pos:02d}-') and f.lower().endswith(
+                ('.webp', '.jpg', '.jpeg', '.png')):
+            return os.path.join(d, f)
+    return None
+
+
+# Every HTML entity the article files actually use. A named table rather than
+# html.unescape(), because the article bodies contain things like "&amp;lt;"
+# written literally in code examples, and unescaping those twice would corrupt
+# them. These seven cover every entity in content/articles/.
+_ENT = {'&ndash;': '-', '&mdash;': '-', '&minus;': '-', '&middot;': '-',
+        '&amp;': '&', '&nbsp;': ' ', '&rsquo;': "'", '&times;': 'x',
+        '&quot;': '"', '&#39;': "'", '&lt;': '<', '&gt;': '>'}
+
+
+def unent(text):
+    """Decode the entities the article files use."""
+    for k, v in _ENT.items():
+        text = text.replace(k, v)
+    return text
+
+
+# A short is watched on its own, with no page around it. The buy blocks were
+# written to sit inside a long article, so their first sentence is often about
+# the article -- "the pick from the section above", "the distinction this
+# article keeps returning to", "the two things the rest of this article says
+# matter". On a phone that reads as a video that started in the middle.
+# read_picks() keeps the whole reason; this picks the sentence that stands
+# alone, and only falls back to a structural one when every sentence has it.
+_STRUCT = re.compile(
+    r'\bsection above\b|\bthe section\b|\bsections?\b|\bthis article\b'
+    r'|\bthis page\b|\babove\b|\bbelow\b|\bthe rest of\b|\bearlier\b'
+    r'|\bwe(?: have)? (?:said|covered|mentioned|explained)\b', re.I)
+
+
+# A sentence opening on one of these is a subordinate clause, not a claim:
+# "If the goal is sound and the budget is tight." on a card looks like the
+# video's conclusion while actually being half a sentence.
+_SUBORD = re.compile(r'^(?:if|when|while|since|although|though|unless|because|'
+                     r'after|before|once|as|until)\b', re.I)
+
+
+def _STRUCT_SUB(t):
+    """Strip a reference to the article, keeping the sentence readable.
+
+    "This is the piggyback option from the section above" is true on the page
+    and meaningless in a video with no page around it. The reference goes and
+    the sentence stays; "this article" becomes "the guide" rather than being
+    deleted, because deleting the subject of a sentence leaves "This is the
+    option would point you to". Longer phrases first, so "from the section
+    above" is not left behind as a dangling "from the".
+    """
+    t = re.sub(
+        r'\s*(?:,?\s*from the section above|,?\s*from the section below)'
+        r'|\s*,?\s*which is (?:exactly )?the (?:discipline|distinction|point)'
+        r' this article [^,.]*'
+        r'|\s*,?\s*the rest of this article says matter'
+        r'|\s*,?\s*at the price the section implies'
+        r'|\s*,?\s*(?:the )?section above'
+        r'|\s*,?\s*the earlier section',
+        '', t)
+    t = re.sub(r'\bthis article\b', 'the guide', t)
+    t = re.sub(r'\s+([,.;:])', r'\1', t)
+    return re.sub(r'\s{2,}', ' ', t).strip()
+
+
+def pick_reason(why, width=32, max_lines=4):
+    """One self-contained sentence from a buy block's explanation.
+
+    Two attempts got this wrong in opposite directions, both visible on screen.
+    Truncating a long sentence to fit produced "the money over...", "in the
+    range we.", "damages." -- grammatical wreckage. Splitting on commas to
+    avoid truncating then produced lowercase clause tails: "which puts it
+    ahead of several pricier options", "and the arms are what bring the
+    alignment back". Those are not sentences; they are the second half of one,
+    and a card that opens on "which" reads as broken.
+
+    A clause only counts if it stands as a sentence on its own: it starts with
+    a capital, contains a verb of its own, and names something. Within the ones
+    that qualify, the sentence carrying a claim -- a figure, a because, a
+    comparison -- wins over one that just describes. Failing all that, the
+    whole sentence is trimmed with fit_words, which ends cleanly.
+    """
+    why = re.sub(r'\s+', ' ', unent(why or '')).strip()
+    if not why:
+        return ''
+
+    def fits(t):
+        return len(wrap(t, width)) <= max_lines
+
+    sents = [x.strip() for x in re.split(r'(?<=[.!?])\s+', why) if x.strip()]
+    good = [x for x in sents
+            if not _STRUCT.search(x) and not _SUBORD.match(x)
+            and len(x.split()) >= 6]
+
+    # A sentence that starts lowercase came from a mid-sentence split in the
+    # article itself ("...trouble. dry media, which means..."), which makes it
+    # a fragment no matter how long it is.
+    good = [x for x in good if x[:1].isupper() or x[:1].isdigit()]
+    if not good:
+        # Every sentence mentions the article. Scrub the reference rather than
+        # falling back to publishing it -- "the pick from the section above" is
+        # not something a viewer can act on, and scrubbing leaves "the pick",
+        # which is true and readable.
+        good = [_STRUCT_SUB(x) for x in sents
+                if not _SUBORD.match(_STRUCT_SUB(x))]
+        good = [x for x in good if x and not _STRUCT.search(x)] or sents
+
+    fits_whole = [x for x in good if fits(x)]
+    if fits_whole:
+        # Prefer a sentence with a because, a price, or a comparison: that is
+        # the part of the block a viewer can act on.
+        def weight(t):
+            score = 0
+            score += 2 if re.search(r'\bbecause\b|\bwhy\b|\bso\b', t, re.I) else 0
+            score += 2 if re.search(r'\$\d|\d+\s*reviews?\b', t, re.I) else 0
+            score += 1 if re.search(r'\bthan\b|\brather than\b|\bcheapest\b'
+                                    r'|\bmost\b|\bonly\b', t, re.I) else 0
+            return (-score, -len(t.split()))
+        return sorted(fits_whole, key=weight)[0]
+
+    return fit_words(min(good, key=lambda t: len(wrap(t, width))), width, max_lines)
+
+
+def read_picks(body, lang='en'):
+    """The article's buy blocks as data: name, price, review count, why.
+
+    Read from the English section only. The buy blocks are literally the same
+    product in all three languages with translated titles, so reading the whole
+    file would return each pick three times and put a Spanish name on an
+    English card.
+
+    Parsed rather than retyped for the same reason the prices are scraped: if
+    the article is re-priced and this reads a stale figure from memory, the
+    video and the page disagree and only one of them is right.
+    """
+    # Anchored to a real top-level heading, not a bare '## '. Markdown '###'
+    # subheadings are three hashes, so splitting on '## ' cuts the section at
+    # the first '###' in the article -- which is before most buy blocks, and
+    # yields zero picks. build.py's split_langs() uses this same pattern.
+    marks = list(re.finditer(r'^##[ \t]+(EN|KR|ES)\b[^\n]*$', body, re.M))
+    section = ''
+    for i, mk in enumerate(marks):
+        if mk.group(1) == lang.upper():
+            end = marks[i + 1].start() if i + 1 < len(marks) else len(body)
+            section = body[mk.end():end]
+            break
+    if not section:
+        return []
+
+    out = []
+    for block in re.split(r'<div class="pick">', section)[1:]:
+        block = block.split('</div>\n</div>')[0]
+        name = re.search(r'<h3>(.+?)</h3>', block, re.S)
+        if not name:
+            continue
+        name = unent(re.sub(r'<[^>]+>', '', name.group(1)))
+
+        # The block's own editorial label -- "Best value", "Best all-round".
+        # It is what the article already says about why this part is here, and
+        # unlike the fitment parenthetical it names no vehicle.
+        label = re.search(r'class="pick-label">\s*(.+?)\s*</div>', block)
+        # The article writes &minus; and &mdash; for the true typographic
+        # characters. drawtext renders text literally, so an undecoded entity
+        # paints "&minus;6mm Offset" across a card. Decoding here rather than
+        # where the card is built covers the name, the label and the reason
+        # in one place.
+        price = re.search(r'class="pick-price">\s*\$([\d,]+(?:\.\d{2})?)',
+                          block)
+        reviews = re.search(r'(\d[\d,]*)\s*(?:owner\s+)?reviews?', block, re.I)
+        # The first <p> after the price is the block's own justification --
+        # the sentence that says why this part is the pick. That is the whole
+        # editorial value of the block, so it is what the card quotes.
+        why = ''
+        for p in re.findall(r'<p>(.+?)</p>', block, re.S):
+            p = unent(re.sub(r'<[^>]+>', '', p))
+            p = re.sub(r'\s+', ' ', p).strip()
+            if len(p) > 40:
+                why = p
+                break
+
+        out.append(dict(
+            name=re.sub(r'\s+', ' ', name).strip(),
+            label=(unent(re.sub(r'<[^>]+>', '', label.group(1)))
+                   .strip().capitalize() if label else ''),
+            price=price.group(1).replace(',', '') if price else None,
+            reviews=reviews.group(1).replace(',', '') if reviews else '',
+            why=why,
+        ))
+    return out
+
+
+def card(main, sub=None, kicker=None, seconds=4.0, accent=False, image=None):
     """One full-frame text card as a filtergraph segment plus a video clip.
 
     Returns a single-clip lavfi input string and its drawtext filters. Caller
     concatenates the clips.
+
+    `image` is a product photograph to show on the card. It is drawn on a white
+    plate, because these are retailer cut-outs on white rather than cropped
+    scenes, and a cut-out laid straight onto the dark card reads as a product
+    floating in a hole.
     """
-    return dict(main=main, sub=sub, kicker=kicker, seconds=seconds, accent=accent)
+    return dict(main=main, sub=sub, kicker=kicker, seconds=seconds,
+                accent=accent, image=image)
 
 
-def build_filtergraph(cards, audio=False):
-    """Turn cards into a filter_complex string over N lavfi color sources."""
-    parts, chains = [], []
-    for c in cards:
-        parts.append(f'color=c={INK}:s={W}x{H}:r={FPS}:d={c["seconds"]}')
-    for i, c in enumerate(cards):
-        vf = []
-        y = 760
-        if c['kicker']:
-            vf.append(
-                f"drawtext=fontfile={FONT_BOLD}:text='{esc(c['kicker'])}':"
-                f"fontcolor={ACCENT if c['accent'] else MUTED}:fontsize=42:"
-                f"x=(w-text_w)/2:y={y - 150}")
-        main_lines = wrap(c['main'], 16)
-        for ln in main_lines:
-            vf.append(
-                f"drawtext=fontfile={FONT_BOLD}:text='{esc(ln)}':"
-                f"fontcolor={PAPER}:fontsize=82:x=(w-text_w)/2:y={y}")
-            y += 100
-        if c['sub']:
-            y += 40
-            for ln in wrap(c['sub'], 30):
-                vf.append(
-                    f"drawtext=fontfile={FONT_REG}:text='{esc(ln)}':"
-                    f"fontcolor={MUTED}:fontsize=44:x=(w-text_w)/2:y={y}")
-                y += 62
-        # A short accent rule under the kicker, matching the site's 1px rules.
-        vf.append(
-            f"drawbox=x=(iw-140)/2:y=690:w=140:h=4:color={ACCENT}:t=fill")
-        vf.append(f"format=yuv420p[v{i}]")
-        chains.append(f'[{i}:v]' + ','.join(vf))
-    concat_in = ''.join(f'[v{i}]' for i in range(len(cards)))
-    chains.append(f'{concat_in}concat=n={len(cards)}:v=1:a=0[outv]')
-    return parts, ';'.join(chains)
+def layout(c, w, h, top):
+    """drawtext filters for one card, sized to fit the space below `top`.
+
+    Autosizing has to be driven by the number of lines, not only their width.
+    The first version picked a size from the longest line alone, so a headline
+    that wrapped to five short lines rendered at full 82px and ran straight
+    through the accent rule and off the bottom of the frame. Fitting the tallest
+    constraint -- widest line AND total block height together -- is what makes a
+    long article title and a two-word price both look deliberate.
+    """
+    rule_y = top - 100
+    y = top
+    vf = [f'drawbox=x=(iw-140)/2:y={rule_y}:w=140:h=4:color={ACCENT}:t=fill']
+    if c['kicker']:
+        vf.append(f"drawtext=fontfile={FONT_BOLD}:text='{esc(c['kicker'])}':"
+                  f"fontcolor={ACCENT if c['accent'] else MUTED}:fontsize=38:"
+                  f"x=(w-text_w)/2:y={top - 80}")
+        y = top + 60
+
+    main_lines = wrap(c['main'], 14)
+    # Hard cap on the sub-line. Without it a long reason pushed the block past
+    # the bottom of the frame and the autosize loop answered by shrinking the
+    # headline to try to save it -- so one wordy sub-line made every other
+    # card's headline inconsistent. The card is a glance, not a paragraph.
+    sub_lines = wrap(c['sub'], 32)[:4] if c['sub'] else []
+    bottom = h - 150
+
+    # Shrink until the whole block fits: the tallest line at this size, the
+    # block's total height, and a hard floor so it never becomes unreadable.
+    # The sub-line has a fixed size of its own, so it must not drive the
+    # headline down. Folding both into one width test rendered "$368" at 52px
+    # because the sentence underneath it was longer than the price -- the
+    # number a viewer came for came out smaller than the reason for it.
+    widest = max((len(l) for l in main_lines), default=0)
+    size = 88
+    while size > 40:
+        block = len(main_lines) * size * 1.2
+        if sub_lines:
+            block += 40 + len(sub_lines) * 56
+        if y + block <= bottom and widest * 0.56 * size <= w - 110:
+            break
+        size -= 4
+
+    for ln in main_lines:
+        vf.append(f"drawtext=fontfile={FONT_BOLD}:text='{esc(ln)}':"
+                  f"fontcolor={PAPER}:fontsize={size}:x=(w-text_w)/2:y={y}")
+        y += int(size * 1.2)
+    if sub_lines:
+        y += 40
+        for ln in sub_lines:
+            vf.append(f"drawtext=fontfile={FONT_REG}:text='{esc(ln)}':"
+                      f"fontcolor={MUTED}:fontsize=42:x=(w-text_w)/2:y={y}")
+            y += 56
+    return vf
+
+
+def card_png(c, out_png):
+    """Render one card to a single still PNG.
+
+    This replaced a single filter_complex that drew all five cards and
+    concatenated them in one pass. That graph was fragile in a way that failed
+    silently: a card's white plate and product photograph would simply be
+    absent from the output while every individual chain rendered correctly in
+    isolation, and ffmpeg reported success. Rendering each card separately is a
+    few seconds slower and can be inspected frame by frame, which is what
+    caught the bug -- and the concat demuxer below needs every input in the same
+    pixel format, which was the second half of it.
+    """
+    has_img = bool(c.get('image'))
+    # With a photograph the white plate occupies the upper third and the type
+    # starts below it; without one the type is centred higher, because a card
+    # that is nothing but a short line at the very bottom looks like a caption
+    # someone forgot to finish.
+    top = 1180 if has_img else 800
+    vf = layout(c, W, H, top)
+
+    cmd = ['ffmpeg', '-hide_banner', '-loglevel', 'error', '-y',
+           '-f', 'lavfi', '-i', f'color=c={INK}:s={W}x{H}:d=1']
+    if has_img:
+        cmd += ['-i', c['image']]
+        # Two inputs: [0:v] is the background, [1:v] the cut-out. The overlay
+        # must name a scaled stream, so the scale runs first as its own chain.
+        plate = 'drawbox=x=70:y=260:w=940:h=800:color=0xFFFFFF:t=fill,'
+        graph = (
+            f'[0:v]{plate}' + ','.join(vf) + '[base];'
+            f'[1:v]scale=880:740:force_original_aspect_ratio=decrease[sc];'
+            f'[base][sc]overlay=x=100:y=290:format=auto[out]')
+        cmd += ['-filter_complex', graph, '-map', '[out]']
+    else:
+        cmd += ['-vf', ','.join(vf)]
+    # rgb24, always, even though there is no transparency to lose. The concat
+    # demuxer requires its inputs to agree on pixel format, and an overlay on a
+    # card with no photograph left the PNG as rgb24 while a card with one left
+    # it rgba. The mismatched stream did not error -- it silently dropped the
+    # overlay on the cards that had it, which is exactly the bug this rewrite
+    # was supposed to end.
+    cmd += ['-frames:v', '1', '-pix_fmt', 'rgb24', out_png]
+    return cmd
+
+
+def build_video(cards, out_mp4, total):
+    """One ffmpeg call that turns N card stills into a video.
+
+    concat demuxer with an explicit duration per still. Each PNG is held for
+    its card's seconds and the whole thing is encoded once, which keeps the
+    file small and the frame rate exact.
+    """
+    import tempfile
+    with tempfile.NamedTemporaryFile('w', suffix='.txt', delete=False,
+                                     encoding='utf-8') as fh:
+        listing = fh.name
+        for c, png in cards:
+            fh.write(f"file '{png}'\nduration {c['seconds']}\n")
+        # The demuxer needs the final image repeated or the last card is cut
+        # to a single frame.
+        fh.write(f"file '{cards[-1][1]}'\n")
+    try:
+        subprocess.run(
+            ['ffmpeg', '-hide_banner', '-loglevel', 'error', '-y',
+             '-f', 'concat', '-safe', '0', '-i', listing,
+             '-t', str(total), '-r', str(FPS), '-vsync', 'cfr',
+             '-c:v', 'libx264', '-preset', 'medium', '-crf', '20',
+             '-pix_fmt', 'yuv420p', '-movflags', '+faststart', out_mp4],
+            check=True)
+    finally:
+        os.unlink(listing)
 
 
 def cat_path(slug):
@@ -186,22 +596,7 @@ def cover(slug, cards, outdir):
     W2, H2 = 1080, 1350
     c = cards[0]
     out = os.path.join(outdir, f'{slug}-cover.jpg')
-    vf = []
-    y = 520
-    if c['kicker']:
-        vf.append(f"drawtext=fontfile={FONT_BOLD}:text='{esc(c['kicker'])}':"
-                  f"fontcolor={MUTED}:fontsize=42:x=(w-text_w)/2:y={y - 150}")
-    for ln in wrap(c['main'], 16):
-        vf.append(f"drawtext=fontfile={FONT_BOLD}:text='{esc(ln)}':"
-                  f"fontcolor={PAPER}:fontsize=82:x=(w-text_w)/2:y={y}")
-        y += 100
-    if c['sub']:
-        y += 40
-        for ln in wrap(c['sub'], 30):
-            vf.append(f"drawtext=fontfile={FONT_REG}:text='{esc(ln)}':"
-                      f"fontcolor={MUTED}:fontsize=44:x=(w-text_w)/2:y={y}")
-            y += 62
-    vf.append(f"drawbox=x=(iw-140)/2:y={520 - 70}:w=140:h=4:color={ACCENT}:t=fill")
+    vf = layout(c, W2, H2, 800 if not c.get('image') else 900)
     vf.append('format=yuv420p')
     subprocess.run(
         ['ffmpeg', '-hide_banner', '-loglevel', 'error', '-y',
@@ -211,7 +606,7 @@ def cover(slug, cards, outdir):
     return out
 
 
-def render(slug, outdir):
+def render(slug, outdir, text_only=False):
     src = None
     for f in os.listdir(os.path.join(ROOT, 'content', 'articles')):
         p = os.path.join(ROOT, 'content', 'articles', f)
@@ -253,9 +648,39 @@ def render(slug, outdir):
         v = float(s)
         return f'${v:,.0f}' if v == int(v) else f'${v:,.2f}'
 
-    # First sentence of the lede, trimmed to a headline that fits a card.
-    lead_line = re.split(r'(?<=[.!?])\s', re.sub(r'\s+', ' ', lede))[0]
-    lead_line = lead_line[:110].rstrip(' ,;:')
+    # ── The product story ────────────────────────────────────────────────
+    # The first version of this short was: title, the lowest price in the
+    # article, the highest price, one sentence from the introduction, a URL.
+    # On screen that reads as two unexplained dollar figures a few percent
+    # apart and no subject -- nothing to watch and nothing to learn, which is
+    # why the renders were deleted rather than published.
+    #
+    # What a parts short can actually say is what the article's own buy block
+    # says: one real product, what it costs, and the specific reason it is the
+    # pick. Those three facts exist in the article, they are checkable, and
+    # they are the thing a viewer came for. Prices are still scraped, never
+    # retyped.
+    picks = read_picks(body)
+    if not picks:
+        sys.exit(f'refusing to build: {slug} has no buy block to tell a story about')
+    hero = picks[0]
+    if not hero['price']:
+        sys.exit(f'refusing to build: {slug} pick 1 has no price')
+
+    # The reason is the pick block's own explanation, cut to its first
+    # sentence so it fits a card without reflowing into a paragraph.
+    reason = pick_reason(hero['why'])
+
+    # Listing names carry a fitment parenthetical: "AIRAID SynthaMax Dry
+    # Filter (19-26 2.7L Silverado 1500)" reads as one long unbroken string on
+    # a card. It used to move to the sub-line, which put a specific truck on
+    # screen and told every other owner the video was not for them -- the guide
+    # is about intakes, not about one vehicle. The parenthetical is dropped
+    # entirely and the sub-line carries the article's own pick label instead:
+    # "Best value - 36 owner reviews" is about the part and applies to anyone.
+    short_name = re.sub(r'\s*\([^)]*\)\s*$', '', hero['name']).strip()
+    review_line = f"{hero['reviews']} owner reviews" if hero['reviews'] else ''
+    price_sub = ' - '.join(x for x in (hero['label'], review_line) if x)
 
     # Titles that are themselves "Topic: subtitle" read badly as a card, so keep
     # the part after the colon -- but only when the prefix is a noun-phrase
@@ -277,20 +702,75 @@ def render(slug, outdir):
     cat_slug, topic = cat_path(slug)
     kicker = CAT_KICKER.get(topic, topic.upper())
 
+    # One product photograph, for the pick the short is actually about. The
+    # body photos are not used: those illustrate a component in general, and a
+    # short that names a specific part at a specific price has to show that
+    # part or it has taught the viewer nothing they can act on.
+    hero_img = product_image(PRODUCT_ROOT, slug, 1)
+    # The step-up is a different product, so the second product card shows
+    # something new rather than repeating the opening shot. Repeating a still
+    # on two cards is what made the first cut feel like a slideshow of one
+    # image; a viewer reads a repeated frame as "nothing changed".
+    upgrade = picks[1] if len(picks) > 1 else None
+    upgrade_img = product_image(PRODUCT_ROOT, slug, 2) if upgrade else None
+
     cards = [
-        card(headline, kicker=kicker, seconds=3.5),
-        card(money(lo), sub='the bottom of the range on this guide',
-             kicker='THE CHEAP END', seconds=4.0),
-        card(money(hi), sub='the top of the range on this guide',
-             kicker='THE EXPENSIVE END', seconds=4.0),
-        card(lead_line, kicker='THE SHORT VERSION', seconds=4.5, accent=True),
-        card('Full guide at carmodreview.com',
-             sub='every price dated to the listing it came from',
+        # Card 1: the subject, with the product itself on screen. A parts video
+        # that opens on a title card is asking the viewer to take it on faith.
+        card(headline, kicker=kicker, seconds=3.5, image=hero_img),
+        # Card 2: the specific pick and what it costs. The fact the viewer
+        # came for, and the reason behind it.
+        card(short_name, sub=price_sub, kicker='THE PICK', seconds=4.0),
+        card(money(hero['price']),
+             sub=reason or 'the reason it is the pick is in the guide',
+             kicker='WHAT IT COSTS', seconds=5.0),
+    ]
+    if upgrade:
+        up_name = re.sub(r'\s*\([^)]*\)\s*$', '', upgrade['name']).strip()
+        # The step-up card is the fourth thing on screen and the viewer already
+        # has the hero's full reason behind them. One clause is enough here; a
+        # second paragraph at this point reads as the video refusing to end.
+        # It also has to survive the sub-line's own width, so the cut is on a
+        # word boundary rather than mid-word.
+        up_why = pick_reason(upgrade['why'], max_lines=2)
+        cards.append(
+            card(up_name,
+                 # money(), not the raw scraped string: the block writes
+                 # "$435.00" and a card that shows cents next to a hero card
+                 # showing "$368" looks like two different sources.
+                 # Trimmed once, with the price already in the string. Cutting
+                 # the reason first and the price-plus-reason second counted the
+                 # same words against the line budget twice, which is how an
+                 # orphan "open" ended up alone on the last line.
+                 sub=fit_words(((money(upgrade['price']) + ' - ')
+                                if upgrade['price'] else '') + (up_why or 'the step up'),
+                               32, 3),
+                 kicker='IF YOU WANT MORE', seconds=4.5, image=upgrade_img))
+    cards += [
+        # Two lines, because 'carmodreview.com' is one unbreakable word that
+        # will not fit at a legible size on one line with the rest of it.
+        card('Full guide at\ncarmodreview.com',
+             sub=f"all {len(picks)} picks, each priced off its own listing",
              kicker='READ THE REST', seconds=4.0, accent=True),
     ]
 
-    parts, graph = build_filtergraph(cards)
     total = sum(c['seconds'] for c in cards)
+
+    # --text-only prints exactly what will appear on screen and stops. Every
+    # review of a short before this had to render 21 seconds of video and
+    # sample frames to read five lines of text, which is why a card saying the
+    # wrong thing was easy to ship and hard to spot.
+    if text_only:
+        print(f'\n{slug}  ({total:.1f}s)')
+        for i, c in enumerate(cards, 1):
+            pic = f"  [photo: {os.path.basename(c['image'])}]" if c.get('image') else ''
+            print(f'  {i}. [{c["seconds"]:.1f}s] {c["kicker"] or "":<18}{pic}')
+            for ln in c['main'].split('\n'):
+                print(f'        {ln}')
+            if c['sub']:
+                for ln in wrap(c['sub'], 32):
+                    print(f'        - {ln}')
+        return None
 
     os.makedirs(outdir, exist_ok=True)
     out = os.path.join(outdir, f'{slug}-short.mp4')
@@ -363,14 +843,21 @@ def render(slug, outdir):
          encoding='utf-8').write(caption + '\n')
     open(os.path.join(outdir, f'{slug}-youtube.txt'), 'w',
          encoding='utf-8').write(desc + '\n')
-    cmd = ['ffmpeg', '-hide_banner', '-loglevel', 'error', '-y']
-    for p in parts:
-        cmd += ['-f', 'lavfi', '-i', p]
-    cmd += ['-filter_complex', graph, '-map', '[outv]',
-            '-t', str(total), '-r', str(FPS),
-            '-c:v', 'libx264', '-preset', 'medium', '-crf', '20',
-            '-pix_fmt', 'yuv420p', '-movflags', '+faststart', out]
-    subprocess.run(cmd, check=True)
+    # Each card is rendered to its own still, then the stills are assembled.
+    # See card_png() for why this is not one big filter_complex.
+    frames = []
+    for i, c in enumerate(cards, 1):
+        png = os.path.join(outdir, f'.card-{slug}-{i}.png')
+        subprocess.run(card_png(c, png), check=True)
+        if not os.path.exists(png) or os.path.getsize(png) < 5000:
+            sys.exit(f'refusing to build: card {i} rendered empty')
+        frames.append((c, png))
+    try:
+        build_video(frames, out, total)
+    finally:
+        for _, png in frames:
+            if os.path.exists(png):
+                os.unlink(png)
     print(f'wrote {out}  ({total:.0f}s, {W}x{H})')
     cover(slug, cards, outdir)
     return out
@@ -378,10 +865,42 @@ def render(slug, outdir):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument('slug')
+    ap.add_argument('slug', nargs='?',
+                    help='one article slug, or omit with --all')
     ap.add_argument('--out', default=os.path.join(ROOT, 'social'))
+    ap.add_argument('--all', action='store_true',
+                    help='re-render every article that has a buy block')
+    ap.add_argument('--text-only', action='store_true',
+                    help='print the cards and exit; no ffmpeg, no files')
     a = ap.parse_args()
-    render(a.slug, os.path.expanduser(a.out))
+    if not a.slug and not a.all:
+        ap.error('give a slug or --all')
+
+    if a.all:
+        # Every article with a buy block, which is every article that should
+        # have a short. tonneau-covers-explained has no picks and is skipped
+        # with a reason rather than crashing the batch.
+        slugs = []
+        for f in sorted(os.listdir(os.path.join(ROOT, 'content', 'articles'))):
+            if not f.endswith('.md'):
+                continue
+            body = open(os.path.join(ROOT, 'content', 'articles', f),
+                        encoding='utf-8').read()
+            slug = re.search(r'^slug:\s*(.+?)\s*$', body, re.M).group(1)
+            slugs.append(slug)
+    else:
+        slugs = [a.slug]
+
+    failed = []
+    for slug in slugs:
+        try:
+            render(slug, os.path.expanduser(a.out), text_only=a.text_only)
+        except SystemExit as e:
+            failed.append((slug, str(e)))
+    if failed:
+        print()
+        for slug, why in failed:
+            print(f'skipped {slug}: {why}')
 
 
 if __name__ == '__main__':

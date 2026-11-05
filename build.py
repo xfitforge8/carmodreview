@@ -7,7 +7,6 @@ No framework, no build step in CI. Run locally, commit the output.
 
 Design contract (matches the existing hand-written pages):
   * English is the primary route at /<category>/<slug>.html
-  * Korean and Spanish are alternates at /kr/... and /es/...
   * Every page: "What we could not verify"
     block before the footer, real publish dates only.
 """
@@ -236,7 +235,18 @@ CATEGORIES = {
     'Tuning':          ('tuning',          'Tuning',          '튜닝',          'Reprogramación'),
 }
 
-LANGS = [('en', 'EN', ''), ('kr', 'KR', '/kr'), ('es', 'ES', '/es')]
+# English only. The site published machine-translated Korean and Spanish
+# tracks alongside every guide, and the translations read badly enough that
+# they were worse than no translation at all -- a reader who lands on one
+# judges the English guide by it. The UI tables below still carry their kr/es
+# strings because the retired pages still need them: see RETIRED_LANGS.
+LANGS = [('en', 'EN', '')]
+
+# Language prefixes that are no longer built. Every URL under these prefixes has
+# been public and indexed, so each one gets a redirect stub to its English
+# counterpart rather than a 404. Generated from what the previous build actually
+# wrote, not from a hand-kept list, so nothing is retired and then forgotten.
+RETIRED_LANGS = [('kr', '/kr'), ('es', '/es')]
 
 # Categories with no hub page of their own; their nav entry points at the article
 # that covers them, so no page ever links to a URL that does not exist.
@@ -249,7 +259,7 @@ UI = {
                disc_body=('We earn commissions from qualifying purchases made through links '
                           'on this page. Commission never decides which products we pick or '
                           'where they rank.'),
-               nav_cats='Categories', other='Read this in', on='on',
+               nav_cats='Categories', on='on',
                search='Search', search_label='Search guides', by='By', contact='Contact', about='About', privacy='Privacy',
                terms='Terms', disclosure='Affiliate disclosure',
                foot_tag=('car parts coverage that states its sources and says when it '
@@ -259,7 +269,7 @@ UI = {
                disc_title='제휴 고지',
                disc_body=('이 페이지의 링크를 통해 구매가 이루어지면 저희는 수수료를 받습니다. '
                           '수수료는 어떤 제품을 고르는지, 순위가 어떻게 되는지를 결정하지 않습니다.'),
-               nav_cats='카테고리', other='다른 언어', on='',
+               nav_cats='카테고리', on='',
                search='검색', search_label='가이드 검색', by='글쓴이', contact='문의', about='소개', privacy='개인정보처리방침',
                terms='이용약관', disclosure='제휴 고지',
                foot_tag='출처를 밝히고, 모르는 것은 모른다고 말하는 자동차 부품 정보.'),
@@ -269,7 +279,7 @@ UI = {
                disc_body=('Ganamos comisiones por compras realizadas a través de los enlaces de '
                           'esta página. La comisión nunca decide qué productos elegimos ni en qué '
                           'posición se clasifican.'),
-               nav_cats='Categorías', other='Leer en', on='',
+               nav_cats='Categorías', on='',
                search='Buscar', search_label='Buscar guías', by='Por', contact='Contacto', about='Sobre nosotros',
                privacy='Privacidad', terms='Términos', disclosure='Divulgación de afiliados',
                foot_tag=('información de piezas de auto que cita sus fuentes y dice '
@@ -683,8 +693,6 @@ PAGE = """<!DOCTYPE html>
       <a href="{rel}legal/affiliate-disclosure.html">{disclosure}</a> &middot;
       <a href="{rel}legal/terms-of-service.html">{terms}</a>
     </p>
-    <p class="lang-switch">{other}: <a href="{alt_en}">English</a> &middot;
-      <a href="{alt_kr}">한국어</a> &middot; <a href="{alt_es}">Español</a></p>
     {foot_social}
   </div>
 </footer>
@@ -987,8 +995,11 @@ def render_page(*, lang, title, desc, canonical, body_html, rel, jsonld='',
                 og_type='website', alts=None, og_image=None, robots=None,
                 sidebar='', entries=None):
     alts = alts or {}
+    # hreflang only means something while more than one language is published.
+    # The site is English-only now, so a single self-referential alternate pair
+    # would be noise -- and the old pair pointed at 49 URLs that no longer exist.
     alt = ''
-    if alts:
+    if len(alts) > 1:
         lines = []
         hreflang = {'en': 'en', 'kr': 'ko', 'es': 'es'}
         for code, url in alts.items():
@@ -1004,14 +1015,12 @@ def render_page(*, lang, title, desc, canonical, body_html, rel, jsonld='',
         domain=DOMAIN, rel=rel, jsonld=(jsonld + site_jsonld()), body=body_html,
         cssv=css_version(), iconv=icon_version(), foot_social=foot_social_html('    '),
         analytics=('\n' + analytics_tag()) if analytics_tag() else '',
-        tagline=TAGLINE[lang], all_posts=ui['all_posts'], how=ui['how'], other=ui['other'],
+        tagline=TAGLINE[lang], all_posts=ui['all_posts'], how=ui['how'],
         search=ui['search'], search_label=ui['search_label'], by=ui['by'], contact=ui['contact'],
         about=ui['about'],
         privacy=ui['privacy'], terms=ui['terms'], foot_tag=ui['foot_tag'],
         disclosure=ui['disclosure'],
         disclosure_block=build_disclosure(lang, rel, body_html),
-        alt_en=alts.get('en', canonical), alt_kr=alts.get('kr', canonical),
-        alt_es=alts.get('es', canonical),
         sidebar=sidebar or default_sidebar(lang, rel, entries),
     )
 
@@ -1107,6 +1116,9 @@ def article_jsonld(title, desc, canonical, published, modified, section, lang, i
 
 # ─────────────────────────────────────────────────────────────── build
 def build():
+    # Before the rmtree: this reads the previous build to learn which retired
+    # language URLs need a stub. Afterwards there is nothing left to read.
+    inventory_retired_langs()
     if os.path.isdir(OUT):
         shutil.rmtree(OUT)
     os.makedirs(OUT, exist_ok=True)
@@ -1143,6 +1155,10 @@ def build():
 
     print(f'  parsed {len(arts)} articles')
     for a in arts:
+        # Only the built languages are checked. The content files still carry
+        # their KR and ES sections; reporting those as missing would cry wolf on
+        # every article forever, which is how a real missing translation gets
+        # missed. What matters now is that nothing is missing from English.
         miss = [l for l, _, _ in LANGS if l not in a['langs']]
         if miss:
             print(f'    ! {a["file"]}: missing {",".join(miss)}')
@@ -1410,25 +1426,121 @@ REDIRECTS = {
 
 
 def build_redirects():
-    """Emit meta-refresh stubs for URLs that have moved."""
-    for old, new in REDIRECTS.items():
+    """Emit meta-refresh stubs for URLs that have moved.
+
+    Two sources, both resolved to a path relative to the site root before
+    anything is written:
+
+      * REDIRECTS            -- slugs that were renamed, same directory
+      * retired_lang_redirects -- every URL the previous build published under a
+                                 retired language prefix, mapped to its English
+                                 twin. Generated, so retiring a language cannot
+                                 strand a URL somebody forgot to list.
+
+    The first version of this wrote the refresh target verbatim, which was fine
+    while every target was a bare filename in the same directory. Retired
+    language targets are not: /kr/exhaust/index.html has to point at
+    /exhaust/index.html, two levels up, and writing "exhaust/index.html" asked
+    the browser for /kr/exhaust/exhaust/index.html -- a 404 that looked like a
+    working stub in the markup. Both the link and the canonical are now computed
+    from the stub's own depth.
+    """
+    # old site path -> new site path, both relative to the output root
+    moves = {old: os.path.join(os.path.dirname(old), new)
+             for old, new in REDIRECTS.items()}
+    moves.update(retired_lang_redirects)
+
+    for old, new in moves.items():
         dst = os.path.join(OUT, old)
         os.makedirs(os.path.dirname(dst), exist_ok=True)
-        full = f'{DOMAIN}/{old.rsplit("/", 1)[0]}/{new}'
-        # relative, so the stub works whether it is served from the domain root
-        # or from a project subpath
+        href = os.path.relpath(new, os.path.dirname(old) or '.')
+        full = f'{DOMAIN}/{new}'
         open(dst, 'w', encoding='utf-8').write(
             f'<!DOCTYPE html>\n<html lang="en">\n<head>\n'
             f'<meta charset="UTF-8">\n'
             f'<title>Moved</title>\n'
             f'<meta name="robots" content="noindex, follow">\n'
             f'<link rel="canonical" href="{full}">\n'
-            f'<meta http-equiv="refresh" content="0; url={new}">\n'
+            f'<meta http-equiv="refresh" content="0; url={href}">\n'
             f'</head>\n<body>\n'
-            f'<p>This guide moved to <a href="{new}">{full}</a>.</p>\n'
+            f'<p>This guide moved to <a href="{full}">{full}</a>.</p>\n'
             f'</body>\n</html>\n'
         )
-    print(f'  redirects: {len(REDIRECTS)} stub(s)')
+    n = len(moves)
+    print(f'  redirects: {n} stub(s)'
+          + (f' ({len(retired_lang_redirects)} retired language)'
+             if retired_lang_redirects else ''))
+
+
+# Filled by inventory_retired_langs() before build_redirects() runs.
+retired_lang_redirects = {}
+
+
+def _follow_stub(path):
+    """Resolve a stub to the real page it points at, or None if it is real.
+
+    Retiring a language happens in one build, but the hand-kept REDIRECTS above
+    means some of the previous build's pages were already stubs. Copying those
+    as targets would give /kr/x -> /y -> /z: two hops, and a canonical that
+    names a redirect. Follow the chain to whatever actually has content.
+    """
+    seen = set()
+    while path not in seen:
+        seen.add(path)
+        p = os.path.join(OUT, path)
+        if not os.path.exists(p):
+            return None
+        m = re.search(r'http-equiv="refresh" content="0; url=([^"]+)"',
+                      open(p, encoding='utf-8').read())
+        if not m:
+            return path
+        path = os.path.normpath(
+            os.path.join(os.path.dirname(path), m.group(1))).replace(os.sep, '/')
+    return None
+
+
+def inventory_retired_langs():
+    """Stub every page under a retired language prefix to its English twin.
+
+    Read from the previous build's output rather than from a list, because a
+    list is exactly what goes stale. Every page under /kr/ and /es/ has an
+    English counterpart at the same path minus the prefix; that is checked
+    rather than assumed, so a page with no twin is reported instead of being
+    redirected into a 404.
+
+    Runs before the rmtree, because it reads docs/. A clean clone has no docs/
+    and so nothing already indexed to preserve -- an empty dict is correct
+    there, not a failure.
+    """
+    retired_lang_redirects.clear()
+    missing = []
+    for _, prefix in RETIRED_LANGS:
+        lang = prefix.strip('/')
+        root = os.path.join(OUT, lang)
+        if not os.path.isdir(root):
+            continue
+        for dirpath, _, files in os.walk(root):
+            for f in files:
+                if not f.endswith('.html'):
+                    continue
+                stem = os.path.relpath(os.path.join(dirpath, f), root)
+                target = _follow_stub(stem.replace(os.sep, '/'))
+                # Only a genuinely unresolvable target is a problem. The English
+                # twin's path is normally identical to the stem minus the
+                # language prefix -- /kr/about.html -> about.html -- so an
+                # earlier version that compared target to stem flagged every
+                # correct redirect as missing and stubbed only the handful that
+                # chained through REDIRECTS.
+                if not target:
+                    missing.append(f'{prefix}/{stem}')
+                    continue
+                retired_lang_redirects[f'{lang}/{stem}'.replace(os.sep, '/')] = target
+    if retired_lang_redirects:
+        print(f'  retired languages: {len(retired_lang_redirects)} url(s) stubbed')
+    if missing:
+        print(f'  ! retired url(s) with no English twin: {len(missing)}')
+        for m in missing[:5]:
+            print(f'      {m}')
 
 
 def build_legacy_pages(sidebar_entries=None):
@@ -1570,8 +1682,9 @@ def build_static_pages(index_entries, sidebar_entries=None):
                             'este sitio no hace.'}[code],
                 canonical=f'{DOMAIN}{prefix}/about.html',
                 body_html=md2html(md, rel), rel=rel, entries=sidebar_entries,
-                alts={'en': f'{DOMAIN}/about.html', 'kr': f'{DOMAIN}/kr/about.html',
-                      'es': f'{DOMAIN}/es/about.html'})
+                # English only. These pointed at /kr/ and /es/ pages that are
+                # no longer built, which is a hreflang pair advertising a 404.
+                alts={'en': f'{DOMAIN}/about.html'})
             d = os.path.join(OUT, prefix.strip('/')) if prefix else OUT
             open(os.path.join(d, 'about.html'), 'w', encoding='utf-8').write(page)
 
@@ -1615,9 +1728,8 @@ def build_static_pages(index_entries, sidebar_entries=None):
                      ('affiliate-disclosure', 'en'): 'Affiliate Disclosure',
                      ('affiliate-disclosure', 'kr'): '제휴 고지',
                      ('affiliate-disclosure', 'es'): 'Divulgación de afiliados'}[(slug, code)]
-            alts = {'en': f'{DOMAIN}/legal/{slug}.html',
-                    'kr': f'{DOMAIN}/kr/legal/{slug}.html',
-                    'es': f'{DOMAIN}/es/legal/{slug}.html'}
+            # English only; see the note on the about page above.
+            alts = {'en': f'{DOMAIN}/legal/{slug}.html'}
             legal_desc = {
                 ('privacy-policy', 'en'): 'What data Car Mod Review collects, how analytics are '
                     'handled, and how to request deletion.',
@@ -1788,9 +1900,8 @@ def build_category_pages(arts, sidebar_entries=None):
                      f'  <h1>{html.escape(name)}</h1>\n'
                      + category_photo(cs, code, rel, PHOTO_ROOT) +
                      f'  <ul class="post-list">\n{"".join(rows)}  </ul>\n')
-            alts = {'en': f'{DOMAIN}/{cs}/index.html',
-                    'kr': f'{DOMAIN}/kr/{cs}/index.html',
-                    'es': f'{DOMAIN}/es/{cs}/index.html'}
+            # English only; see the note on the about page above.
+            alts = {'en': f'{DOMAIN}/{cs}/index.html'}
             trail = [('Home', f'{DOMAIN}/{prefix}/index.html' if prefix else f'{DOMAIN}/'),
                      (name, alts[code])]
             hub_jsonld = breadcrumb_jsonld(trail) + (
@@ -1816,7 +1927,7 @@ def build_category_pages(arts, sidebar_entries=None):
             d = os.path.join(OUT, *( ([prefix.strip('/')] if prefix else []) + [cs] ))
             os.makedirs(d, exist_ok=True)
             open(os.path.join(d, 'index.html'), 'w', encoding='utf-8').write(page)
-    print(f'  wrote {len(by_cat)} category hubs x3 langs')
+    print(f'  wrote {len(by_cat)} category hubs x{len(LANGS)} langs')
 
 
 SEARCH_PAGE = r"""<!DOCTYPE html>
