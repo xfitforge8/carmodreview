@@ -12,7 +12,7 @@ Design contract (matches the existing hand-written pages):
     block before the footer, real publish dates only.
 """
 import os
-import re, json, html, shutil, datetime, sys, subprocess
+import re, json, html, shutil, datetime, sys, subprocess, hashlib
 
 import markdown
 import yaml
@@ -22,6 +22,22 @@ SRC = os.path.join(ROOT, 'content')
 OUT = os.path.join(ROOT, 'docs')
 PHOTO_ROOT = os.path.join(SRC, 'photos')
 DOMAIN = 'https://carmodreview.com'
+
+
+def css_version():
+    """Short content hash of style.css, appended to every stylesheet URL.
+
+    The zone's Browser Cache TTL is 4 hours and applies to everything that is
+    not HTML, so a plain /style.css is reused from each reader's disk cache for
+    four hours after a deploy. That is exactly what happened on 4 November: the
+    markup changed, the stylesheet did not reload, and the new .masthead-right
+    and .share-icon rules never applied. Fingerprinting the URL makes every CSS
+    change a URL the browser has never seen, so no cache -- browser or edge --
+    can answer with the old bytes. Cloudflare and GitHub Pages both ignore the
+    query string when resolving the file, so this costs nothing at the origin.
+    """
+    with open(os.path.join(ROOT, 'style.css'), 'rb') as f:
+        return hashlib.md5(f.read()).hexdigest()[:10]
 
 import photos
 from photos import (inject_photos, find_photos, photo_html, category_photo,
@@ -586,7 +602,7 @@ PAGE = """<!DOCTYPE html>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
-<link rel="stylesheet" href="{rel}style.css">
+<link rel="stylesheet" href="{rel}style.css?v={cssv}">
 {jsonld}{analytics}
 </head>
 <body>
@@ -678,6 +694,25 @@ SHARE_LABEL = {
     'es': 'Compartir',
 }
 
+# Inline SVG marks for the share row. Drawn inline rather than loaded as files
+# or as an icon font: one fewer request, they inherit the link's colour through
+# currentColor so hover states need no extra CSS, and they cannot flash a
+# fallback glyph the way a webfont does.
+#
+# No emoji here on purpose. There is no Facebook, X or LinkedIn character in
+# Unicode, so an emoji row would be four different-looking pictures on four
+# platforms (and, for the ones that do exist, a coloured emoji that fights the
+# muted type it sits in). These are the networks' own marks, monochrome, sized
+# to the text.
+SHARE_ICONS = {
+    'facebook': '<path d="M24 12.073C24 5.446 18.627 0 12 0S0 5.446 0 12.073C0 18.063 4.388 23.027 10.125 23.927v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.063 24 12.073z"/>',
+    'x': '<path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/>',
+    'linkedin': '<path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.125 2.062 2.062 0 0 1 0 4.125zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>',
+    # An envelope, drawn to the same 24-unit grid as the brand marks so the
+    # row's optical size stays even.
+    'email': '<path d="M2 4h20a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1zm10 8.2 8.6-6.2H3.4l8.6 6.2zm0 2.4L2.6 8.4V18h18.8V8.4l-9.4 6.2z"/>',
+}
+
 # The byline. Duffy Vance is a pen name, stated as one on the About page, so the
 # site never implies a verifiable legal identity it cannot produce. Naming the
 # author in the byline and in the Article JSON-LD keeps the page and its
@@ -767,7 +802,10 @@ def build_share(lang, canonical, title):
     )
     links = ''.join(
         f'      <li><a class="share-{key}" href="{html.escape(href)}"'
-        f'{" target=\"_blank\" rel=\"noopener\"" if key != "email" else ""}>{name}</a></li>\n'
+        f'{" target=\"_blank\" rel=\"noopener\"" if key != "email" else ""}>'
+        f'<svg class="share-icon" viewBox="0 0 24 24" aria-hidden="true"'
+        f' focusable="false">{SHARE_ICONS[key]}</svg>'
+        f'<span>{name}</span></a></li>\n'
         for key, name, href in items
     )
     return (f'  <div class="share">\n'
@@ -886,6 +924,7 @@ def render_page(*, lang, title, desc, canonical, body_html, rel, jsonld='',
         canonical=canonical, alt_links=alt, og_type=og_type, og_locale=OG_LOCALE[lang],
         og_image=og_image or f'{DOMAIN}/og.png',
         domain=DOMAIN, rel=rel, jsonld=(jsonld + site_jsonld()), body=body_html,
+        cssv=css_version(),
         analytics=('\n' + analytics_tag()) if analytics_tag() else '',
         tagline=TAGLINE[lang], all_posts=ui['all_posts'], how=ui['how'], other=ui['other'],
         search=ui['search'], search_label=ui['search_label'], by=ui['by'], contact=ui['contact'],
@@ -1300,6 +1339,12 @@ def build_legacy_pages(sidebar_entries=None):
         txt = re.sub(r'\s*<p[^>]*>\s*<strong>Affiliate note:</strong>.*?</p>\s*', '\n', txt, flags=re.S)
         txt = re.sub(r'\s*<p[^>]*>\s*We earn commissions?[^<]*</p>\s*', '\n', txt, flags=re.S)
         txt = re.sub(r'\s*<span>\d+\s+min read</span>', '', txt)
+        # These pages hard-code ../style.css; they were written before the
+        # generator fingerprinted the URL. Left alone, the two legacy pages --
+        # one of which is the F-150 guide Google actually indexed -- would keep
+        # loading whatever CSS the reader cached hours ago.
+        txt = txt.replace('href="../style.css"',
+                          f'href="../style.css?v={css_version()}"')
 
         # The legacy pages were written before there was a named editor, so the
         # byline says only "Published <date>" and the JSON-LD credits the
@@ -1780,7 +1825,8 @@ def build_search(items):
     with open(os.path.join(OUT, 'search-index.json'), 'w', encoding='utf-8') as f:
         json.dump(payload, f, ensure_ascii=False, indent=0)
     open(os.path.join(OUT, 'search.html'), 'w', encoding='utf-8').write(
-        inject_analytics(SEARCH_PAGE.replace("{domain}", DOMAIN)))
+        inject_analytics(SEARCH_PAGE.replace("{domain}", DOMAIN)
+                         .replace('style.css', f'style.css?v={css_version()}')))
     print(f'  search: {len(payload)} guides indexed')
 
 

@@ -794,7 +794,11 @@ footer p { margin: 0 0 10px; }
 }
 
 .share-list a {
-  display: inline-block;
+  /* inline-flex so the mark and the label sit on one optical baseline; with
+     inline-block the SVG sat low and the pill grew a couple of pixels */
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
   font-family: ui-sans-serif, system-ui, sans-serif;
   font-size: 12px;
   font-weight: 600;
@@ -809,6 +813,16 @@ footer p { margin: 0 0 10px; }
   border-color: var(--rust);
   color: var(--rust);
   background: var(--paper-2);
+}
+
+/* The mark takes the link's own colour via currentColor, so hover needs no
+   rule of its own. flex-shrink:0 keeps it square if a translated label runs
+   long and the pill hits its width. */
+.share-icon {
+  width: 13px;
+  height: 13px;
+  flex: 0 0 auto;
+  fill: currentColor;
 }
 
 .sr-only {
