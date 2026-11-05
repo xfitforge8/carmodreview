@@ -149,6 +149,41 @@ def cat_path(slug):
     return 'engine'
 
 
+def cover(slug, cards, outdir):
+    """Render the first card as a 1080x1350 still for the Instagram feed.
+
+    Instagram's feed is 4:5, not 9:16. Posting the vertical short as a still
+    would letterbox it, so the cover gets its own render at the feed ratio with
+    the same type. The video reels still use the 9:16 file.
+    """
+    W2, H2 = 1080, 1350
+    c = cards[0]
+    out = os.path.join(outdir, f'{slug}-cover.jpg')
+    vf = []
+    y = 520
+    if c['kicker']:
+        vf.append(f"drawtext=fontfile={FONT_BOLD}:text='{esc(c['kicker'])}':"
+                  f"fontcolor={MUTED}:fontsize=42:x=(w-text_w)/2:y={y - 150}")
+    for ln in wrap(c['main'], 16):
+        vf.append(f"drawtext=fontfile={FONT_BOLD}:text='{esc(ln)}':"
+                  f"fontcolor={PAPER}:fontsize=82:x=(w-text_w)/2:y={y}")
+        y += 100
+    if c['sub']:
+        y += 40
+        for ln in wrap(c['sub'], 30):
+            vf.append(f"drawtext=fontfile={FONT_REG}:text='{esc(ln)}':"
+                      f"fontcolor={MUTED}:fontsize=44:x=(w-text_w)/2:y={y}")
+            y += 62
+    vf.append(f"drawbox=x=(iw-140)/2:y={520 - 70}:w=140:h=4:color={ACCENT}:t=fill")
+    vf.append('format=yuv420p')
+    subprocess.run(
+        ['ffmpeg', '-hide_banner', '-loglevel', 'error', '-y',
+         '-f', 'lavfi', '-i', f'color=c={INK}:s={W2}x{H2}:d=1',
+         '-vf', ','.join(vf), '-frames:v', '1', '-q:v', '2', out],
+        check=True)
+    return out
+
+
 def render(slug, outdir):
     src = None
     for f in os.listdir(os.path.join(ROOT, 'content', 'articles')):
@@ -260,6 +295,7 @@ def render(slug, outdir):
             '-pix_fmt', 'yuv420p', '-movflags', '+faststart', out]
     subprocess.run(cmd, check=True)
     print(f'wrote {out}  ({total:.0f}s, {W}x{H})')
+    cover(slug, cards, outdir)
     return out
 
 

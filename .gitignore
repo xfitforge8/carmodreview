@@ -7,4 +7,5 @@ __pycache__/
 
 # Rendered social video. Regenerate with `python3 make_short.py <slug>`
 # rather than committing binaries -- 2.4MB for 11 clips grows every article.
-social/
+social/*
+!social/public/

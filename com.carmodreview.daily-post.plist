@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.carmodreview.daily-post</string>
+
+  <key>ProgramArguments</key>
+  <array>
+    <string>/Users/raykim/carmodreview/.venv/bin/python</string>
+    <string>/Users/raykim/carmodreview/upload.py</string>
+  </array>
+
+  <key>WorkingDirectory</key>
+  <string>/Users/raykim/carmodreview</string>
+
+  <!-- 16:20 local. Afternoon US time catches the evening scroll on the west
+       coast and is still same-day for most of the US. -->
+  <key>StartCalendarInterval</key>
+  <dict>
+    <key>Hour</key><integer>16</integer>
+    <key>Minute</key><integer>20</integer>
+  </dict>
+
+  <key>StandardOutPath</key>
+  <string>/Users/raykim/carmodreview/social/upload.log</string>
+  <key>StandardErrorPath</key>
+  <string>/Users/raykim/carmodreview/social/upload.log</string>
+
+  <!-- If the Mac is asleep at 16:20, run at the next wake rather than skipping
+       the day entirely. -->
+  <key>RunAtLoad</key>
+  <false/>
+</dict>
+</plist>

@@ -1082,6 +1082,14 @@ def build():
     if os.path.isdir(OUT):
         shutil.rmtree(OUT)
     os.makedirs(OUT, exist_ok=True)
+    # Shorts published for the Instagram Graph API. It fetches video from a URL
+    # rather than accepting an upload, so the renders have to be served from the
+    # site. They live at social/public/ in the repo root because rmtree above
+    # takes docs/ with it -- parked under docs/ they would vanish on the next
+    # build and every already-queued Reel would 404 at post time.
+    social_pub = os.path.join(ROOT, 'social', 'public')
+    if os.path.isdir(social_pub):
+        shutil.copytree(social_pub, os.path.join(OUT, 'social'))
     # photo width/height must describe the resized file the browser fetches
     photos.configure(PHOTO_ROOT, os.path.join(OUT, 'img', 'photos'))
 
