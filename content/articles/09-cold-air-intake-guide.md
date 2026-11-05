@@ -96,9 +96,19 @@ argues for &mdash; and all three are listed for the 2019&ndash;2026 half-ton.
   <p>The cheapest dry-media option we found for this truck. Dry synthetic media
   removes the over-oiling failure mode entirely, which is the single most common
   way an intake damages the vehicle it is fitted to.</p>
-  <p>36 reviews is a modest base, so read the recent ones rather than trusting
-  the count alone &mdash; the recurring complaint on cheaper intakes is a coupler
-  that needs trimming or a heat shield that fouls the hood liner.</p>
+  <p>36 reviews is a modest base, and the complaints cluster around the moulding
+  rather than the design. The same intake is listed once per vehicle, so those
+  reviews sit on several pages; taken together, a one-star from September 2025
+  describes two units in a row arriving with pinholes in the intake pipe and a
+  gap around the MAF boss, the second better but still leaking at the seams. Two
+  further owners report a check engine light straight after fitting &mdash;
+  <em>"it made my check engine light come on"</em> &mdash; though one of those
+  attributes it to the 2.7L Turbomax rather than the intake. A three-star from
+  May 2026 rates the torque noticeable and the airbox finish poor, and notes the
+  2.7L wants a MAF extension pigtail that isn't in the box.</p>
+  <p>None of that is a reason to avoid it &mdash; 89% of the ratings are four or
+  five stars. It is a reason to open the box and inspect the pipe before you
+  start, rather than after you've thrown the packaging away.</p>
   <dl class="spec">
     <div><dt>Price</dt><dd>$368.00</dd></div>
     <div><dt>Fitment</dt><dd>2019&ndash;2026, 2.7L Silverado 1500</dd></div>
@@ -116,8 +126,20 @@ argues for &mdash; and all three are listed for the 2019&ndash;2026 half-ton.
   nearby, which is the distinction this article keeps returning to: a sealed box
   drawing from the factory fender location does not breathe hot engine-bay air in
   traffic. Dry filter, so no oiling ritual and no MAF contamination risk.</p>
-  <p>436 reviews gives you a real body of experience to read through, which at
-  this price is the thing you are partly paying for.</p>
+  <p>The 436 reviews are pooled across every truck this housing is listed for
+  &mdash; 2.7L and 3.0L Duramax Silverados, Sierras, F-150s, Colorados &mdash; so
+  read them as evidence about the housing rather than about this engine. Read
+  that way they are consistent, and they are specific. Owners repeatedly report
+  no measurable gain: <em>"I haven't noticed anything, still sounds the same and
+  still feels the same. No gas mileage increase or anything, kind of a let down
+  for an intake that cost $400 plus."</em> One 6.6L owner is blunter, and one
+  Ranger owner found it simply does not fit the 2025+ truck. The one complaint
+  worth acting on before you buy: a June 2026 review reports failing a smog
+  test because the kit carried no CARB exemption for a 2017-and-up Silverado.
+  That is one owner's account, not a ruling on the kit &mdash; the listing
+  states no EO number either way. But if you are in a state that inspects,
+  confirm the exemption for your model year before ordering. It is a $435
+  mistake you can avoid with a phone call.</p>
   <dl class="spec">
     <div><dt>Price</dt><dd>$435.00</dd></div>
     <div><dt>Fitment</dt><dd>2019&ndash;2026, 2.7L Silverado 1500</dd></div>
@@ -133,12 +155,22 @@ argues for &mdash; and all three are listed for the 2019&ndash;2026 half-ton.
   <h3>S&amp;B with Dry Extendable Filter (19&ndash;26 2.7L Silverado 1500)</h3>
   <div class="pick-price">$399.00 &middot; 500+ reviews</div>
   <p>The most-reviewed intake that fits this engine, with dry media. Mid price
-  between the other two. If you want the purchase you are least likely to regret,
-  this is the one with the most other owners able to tell you it bolted up
-  cleanly.</p>
-  <p>The honest caveat: more reviews is not the same as a better part. It is a
-  lower-variance choice, which on a Saturday-morning bolt-on is most of what
-  matters.</p>
+  between the other two. On the numbers it is the safest bet here: 2,798 ratings
+  at 4.8, with 86% of owners giving it five stars.</p>
+  <p>The caveat is worth more than the number. Those 2,798 ratings are pooled
+  across every vehicle S&amp;B lists this filter for &mdash; Powerstroke,
+  Duramax, EcoBoost, RAM, F-150 &mdash; and the low ones are not random. Two
+  separate one-star reviews describe the same failure, holes that will not line
+  up to bolt the airbox down. <em>"Holes do not line up to bolt air box
+  down... s and b have sent me 3 now and none are correct."</em> Another calls it
+  <em>"terrible QC &mdash; literally nothing about this intake fits, bolts
+  don’t line up, holes don’t line up."</em> Two more report the wrong parts in the
+  kit, and one 2026 owner had to warm the lid plastic to get it to seat at all
+  &mdash; something the instructions do not mention.</p>
+  <p>That is a fitment-and-moulding pattern, not a design flaw, and it is a
+  minority of a very large sample. But "bolt it up cleanly" is exactly what
+  those owners say it did not do, so buy it expecting to be one of the 86% and
+  keep the packaging until it is seated.</p>
   <dl class="spec">
     <div><dt>Price</dt><dd>$399.00</dd></div>
     <div><dt>Fitment</dt><dd>2019&ndash;2026, 2.7L Silverado 1500</dd></div>
@@ -154,10 +186,10 @@ argues for &mdash; and all three are listed for the 2019&ndash;2026 half-ton.
   of a claim is not proof of illegality, but if your state inspects, confirm
   exemption with the manufacturer before ordering rather than assuming it.</p>
   <p>No horsepower figure appears on this page, for the reason set out above: no
-  dyno sheet accompanies these listings and we ran no test of our own. Review
-  counts are reported instead of average scores because star ratings render
-  inconsistently across these pages. Dry media is stated by each listing, and
-  sealed-box construction is stated by aFe; we did not open one to verify it.</p>
+  dyno sheet accompanies these listings and we ran no test of our own. The star
+  distributions above are from each listing's own rating summary. Dry media is
+  stated by each listing, and sealed-box construction is stated by aFe; we did
+  not open one to verify it.</p>
 </div>
 
 ---

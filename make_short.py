@@ -796,7 +796,14 @@ def render(slug, outdir, text_only=False):
 
     tags = (CAT_TAGS.get(topic, '#truckmods #carmods #diyrepair')
             + (' #tonneaucover' if 'tonneau' in slug else ''))
-    plain_lede = re.sub(r'\s+', ' ', lede)[:220].rstrip()
+    # Whole sentences, not a character count. Slicing the lede at 220 chars
+    # cut "walks the whole range in" off mid-sentence, and that is the first
+    # thing anyone reads in the caption -- it read as a truncated post, not a
+    # hook. Two sentences is the right length for a caption anyway.
+    _sents = re.split(r'(?<=[.!?])\s+', re.sub(r'\s+', ' ', lede).strip())
+    plain_lede = ' '.join(_sents[:2]).strip()
+    if len(plain_lede) > 300:
+        plain_lede = _sents[0].strip()
 
     # A teaser reads better than a summary: state the hook, then name what the
     # guide actually answers. The bullets come from the article's own h3

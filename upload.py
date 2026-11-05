@@ -254,20 +254,33 @@ def post_instagram(slug, dry):
                          'to docs/social/ and let Pages build before posting')
 
     import urllib.parse
-    import urllib.request
 
     base = f'https://graph.facebook.com/v21.0/{conf["ig_user_id"]}'
     token = conf['access_token']
 
+    # curl, not urllib. The Python on this machine cannot find a CA bundle, so
+    # every https call through urllib dies with CERTIFICATE_VERIFY_FAILED
+    # before the request leaves the process -- which reads as a Meta outage
+    # rather than the local environment problem it is. curl trusts the chain
+    # here, and passes Meta's own error text straight through.
+    def graph(url, data=None):
+        cmd = ['curl', '-sS', '--max-time', '120']
+        if data:
+            cmd += ['-X', 'POST', '--data', urllib.parse.urlencode(data)]
+        cmd.append(url)
+        r = subprocess.run(cmd, capture_output=True)
+        body = r.stdout.decode('utf-8', 'replace')
+        try:
+            return json.loads(body)
+        except ValueError:
+            raise SystemExit(f'graph returned non-json: {body[:400]}')
+
     def call(path, params):
         params = dict(params, access_token=token)
-        data = urllib.parse.urlencode(params).encode()
-        req = urllib.request.Request(f'{base}{path}', data=data)
-        try:
-            return json.load(urllib.request.urlopen(req, timeout=120))
-        except urllib.error.HTTPError as e:
-            raise SystemExit(f'instagram {path} failed: '
-                             f'{e.read().decode()[:400]}')
+        r = graph(f'{base}{path}', params)
+        if r.get('error'):
+            raise SystemExit(f'instagram {path} failed: {r["error"].get("message")}')
+        return r
 
     container = call('/media', {
         'media_type': 'REELS',
@@ -282,11 +295,10 @@ def post_instagram(slug, dry):
     # amount: too short and publish fails on a container still in progress,
     # too long and the job sits idle every day for no reason.
     import time
+    status_url = (f'https://graph.facebook.com/v21.0/{cid}'
+                  f'?fields=status_code&access_token={token}')
     for _ in range(40):
-        st = call('', {}) if False else None
-        r = json.load(urllib.request.urlopen(
-            f'https://graph.facebook.com/v21.0/{cid}'
-            f'?fields=status_code&access_token={token}', timeout=60))
+        r = graph(status_url)
         code = r.get('status_code')
         if code == 'FINISHED':
             break

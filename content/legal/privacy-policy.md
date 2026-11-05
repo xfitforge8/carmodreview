@@ -52,6 +52,41 @@ Depending on where you live, you may have the right to:
 
 To exercise any of these rights, email **{email}**. We respond within 30 days.
 
+<h3 id="data-deletion">Data deletion (Facebook and Instagram)</h3>
+
+This section covers data relating to Facebook and Instagram specifically, and is
+the deletion instruction we give to Meta as the operator of this app.
+
+**What the app does.** Car Mod Review uses Meta's APIs for one purpose: to publish
+our own posts to our own Instagram account. It does not ask you to log in with
+Facebook or Instagram, it has no user accounts, and it does not read, collect or
+store information about your Facebook or Instagram account. There is no profile
+for you to delete, because none is created.
+
+**What is still held.** Meta records the fact that a post was published, exactly as
+it would for anything posted from the Instagram app, and that record is governed by
+Meta's own privacy policy rather than this one. Separately, our web host and
+analytics keep the ordinary technical logs described above — IP address, browser,
+pages visited — which are not linked to any Facebook or Instagram identity.
+
+**How to request deletion.** Email **{email}** with the subject line *data deletion*.
+Include the Facebook or Instagram username the request relates to, and the address
+you want the reply sent to. We will:
+
+1. Confirm receipt within 7 days.
+2. Delete any data we hold that relates to that account. In practice this normally
+   means nothing, because we hold none — we will tell you that explicitly rather
+   than leaving you to assume it.
+3. Confirm completion in writing within 30 days.
+
+If the request concerns a comment or message you left on one of our posts, deleting
+it at Meta removes it from our view as well; we do not keep copies of comments or
+messages once they are deleted at Meta.
+
+**Requests we cannot action.** We cannot delete data held by Meta or by another
+platform, because we do not control it — use Meta's own deletion tools for that. We
+will tell you which of the two a request falls under.
+
 ### Managing cookies
 
 You can block or delete cookies through your browser settings. Blocking essential cookies may break site features. Most browsers also offer a private/incognito mode that limits cookie persistence.
@@ -127,6 +162,40 @@ We may update this policy. Material changes will be noted with a revised "last u
 
 위 권리를 행사하시려면 **{email}** 으로 이메일을 보내주십시오. 30일 이내에 회신합니다.
 
+<h3 id="data-deletion">데이터 삭제 (페이스북·인스타그램)</h3>
+
+이 항목은 페이스북과 인스타그램에 관한 데이터만 다루며, 당사가 Meta에 제출하는
+삭제 안내입니다.
+
+**앱이 하는 일.** Car Mod Review는 Meta API를 단 한 가지 목적으로만 사용합니다.
+당사가 운영하는 인스타그램 계정에 당사 게시물을 올리는 것입니다. 페이스북이나
+인스타그램 로그인을 요구하지 않고, 회원 계정이 없으며, 귀하의 페이스북·인스타그램
+계정 정보를 읽거나 수집하거나 저장하지 않습니다. 삭제할 프로필 자체가 존재하지
+않습니다.
+
+**남아 있는 정보.** 게시물이 올라갔다는 사실은 인스타그램 앱에서 게시한 경우와
+마찬가지로 Meta에 기록되며, 해당 기록은 본 방침이 아니라 Meta의 개인정보처리방침의
+적용을 받습니다. 이와 별개로 웹 호스트와 분석 도구에는 위에 설명한 통상적인 기술
+로그(IP 주소, 브라우저, 방문 페이지)가 남지만, 이는 페이스북·인스타그램 신원과
+연결되지 않습니다.
+
+**삭제 요청 방법.** **{email}** 으로 제목에 *데이터 삭제* 를 적어 이메일을 보내주십시오.
+요청 대상 페이스북 또는 인스타그램 사용자 이름과 회신받을 주소를 함께 적어주시면
+됩니다. 당사는 다음과 같이 처리합니다.
+
+1. 7일 이내에 접수를 확인합니다.
+2. 해당 계정과 관련하여 보유한 데이터를 삭제합니다. 실제로는 보유한 데이터가 없는
+   경우가 대부분이며, 추측하시게 두지 않고 그 사실을 명확히 알려드립니다.
+3. 30일 이내에 처리 완료를 서면으로 확인해 드립니다.
+
+당사 게시물에 남긴 댓글이나 메시지에 관한 요청이라면, Meta에서 삭제하는 것으로
+당사가 볼 수 있는 범위에서도 사라집니다. 당사는 댓글이나 메시지가 Meta에서 삭제된
+이후 그 사본을 보관하지 않습니다.
+
+**처리할 수 없는 요청.** Meta나 다른 플랫폼이 보유한 데이터는 당사가 통제하지
+않으므로 삭제할 수 없습니다. 해당 사안은 Meta의 삭제 도구를 이용해 주십시오. 요청이
+어느 쪽에 해당하는지는 당사가 알려드립니다.
+
 ### 쿠키 관리
 
 브라우저 설정에서 쿠키를 차단하거나 삭제할 수 있습니다. 필수 쿠키를 차단하면 일부 사이트 기능이 작동하지 않을 수 있습니다. 대부분의 브라우저는 쿠키 지속을 제한하는 시크릿 모드를 제공합니다.
@@ -201,6 +270,42 @@ Según su lugar de residencia, puede tener derecho a:
 **Corea del Sur (PIPA):** Puede solicitar el acceso, la corrección o la eliminación de su información personal en cualquier momento.
 
 Para ejercer cualquiera de estos derechos, escriba a **{email}**. Respondemos en un plazo de 30 días.
+
+<h3 id="data-deletion">Eliminación de datos (Facebook e Instagram)</h3>
+
+Esta sección trata únicamente los datos relativos a Facebook e Instagram, y es la
+instrucción de eliminación que facilitamos a Meta como responsable de esta app.
+
+**Qué hace la app.** Car Mod Review utiliza las API de Meta con un único fin: publicar
+nuestras propias publicaciones en nuestra propia cuenta de Instagram. No le pide
+iniciar sesión con Facebook o Instagram, no tiene cuentas de usuario y no lee, recopila
+ni almacena información sobre su cuenta de Facebook o Instagram. No existe un perfil
+que eliminar, porque no se crea ninguno.
+
+**Qué información permanece.** Meta registra que se publicó una publicación, igual que
+si se hubiera publicado desde la app de Instagram, y ese registro se rige por la
+política de privacidad de Meta y no por esta. Por separado, nuestro proveedor de
+alojamiento y las herramientas de analítica conservan los registros técnicos habituales
+descritos más arriba —dirección IP, navegador, páginas visitadas—, que no están
+vinculados a ninguna identidad de Facebook o Instagram.
+
+**Cómo solicitar la eliminación.** Escriba a **{email}** con el asunto *eliminación de
+datos*. Incluya el nombre de usuario de Facebook o Instagram al que se refiere la
+solicitud y la dirección a la que desea recibir la respuesta. Actuaremos así:
+
+1. Confirmaremos la recepción en un plazo de 7 días.
+2. Eliminaremos cualquier dato que tengamos relacionado con esa cuenta. En la práctica
+   suele no haber ninguno, porque no los conservamos; se lo diremos expresamente en
+   lugar de dejar que lo suponga.
+3. Confirmaremos la finalización por escrito en un plazo de 30 días.
+
+Si la solicitud se refiere a un comentario o mensaje que dejó en una de nuestras
+publicaciones, eliminarlo en Meta lo retira también de nuestra vista; no conservamos
+copias de comentarios o mensajes una vez eliminados en Meta.
+
+**Solicitudes que no podemos atender.** No podemos eliminar datos en poder de Meta o de
+otra plataforma, porque no los controlamos; utilice las herramientas de eliminación de
+Meta para ello. Le indicaremos a cuál de los dos casos corresponde su solicitud.
 
 ### Gestión de cookies
 

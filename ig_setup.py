@@ -36,32 +36,74 @@ import argparse
 import json
 import os
 import stat
+import subprocess
 import sys
 import urllib.parse
-import urllib.request
 
 CONF = os.path.expanduser('~/.config/carmodreview')
 DEST = os.path.join(CONF, 'instagram.json')
 GRAPH = 'https://graph.facebook.com/v21.0'
 
+# Scopes a daily auto-poster cannot work without. Checked explicitly rather
+# than discovered at the first publish, because the failure then happens at
+# 09:20 with nobody watching.
+NEEDED = {
+    'instagram_content_publish': 'create and publish media',
+    'instagram_basic': 'read the account',
+    'pages_show_list': 'find the Instagram account linked to the Page',
+}
+# The user token needs the linked Page, and the Page token needs publishing.
+PAGE_NEEDED = ('instagram_content_publish',)
+
 
 def get(path, params):
-    """GET a Graph endpoint, surfacing Facebook's error text verbatim."""
+    """GET a Graph endpoint over curl, surfacing Facebook's error text verbatim.
+
+    curl rather than urllib because the Python here is built against a CA bundle
+    it cannot find -- every https call dies with CERTIFICATE_VERIFY_FAILED
+    before the request is even sent. That is a local environment fact, not
+    something to paper over with an unverified context, and curl on this machine
+    already trusts the chain.
+    """
     url = f'{GRAPH}/{path}?' + urllib.parse.urlencode(params)
+    r = subprocess.run(['curl', '-sS', '--max-time', '60', url],
+                       capture_output=True)
+    body = r.stdout.decode('utf-8', 'replace')
     try:
-        with urllib.request.urlopen(url, timeout=60) as r:
-            return json.load(r)
-    except urllib.error.HTTPError as e:
-        body = e.read().decode('utf-8', 'replace')
-        try:
-            err = json.loads(body)['error']
-            raise SystemExit(
-                f'facebook rejected this: {err.get("message")}\n'
-                f'  type={err.get("type")} code={err.get("code")} '
-                f'subcode={err.get("error_subcode")}\n'
-                f'  {err.get("error_user_msg") or ""}')
-        except (ValueError, KeyError):
-            raise SystemExit(f'facebook returned {e.code}: {body[:400]}')
+        d = json.loads(body)
+    except ValueError:
+        raise SystemExit(f'facebook returned something that is not json: '
+                         f'{body[:300]}')
+    if isinstance(d, dict) and d.get('error'):
+        err = d['error']
+        raise SystemExit(
+            f'facebook rejected this: {err.get("message")}\n'
+            f'  type={err.get("type")} code={err.get("code")} '
+            f'subcode={err.get("error_subcode")}\n'
+            f'  {err.get("error_user_msg") or ""}')
+    return d
+
+
+def check_scopes(token, required, label):
+    """Refuse early when the token cannot do the job.
+
+    A token missing instagram_content_publish authenticates perfectly and fails
+    only when it tries to publish, which for a scheduled job means the failure
+    is silent until someone notices nothing has posted for a week.
+    """
+    d = get('debug_token', {'input_token': token, 'access_token': token})
+    data = d.get('data') or {}
+    have = set(data.get('scopes') or [])
+    print(f'  {label} scopes: {" ".join(sorted(have))}')
+    missing = [s for s in required if s not in have]
+    if missing:
+        raise SystemExit(
+            'this token is missing the permission(s) the daily job needs:\n' +
+            ''.join(f'  - {s}  ({NEEDED.get(s, "required")})\n' for s in missing) +
+            '\nAdd them in the Graph API explorer before generating the token.')
+    exp = data.get('expires_at')
+    return data, exp
+
 
 
 def long_lived(token):
@@ -111,6 +153,15 @@ def main():
     print('checking the token ...')
     me = get('me', {'fields': 'id,name', 'access_token': token})
     print(f'  facebook identity: {me.get("name")} ({me.get("id")})')
+
+    _, exp = check_scopes(token, tuple(NEEDED), 'user')
+    if exp:
+        import datetime
+        left = datetime.datetime.fromtimestamp(exp) - datetime.datetime.now()
+        print(f'  expires in about {left.seconds // 60} minutes')
+        if left.total_seconds() < 86400:
+            print('  (too short for a scheduled job on its own -- the '
+                  'exchange below is what makes it last)')
 
     token, ttl = long_lived(token)
 
