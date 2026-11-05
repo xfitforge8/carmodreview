@@ -21,6 +21,11 @@ ROOT = os.path.expanduser('~/carmodreview')
 SRC = os.path.join(ROOT, 'content')
 OUT = os.path.join(ROOT, 'docs')
 PHOTO_ROOT = os.path.join(SRC, 'photos')
+# Product shots are a separate tree from the body photos, because they are a
+# different thing: one exact listing's own photograph, placed inside that
+# listing's buy box, rather than a component illustration distributed through
+# the prose. See product_photos.py.
+PRODUCT_ROOT = os.path.join(SRC, 'products')
 DOMAIN = 'https://carmodreview.com'
 
 
@@ -39,9 +44,31 @@ def css_version():
     with open(os.path.join(ROOT, 'style.css'), 'rb') as f:
         return hashlib.md5(f.read()).hexdigest()[:10]
 
+
+def icon_version():
+    """Short content hash of the icon set, appended to every icon URL.
+
+    Same failure as the stylesheet, one layer more stubborn. The favicon was
+    redrawn three times and the tab kept showing an old mark, because a plain
+    /favicon.ico is cached for the zone's 4-hour TTL and browsers cache
+    favicons harder still -- Chrome keeps them in a separate store that
+    survives a hard reload, and only a URL it has never seen forces a refetch.
+    Hashing all five files into one token means any redraw changes every icon
+    URL at once, so no reader ever gets the new markup with the old icon.
+    """
+    h = hashlib.md5()
+    for f in ('favicon.ico', 'favicon.svg', 'apple-touch-icon.png',
+              'icon-192.png', 'icon-512.png'):
+        p = os.path.join(ROOT, f)
+        if os.path.exists(p):
+            with open(p, 'rb') as fh:
+                h.update(fh.read())
+    return h.hexdigest()[:10]
+
 import photos
 from photos import (inject_photos, find_photos, photo_html, category_photo,
                     CATEGORY_SOURCE)
+import product_photos
 
 # ───────────────────────────────────────────────────── analytics (Cloudflare)
 # Cloudflare Web Analytics: cookieless, collects no personal data, no consent
@@ -602,10 +629,11 @@ PAGE = """<!DOCTYPE html>
 <meta name="twitter:image" content="{og_image}">
 <link rel="alternate" type="application/rss+xml" title="Car Mod Review" href="{domain}/feed.xml">
 <!-- Icons are absolute paths on purpose: pages live at /, /es/ and /kr/, so a
-     relative href would resolve to /es/favicon.ico and 404 in two languages. -->
-<link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+     relative href would resolve to /es/favicon.ico and 404 in two languages.
+     The ?v= token is the content hash of the icon set; see icon_version(). -->
+<link rel="icon" href="/favicon.ico?v={iconv}" sizes="any">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg?v={iconv}">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v={iconv}">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="stylesheet" href="{rel}style.css?v={cssv}">
 {jsonld}{analytics}
@@ -974,7 +1002,7 @@ def render_page(*, lang, title, desc, canonical, body_html, rel, jsonld='',
         canonical=canonical, alt_links=alt, og_type=og_type, og_locale=OG_LOCALE[lang],
         og_image=og_image or f'{DOMAIN}/og.png',
         domain=DOMAIN, rel=rel, jsonld=(jsonld + site_jsonld()), body=body_html,
-        cssv=css_version(), foot_social=foot_social_html('    '),
+        cssv=css_version(), iconv=icon_version(), foot_social=foot_social_html('    '),
         analytics=('\n' + analytics_tag()) if analytics_tag() else '',
         tagline=TAGLINE[lang], all_posts=ui['all_posts'], how=ui['how'], other=ui['other'],
         search=ui['search'], search_label=ui['search_label'], by=ui['by'], contact=ui['contact'],
@@ -1163,6 +1191,7 @@ def build():
     # Web app manifest. Android Chrome uses these icons when a reader adds the
     # site to a home screen; without a manifest it falls back to a screenshot.
     # Written rather than copied because it is five lines and lives nowhere else.
+    iconv = icon_version()
     with open(os.path.join(OUT, 'site.webmanifest'), 'w', encoding='utf-8') as fh:
         json.dump({
             'name': 'Car Mod Review',
@@ -1173,9 +1202,15 @@ def build():
             'display': 'browser',
             'background_color': '#fbfaf7',
             'theme_color': '#14161a',
+            # Same token as the <link> tags in the page head. A home-screen
+            # shortcut reads its icon from here, not from the head, so a
+            # redraw that only changed the head would update the tab and
+            # leave the installed icon stale indefinitely.
             'icons': [
-                {'src': '/icon-192.png', 'sizes': '192x192', 'type': 'image/png'},
-                {'src': '/icon-512.png', 'sizes': '512x512', 'type': 'image/png'},
+                {'src': f'/icon-192.png?v={iconv}', 'sizes': '192x192',
+                 'type': 'image/png'},
+                {'src': f'/icon-512.png?v={iconv}', 'sizes': '512x512',
+                 'type': 'image/png'},
             ],
         }, fh, indent=2)
 
@@ -1198,6 +1233,13 @@ def build():
                 relp = os.path.relpath(srcp, PHOTO_ROOT)
                 dst = os.path.join(OUT, 'img', 'photos', relp)
                 photos.publish_image(srcp, dst)
+
+    # Product photographs, published to img/products/. Sidecars stay out for
+    # the same reason the photo captions do: they record where an image came
+    # from and are not part of the site.
+    n_prod = product_photos.publish(PRODUCT_ROOT, os.path.join(OUT, 'img', 'products'))
+    if n_prod:
+        print(f'  product photos: {n_prod}')
 
     index_entries = []
     feed_items = []
@@ -1280,6 +1322,12 @@ def build():
             art_html = md2html(inner, rel)
             art_html = inject_photos(art_html, slug, code, rel,
                                      find_photos(PHOTO_ROOT, slug))
+            # Product shots go into the buy boxes, after the body photographs.
+            # Order matters only in that both split the same html; running the
+            # product pass second means it sees the body html already settled.
+            if code == 'en':
+                art_html = product_photos.inject_product_photos(
+                    art_html, slug, rel, PRODUCT_ROOT)
             body_html.append(art_html)
             if unver:
                 body_html.append(

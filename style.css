@@ -858,3 +858,33 @@ footer p { margin: 0 0 10px; }
   white-space: nowrap;
   border: 0;
 }
+
+/* Product photograph inside a buy box.
+
+   These come from the retailer's own studio photography, so they are cut-outs
+   on white rather than cropped scenes. That needs different treatment from a
+   body photo: the image is contained rather than full-bleed, and it sits on a
+   white plate so the cut-out edge does not read as a rectangle of slightly
+   wrong white against the warm paper background. */
+.pick-photo {
+  background: #fff;
+  border: 1px solid var(--rule);
+  margin: 0 0 20px;
+  padding: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pick-photo img {
+  display: block;
+  width: 100%;
+  max-width: 460px;
+  height: auto;
+  object-fit: contain;
+}
+
+@media (max-width: 640px) {
+  .pick-photo { padding: 12px; margin-bottom: 16px; }
+  .pick-photo img { max-width: 100%; }
+}
