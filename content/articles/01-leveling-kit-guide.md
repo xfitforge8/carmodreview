@@ -91,6 +91,16 @@ ranges are the listing's own, and they are not interchangeable &mdash; the
   cheap assumes you have the tools and the confidence to disassemble a strut
   assembly, or the willingness to pay a shop an hour of labour. Budget for that
   and it is still the cheapest way to a level truck.</p>
+  <p>Twelve reviews, which is a small enough base that this page will not pretend
+  otherwise: 92% five stars and a single two-star, averaging 4.75. The two-star
+  is not actually a complaint, which is the most useful thing about it &mdash;
+  it reads <em>"Leveled my 2021 RST perfectly. The truck looks much better with
+  it installed. Gives it that more aggressive stance and adds clearance to the
+  front. No change in the ride that I can tell."</em> An owner describing a
+  perfect result and then rating it two stars is a reminder that the star
+  average on a twelve-review part tells you very little. What the review does
+  confirm is the only claim worth checking: no change in ride, which is what a
+  spacer with no geometry correction should deliver at 1.5 inches.</p>
   <dl class="spec">
     <div><dt>Price</dt><dd>$49.95</dd></div>
     <div><dt>Fitment</dt><dd>2019&ndash;2026, Silverado 1500</dd></div>
@@ -113,6 +123,13 @@ ranges are the listing's own, and they are not interchangeable &mdash; the
   factory and this kit is not for them. That is the single most common ordering
   error on this part, and it is written on the listing rather than discovered
   after delivery.</p>
+  <p>17 reviews at 4.94, and no rating below four stars &mdash; the cleanest
+  record on this page alongside the 1.75-inch kit below. Nothing in the reviews
+  contradicts the exclusion warning, which is mildly informative in itself: the
+  people who buy this kit appear to have read the fitment line. Note also that
+  the listing's own installation-time figure for this one is "shop install"
+  rather than the afternoon the others quote, which is worth pricing before you
+  decide it is a driveway job.</p>
   <dl class="spec">
     <div><dt>Price</dt><dd>$149.95</dd></div>
     <div><dt>Fitment</dt><dd>2019&ndash;2026, excluding Trail Boss &amp; ZR2</dd></div>
@@ -134,6 +151,13 @@ ranges are the listing's own, and they are not interchangeable &mdash; the
   <p>It costs three times the Supreme spacer, and it is the only pick here that
   addresses the actual engineering problem rather than just the ride height. If
   you are keeping the truck, this is where the money goes.</p>
+  <p>The reviews support that judgement with the cleanest sample in this guide:
+  50 ratings at 4.88, with 88% five stars and 12% four and nothing below. On a
+  part whose entire purpose is correcting geometry, the absence of any alignment
+  or wear complaint is the evidence that matters &mdash; the same failures that
+  the spacer kit above collects are simply not present here. That is what the
+  extra $480 buys, and it is the one place in these guides where the reviews and
+  the engineering argument point the same way.</p>
   <dl class="spec">
     <div><dt>Price</dt><dd>$529.95</dd></div>
     <div><dt>Fitment</dt><dd>2019&ndash;2026, Silverado 1500 Trail Boss</dd></div>

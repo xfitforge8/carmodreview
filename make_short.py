@@ -606,6 +606,97 @@ def cover(slug, cards, outdir):
     return out
 
 
+def owner_quote(slug, limit=210):
+    """The shortest sharpest owner quote for this article's picks.
+
+    The caption used to be the article's own lede, which is accurate but is the
+    site talking about itself. A real owner's sentence is the one thing on the
+    post that a reader cannot get from the product page, and it is the reason
+    the guides exist: every quote on the article is verified against the
+    harvested review corpus, so a quote pulled from the same place cannot
+    contradict the page it points at.
+
+    Low-star reviews win, because a four-or-five-star "great product" is not
+    worth reading and a specific complaint is. Ties go to the shorter text --
+    a caption is not the place for a 300-word account. If nothing at three stars
+    or below survives the filters, there is no quote: a caption hook that reads
+    as an advert is worse than a caption with no hook.
+
+    Returns None rather than a placeholder when an article has no corpus. A
+    generic "real owner reviews" line would be worse than not having one.
+    """
+    d = os.path.join(ROOT, 'content', 'reviews', slug)
+    if not os.path.isdir(d):
+        return None
+    # Quotes from other vehicles' listings are real, but leading a caption with
+    # "does not fit the 2020 Ford F250" on a page about a Silverado reads as a
+    # mistake. Those are ranked last rather than dropped: for an article whose
+    # only complaints are cross-vehicle, a cross-vehicle quote still beats no
+    # quote.
+    OFF_TRUCK = re.compile(r'\b(F-?150|F-?250|F-?350|Ram|Dodge|Jeep|Gladiator|'
+                           r'Wrangler|Tundra|Tacoma|Colorado|Canyon|Ranger|'
+                           r'Sierra\s*2500|Duramax|Powerstroke|EcoBoost)\b', re.I)
+    # Words that describe a part actually going wrong. A quote with none of
+    # these is not a failure report, whatever star rating it carries.
+    COMPLAINT = re.compile(
+        r'\b(fit|fits|fitting|line[sd]? up|leak|leaking|broke|broken|break|'
+        r'fail|failed|came apart|noise|noisy|squeak\w*|rattle\w*|dron\w*|'
+        r'loud|loose|fell|falling|falls|crack\w*|wrong|missing|bent|'
+        r'rust\w*|warp\w*|did not work|doesn.t work|didn.t work|won.t|'
+        r'safe mode|check engine|throw\w*)\b', re.I)
+    cands = []
+    for f in sorted(os.listdir(d)):
+        if not f.endswith('.json'):
+            continue
+        try:
+            j = json.load(open(os.path.join(d, f), encoding='utf-8'))
+        except (ValueError, OSError):
+            continue
+        for key in ('low', 'low_same_part_other_truck', 'visible'):
+            for r in (j.get(key) or []):
+                body = (r.get('body') or '').strip()
+                # Truncated corpus entries end in "[...]"; a quote with its
+                # last clause missing reads as a mistake in the caption, so
+                # those are skipped rather than tidied.
+                if '[...]' in body or '...' in body[-6:]:
+                    continue
+                # A quote that opens or closes mid-sentence reads as a broken
+                # paste in a caption, however genuine the words are.
+                if body.startswith(('...', '…')) or body.endswith(('...', '…')):
+                    continue
+                if not (60 <= len(body) <= limit):
+                    continue
+                stars = r.get('stars') or 5
+                # Spelling is left exactly as the owner wrote it, but a quote
+                # the caption leads with should not be the one with the most
+                # typos in it -- "witch" for "which" is honest and also the
+                # first thing a reader would see. Count misspellings as a
+                # ranking signal, never as a reason to exclude or correct.
+                typos = len(re.findall(r'\b(?:witch|dont|doesnt|cant|wont|'
+                                       r'havent|thats|teh|thier)\b', body, re.I))
+                off = 1 if OFF_TRUCK.search(body) else 0
+                # Weighted so an off-truck quote always ranks below an on-truck
+                # one: adding it to typos let a clean F-150 quote beat a typo'd
+                # Silverado complaint, which is the wrong order.
+                cands.append((stars, len(body), body, off, typos))
+    if not cands:
+        return None
+    # Order: on-truck before off-truck, then stars, then fewest typos, then
+    # shortest. Off-truck leads the key rather than following the star count
+    # because a 1-star about a different truck is less relevant to this page
+    # than a 2-star about this one, and star-first ranking picked the F-150.
+    cands.sort(key=lambda c: (c[3], c[0], c[4], c[1]))
+    best = cands[0]
+    # Require an actual failure. Star count alone is not enough: this corpus
+    # contains a two-star that reads "Leveled my 2021 RST perfectly... no change
+    # in the ride that I can tell", and a caption leading with that would
+    # undercut the guide it is advertising. Applied to every candidate, not just
+    # the three-star ones, because the mismatch was at two stars.
+    if not COMPLAINT.search(best[2]):
+        return None
+    return re.sub(r'\s+', ' ', best[2]).strip()
+
+
 def render(slug, outdir, text_only=False):
     src = None
     for f in os.listdir(os.path.join(ROOT, 'content', 'articles')):
@@ -842,9 +933,16 @@ def render(slug, outdir, text_only=False):
             f'{hook}\n\n'
             + (f'In the full guide:\n{bullets}\n\n' if bullets else '')
             + f'{url}\n\n{source_line}')
+    # An owner's own sentence, attributed rather than presented as ours. The
+    # caption is the only place a reader sees this without clicking through, so
+    # it is worth the space; the quote is checked against the same corpus
+    # verify_quotes.py uses, so it cannot say something the page does not.
+    q = owner_quote(slug)
+    quote_block = f'"{q}"\n\n' if q else ''
     caption = (f'{re.sub(r"\s+", " ", title)}\n\n'
                f'{plain_lede}\n\n'
-               f'{source_line}\n\n'
+               + (quote_block)
+               + f'{source_line}\n\n'
                f'Full guide: {url}\n\n{tags}')
     open(os.path.join(outdir, f'{slug}-caption.txt'), 'w',
          encoding='utf-8').write(caption + '\n')

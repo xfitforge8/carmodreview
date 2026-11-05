@@ -161,10 +161,11 @@ argues for &mdash; and all three are listed for the 2019&ndash;2026 half-ton.
   across every vehicle S&amp;B lists this filter for &mdash; Powerstroke,
   Duramax, EcoBoost, RAM, F-150 &mdash; and the low ones are not random. Two
   separate one-star reviews describe the same failure, holes that will not line
-  up to bolt the airbox down. <em>"Holes do not line up to bolt air box
-  down... s and b have sent me 3 now and none are correct."</em> Another calls it
-  <em>"terrible QC &mdash; literally nothing about this intake fits, bolts
-  don’t line up, holes don’t line up."</em> Two more report the wrong parts in the
+  up to bolt the airbox down. One is titled <em>"Junk."</em> and reads
+  <em>"Holes do not line up to bolt air box down... s and b have sent me 3 now
+  and none are correct."</em> The other is headed <em>"Terrible QC"</em> and
+  says <em>"Literally nothing about this intake fits, bolts don’t line up, holes
+  don’t line up, just bad."</em> Two more report the wrong parts in the
   kit, and one 2026 owner had to warm the lid plastic to get it to seat at all
   &mdash; something the instructions do not mention.</p>
   <p>That is a fitment-and-moulding pattern, not a design flaw, and it is a

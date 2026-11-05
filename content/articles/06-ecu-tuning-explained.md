@@ -99,6 +99,23 @@ risk this article has been describing.
   this truck. Understand what it is not: it does not change boost targets the way
   a flash does, so it delivers throttle sharpness and drivability rather than the
   full result.</p>
+  <p>What the 132 reviews do say is worth reading closely, because the failure
+  mode here is not a bad part, it is a wrong truck. The average is 4.76, but 2.3%
+  of owners give it one star &mdash; and they share a cause. <em>"Forget the 12th
+  digit of the VIN. This module will not support a 2023. Took the time and
+  expense to install and my truck would not even start."</em> Another, on a ZR2:
+  <em>"Very disappointed, did not work with my ZR2 there is nothing out yet for
+  my truck."</em> This listing is for 2019&ndash;2021 and the 2022 LD; buyers who
+  scanned the year range rather than checking their own VIN lost an afternoon and
+  a return.</p>
+  <p>The complaint that should actually stop you is different, and it is one
+  review rather than a pattern: <em>"It worked very well until it caused the
+  truck to go into safe mode and I wanted to return it but American Trucks said
+  it was passed the return [...]"</em> One account is not proof that a piggyback
+  module will put a truck into limp mode, and plenty of owners run these for
+  years without trouble. But it is the specific risk of an inline module &mdash;
+  it sits in the middle of a sensor path the ECU trusts &mdash; and it is why
+  this card says buy it for drivability and reversibility, not for output.</p>
   <dl class="spec">
     <div><dt>Price</dt><dd>$649.95</dd></div>
     <div><dt>Fitment</dt><dd>2019&ndash;2021 V8 Silverado 1500 (2022 LD)</dd></div>

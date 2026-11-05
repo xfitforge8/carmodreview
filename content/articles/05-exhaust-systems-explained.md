@@ -143,6 +143,26 @@ do the cab and bed configurations.
   C&amp;L system above and delivers the same category of change.</p>
   <p>The fitment is the entire caveat: this is the 2007&ndash;2013 body, and it
   will not fit the newer trucks no matter what the photo implies.</p>
+  <p>The reviews are the other caveat, and this is the weakest listing in any
+  guide on this site: 70 ratings at 4.33, with 5.7% at one star and 12.9% at
+  three. Compare that with the C&amp;L system above and the difference is not
+  subtle. The recurring complaint is not the pipes &mdash; owners like the pipes,
+  and several say so while still rating the product poorly. It is the muffler.
+  <em>"Pipes were perfect fit muffler makes tin rattling sound when truck shifts
+  gears. Not happy about the muffler. Feels flimsy will change muffler
+  soon."</em> Another: <em>"The pipes are high quality and beautiful stainless!
+  The bad: Muffler has a rice-burner rattle at 3,500"</em>. And a third, after
+  six weeks: <em>"I have the muffler coming apart on the inside. Something came
+  loose inside the muffler."</em></p>
+  <p>There is also a loudness complaint that contradicts the marketing rather
+  than the build: <em>"Terribly loud. Horrible droning anytime engine is over
+  1500 rpm, concerning rattling when you really step on it."</em> This page does
+  not print decibel figures because none of these listings publishes one, but an
+  owner telling you it drones above 1500 rpm is more useful than a dB number
+  anyway &mdash; that is most of your highway cruise.</p>
+  <p>So the honest framing is: buy this for stainless pipes at a low price and
+  expect to replace the muffler. If that is not a job you want, the C&amp;L
+  above is where the extra money goes.</p>
   <dl class="spec">
     <div><dt>Price</dt><dd>$209.99</dd></div>
     <div><dt>Fitment</dt><dd>2007&ndash;2013, 5.3L Silverado 1500</dd></div>

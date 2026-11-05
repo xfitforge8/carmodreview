@@ -113,8 +113,22 @@ without an offset number is a wheel listing you cannot evaluate.
   consistency matters: changing diameter without changing offset keeps the
   geometry you already checked, which is exactly the discipline this article
   argues for. Two inches of diameter costs you sidewall and tyre price.</p>
-  <p>52 reviews is enough to see whether a wheel has a fitment or finish problem,
-  and this one does not obviously have either.</p>
+  <p>52 reviews is enough to see whether a wheel has a fitment or finish problem.
+  The distribution is 85% five stars and 12% four, with a single one-star, and
+  that one is worth reading in full because the owner rules out the easy
+  explanation: <em>"One of the wheels came bent from the manufacturer. I had to
+  have the body shop balance the wheel in order for it to be installed.
+  Considering the other 3 were fine I doubt it was damage due to delivery and
+  handling."</em> One bent wheel in 52 is not a pattern, but it is a reason to
+  open the boxes and spin each wheel before the tyres are mounted, while a return
+  is still straightforward.</p>
+  <p>There is a pattern in the four-star reviews, though, and it is about balance
+  rather than the wheel: <em>"the wheel weights fell off of the wheels while
+  getting shipped and had to get them all rebalanced"</em>, <em>"weights were all
+  off and loose in boxes"</em>, and one owner who had to redo the balancing
+  himself. Several of these are mounted-and-balanced packages, and stick-on
+  weights do not survive a courier. Budget for a rebalance at your local tyre
+  shop and treat it as part of the price rather than as a fault.</p>
   <dl class="spec">
     <div><dt>Price</dt><dd>$269.99 each</dd></div>
     <div><dt>Size</dt><dd>20x9</dd></div>

@@ -105,6 +105,22 @@ which is the axis that separates a shortcut from a proper job.
   about. If the goal is the look and the truck is a pavement machine, buy it and
   get an alignment. If the goal is anything else, the next card is where you
   should be looking.</p>
+  <p>The reviews make that argument better than this page can, because the
+  failures they describe are exactly the ones the section above predicts. 136
+  ratings at 4.65 &mdash; 76% five stars, but 2.9% at three, 1.5% at two and
+  1.5% at one. Those low ones are not about ride quality or finish. They are
+  about geometry. <em>"If u have a 2011 Chevy Silverado you will not be able to
+  get the camber back to spec and will wear your tires pretty fast unfortunately
+  3 inches for the [...]"</em> That is a truck, an alignment rack and a set of
+  tires, which is the arithmetic this guide keeps pointing at.</p>
+  <p>Two further complaints are worth knowing before you open the box. One owner
+  found hardware missing: <em>"there is missing 2 nuts and 4 washers for the rear
+  U bolts"</em> &mdash; check the bag against the parts list before you start,
+  not after the truck is on stands. And the most serious, twice over, is the
+  differential drop: <em>"The materials used are good quality, but the fact that
+  this kit does NOT include a differential drop makes it dangerous to use."</em>
+  A spacer kit at this price does not include one, and on a truck that will see
+  load or dirt that is a real omission rather than a missing convenience.</p>
   <dl class="spec">
     <div><dt>Price</dt><dd>$139.99</dd></div>
     <div><dt>Fitment</dt><dd>2007&ndash;2018, Silverado 1500</dd></div>

@@ -97,6 +97,18 @@ regear or a lift.
   not going to match a Mickey Thompson for wet grip at the limit or for
   treadlife under a loaded truck. For commuting, occasional towing and winter
   that is mostly cold rain, it is the rational purchase.</p>
+  <p>The distribution says the same thing more precisely: 81% five stars, 13%
+  four, and about 2% at each of three, two and one. That is a wider spread than
+  the other two tires here, which is what a cheaper tire looks like in review
+  data &mdash; most owners happy, a small tail of real complaints rather than a
+  uniform chorus. The most useful one is a three-star about wear over time:
+  <em>"I put these on my F150 4x4 as a less expensive alternative and I liked
+  them initially. Not a negative review but over a couple seasons of wear I
+  experienced that they [...]"</em> That owner's point is the one this guide
+  makes above: the price is paid up front and the treadlife is paid later. Set
+  that against <em>"This is my second set. Low noise and great durability for
+  many years"</em> and you have the honest picture &mdash; a tire that some
+  owners buy twice and others find goes off after a few seasons.</p>
   <dl class="spec">
     <div><dt>Price</dt><dd>$176.95 each</dd></div>
     <div><dt>Size</dt><dd>285/70R17 &mdash; approx. 33"</dd></div>
@@ -138,7 +150,18 @@ regear or a lift.
   It is within $8 of the NITTO, so the choice between them is about which
   construction you can actually get in your size, not about price.</p>
   <p>Mickey Thompson is a name with a real off-road history rather than a
-  marketing department, and 41 reviews is a reasonable evidence base.</p>
+  marketing department, and 41 reviews is a reasonable evidence base. What those
+  41 reviews show is the narrowest spread of the three tires &mdash; 97.6% five
+  stars, 2.4% four, and nothing below that. Treat a 4.98 average with some
+  suspicion on principle, because a perfect score on a wear item usually means
+  the sample is young rather than that the tire is flawless. These owners are
+  describing the first impressions of a new tire, and the words are consistent
+  across them: <em>"Rides smooth no drone"</em>, <em>"Smooth ride quality and
+  easy to balance"</em>, <em>"Less road noise and handle well. Definitely worth
+  the extra money."</em></p>
+  <p>None of that is a treadwear claim, and this page does not make one. It is
+  the strongest evidence here that the tire does what an all-terrain is supposed
+  to do on the road, from the smallest but cleanest sample in the guide.</p>
   <dl class="spec">
     <div><dt>Price</dt><dd>$307.89 each</dd></div>
     <div><dt>Size</dt><dd>285/70R17 &mdash; approx. 33"</dd></div>

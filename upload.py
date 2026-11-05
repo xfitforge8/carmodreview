@@ -89,7 +89,31 @@ def build_queue():
     """
     arts = _articles()
     if os.path.exists(QUEUE):
-        return json.load(open(QUEUE, encoding='utf-8'))
+        q = json.load(open(QUEUE, encoding='utf-8'))
+        # Re-sync the render hash. The queue records the article's sha at the
+        # moment its short was cut, and the drift check below refuses to post
+        # when the article has moved on since. But re-rendering the short does
+        # not touch the queue, so after `make_short.py <slug>` the check kept
+        # rejecting a video that had just been rebuilt from the current article
+        # -- the guard was correct about the hash and wrong about reality.
+        # Comparing the short's mtime against the article's is the cheap version
+        # of "was it re-rendered after the last edit", and it needs no sidecar.
+        changed = 0
+        for it in q['items']:
+            src = arts.get(it['slug'])
+            mp4 = os.path.join(SOCIAL, f"{it['slug']}-short.mp4")
+            if not src or not os.path.exists(mp4):
+                continue
+            if os.path.getmtime(mp4) >= os.path.getmtime(src):
+                fresh = _sha(src)
+                if it.get('source_sha') != fresh:
+                    it['source_sha'] = fresh
+                    changed += 1
+        if changed:
+            json.dump(q, open(QUEUE, 'w', encoding='utf-8'), indent=2)
+            print(f'queue: re-synced {changed} item(s) re-rendered after their '
+                  f'article changed')
+        return q
 
     items = []
     for slug, src in arts.items():
