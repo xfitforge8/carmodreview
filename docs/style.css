@@ -825,6 +825,27 @@ footer p { margin: 0 0 10px; }
   fill: currentColor;
 }
 
+/* Footer social link. Kept quieter than the share buttons on purpose: this is
+   a "follow us" link on every page, not an action on the article the reader
+   came for, so it sits at the type size of the footer nav and inherits its
+   hover rather than getting a pill of its own. */
+.foot-social {
+  margin: 10px 0 0;
+}
+
+.foot-social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.foot-icon {
+  width: 14px;
+  height: 14px;
+  flex: 0 0 auto;
+  fill: currentColor;
+}
+
 .sr-only {
   position: absolute;
   width: 1px; height: 1px;

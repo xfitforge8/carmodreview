@@ -657,12 +657,27 @@ PAGE = """<!DOCTYPE html>
     </p>
     <p class="lang-switch">{other}: <a href="{alt_en}">English</a> &middot;
       <a href="{alt_kr}">한국어</a> &middot; <a href="{alt_es}">Español</a></p>
+    {foot_social}
   </div>
 </footer>
 
 </body>
 </html>
 """
+
+# One copy of the footer social link, shared by the generated pages and the two
+# hand-written ones that predate the generator. {rel} is the only variable.
+# rel="me" is deliberate: it is the standard way to assert that this site and
+# that profile are the same entity, which is what a search engine needs to
+# connect them.
+FOOT_SOCIAL = """<p class="foot-social">
+      <a class="foot-social-link" href="https://www.instagram.com/carmodreview/"
+         target="_blank" rel="noopener me" aria-label="Instagram">
+        <svg class="foot-icon" viewBox="0 0 24 24" aria-hidden="true"
+             focusable="false"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        <span class="foot-social-label">Instagram</span>
+      </a>
+    </p>"""
 
 TAGLINE = {
     'en': 'Car parts, checked against the published specs',
@@ -929,7 +944,7 @@ def render_page(*, lang, title, desc, canonical, body_html, rel, jsonld='',
         canonical=canonical, alt_links=alt, og_type=og_type, og_locale=OG_LOCALE[lang],
         og_image=og_image or f'{DOMAIN}/og.png',
         domain=DOMAIN, rel=rel, jsonld=(jsonld + site_jsonld()), body=body_html,
-        cssv=css_version(),
+        cssv=css_version(), foot_social=FOOT_SOCIAL.replace('{rel}', rel),
         analytics=('\n' + analytics_tag()) if analytics_tag() else '',
         tagline=TAGLINE[lang], all_posts=ui['all_posts'], how=ui['how'], other=ui['other'],
         search=ui['search'], search_label=ui['search_label'], by=ui['by'], contact=ui['contact'],
@@ -1350,6 +1365,16 @@ def build_legacy_pages(sidebar_entries=None):
         # loading whatever CSS the reader cached hours ago.
         txt = txt.replace('href="../style.css"',
                           f'href="../style.css?v={css_version()}"')
+        # These two carry a hand-written footer, so they miss every footer
+        # change the generator makes. They are also the pages Google has
+        # actually indexed, so leaving them without the social link puts it
+        # everywhere except where the traffic is.
+        # The commission-claim strip above runs first and leaves this line
+        # unindented, so match it without a leading-whitespace prefix.
+        txt = txt.replace(
+            '<p><a href="../methodology.html">How we pick products</a></p>',
+            '<p><a href="../methodology.html">How we pick products</a></p>\n'
+            + FOOT_SOCIAL, 1)
 
         # The legacy pages were written before there was a named editor, so the
         # byline says only "Published <date>" and the JSON-LD credits the
@@ -1742,6 +1767,7 @@ SEARCH_PAGE = r"""<!DOCTYPE html>
   <div class="wrap">
     <p><strong>Car Mod Review</strong> &mdash; car parts coverage that states its
     sources and says when it doesn't know.</p>
+    {foot_social}
   </div>
 </footer>
 
@@ -1831,7 +1857,8 @@ def build_search(items):
         json.dump(payload, f, ensure_ascii=False, indent=0)
     open(os.path.join(OUT, 'search.html'), 'w', encoding='utf-8').write(
         inject_analytics(SEARCH_PAGE.replace("{domain}", DOMAIN)
-                         .replace('style.css', f'style.css?v={css_version()}')))
+                         .replace('style.css', f'style.css?v={css_version()}')
+                         .replace('{foot_social}', FOOT_SOCIAL.replace('{rel}', ''))))
     print(f'  search: {len(payload)} guides indexed')
 
 
