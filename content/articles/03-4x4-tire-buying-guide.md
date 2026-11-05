@@ -1,24 +1,23 @@
 ---
 title:
-  en: "Tire Buying for a Mostly-Street Silverado 4x4: Load Range, Size, and the E-Rated Trap"
-  kr: "온로드 위주 실버라도 4x4 타이어 고르기: 하중 등급, 사이즈, 그리고 E-등급의 함정"
-  es: "Comprar llantas para un Silverado 4x4 de calle: índice de carga, medida y la trampa de la E"
+  en: "Tires for a Mostly-Street 4x4: Load Range, Size, and the E-Rated Trap"
+  kr: "온로드 위주 4x4 타이어 고르기: 하중 등급, 사이즈, 그리고 E-등급의 함정"
+  es: "Llantas para una 4x4 de calle: índice de carga, medida y la trampa de la E"
 seo_title:
-  en: "Silverado 4x4 Tire Guide: Load Range, Size, E-Rated Trap"
-  kr: "실버라도 4x4 타이어 고르기: 하중 등급과 E-등급의 함정"
-  es: "Llantas para Silverado 4x4: carga, medida y la trampa E"
+  en: "4x4 Tire Guide: Load Range, Size, and the E-Rated Trap"
+  kr: "4x4 타이어 고르기: 하중 등급과 E-등급의 함정"
 seo_desc:
-  en: "Tire buying for a mostly-street Silverado 4x4: load range, why E-rated tires ride worse, and the size that fits stock."
-  kr: "온로드 위주 실버라도 4x4 타이어 고르기: 하중 등급, E-등급이 승차감을 해치는 이유, 그리고 순정에 맞는 사이즈."
-  es: "Comprar llantas para un Silverado 4x4 de uso urbano: índice de carga, por qué las E rinden peor y la medida que entra de fábrica."
-slug: silverado-4x4-tire-buying-guide
+  en: "Tire buying for a mostly-street 4x4: load range, why E-rated tires ride worse, how to read your door jamb sticker, and the size that fits stock."
+  kr: "온로드 위주 4x4 타이어 고르기: 하중 등급, E-등급이 승차감을 해치는 이유, 도어 스티커 읽는 법, 그리고 순정에 맞는 사이즈."
+  es: "Comprar llantas para una 4x4 de uso urbano: índice de carga, por qué las E rinden peor, cómo leer la etiqueta de la puerta y la medida que entra de fábrica."
+slug: 4x4-tire-buying-guide
 category: Wheels & Tires
 status: draft
 published: 2026-02-11
 last_updated: 2026-05-19
 ---
 
-# Tire Buying for a Mostly-Street Silverado 4x4: Load Range, Size, and the E-Rated Trap
+# Tire Buying for a Mostly-Street 4x4: Load Range, Size, and the E-Rated Trap
 
 ## EN
 
@@ -28,16 +27,18 @@ Here's how to think about it without the marketing.
 
 ### Start with load, not looks
 
-Load index is the number that decides whether your tire is correct for the truck. On a 2026 Silverado 1500, curb weight runs about **4,940 lb for the Double Cab and 5,010 lb for the Crew Cab** per KBB's 2026 listing, and that's empty, before passengers, fuel, tongue weight, or cargo.
+Load index is the number that decides whether your tire is correct for the truck, and the only figure that actually tells you is on your own door jamb sticker — not a brochure, not a forum post.
 
-That means you need a tire rated comfortably above the axle load you'll actually carry. Two common ratings on these trucks:
+Here is how to read it. The sticker lists a **GAWR** (gross axle weight rating) for each axle. Divide the heavier one by two and you have the load each front or rear tire must carry, fully loaded. A typical half-ton 4x4 crew cab lands somewhere around **5,000–5,800 lb** curb weight depending on cab, engine and equipment, so the rear axle figure is the one that matters if you tow or haul.
 
-- **Load Range SL (Standard Load).** Typically around 2,600–2,800 lb per tire in the common Silverado sizes. Adequate for a half-ton that tows occasionally and doesn't carry near max payload.
+Two ratings you will see in half-ton sizes:
+
+- **Load Range SL (Standard Load).** Typically around 2,600–2,800 lb per tire in the common sizes. Adequate for a half-ton that tows occasionally and doesn't carry near max payload.
 - **Load Range E.** Around 3,400 lb per tire. This is what people default to for "heavy duty" credibility.
 
 **The E-rated trap:** Load Range E tires carry much higher maximum inflation pressures and have substantially stiffer sidewalls. On a 5,000 lb half-ton running light, that stiffness means a harsh ride, worse small-bump compliance, and, the part nobody mentions, **less contact patch grip** because the tire doesn't conform to the road. An E-rated tire on an empty half-ton is over-specification, and you feel it every single mile.
 
-Buy E-rated if you actually tow near the truck's published capacity: **13,000 lb (Double Cab) and 13,200 lb (Crew Cab)** with the 2.7L, up to about **13,300 lb** with the diesel, per KBB. Otherwise SL is the better tire for how you actually use the truck.
+Buy E-rated if you actually tow near the truck's published capacity — for half-ton pickups that is now anywhere from roughly **8,000 lb** to over **13,000 lb** depending on cab, engine, axle ratio and equipment. Your own owner's manual has the figure for your configuration. If you are not close to it, SL is the better tire for how you actually use the truck.
 
 ### What the Size Number Decides
 
@@ -71,7 +72,7 @@ Rotate every 5,000–7,500 miles, and on a 4x4 use a cross-pattern rotation that
 
 ### What to put on the truck
 
-For a 2026 Silverado 1500 4x4 that mostly commutes and tows occasionally:
+For a half-ton 4x4 that mostly commutes and tows occasionally:
 
 **SL-rated all-terrain tires in the factory size, 3PMSF if you have real winters, rotated on schedule, pressure set by chalk test.** Buy the tire for the driving you do, not the driving in the brochure. If you later find yourself actually towing near capacity regularly, move up to E-rated at that point, and budget for the ride quality change.
 
@@ -169,16 +170,18 @@ regear or a lift.
 
 ### 겉모습이 아니라 하중에서 시작하세요
 
-하중지수(load index)가 그 타이어가 이 트럭에 맞는지를 결정하는 숫자입니다. 2026 실버라도 1500의 KBB 2026년 표기 공차중량은 **더블캡 약 4,940 lb, 크루캡 약 5,010 lb** 입니다. 승객, 연료, 견인 하중, 화물을 싣기 전의 빈 차 무게입니다.
+하중지수(load index)가 그 타이어가 이 트럭에 맞는지를 결정하는 숫자이고, 실제로 알려주는 수치는 브로슈어나 포럼 글이 아니라 운전석 문짝 스티커에 있습니다.
 
-즉 실제로 지게 될 축 하중보다 넉넉하게 높은 등급의 타이어가 필요합니다. 이 트럭에서 흔한 두 가지 등급은 이렇습니다.
+읽는 방법은 이렇습니다. 스티커에 앞·뒤 축별 **GAWR**(총축중한도)이 적혀 있습니다. 무거운 쪽을 2로 나누면 만재 상태에서 앞 또는 뒤 타이어 하나가 지탱해야 할 하중이 나옵니다. 하프톤 4x4 크루캡은 캡·엔진·장비에 따라 대략 **5,000~5,800 lb** 공차중량이므로, 견인이나 적재를 한다면 뒤축 수치가 기준입니다.
 
-- **Load Range SL(표준 하중).** 실버라도의 일반적인 사이즈에서 타이어당 대략 2,600~2,800 lb. 가끔 견인하고 최대 적재에 가깝게 싣지 않는 하프톤에는 충분합니다.
+하프톤 사이즈에서 흔한 두 가지 등급은 이렇습니다.
+
+- **Load Range SL(표준 하중).** 일반적인 사이즈에서 타이어당 대략 2,600~2,800 lb. 가끔 견인하고 최대 적재에 가깝게 싣지 않는 하프톤에는 충분합니다.
 - **Load Range E.** 타이어당 약 3,400 lb. "헤비듀티" 신뢰감 때문에 사람들이 기본값처럼 고르는 등급입니다.
 
 **E 등급의 함정:** E 등급 타이어는 최대 공기압이 훨씬 높고 사이드월이 상당히 뻣뻣합니다. 5,000 lb 하프톤이 가볍게 다니는 조건에서는 그 뻣뻣함이 곧 승차감 저하, 작은 요철 흡수 능력 저하, 그리고, 아무도 말하지 않는 부분인데, **접지력 감소**로 이어집니다. 타이어가 노면에 순응하지 못하기 때문입니다. 빈 하프톤에 E 등급은 과잉 스펙이고, 그건 매 마일 체감됩니다.
 
-KBB 기준 공개 견인력인 **13,000 lb(더블캡) / 13,200 lb(크루캡, 2.7L), 디젤 기준 최대 약 13,300 lb** 에 근접해서 실제로 견인한다면 E 등급을 사세요. 아니라면 SL이 실제 사용 방식에 더 맞는 타이어입니다.
+공개 견인력 기준으로 하프톤 픽업은 지금 대략 **8,000 lb** 에서 **13,000 lb 초과**까지 걸쳐 있고, 캡·엔진·축비·장비에 따라 달라집니다. 자기 구성의 수치는 차량 매뉴얼에 있습니다. 그 수치에 가깝지 않다면 SL이 실제 사용 방식에 더 맞는 타이어입니다.
 
 ### 사이즈: 정말로 고르고 있는 것
 
@@ -212,7 +215,7 @@ KBB 기준 공개 견인력인 **13,000 lb(더블캡) / 13,200 lb(크루캡, 2.7
 
 ### 이 트럭에 달 타이어
 
-주로 출퇴근하고 가끔 견인하는 2026 실버라도 1500 4x4라면:
+주로 출퇴근하고 가끔 견인하는 하프톤 4x4라면:
 
 **순정 사이즈의 SL 등급 올터레인, 진짜 겨울이 있다면 3PMSF, 규정 주기대로 로테이션, 분필 테스트로 정한 공기압.** 브로셔 속 주행이 아니라 실제로 하는 주행에 맞춰 타이어를 고르세요. 나중에 정말로 최대 견인에 가깝게 자주 끈다면 그때 E 등급으로 올리고, 승차감 변화를 예산에 넣으세요.
 
@@ -229,16 +232,18 @@ Así conviene pensarlo, sin el marketing.
 
 ### Empiece por la carga, no por la apariencia
 
-El índice de carga es el número que decide si su llanta es correcta para la camioneta. En un Silverado 1500 2026, el peso en vacío ronda los **4.940 lb (Double Cab) y 5.010 lb (Crew Cab)** según la ficha de KBB para 2026, y eso es en vacío: antes de pasajeros, combustible, peso del enganche o carga.
+El índice de carga es el número que decide si su llanta es correcta para la camioneta, y la única cifra que se lo dice de verdad está en la etiqueta del marco de su propia puerta: no en un folleto ni en un foro.
 
-Eso significa que necesita una llanta con clasificación cómodamente por encima de la carga por eje que realmente va a llevar. Dos clasificaciones comunes en estas camionetas:
+Así se lee. La etiqueta indica un **GAWR** (peso bruto admisible por eje) para cada eje. Divida el mayor entre dos y tendrá la carga que cada llanta delantera o trasera debe soportar a plena carga. Una camioneta mediana 4x4 cabina doble ronda los **5.000 a 5.800 lb** en vacío según cabina, motor y equipamiento, así que la cifra del eje trasero es la que manda si remolca o carga.
 
-- **Load Range SL (carga estándar).** Normalmente entre 2.600 y 2.800 lb por llanta en las medidas habituales del Silverado. Suficiente para una media tonelada que remolca de vez en cuando y no se acerca a la carga útil máxima.
+Dos clasificaciones que verá en medidas de media tonelada:
+
+- **Load Range SL (carga estándar).** Normalmente entre 2.600 y 2.800 lb por llanta en las medidas habituales. Suficiente para una media tonelada que remolca de vez en cuando y no se acerca a la carga útil máxima.
 - **Load Range E.** Alrededor de 3.400 lb por llanta. Es la que la gente elige por defecto buscando credibilidad de «trabajo pesado».
 
 **La trampa de la E:** las llantas Load Range E llevan presiones máximas mucho más altas y flancos bastante más rígidos. En una media tonelada de 5.000 lb que va ligera de peso, esa rigidez se traduce en marcha dura, peor absorción de los baches pequeños y, la parte que nadie menciona, **menos superficie de contacto con el suelo**, porque la llanta no se adapta al asfalto. Una E en una media tonelada vacía es sobreespecificación, y se siente en cada kilómetro.
 
-Compre E si de verdad remolca cerca de la capacidad publicada de la camioneta: **13.000 lb (Double Cab) y 13.200 lb (Crew Cab)** con el 2.7L, y hasta unos **13.300 lb** con el diésel, según KBB. Si no es su caso, SL es la mejor llanta para el uso que realmente le da.
+Compre E si de verdad remolca cerca de la capacidad publicada de la camioneta: en camionetas medianas hoy va desde unos **8.000 lb** hasta más de **13.000 lb** según cabina, motor, relación de eje y equipamiento. El manual de su vehículo tiene la cifra de su configuración. Si no se acerca a ella, SL es la mejor llanta para el uso que realmente le da.
 
 ### Qué decide la medida
 
@@ -272,7 +277,7 @@ Rote cada 5.000 a 7.500 millas, y en un 4x4 use un patrón cruzado que mantenga 
 
 ### Qué ponerle a la camioneta
 
-Para un Silverado 1500 4x4 2026 que en su mayoría va al trabajo y remolca de vez en cuando:
+Para una camioneta mediana 4x4 que en su mayoría va al trabajo y remolca de vez en cuando:
 
 **Llantas todoterreno con clasificación SL en la medida de fábrica, 3PMSF si tiene inviernos de verdad, rotadas según el calendario y con la presión ajustada por la prueba de la tiza.** Compre la llanta para la conducción que hace, no para la del folleto. Si más adelante se encuentra remolcando cerca de la capacidad con regularidad, páse a E en ese momento y presupueste el cambio de confort.
 
@@ -280,4 +285,7 @@ La ganancia de rendimiento de una buena llanta sobre una barata es mayor que la 
 
 ---
 
-> **Editor's note (remove before publishing):** Load index and towing figures cited to KBB's 2026 Silverado 1500 listing — re-verify against GM's trailering guide and the specific tire's sidewall before publishing. Replace mpg estimates with real-world figures once you have your own.
+> **Editor's note (remove before publishing):** The weight and towing bands above are
+> class ranges, not one vehicle's figures — they vary by cab, engine, axle ratio and
+> equipment. Confirm any specific number against the manufacturer's own trailering
+> guide and the specific tire's sidewall before publishing.

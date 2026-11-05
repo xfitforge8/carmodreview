@@ -80,7 +80,7 @@ Take the **piggyback** if you want removable, modest gains and can't risk the de
 
 Tune for the fuel you can actually buy, support it with the hardware the calibration assumes, and log it. The power is real. So is the warranty trade.
 
-### What the three approaches cost on a Silverado 1500
+### What the three approaches cost
 
 Prices and review counts as the listings showed them on 4 November 2026. These
 are ordered by how reversible they are, which is the same axis as the warranty

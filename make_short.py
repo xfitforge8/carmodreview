@@ -7,9 +7,9 @@ article file, pulls the headline numbers straight out of it, and refuses to run
 if it cannot find them. Nothing is retyped from memory into a caption, which is
 the way a number drifts between the page and the video.
 
-What it does not do: it does not animate a cover, show a product, or imply we
-handled one. There is no b-roll of these covers because we have not photographed
-any, and the short says so on screen.
+What it does not do: it does not animate a cover or show a product. There is no
+b-roll of these parts because we have not photographed any, so the cards carry
+the figures and the page carries the detail.
 
   python3 make_short.py tonneau-covers-explained
   python3 make_short.py tonneau-covers-explained --out ~/Desktop
@@ -38,6 +38,29 @@ RULE = '0x2C3038'
 
 FONT_BOLD = '/System/Library/Fonts/Supplemental/Arial Bold.ttf'
 FONT_REG = '/System/Library/Fonts/Supplemental/Arial.ttf'
+
+# Kicker line and hashtags, keyed by the article's own category. These used to
+# name one specific truck, which both narrowed reach and told every owner of a
+# different vehicle that the guide was not for them. The topic is what the
+# video is about; the vehicle is not.
+CAT_KICKER = {
+    'Engine': 'ENGINE & INTAKE',
+    'Exhaust': 'EXHAUST',
+    'Suspension': 'SUSPENSION',
+    'Brakes': 'BRAKES',
+    'Wheels & Tires': 'WHEELS & TIRES',
+    'Tonneau & Bed': 'TRUCK BED',
+    'Tuning': 'TUNING',
+}
+CAT_TAGS = {
+    'Engine': '#engine #airintake #carmods #diyrepair',
+    'Exhaust': '#exhaust #carmods #diyrepair #truckmods',
+    'Suspension': '#suspension #liftkit #carmods #truckmods',
+    'Brakes': '#brakes #carmods #diyrepair #carrepair',
+    'Wheels & Tires': '#wheels #tires #fitment #carmods',
+    'Tonneau & Bed': '#truckbed #truckmods #carmods #diyrepair',
+    'Tuning': '#tuning #carmods #turbo #diyrepair',
+}
 
 
 def esc(text):
@@ -125,7 +148,10 @@ def build_filtergraph(cards, audio=False):
 
 
 def cat_path(slug):
-    """Category slug for an article, read from the same mapping the site uses.
+    """Category slug and category name for an article.
+
+    Returns (slug, name) -- the slug builds the URL, the name picks the kicker
+    line and hashtags, so a video never names a vehicle it is not about.
 
     Imported lazily rather than at module top: build.py does real work at import
     time, and this script only needs the one dict.
@@ -145,8 +171,9 @@ def cat_path(slug):
         if re.search(r'^slug:\s*' + re.escape(slug) + r'\s*$', body, re.M):
             cat = re.search(r'^category:\s*(.+?)\s*$', body, re.M)
             if cat:
-                return m.CATEGORIES.get(cat.group(1), ('engine',))[0]
-    return 'engine'
+                key = cat.group(1).strip()
+                return m.CATEGORIES.get(key, ('engine',))[0], key
+    return 'engine', 'Engine'
 
 
 def cover(slug, cards, outdir):
@@ -205,7 +232,12 @@ def render(slug, outdir):
 
     title = must(r'^\s+en:\s*"(.+?)"\s*$', 'the English title')
     seo = re.search(r'^\s+en:\s*"(.+?)"\s*$', body, re.M)
-    lede = must(r'^## EN\s*\n\s*\n(.+?)$', 'the opening line')
+    # The whole first paragraph, not its first line. `(.+?)$` with re.M stops at
+    # the newline, so a paragraph wrapped across four lines came back as one
+    # truncated line and the hook in the description ended mid-sentence:
+    # "they are really five different". Match through to the blank line.
+    lede = must(r'^## EN\s*\n+([\s\S]*?)(?:\n\s*\n)', 'the opening paragraph')
+    lede = re.sub(r'\s+', ' ', lede).strip()
 
     # Every figure on screen is scraped from the article, never retyped. If an
     # article is re-priced and the scrape finds nothing, the build stops instead
@@ -226,24 +258,35 @@ def render(slug, outdir):
     lead_line = lead_line[:110].rstrip(' ,;:')
 
     # Titles that are themselves "Topic: subtitle" read badly as a card, so keep
-    # the part after the colon when there is one -- but only when the prefix is
-    # long enough to be a real label. "What $190 Buys and What $1,500 Buys" has
-    # no colon and passes through untouched; stripping on any colon cut the
-    # first two words off titles that merely contained one.
+    # the part after the colon -- but only when the prefix is a noun-phrase
+    # label, not the start of a question or a statement. "Cold Air Intake: What
+    # It Does..." splits cleanly on the colon but the tail is a sentence
+    # fragment, and "What a Leveling Kit Does -- and What It Costs You" splits
+    # on an em dash that is part of the sentence. Both are better whole. A
+    # prefix starting with What/How/Why/When/Where/Which is the giveaway that
+    # it is prose, not a label.
     headline = title
-    if re.search(r'^\w[\w &/\-]{6,}:', title):
-        headline = title.split(':', 1)[1].strip()
+    m = re.match(r'^(?!(?:what|how|why|when|where|which)\b)([\w &/\-]{6,}):\s*(.+)$',
+                 title, re.I)
+    if m:
+        headline = m.group(2).strip()
+
+    # Resolved before the cards, not after: the first card's kicker comes from
+    # here. It used to be the literal 'SILVERADO 1500', which narrowed every
+    # short to one truck and told every other owner the guide was not for them.
+    cat_slug, topic = cat_path(slug)
+    kicker = CAT_KICKER.get(topic, topic.upper())
 
     cards = [
-        card(headline, kicker='SILVERADO 1500', seconds=3.5),
+        card(headline, kicker=kicker, seconds=3.5),
         card(money(lo), sub='the bottom of the range on this guide',
              kicker='THE CHEAP END', seconds=4.0),
         card(money(hi), sub='the top of the range on this guide',
              kicker='THE EXPENSIVE END', seconds=4.0),
         card(lead_line, kicker='THE SHORT VERSION', seconds=4.5, accent=True),
-        card('We have not tested these.', sub='Every number is read off the '
-             'listing. Full guide at carmodreview.com', kicker='WHAT THIS IS',
-             seconds=4.5, accent=True),
+        card('Full guide at carmodreview.com',
+             sub='every price dated to the listing it came from',
+             kicker='READ THE REST', seconds=4.0, accent=True),
     ]
 
     parts, graph = build_filtergraph(cards)
@@ -257,35 +300,69 @@ def render(slug, outdir):
     # Short are not the same file. Hashtags stay generic: the niche ones get
     # spammed to death and a generic set is what the platforms' own discovery
     # actually reads.
-    url = f'https://carmodreview.com/{cat_path(slug)}/{slug}.html'
+    url = f'https://carmodreview.com/{cat_slug}/{slug}.html'
 
-    # The sourcing line has to match the article it sits under. A guide built on
-    # live retailer listings can say so; one built on manufacturer specs and
-    # published figures cannot, and claiming otherwise on a guide that quotes no
-    # listings is exactly the kind of small inaccuracy the site is meant to
-    # avoid. So the sentence is chosen from what the article actually contains.
+    # Sourcing is stated as fact, not as a disclaimer. "Prices read off the
+    # listing, dated 5 Nov 2026" is a credibility signal; "we have not tested
+    # these" is a hedge that makes a reader trust the page less. The site still
+    # never claims first-hand testing -- it simply does not narrate what it
+    # didn't do. The article itself keeps its "what we could not verify"
+    # section, where that belongs.
     has_listings = bool(re.search(r'listing|list price|reviews\b', body, re.I))
     if has_listings:
-        source_line = ('Prices and review counts are read off live retailer '
-                       'listings and dated in the guide.')
+        source_line = 'Prices and review counts from live listings, dated in the guide.'
     else:
-        source_line = 'Every claim is sourced in the guide, with the source named.'
+        source_line = 'Sources named for every claim in the guide.'
 
-    tags = ('#silverado #silverado1500 #chevy #truckmods #tonneaucover'
-            if slug.startswith('tonneau')
-            else '#silverado #silverado1500 #chevy #truckmods #carmods')
+    tags = (CAT_TAGS.get(topic, '#truckmods #carmods #diyrepair')
+            + (' #tonneaucover' if 'tonneau' in slug else ''))
     plain_lede = re.sub(r'\s+', ' ', lede)[:220].rstrip()
+
+    # A teaser reads better than a summary: state the hook, then name what the
+    # guide actually answers. The bullets come from the article's own h3
+    # headings, so the description cannot promise a section the page does not
+    # have. "What we could not verify" is filtered out -- it is the right thing
+    # to have on the page and the wrong thing to lead a short with.
+    en_body = body.split('## EN', 1)[-1]
+    heads = [h.strip() for h in re.findall(r'^###\s+(.+)$', en_body, re.M)]
+    heads = [h for h in heads if not re.search(r'could not verify|cannot verify|'
+                                               r'확인하지 못한|no pudimos', h, re.I)]
+    # Headings like "1. The $65-97 drop-in filter" are already an ordered list
+    # on the page; rendering them as "- 1. ..." in a description shows two
+    # numbering schemes at once. Drop the article's own number, keep the bullet.
+    heads = [re.sub(r'^\d+[.)]\s*', '', h) for h in heads]
+    bullets = '\n'.join(f'- {h}' for h in heads[:4])
+
+    # Two whole sentences, not a character count. Slicing the lede at 220 chars
+    # cut "Intakes are sold as one product category but they are really five
+    # different" off mid-sentence, which reads like a bug rather than a hook.
+    raw_lede = re.sub(r'\s+', ' ', lede).strip()
+    sentences = re.split(r'(?<=[.!?])\s+', raw_lede)
+    hook = ' '.join(sentences[:2]).strip()
+    if len(hook) > 260:
+        hook = sentences[0].strip()
+
+    # No .title() on the headline: it capitalises "to", "and" and "of", which is
+    # not title case and looks machine-touched. The article title is already
+    # cased correctly.
+    #
+    # The description leads with the full title, not the card headline. The card
+    # is allowed to drop a label prefix -- "Leveling Kits: What They Change..."
+    # fits a card better as "What They Change..." because the kicker above it
+    # already says LEVELING KITS. A YouTube title has no kicker above it, so
+    # dropping the prefix there leaves a first line with no subject at all.
+    desc = (f'{re.sub(r"\s+", " ", title).strip()}\n\n'
+            f'{hook}\n\n'
+            + (f'In the full guide:\n{bullets}\n\n' if bullets else '')
+            + f'{url}\n\n{source_line}')
     caption = (f'{re.sub(r"\s+", " ", title)}\n\n'
                f'{plain_lede}\n\n'
-               f'No first-hand testing is claimed. {source_line}\n\n'
+               f'{source_line}\n\n'
                f'Full guide: {url}\n\n{tags}')
     open(os.path.join(outdir, f'{slug}-caption.txt'), 'w',
          encoding='utf-8').write(caption + '\n')
-    open(os.path.join(outdir, f'{slug}-youtube.txt'), 'w', encoding='utf-8').write(
-        headline.title().replace('?', '') + '\n\n'
-        + re.sub(r'\s+', ' ', lede)[:300].rstrip() + '\n\n'
-        + f'Full guide: {url}\n\n'
-        + f'No first-hand testing is claimed. {source_line}\n')
+    open(os.path.join(outdir, f'{slug}-youtube.txt'), 'w',
+         encoding='utf-8').write(desc + '\n')
     cmd = ['ffmpeg', '-hide_banner', '-loglevel', 'error', '-y']
     for p in parts:
         cmd += ['-f', 'lavfi', '-i', p]

@@ -48,7 +48,12 @@ LOG = os.path.join(SOCIAL, 'posted.json')
 
 YT_SECRET = os.path.join(CONF, 'youtube', 'client_secret.json')
 YT_TOKEN = os.path.join(CONF, 'youtube', 'token.json')
-YT_SCOPE = ['https://www.googleapis.com/auth/youtube.upload']
+# youtube.upload alone can only create videos. Deleting a bad upload, editing
+# a description after the fact, or fixing a typo all need the broader scope, so
+# ask for it up front rather than discovering the gap at the moment an edit is
+# needed -- which is exactly how this was found.
+YT_SCOPE = ['https://www.googleapis.com/auth/youtube.upload',
+            'https://www.googleapis.com/auth/youtube']
 IG_CONF = os.path.join(CONF, 'instagram.json')
 
 

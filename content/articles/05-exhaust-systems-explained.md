@@ -86,7 +86,7 @@ If sound is your goal and budget is tight: **axle-back, touring muffler, keep ev
 
 Buy for cruise behavior, not for the full-throttle sound clip. You'll spend 99% of your driving time at part throttle, and that's the sound you have to live with.
 
-### What these cost on a Silverado 1500
+### What these cost
 
 Prices and review counts as the listings showed them on 4 November 2026. Watch
 the year and engine splits &mdash; the 4.3L, 5.3L and 6.2L systems differ, and so

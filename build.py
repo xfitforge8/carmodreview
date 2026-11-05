@@ -1338,8 +1338,26 @@ def build():
 # that changes its URL would simply 404 for anyone holding the old link. A stub
 # at the old path forward to the new one instead.
 REDIRECTS = {
-    'suspension/silverado-rst-leveling-kit.html': 'silverado-leveling-kit.html',
-    'kr/suspension/silverado-rst-leveling-kit.html': 'silverado-leveling-kit.html',
+    'suspension/silverado-rst-leveling-kit.html': 'leveling-kit-guide.html',
+    'kr/suspension/silverado-rst-leveling-kit.html': 'leveling-kit-guide.html',
+    # The guides themselves stopped being about one truck. Each of these three
+    # is a URL that has been public and indexed, so it gets a stub rather than
+    # a 404. The targets carry the new slug; the category path is unchanged.
+    'suspension/silverado-leveling-kit.html': 'leveling-kit-guide.html',
+    'kr/suspension/silverado-leveling-kit.html': 'leveling-kit-guide.html',
+    'es/suspension/silverado-leveling-kit.html': 'leveling-kit-guide.html',
+    'engine/silverado-27-turbomax-cold-air-intake.html':
+        'turbo-four-cold-air-intake.html',
+    'kr/engine/silverado-27-turbomax-cold-air-intake.html':
+        'turbo-four-cold-air-intake.html',
+    'es/engine/silverado-27-turbomax-cold-air-intake.html':
+        'turbo-four-cold-air-intake.html',
+    'wheels-tires/silverado-4x4-tire-buying-guide.html':
+        '4x4-tire-buying-guide.html',
+    'kr/wheels-tires/silverado-4x4-tire-buying-guide.html':
+        '4x4-tire-buying-guide.html',
+    'es/wheels-tires/silverado-4x4-tire-buying-guide.html':
+        '4x4-tire-buying-guide.html',
 }
 
 

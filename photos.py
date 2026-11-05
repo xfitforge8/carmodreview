@@ -157,9 +157,9 @@ def category_photo(category_slug, code, rel, photo_root):
 
 # Which article's photo represents each hub, in order of preference.
 CATEGORY_SOURCE = {
-    'wheels-tires': ['wheels-buying-guide', 'silverado-4x4-tire-buying-guide'],
-    'suspension': ['silverado-leveling-kit', 'suspension-upgrades-guide'],
-    'engine': ['cold-air-intake-guide', 'silverado-27-turbomax-cold-air-intake'],
+    'wheels-tires': ['wheels-buying-guide', '4x4-tire-buying-guide'],
+    'suspension': ['leveling-kit-guide', 'suspension-upgrades-guide'],
+    'engine': ['cold-air-intake-guide', 'turbo-four-cold-air-intake'],
     'exhaust': ['exhaust-systems-explained'],
     'brakes': ['brake-pads-rotors-guide'],
     'tuning': ['ecu-tuning-explained'],

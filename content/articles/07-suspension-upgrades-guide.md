@@ -87,7 +87,7 @@ If you tow, load support is the upgrade that improves your driving. If you want 
 
 Whatever you buy, budget the alignment as part of the purchase price. It's not optional and it's not a detail.
 
-### Three ways to spend the money on a Silverado 1500
+### Three ways to spend the money
 
 Prices and review counts as the listings showed them on 4 November 2026. These
 sit in ascending order of how much geometry correction you get for the money,

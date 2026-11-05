@@ -20,8 +20,8 @@ last_updated: 2026-07-07
 
 ## EN
 
-This guide generalises the same mechanism covered in the Silverado piece, so it applies to any
-platform. If you have read that article, the physics here is identical; only the specific engine
+This guide is about the mechanism itself, so it applies to any platform. The
+physics is the same on a turbo four, a V8, or a diesel; only the specific engine
 differs.
 
 ### What the factory airbox is for
@@ -87,7 +87,7 @@ Intakes are one of the most oversold modifications in the aftermarket. They can 
 
 Prices and review counts as the listings showed them on 4 November 2026. All
 three are sealed-box designs with dry media &mdash; the combination this article
-argues for &mdash; and all three are for the 2019&ndash;2026 Silverado 1500.
+argues for &mdash; and all three are listed for the 2019&ndash;2026 half-ton.
 
 <div class="pick">
   <div class="pick-label">Best value</div>
@@ -164,7 +164,7 @@ argues for &mdash; and all three are for the 2019&ndash;2026 Silverado 1500.
 
 ## KR
 
-저희 트럭을 위해 쓴 것과 같은 내용을, 어떤 플랫폼에도 적용되도록 일반화한 가이드입니다. 실버라도 글을 읽으셨다면 메커니즘은 동일하고, 특정 엔진만 다릅니다.
+메커니즘 자체를 다루는 가이드이므로 어떤 플랫폼에도 적용됩니다. 터보 4기통이든 V8이든 디젤이든 물리는 같고, 특정 엔진만 다릅니다.
 
 ### 순정 에어박스의 실제 목적
 
@@ -227,7 +227,7 @@ argues for &mdash; and all three are for the 2019&ndash;2026 Silverado 1500.
 
 ## ES
 
-Esta es la misma guía que escribimos para nuestra propia camioneta, generalizada para aplicarse a cualquier plataforma. Si leyó nuestro artículo sobre la Silverado, el mecanismo es idéntico: solo cambia el motor concreto.
+Esta guía trata del mecanismo en sí, así que se aplica a cualquier plataforma. La física es idéntica en un cuatro turbo, un V8 o un diésel: solo cambia el motor concreto.
 
 ### Para qué sirve realmente la caja de aire de fábrica
 

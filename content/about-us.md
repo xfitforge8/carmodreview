@@ -3,7 +3,7 @@
 ## EN
 
 <figure class="editor">
-  <img src="avatar.svg" alt="Illustrated portrait of Duffy Vance, editor of CarModReview" width="200" height="200">
+  <img src="/avatar.svg" alt="Illustrated portrait of Duffy Vance, editor of CarModReview" width="200" height="200">
   <figcaption>
     <span class="editor-name">Duffy Vance</span>
     <span class="editor-role">Editor &middot; writes the guides</span>
@@ -57,7 +57,7 @@ If you are working on a vehicle we have not covered and want a category prioriti
 ## KR
 
 <figure class="editor">
-  <img src="avatar.svg" alt="CarModReview 편집자 더피 밴스의 일러스트 초상" width="200" height="200">
+  <img src="/avatar.svg" alt="CarModReview 편집자 더피 밴스의 일러스트 초상" width="200" height="200">
   <figcaption>
     <span class="editor-name">더피 밴스 (Duffy Vance)</span>
     <span class="editor-role">편집자 &middot; 가이드 집필</span>
@@ -113,7 +113,7 @@ CarModReview는 지루한 부분을 제대로 해보려는 시도입니다. 실�
 # Sobre CarModReview
 
 <figure class="editor">
-  <img src="avatar.svg" alt="Retrato ilustrado de Duffy Vance, editor de CarModReview" width="200" height="200">
+  <img src="/avatar.svg" alt="Retrato ilustrado de Duffy Vance, editor de CarModReview" width="200" height="200">
   <figcaption>
     <span class="editor-name">Duffy Vance</span>
     <span class="editor-role">Editor &middot; escribe las guías</span>

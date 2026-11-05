@@ -85,7 +85,7 @@ For the **track**: dedicated track pads swapped at the event, high-temperature f
 
 And in every case, the order is tires, then brakes, then power.
 
-### What these actually cost for a Silverado 1500
+### What these actually cost
 
 Prices and review counts as the listings showed them on 4 November 2026. Note the
 year splits carefully &mdash; the 2019&ndash;2026 trucks and the 2007&ndash;2018
