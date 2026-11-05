@@ -201,6 +201,11 @@ CATEGORIES = {
     'Engine':          ('engine',          'Engine & Intake', '엔진 & 인테이크', 'Motor y admisión'),
     'Exhaust':         ('exhaust',         'Exhaust',         '배기',          'Escape'),
     'Brakes':          ('brakes',          'Brakes',          '브레이크',      'Frenos'),
+    # Bed coverage was the site's largest gap: the truck catalog's highest-volume
+    # accessory category had no article at all, so every bed-cover search landed
+    # nowhere. HUBLESS is unchanged -- this gets a real hub because there is an
+    # article to fill it.
+    'Tonneau & Bed':   ('tonneau',          'Tonneau & Bed',   '토노 & 베드',   'Cubiertas y caja'),
     'Tuning':          ('tuning',          'Tuning',          '튜닝',          'Reprogramación'),
 }
 
