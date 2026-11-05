@@ -325,14 +325,30 @@ def split_langs(body):
         out[lang] = body[start:end]
 
     # A shared H1 that sits above the first language marker is the page title
-    # for every language; about-us.md is written that way. Prepend it to any
-    # section that does not open with its own H1 so no page renders headless.
+    # for every language; about-us.md is written that way. So is everything
+    # else in the preamble -- the privacy policy, affiliate disclosure and
+    # terms each carry a "Last updated" line up there, and the privacy policy
+    # tells the reader to look at the top of the page for it. Keeping only the
+    # H1 silently threw that date away, so the page promised a date it never
+    # showed.
     preamble = body[:marks[0].start()]
     h1 = re.search(r'^#[ \t]+[^\n]+', preamble, re.M)
-    if h1:
+    # Everything that is not the H1: the date line, and the horizontal rule
+    # that separates the title block from the body. The rule is dropped rather
+    # than carried onto every language section.
+    rest = (preamble[:h1.start()] + preamble[h1.end():]) if h1 else preamble
+    rest = re.sub(r'^[ \t]*-{3,}[ \t]*$', '', rest, flags=re.M).strip()
+    lead = '\n\n'.join(x for x in ((h1.group(0) if h1 else ''), rest) if x)
+    if lead:
         for lang, sec in out.items():
-            if not re.search(r'^#[ \t]+[^\n]+', sec, re.M):
-                out[lang] = h1.group(0) + '\n\n' + sec.lstrip('\n')
+            own_h1 = re.search(r'^#[ \t]+[^\n]+', sec, re.M)
+            if not own_h1:
+                out[lang] = lead + '\n\n' + sec.lstrip('\n')
+            elif rest:
+                # The section has its own title, so the H1 is redundant but the
+                # date is not. Put it straight after their heading.
+                out[lang] = (sec[:own_h1.end()] + '\n\n' + rest
+                             + '\n' + sec[own_h1.end():].lstrip('\n'))
 
     # A trailing non-language H2 (e.g. "## Vehicle of Record") is written in
     # English and belongs on the English page, not glued onto the last
@@ -1711,7 +1727,8 @@ def build_static_pages(index_entries, sidebar_entries=None):
     # the footer links to it; its body states the true current status (no paid
     # relationships yet) rather than the participation list it used to claim.
     for fn, slug in (('privacy-policy.md', 'privacy-policy'),
-                     ('affiliate-disclosure.md', 'affiliate-disclosure')):
+                     ('affiliate-disclosure.md', 'affiliate-disclosure'),
+                     ('terms-of-service.md', 'terms-of-service')):
         meta, body = read_doc(os.path.join(SRC, 'legal', fn))
         langs, _ = split_langs(body)
         os.makedirs(os.path.join(OUT, 'legal'), exist_ok=True)
@@ -1720,14 +1737,18 @@ def build_static_pages(index_entries, sidebar_entries=None):
                 continue
             md = clean_md(langs[code])
             # these pages get their own <h1> below; drop any heading the
-            # source carries (the shared trilingual one, or a per-language one)
-            md = re.sub(r'^#[ \t]+[^\n]*\n', '', md, count=1).strip()
+            # source carries (the shared trilingual one, or a per-language one),
+            # but leave the "Last updated" line that follows it in place
+            md = re.sub(r'^#[ \t]+[^\n]*\n?', '', md, count=1).strip()
             title = {('privacy-policy', 'en'): 'Privacy Policy',
                      ('privacy-policy', 'kr'): '개인정보 처리방침',
                      ('privacy-policy', 'es'): 'Política de privacidad',
                      ('affiliate-disclosure', 'en'): 'Affiliate Disclosure',
                      ('affiliate-disclosure', 'kr'): '제휴 고지',
-                     ('affiliate-disclosure', 'es'): 'Divulgación de afiliados'}[(slug, code)]
+                     ('affiliate-disclosure', 'es'): 'Divulgación de afiliados',
+                     ('terms-of-service', 'en'): 'Terms of Service',
+                     ('terms-of-service', 'kr'): '이용약관',
+                     ('terms-of-service', 'es'): 'Términos del servicio'}[(slug, code)]
             # English only; see the note on the about page above.
             alts = {'en': f'{DOMAIN}/legal/{slug}.html'}
             legal_desc = {
@@ -1743,6 +1764,12 @@ def build_static_pages(index_entries, sidebar_entries=None):
                 ('affiliate-disclosure', 'es'): 'Cómo trata Car Mod Review los enlaces de '
                     'afiliación, las comisiones y la independencia editorial, incluido nuestro '
                     'estado actual.',
+                ('terms-of-service', 'en'): 'The terms that govern use of Car Mod Review: '
+                    'accuracy, liability, external links and third-party platforms.',
+                ('terms-of-service', 'kr'): 'Car Mod Review 이용에 적용되는 정확성, 책임의 한계, '
+                    '외부 링크 및 제3자 플랫폼 관련 약관입니다.',
+                ('terms-of-service', 'es'): 'Los términos que rigen el uso de Car Mod Review: '
+                    'exactitud, responsabilidad, enlaces externos y plataformas de terceros.',
             }.get((slug, code), title)
             page = render_page(
                 lang=code, title=f'{title} | Car Mod Review',
@@ -1755,7 +1782,10 @@ def build_static_pages(index_entries, sidebar_entries=None):
             os.makedirs(d, exist_ok=True)
             open(os.path.join(d, f'{slug}.html'), 'w', encoding='utf-8').write(page)
 
-    # contact + terms (new)
+    # contact. The terms page used to be hardcoded right here; it lives in
+    # content/legal/terms-of-service.md now, beside the other two legal pages,
+    # because it grew the same trilingual body they have and a second copy in
+    # this function is exactly how the two drift apart.
     contact_inner = """
   <h1>Contact</h1>
   <p class="dek">One person reads this inbox. Expect a reply within a few days,
@@ -1779,36 +1809,6 @@ def build_static_pages(index_entries, sidebar_entries=None):
                        body_html=stamp_email(contact_inner), rel='',
                        entries=sidebar_entries)
     open(os.path.join(OUT, 'contact.html'), 'w', encoding='utf-8').write(page)
-
-    terms_inner = """
-  <h1>Terms of Service</h1>
-  <p><em>Last updated 4 November 2026.</em></p>
-  <h2>What this site is</h2>
-  <p>Car Mod Review publishes research and opinion about automotive parts. It is
-  general information, not professional advice. Modification can affect your
-  vehicle's safety, warranty, emissions compliance and resale value. Verify
-  fitment and legality for your specific vehicle and jurisdiction before buying.</p>
-  <h2>Accuracy</h2>
-  <p>Prices, availability and specifications change without notice. Figures are
-  reported as they appeared on the date stated on each page. We make no warranty
-  that any listing, price or spec is current.</p>
-  <h2>Liability</h2>
-  <p>The site is provided "as is". To the extent permitted by law, Car Mod Review is
-  not liable for damage to a vehicle, injury, failed inspection, voided warranty, or
-  any other loss arising from use of the information here.</p>
-  <h2>External links</h2>
-  <p>We link to retailers and manufacturers we do not control and are not
-  responsible for their content, pricing or policies.</p>
-  <h2>Contact</h2>
-  <p><a href="mailto:{email}">{email}</a></p>
-"""
-    page = render_page(lang='en', title='Terms of Service | Car Mod Review',
-                       desc='The terms that govern use of Car Mod Review: accuracy, '
-                            'accuracy, liability and external links.',
-                       canonical=f'{DOMAIN}/legal/terms-of-service.html',
-                       body_html=stamp_email(terms_inner), rel='../',
-                       entries=sidebar_entries)
-    open(os.path.join(OUT, 'legal', 'terms-of-service.html'), 'w', encoding='utf-8').write(page)
 
     # a 404 has nothing to index and nothing to rank; letting it be indexed
     # puts a dead URL in the results for the brand name
