@@ -831,6 +831,9 @@ footer p { margin: 0 0 10px; }
    hover rather than getting a pill of its own. */
 .foot-social {
   margin: 10px 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 18px;
 }
 
 .foot-social-link {

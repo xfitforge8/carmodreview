@@ -670,14 +670,43 @@ PAGE = """<!DOCTYPE html>
 # rel="me" is deliberate: it is the standard way to assert that this site and
 # that profile are the same entity, which is what a search engine needs to
 # connect them.
-FOOT_SOCIAL = """<p class="foot-social">
-      <a class="foot-social-link" href="https://www.instagram.com/carmodreview/"
-         target="_blank" rel="noopener me" aria-label="Instagram">
-        <svg class="foot-icon" viewBox="0 0 24 24" aria-hidden="true"
-             focusable="false"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-        <span class="foot-social-label">Instagram</span>
-      </a>
-    </p>"""
+FOOT_ICONS = {
+    'instagram': '<path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>',
+    # YouTube's own mark, drawn as the rounded-rect play button rather than the
+    # wordmark, so it reads at 14px next to the Instagram glyph.
+    'youtube': '<path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>',
+}
+
+# One entry per profile. Order is display order. Adding a network here is the
+# only edit needed -- the footer, search.html and the two hand-written pages all
+# read from this list.
+FOOT_PROFILES = [
+    ('instagram', 'Instagram', 'https://www.instagram.com/carmodreview/'),
+]
+
+
+def foot_social_html(indent='    '):
+    """Social links for a page footer, or '' when no profiles are configured.
+
+    rel="me" is deliberate on each: it is the standard assertion that this site
+    and that profile are the same entity, and it is what a search engine reads
+    to connect them. Claiming it on a profile we have not confirmed is a real
+    cost, which is why FOOT_PROFILES only ever holds URLs someone has checked.
+    """
+    if not FOOT_PROFILES:
+        return ''
+    rows = ''.join(
+        f'{indent}  <a class="foot-social-link" href="{html.escape(url)}"\n'
+        f'{indent}     target="_blank" rel="noopener me" '
+        f'aria-label="{html.escape(name)}">\n'
+        f'{indent}    <svg class="foot-icon" viewBox="0 0 24 24" '
+        f'aria-hidden="true" focusable="false">{FOOT_ICONS[key]}</svg>\n'
+        f'{indent}    <span class="foot-social-label">'
+        f'{html.escape(name)}</span>\n'
+        f'{indent}  </a>\n'
+        for key, name, url in FOOT_PROFILES
+    )
+    return f'{indent}<p class="foot-social">\n{rows}{indent}</p>'
 
 TAGLINE = {
     'en': 'Car parts, checked against the published specs',
@@ -944,7 +973,7 @@ def render_page(*, lang, title, desc, canonical, body_html, rel, jsonld='',
         canonical=canonical, alt_links=alt, og_type=og_type, og_locale=OG_LOCALE[lang],
         og_image=og_image or f'{DOMAIN}/og.png',
         domain=DOMAIN, rel=rel, jsonld=(jsonld + site_jsonld()), body=body_html,
-        cssv=css_version(), foot_social=FOOT_SOCIAL.replace('{rel}', rel),
+        cssv=css_version(), foot_social=foot_social_html('    '),
         analytics=('\n' + analytics_tag()) if analytics_tag() else '',
         tagline=TAGLINE[lang], all_posts=ui['all_posts'], how=ui['how'], other=ui['other'],
         search=ui['search'], search_label=ui['search_label'], by=ui['by'], contact=ui['contact'],
@@ -1374,7 +1403,7 @@ def build_legacy_pages(sidebar_entries=None):
         txt = txt.replace(
             '<p><a href="../methodology.html">How we pick products</a></p>',
             '<p><a href="../methodology.html">How we pick products</a></p>\n'
-            + FOOT_SOCIAL, 1)
+            + foot_social_html(''), 1)
 
         # The legacy pages were written before there was a named editor, so the
         # byline says only "Published <date>" and the JSON-LD credits the
@@ -1858,7 +1887,7 @@ def build_search(items):
     open(os.path.join(OUT, 'search.html'), 'w', encoding='utf-8').write(
         inject_analytics(SEARCH_PAGE.replace("{domain}", DOMAIN)
                          .replace('style.css', f'style.css?v={css_version()}')
-                         .replace('{foot_social}', FOOT_SOCIAL.replace('{rel}', ''))))
+                         .replace('{foot_social}', foot_social_html('    '))))
     print(f'  search: {len(payload)} guides indexed')
 
 
