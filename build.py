@@ -682,6 +682,7 @@ FOOT_ICONS = {
 # read from this list.
 FOOT_PROFILES = [
     ('instagram', 'Instagram', 'https://www.instagram.com/carmodreview/'),
+    ('youtube', 'YouTube', 'https://www.youtube.com/@CarModReview'),
 ]
 
 
