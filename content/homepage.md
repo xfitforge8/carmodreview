@@ -35,6 +35,7 @@ Nothing here is presented as a dyno result or a measured figure unless the sourc
 | [Engine & Intake](cat:engine) | Cold air, filtration, MAF care, real vs claimed gains |
 | [Exhaust](cat:exhaust) | Cat-back vs axle-back, drone, materials, legality |
 | [Brakes](cat:brakes) | Pad compounds, rotor choices, fluid, bedding |
+| [Electrical](cat:electrical) | Power windows, locks, lighting, 12V |
 | [Tuning](cat:tuning) | Flash vs piggyback, warranty reality, data logging |
 
 
@@ -73,6 +74,7 @@ Nothing here is presented as a dyno result or a measured figure unless the sourc
 | [엔진 & 인테이크](cat:engine) | 콜드에어, 여과, MAF 관리, 실제 이득 vs 주장 |
 | [배기](cat:exhaust) | 캣백 vs 액슬백, 드론, 재질, 합법성 |
 | [브레이크](cat:brakes) | 패드 컴파운드, 디스크 선택, 플루이드, 베딩 |
+| [전장](cat:electrical) | 파워 윈도우, 잠금장치, 조명, 12V |
 | [튜닝](cat:tuning) | 플래시 vs 피기백, 보증의 현실, 데이터 로깅 |
 
 
@@ -111,4 +113,5 @@ Aquí no se presenta ninguna cifra de banco de potencia ni medición propia sin 
 | [Motor y admisión](cat:engine) | Aire frío, filtración, cuidado del MAF, ganancias reales vs prometidas |
 | [Escape](cat:exhaust) | Cat-back vs axle-back, zumbido, materiales, legalidad |
 | [Frenos](cat:brakes) | Compuestos de pastilla, elección de disco, líquido, asentamiento |
+| [Eléctrico](cat:electrical) | Elevalunas, cerraduras, iluminación, 12V |
 | [Reprogramación](cat:tuning) | Flash vs piggyback, la realidad de la garantía, registro de datos |

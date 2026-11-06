@@ -395,6 +395,40 @@ h1 {
   flex-wrap: wrap;
 }
 
+/* Pull quotes. Every guide on this site argues from quoted owner reviews, and
+   until now a <blockquote> rendered with nothing but the browser default
+   margin: 18px 40px -- indented plain text, visually identical to the
+   surrounding prose. A quote a reader cannot see the edges of is a quote they
+   skip, which defeated the point of citing the owner's own words. The rule
+   marks where the borrowed voice starts and stops.
+
+   Rust rather than neutral grey: on this palette the accent already means
+   "something the site is standing behind", and a citation is exactly that. */
+blockquote {
+  margin: 24px 0;
+  padding: 2px 0 2px 18px;
+  border-left: 3px solid var(--rust);
+  color: var(--ink-2);
+}
+
+blockquote p { margin: 0 0 12px; }
+blockquote p:last-child { margin-bottom: 0; }
+
+/* An attributed quote names its source on the line under it. */
+blockquote cite {
+  display: block;
+  margin-top: 8px;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: 12.5px;
+  font-style: normal;
+  letter-spacing: .2px;
+  color: var(--ink-3);
+}
+
+@media (max-width: 560px) {
+  blockquote { padding-left: 14px; margin: 20px 0; }
+}
+
 /* The author is the first thing in the byline and the only part of it that is
    a person rather than a date, so it carries the emphasis. */
 .byline-author { color: var(--ink-2); }

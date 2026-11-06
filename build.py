@@ -254,6 +254,10 @@ CATEGORIES = {
     # nowhere. HUBLESS is unchanged -- this gets a real hub because there is an
     # article to fill it.
     'Tonneau & Bed':   ('tonneau',          'Tonneau & Bed',   '토노 & 베드',   'Cubiertas y caja'),
+    # Windows, locks, lighting and 12V are the most-asked questions on every
+    # truck forum and the site had nowhere to file them, so they were being
+    # forced into Engine. A distinct hub is honest about what the guides cover.
+    'Electrical':      ('electrical',       'Electrical',      '전장',          'Eléctrico'),
     'Tuning':          ('tuning',          'Tuning',          '튜닝',          'Reprogramación'),
 }
 
