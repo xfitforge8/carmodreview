@@ -1,0 +1,1 @@
+Hands working on a car's electrical system. A retrofit module splices into the window circuit, so the wiring is the job.

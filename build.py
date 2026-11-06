@@ -1803,6 +1803,51 @@ def build_static_pages(index_entries, sidebar_entries=None):
             # longer one; how products get picked is the whole subject here
             inner = re.sub(r'\s*<h2>How we make money.*?(?=<h2)', '\n\n  ', inner,
                            flags=re.S)
+            # Photographs, because this is six screens of unbroken prose about
+            # method -- the driest page on the site and the one that most needs
+            # something to stop the eye. They are borrowed from the guides,
+            # not new: each is a real component photograph already licensed and
+            # captioned, shown beside the section it illustrates (a laptop
+            # reading data next to how reviews are collected, a torque
+            # measurement next to how claims get checked). The caption always
+            # describes what is actually in frame, so none of them is standing
+            # in as proof of work we did not do.
+            photo_blocks = {
+                'What we actually do':
+                    ('ecu-tuning-explained', '02-10490631'),
+                'The three rankings':
+                    ('wheels-buying-guide', '03-5504082'),
+                "What we won't do":
+                    ('brake-pads-rotors-guide', '04-6870299'),
+                'Corrections':
+                    ('cold-air-intake-guide', '04-11074558'),
+            }
+            for heading, (ph_slug, stem) in photo_blocks.items():
+                src = os.path.join(PHOTO_ROOT, ph_slug, stem + '.jpg')
+                if not os.path.exists(src):
+                    continue
+                fig = photos.photo_html([src], ph_slug, 'en', '')
+                # Place the figure just before the heading it belongs to, so it
+                # closes the previous section rather than opening the next one.
+                pat = re.compile(r'(\s*<h2>' + re.escape(heading) + r'</h2>)')
+                if pat.search(inner):
+                    inner = pat.sub(fig + r'\1', inner, count=1)
+            # The first entry lands directly after the dek, because "What we
+            # actually do" is the first heading on the page. A photograph
+            # wedged between the standfirst and the opening section reads as a
+            # mistake -- the dek belongs to the title. Pull that one out and
+            # make it a hero above the dek instead, which is where every article
+            # on the site puts its lead photo.
+            lead_fig = ''
+            m_lead = re.search(r'\n\s*<figure class="fig fig--photo">.*?</figure>', inner, re.S)
+            if m_lead and m_lead.start() < inner.find('<h2>'):
+                lead_fig = m_lead.group(0)
+                inner = inner[:m_lead.start()] + inner[m_lead.end():]
+                lead_fig = lead_fig.replace('class="fig fig--photo"',
+                                            'class="fig fig--photo fig--hero"', 1)
+            if lead_fig:
+                inner = re.sub(r'(<p class="dek">.*?</p>)',
+                               r'\1' + lead_fig, inner, count=1, flags=re.S)
             page = render_page(
                 lang='en', title='How we pick products | Car Mod Review',
                 desc='Our selection method: how products are compared, ranked and sourced.',
