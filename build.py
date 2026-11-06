@@ -1727,13 +1727,21 @@ def build_static_pages(index_entries, sidebar_entries=None):
             # the dek is the first blockquote-ish bold line
             title = 'Car Mod Review'
             body = md2html(md, rel)
+            # No homepage photography. The three stock shots that used to sit
+            # here were generic pickups on dirt roads -- a reference vehicle in
+            # everything but name, captioned with a description of the stock
+            # photo rather than anything about a part. On a site whose whole
+            # claim is that every picture shows the actual component, a
+            # decorative truck was the thing working against it. The call stays
+            # so that dropping real photos into content/photos/home/ still
+            # places them; with nothing on disk it is a no-op.
             body = inject_photos(body, 'home', code, rel,
                                  find_photos(PHOTO_ROOT, 'home'))
-            # Scope the hero cap to the homepage. .fig--hero also marks the top
-            # photograph on every article, where a 620px lead image is right and
-            # there is no fold to protect.
-            body = body.replace('class="fig fig--photo fig--hero"',
-                                'class="fig fig--photo fig--hero home-hero"', 1)
+            # The .home-hero scoping that used to be here capped the homepage
+            # photograph so it did not push the lead block off screen. That
+            # photograph is gone; if one is ever added back it will need the cap
+            # again, and the measurement to check it against was 798px on an
+            # 807px viewport.
             # The newest guide goes above the fold. It sits directly after the
             # site's one-line description and before the "Browse guides" links,
             # which is the first place it can go without pushing the h1 down:

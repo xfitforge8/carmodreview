@@ -748,16 +748,9 @@ footer p { margin: 0 0 10px; }
 
 .fig--photo figcaption { padding: 9px 2px 0; }
 
-/* The homepage hero was a full 620px-tall photograph sitting above the site
-   title, so on a laptop the newest guide -- the thing a returning reader came
-   for -- started below the fold. Capping the hero on the homepage only keeps
-   the photograph as the first thing you see while letting the lead block into
-   the same screen. Article heros are untouched. */
-.home-hero img { max-height: 340px; }
-
-@media (max-width: 700px) {
-  .home-hero img { max-height: 230px; }
-}
+/* The .home-hero cap lived here. It existed to stop the homepage's 620px stock
+   photograph from pushing the newest guide below the fold, and went with the
+   photograph. */
 
 .fig-kicker {
   font-size: 10px;
