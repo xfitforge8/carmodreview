@@ -11,7 +11,7 @@ Design contract (matches the existing hand-written pages):
     block before the footer, real publish dates only.
 """
 import os
-import re, json, html, shutil, datetime, sys, subprocess, hashlib
+import re, json, html, shutil, datetime, sys, subprocess, hashlib, functools
 
 import markdown
 import yaml
@@ -26,6 +26,28 @@ PHOTO_ROOT = os.path.join(SRC, 'photos')
 # the prose. See product_photos.py.
 PRODUCT_ROOT = os.path.join(SRC, 'products')
 DOMAIN = 'https://carmodreview.com'
+
+
+@functools.lru_cache(maxsize=None)
+def git_date(path):
+    """Date of the last commit that touched this file, or None.
+
+    Used for dateModified and the sitemap's <lastmod>. Both are instructions to
+    a search engine about whether a page is worth recrawling, so they have to
+    track the file rather than a field someone remembers to bump. Falls back to
+    None when git is unavailable or the file is untracked -- the caller then
+    keeps whatever the front matter said, so a source tarball still builds.
+    """
+    try:
+        out = subprocess.run(
+            ['git', 'log', '-1', '--format=%ad', '--date=short', '--', path],
+            cwd=ROOT, capture_output=True, text=True, timeout=10)
+        stamp = out.stdout.strip()
+        if out.returncode == 0 and re.fullmatch(r'\d{4}-\d{2}-\d{2}', stamp):
+            return stamp
+    except (OSError, subprocess.SubprocessError):
+        pass
+    return None
 
 
 def css_version():
@@ -1167,7 +1189,8 @@ def build():
             continue
         meta, body = read_doc(os.path.join(SRC, 'articles', fn))
         langs_md, _ = split_langs(body)
-        arts.append(dict(meta=meta, langs=langs_md, file=fn))
+        arts.append(dict(meta=meta, langs=langs_md, file=fn,
+                         path=os.path.join(SRC, 'articles', fn)))
 
     print(f'  parsed {len(arts)} articles')
     for a in arts:
@@ -1296,7 +1319,17 @@ def build():
         cat = meta.get('category', 'Engine')
         catslug, catlabel, catkr, cates = CATEGORIES.get(cat, ('engine', cat, cat, cat))
         slug = meta.get('slug') or slugify(a['file'])
-        date = str(meta.get('last_updated', '2026-11-01'))
+        # dateModified has to describe the file, not a hand-maintained field.
+        # last_updated: was written by hand and had drifted: nine guides still
+        # claimed May-July 2026 after every one of them had been rewritten with
+        # quoted owner reviews and corrected prices this week. A search engine
+        # reads dateModified and the sitemap's <lastmod> to decide whether to
+        # recrawl; both were reporting these pages as untouched, so the edits
+        # were invisible to the one audience they were meant for. The commit
+        # date of the article file is the honest answer and cannot drift.
+        date = git_date(a['path']) or str(meta.get('last_updated', '2026-11-01'))
+        # datePublished must not move -- it is when the page first existed, and
+        # rewriting last_updated: must never be able to restate it.
         published = str(meta.get('published', date))
         index_entries.append((date, slug, cat, catslug, catlabel, catkr, cates, meta))
 
@@ -2134,7 +2167,13 @@ def build_sitemap(arts):
     for a in arts:
         cs = CATEGORIES.get(a['meta'].get('category'), ('engine',))[0]
         slug = a['meta'].get('slug') or slugify(a['file'])
-        d = str(a['meta'].get('last_updated', today))
+        # Same source as the Article's dateModified. These two disagreeing is
+        # worse than either being stale: dateModified says the page changed
+        # while a not-newer lastmod tells the crawler not to bother coming
+        # back, and Google resolves that conflict by distrusting lastmod for
+        # the whole file.
+        d = (git_date(a['path'])
+             or str(a['meta'].get('last_updated', today)))
         for code, _, prefix in LANGS:
             if code in a['langs']:
                 urls.append((f'{DOMAIN}{prefix}/{cs}/{slug}.html', d))

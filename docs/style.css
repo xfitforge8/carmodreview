@@ -31,6 +31,16 @@
 
 html { -webkit-text-size-adjust: 100%; }
 
+/* Classic (non-overlay) scrollbars appear only once the page is tall enough to
+   scroll. On Windows that happens partway through load: the viewport narrows by
+   the scrollbar's width, every centred block reflows left, and the hero image --
+   centred with margin:auto -- moves with them. Layout-shift reports it against
+   the image, which is why the site's worst CLS element was a figure rather than
+   anything that actually changed size. Reserving the gutter up front keeps the
+   viewport width constant for the whole load. Overlay-scrollbar platforms (macOS
+   default) ignore this and are unaffected. */
+html { scrollbar-gutter: stable; }
+
 body {
   margin: 0;
   background: var(--paper);
@@ -134,6 +144,12 @@ footer > .wrap { max-width: 1080px; }
 /* Below the rail's useful width, stack it above the article rather than
    letting it crush the text measure. */
 @media (max-width: 900px) {
+  /* Below this width the brand and the nav group cannot share a row, so the
+     masthead wraps to two -- but it decides that after layout, when the nav's
+     real width is known. Reserving the wrapped row from the start means the
+     article below is never pushed down once the wrap happens. The extra height
+     is the search field that shares the group's row. */
+  .masthead-inner { row-gap: 12px; }
   .layout {
     grid-template-columns: 1fr;
     gap: 0;
@@ -606,6 +622,14 @@ footer p { margin: 0 0 10px; }
 
 .fig--diagram .fig-kicker { color: #b4451f; }
 
+.fig--photo picture {
+  /* The <picture> wrapper is inline by default, which collapses the block
+     formatting of the figure and lets the image sit on a text baseline. Making
+     it a block box keeps the figure's height tied to the image's own box, so
+     nothing below it can be pushed down once the file paints. */
+  display: block;
+}
+
 .fig--photo img {
   border: 1px solid var(--rule);
   /* The imported photography is mostly portrait: at full column width it runs
@@ -616,6 +640,11 @@ footer p { margin: 0 0 10px; }
   max-width: 100%;
   max-height: 620px;
   margin: 0 auto;
+  /* The box is reserved from the file's real ratio (an inline aspect-ratio on
+     the <img>), so the browser paints text in the right place from the first
+     frame instead of reflowing when the file lands. This was the element
+     Cloudflare's field data flagged at 0.2744 CLS -- past the 0.25 fail line. */
+  height: auto;
 }
 
 .fig figcaption {
