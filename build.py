@@ -994,10 +994,23 @@ def default_sidebar(lang, rel, entries=None):
     recent = ''
     lrel = lang_root(rel, lang)
     if entries:
-        # Newest first. Entries are keyed by last_updated, so a guide that was
-        # genuinely revised floats up -- which is the honest ordering for a site
-        # whose whole claim is that it keeps its figures current.
-        ordered = sorted(entries, key=lambda e: (e[0], e[1]), reverse=True)[:6]
+        # Newest first. The primary key is published -- what a reader landing on
+        # the page means by "latest". date is the revision date and is the
+        # tiebreaker, so a genuinely revised guide still floats up among articles
+        # published the same day.
+        #
+        # Both keys are needed. date alone was tried first and broke: it now comes
+        # from git_date, so a batch of edits stamps every article with one date
+        # and the list collapsed into alphabetical order by slug. published alone
+        # would lose the "keeps its figures current" signal the site is built on.
+        order = sorted(
+            entries,
+            key=lambda e: (str(e[7].get('published') or ''), e[0], e[1]),
+            reverse=True)
+        # The homepage leads with the single newest article above the list, so
+        # remove it here rather than showing it twice.
+        lead, rest = (order[0], order[1:]) if order else (None, [])
+        ordered = ([lead] if lead else []) + rest[:5]
         rows = []
         for date, slug, cat, cs, cl, ck, ce, meta in ordered:
             if lang not in (meta.get('langs_all') or set()):
@@ -1308,10 +1321,16 @@ def build():
         cslug, clabel, ckr, ces = CATEGORIES.get(m.get('category', 'Engine'),
                                                  ('engine', 'Engine', '엔진', 'Motor'))
         sidebar_entries.append((
-            str(m.get('last_updated', '2026-11-01')),
+            git_date(a['path']) or str(m.get('last_updated', '2026-11-01')),
             m.get('slug') or slugify(a['file']),
             m.get('category', 'Engine'), cslug, clabel, ckr, ces,
-            {'title': m.get('title') or {}, 'langs_all': set(a['langs'])},
+            # published has to travel with the entry: default_sidebar sorts on
+            # it first, and an entry without it sorts as '' -- which put the
+            # newest guide first only because "what-owners-..." happened to beat
+            # "tonneau-..." alphabetically. The next guide whose slug starts with
+            # an early letter would have dropped down the rail.
+            {'title': m.get('title') or {}, 'langs_all': set(a['langs']),
+             'published': str(m.get('published') or '')},
         ))
     for a in arts:
         meta = a['meta']
@@ -1706,12 +1725,35 @@ def build_static_pages(index_entries, sidebar_entries=None):
             body = md2html(md, rel)
             body = inject_photos(body, 'home', code, rel,
                                  find_photos(PHOTO_ROOT, 'home'))
+            # Scope the hero cap to the homepage. .fig--hero also marks the top
+            # photograph on every article, where a 620px lead image is right and
+            # there is no fold to protect.
+            body = body.replace('class="fig fig--photo fig--hero"',
+                                'class="fig fig--photo fig--hero home-hero"', 1)
+            # The newest guide goes above the fold. It sits directly after the
+            # site's one-line description and before the "Browse guides" links,
+            # which is the first place it can go without pushing the h1 down:
+            # putting it after the <hr> worked but landed at 798px on an 807px
+            # screen, so the title cleared the fold by nine pixels and nothing
+            # else did. Anchor on the dek paragraph, falling back to the first
+            # <hr> and then the end of the body, so the guide stays on the page
+            # if the homepage copy is rewritten.
+            lead = featured_html(index_entries, code, rel)
+            if lead:
+                dek = re.search(r'<p><a href="#guides">[^<]*(?:<[^>]+>[^<]*)*?</p>\s*', body)
+                if dek:
+                    body = body[:dek.start()] + lead + body[dek.start():]
+                elif '<hr>' in body:
+                    body = body.replace('<hr>', '<hr>\n' + lead, 1)
+                else:
+                    body = body + lead
+            body_with_lead = body + '\n' + index_list_html(index_entries, code, rel)
             page = render_page(
                 lang=code, title=title if code != 'en' else
                 'Car Mod Review — Car and Truck Parts, Checked Against the Specs',
                 desc='Car and truck parts guides built from published specifications, '
                      'with every source named. No invented numbers and no unverified claims.',
-                canonical=alts[code], body_html=body + '\n' + index_list_html(index_entries, code, rel),
+                canonical=alts[code], body_html=body_with_lead,
                 rel=rel, alts=alts, entries=index_entries)
             d = os.path.join(OUT, prefix.strip('/')) if prefix else OUT
             os.makedirs(d, exist_ok=True)
@@ -1855,6 +1897,51 @@ def build_static_pages(index_entries, sidebar_entries=None):
     print('  wrote static pages')
 
 
+def featured_html(index_entries, code, rel):
+    """The newest guide, as a lead block at the top of the homepage.
+
+    Sorting the lists correctly was only half of the job. The newest guide still
+    sat below the hero photograph and four paragraphs about how the site works,
+    so a reader who came to see what is new had to scroll past the site's own
+    introduction to find it. This puts it directly under the site title.
+
+    Uses the same key as the sidebar and the index, so the three can never
+    disagree about which guide is newest.
+    """
+    field = {'en': 1, 'kr': 2, 'es': 3}[code]
+    rows = [e for e in index_entries
+            if code in (e[7].get('langs_all') or set())]
+    if not rows:
+        return ''
+    date, slug, cat, cs, cl, ck, ce, meta = sorted(
+        rows,
+        key=lambda e: (str(e[7].get('published') or ''), e[0], e[1]),
+        reverse=True)[0]
+    title = ((meta.get('title') or {}).get(code)
+             or (meta.get('title') or {}).get('en') or slug)
+    title = re.sub(r'^#+\s*', '', title).strip().strip('"')
+    desc = ((meta.get('seo_desc') or {}).get(code)
+            or (meta.get('seo_desc') or {}).get('en') or '')
+    desc = re.sub(r'\s+', ' ', str(desc)).strip()
+    catlabel = (cl, ck, ce)[field - 1]
+    pub = str(meta.get('published') or date)
+    try:
+        pretty = datetime.datetime.strptime(pub, '%Y-%m-%d').strftime('%d %B %Y').lstrip('0')
+    except ValueError:
+        pretty = pub
+    kicker = {'en': 'Latest guide', 'kr': '최신 가이드', 'es': 'Última guía'}[code]
+    out = ['\n  <section class="lead">\n',
+           f'    <p class="lead-kicker">{html.escape(kicker)}</p>\n',
+           f'    <h2 class="lead-title"><a href="{rel}{cs}/{slug}.html">'
+           f'{html.escape(title)}</a></h2>\n']
+    if desc:
+        out.append(f'    <p class="lead-desc">{html.escape(desc)}</p>\n')
+    out.append(f'    <p class="lead-meta"><time datetime="{html.escape(pub)}">'
+               f'{html.escape(pretty)}</time> · {html.escape(catlabel)}</p>\n')
+    out.append('  </section>\n')
+    return ''.join(out)
+
+
 def index_list_html(index_entries, code, rel):
     """The guides index on the homepage, in the same order as the left rail.
 
@@ -1888,6 +1975,14 @@ def index_list_html(index_entries, code, rel):
         items = by_cat.get(catslug)
         if not items:
             continue
+        # Newest first inside each category, by the same rule the sidebar uses.
+        # Without this the list ran in article-filename order, so a new guide
+        # appeared wherever its number happened to fall rather than at the top
+        # of its section.
+        items = sorted(
+            items,
+            key=lambda e: (str(e[7].get('published') or ''), e[0], e[1]),
+            reverse=True)
         out.append(f'  <h3><a href="{rel}{HUBLESS.get(catslug, catslug + "/index.html")}">'
                    f'{html.escape(labels[label_i - 1])}</a></h3>\n')
         out.append('  <ul class="post-list">\n')
@@ -1911,6 +2006,14 @@ def build_category_pages(arts, sidebar_entries=None):
     by_cat = {}
     for a in arts:
         by_cat.setdefault(a['meta'].get('category', 'Engine'), []).append(a)
+    # Newest first, matching the homepage and the sidebar. Left unsorted, a hub
+    # listed its guides in article-filename order, so the one guide that had just
+    # been published sat in the middle of the page.
+    for lst in by_cat.values():
+        lst.sort(key=lambda a: (str(a['meta'].get('published') or ''),
+                                str(a['meta'].get('last_updated') or ''),
+                                str(a['meta'].get('slug') or '')),
+                 reverse=True)
     for cat, items in by_cat.items():
         cs, cl, ck, ce = CATEGORIES.get(cat, ('engine', cat, cat, cat))
         for code, label, prefix in LANGS:
@@ -2120,7 +2223,12 @@ def build_feed(items):
     def rfc822(d):
         return datetime.datetime.strptime(d, '%Y-%m-%d').strftime('%a, %d %b %Y 00:00:00 +0000')
 
-    items = sorted(items, key=lambda i: (i['published'], i['url']), reverse=True)
+    # published first, then modified, then url. The middle key matters: both of
+    # the two newest guides carry published 2026-11-05, so without it the tie
+    # fell through to the URL and listed them alphabetically -- putting the
+    # older tonneau guide above the one published after it.
+    items = sorted(items, key=lambda i: (i['published'], i.get('modified') or '',
+                                         i['url']), reverse=True)
     last = items[0]['modified'] if items else datetime.date.today().isoformat()
     out = ['<?xml version="1.0" encoding="UTF-8"?>',
            '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">',

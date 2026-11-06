@@ -183,6 +183,62 @@ footer > .wrap { max-width: 1080px; }
   margin-bottom: 44px;
 }
 
+/* ---------- homepage lead ---------- */
+
+/* The newest guide, lifted above the site's own introduction. Left rule rather
+   than a box: the page already has a two-pixel rule under the masthead and a
+   bordered figure hero, so a third framed element above the fold reads as
+   clutter. A single rust rule gives it the weight of a lead without adding a
+   border to a screen that already has several. */
+.lead {
+  margin: 34px 0 40px;
+  padding: 2px 0 2px 18px;
+  border-left: 3px solid var(--rust);
+}
+
+.lead-kicker {
+  font-family: ui-sans-serif, -apple-system, "Segoe UI", system-ui, sans-serif;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--rust-dk);
+  margin: 0 0 8px;
+}
+
+.lead-title {
+  font-size: 26px;
+  line-height: 1.22;
+  letter-spacing: -.4px;
+  margin: 0 0 10px;
+  border: 0;
+  padding: 0;
+}
+
+.lead-title a { color: var(--ink); text-decoration: none; }
+.lead-title a:hover { color: var(--rust); text-decoration: underline; }
+
+.lead-desc {
+  color: var(--ink-2);
+  margin: 0 0 12px;
+  font-size: 16.5px;
+  line-height: 1.55;
+}
+
+.lead-meta {
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: 12px;
+  letter-spacing: .3px;
+  color: var(--ink-3);
+  margin: 0;
+}
+
+@media (max-width: 560px) {
+  .lead { padding-left: 14px; margin: 26px 0 32px; }
+  .lead-title { font-size: 22px; }
+  .lead-desc { font-size: 15.5px; }
+}
+
 .masthead-inner {
   display: flex;
   align-items: baseline;
@@ -657,6 +713,17 @@ footer p { margin: 0 0 10px; }
 }
 
 .fig--photo figcaption { padding: 9px 2px 0; }
+
+/* The homepage hero was a full 620px-tall photograph sitting above the site
+   title, so on a laptop the newest guide -- the thing a returning reader came
+   for -- started below the fold. Capping the hero on the homepage only keeps
+   the photograph as the first thing you see while letting the lead block into
+   the same screen. Article heros are untouched. */
+.home-hero img { max-height: 340px; }
+
+@media (max-width: 700px) {
+  .home-hero img { max-height: 230px; }
+}
 
 .fig-kicker {
   font-size: 10px;
