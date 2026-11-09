@@ -1,3 +1,11 @@
 Mammoth 3-Inch Front / 2-Inch Rear Leveling Kit (07-18 Silverado 1500)
-Product photograph from the listing: https://www.americantrucks.com/image/rlt-3-front-2-rear-leveling-kit-0718-silverado-1500-chevy.S112414.jpg
-Source image: https://www.americantrucks.com/image/rlt-3-front-2-rear-leveling-kit-0718-silverado-1500-chevy.S112414.jpg?wid=2000&hei=1500&sharpen=1
+Product photograph from the listing: https://www.americantrucks.com/image/rlt-3-front-2-rear-leveling-kit-0718-silverado-1500-chevy.S112414_alt6.jpg
+Source image: https://www.americantrucks.com/image/rlt-3-front-2-rear-leveling-kit-0718-silverado-1500-chevy.S112414_alt6.jpg?wid=2000&hei=1500&sharpen=1
+
+CAVEAT, read before trusting this image:
+The listing's own primary render (S112414.jpg) and its alt1-alt4 angles show a
+card printed "3.5"" and "RC", i.e. a Rough Country part, while the page's brand
+field, title, sku and description all say Mammoth 3 in. front / 2 in. rear
+S112414. That is a retailer photo error, not a naming error here. This file is
+the listing's alt6 angle: Mammoth-branded boxes on the parts, no conflicting
+label. Verified by opening the listing in a real browser on 7 Nov 2026.

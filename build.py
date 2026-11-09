@@ -687,6 +687,9 @@ PAGE = """<!DOCTYPE html>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg?v={iconv}">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png?v={iconv}">
 <link rel="manifest" href="/site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400&display=swap">
 <link rel="stylesheet" href="{rel}style.css?v={cssv}">
 {jsonld}{analytics}
 </head>
@@ -859,6 +862,12 @@ RELATED_LABEL = {
     'es': 'Guías relacionadas',
 }
 
+TOPICS_LABEL = {
+    'en': 'Topics',
+    'kr': '주제',
+    'es': 'Temas',
+}
+
 
 def build_related(lang, rel, entries, current_slug, current_cat):
     """Links from the foot of an article to the other guides in its category.
@@ -899,6 +908,101 @@ def build_related(lang, rel, entries, current_slug, current_cat):
     return (f'\n  <div class="related">\n'
             f'    <h2 class="related-title">{RELATED_LABEL[lang]}</h2>\n'
             f'    <ul class="side-list">\n{"".join(rows)}    </ul>\n'
+            f'  </div>\n')
+
+
+def build_topics(lang, rel, body_html, cat, catlabel, title):
+    """The topic row at the foot of an article, as magazines close a piece.
+
+    Every tag comes from something the article already says, never from a
+    keyword list. Brands are read off the products the article actually
+    recommends (its pick headings) rather than off its prose -- "fuel" appears
+    in a paragraph about fuel economy and is not the wheel brand, and a loose
+    match on the body would tag an article with a company it never mentions.
+
+    Vehicle tags come from the listing titles too, which carry the fitment.
+
+    Nothing here links anywhere yet: the site has no tag archives, and a row of
+    sentences dressed as links would be a dead end for a reader and a crawl
+    trap for Google. They render as plain labels until those pages exist.
+    """
+    import re as _re
+    picks = ' '.join(_re.findall(r'<h3>(.*?)</h3>', body_html, _re.S))
+    # Articles that write buy links as bare paragraphs have no pick headings,
+    # so their recommended products are named only in the link labels. Those
+    # are part names too -- "aFe Magnum FLOW Pro DRY S filter" -- so they count
+    # as titles rather than prose.
+    picks += ' ' + ' '.join(_re.findall(r'class="buy"[^>]*>(.*?)</a>', body_html, _re.S))
+    picks = html.unescape(_re.sub(r'<[^>]+>', ' ', picks))
+
+    # Articles that write their buy links as bare paragraphs have no pick
+    # headings at all, so fall back to the prose. Only the English article is
+    # in body_html -- the KR and ES sections are separate documents here -- so
+    # this cannot pick up a translation's wording.
+    prose = html.unescape(_re.sub(r'<[^>]+>', ' ', body_html))
+
+    BRANDS = ('K&N', 'aFe', 'AIRAID', 'S&B', 'Corsa', 'MBRP', 'Rough Country',
+              'ReadyLIFT', 'Supreme Suspensions', 'Mammoth', 'Fuel Wheels',
+              'NITTO', 'Milestar', 'Mickey Thompson', 'BAK', 'Barricade',
+              'Proven Ground', 'RedRock', 'PowerStop', 'Hawk', 'EBC',
+              'Edge', 'HP Tuners', 'Livernois', 'AutoLöc', 'Roush',
+              'SR Performance', 'C&L')
+    # Named in prose but never in a pick title, and safe to match there.
+    PROSE_BRANDS = ('AutoLöc', 'Proven Ground', 'Barricade', 'Rough Country',
+                    'RedRock', 'Roush', 'SR Performance', 'Livernois',
+                    'HP Tuners', 'Supreme Suspensions', 'Mickey Thompson',
+                    'Milestar', 'NITTO', 'PowerStop')
+    tags = []
+    picksrc = picks.lower()
+    src = (picks + ' ' + prose).lower()
+
+    def names(word, hay=None):
+        # Word boundaries, because "GM" sits inside "algorithm" and "Edge"
+        # inside "inner edge". The & in S&B and C&L is not a word character,
+        # so those two fall back to a plain containment test.
+        hay = picksrc if hay is None else hay
+        if _re.search(r'[^a-z0-9]', word):
+            return word in hay
+        return _re.search(r'(?<![a-z0-9])' + _re.escape(word) + r'(?![a-z0-9])',
+                          hay) is not None
+
+    # Brands the article recommends are read off its pick titles ONLY. The
+    # prose is where "fuel economy" and "the inner edge" live, and matching
+    # there tagged an intake article with the wheel brand Fuel and a wheel
+    # article with the tuner Edge.
+    for b in BRANDS:
+        if names(b.lower(), picksrc):
+            tags.append(b if b != 'Fuel Wheels' else 'Fuel')
+
+    # A few more are named only in the prose, and are unambiguous there: no
+    # ordinary English word collides with "AutoLöc" or "Barricade".
+    for b in PROSE_BRANDS:
+        if names(b.lower(), src):
+            tags.append(b)
+
+    VEHICLES = ('Silverado 1500', 'F-150', 'Duramax', 'TurboMax', '5.3L',
+                '6.2L', '2.7L', '3.0L', '4.3L')
+    seen = set()
+    for v in VEHICLES:
+        if names(v.lower(), src) and v not in seen:
+            seen.add(v)
+            tags.append(v)
+
+    if catlabel and catlabel not in tags:
+        tags.insert(0, catlabel)
+    # de-dup preserving order, and cap it so it reads as a row, not a list
+    out, got = [], set()
+    for t in tags:
+        if t.lower() not in got:
+            got.add(t.lower())
+            out.append(t)
+    out = out[:8]
+    if not out:
+        return ''
+    items = ''.join(f'      <li>{html.escape(t)}</li>\n' for t in out)
+    return (f'\n  <div class="topics">\n'
+            f'    <h2 class="topics-title">{TOPICS_LABEL[lang]}</h2>\n'
+            f'    <ul class="topics-list">\n{items}    </ul>\n'
             f'  </div>\n')
 
 
@@ -1424,6 +1528,7 @@ def build():
                     f'    {md2html(unver, rel)}\n'
                     f'  </div>\n')
 
+            body_html.append(build_topics(code, rel, art_html, cat, catlabel, title))
             body_html.append(build_related(code, rel, sidebar_entries, slug, cat))
             body_html.append(build_share(code, altmap[code], title))
 
@@ -1639,6 +1744,12 @@ def build_legacy_pages(sidebar_entries=None):
                 fig = photo_html(shots[:1], 'cold-air-intake-guide', 'en', '../')
                 txt = txt.replace('  <h2>The short answer</h2>',
                                   fig + '  <h2>The short answer</h2>', 1)
+            # The same rule the generated articles follow: the photograph next
+            # to a price is a photograph of that product. This page bypasses
+            # render_article, so without this it is the one page on the site
+            # whose buy boxes carry no picture.
+            txt = product_photos.inject_product_photos(
+                txt, 'legacy-f150-intake', '../', PRODUCT_ROOT)
         # these pages predate the generator and carry their own stale affiliate
         # note and reading-time byline. Strip them, then re-add a disclosure
         # below only if the page actually links to a retailer -- the old text
@@ -1693,7 +1804,11 @@ def build_legacy_pages(sidebar_entries=None):
             rel_html = build_related('en', '../', sidebar_entries,
                                      'cold-air-intake', 'Engine')
             if rel_html:
-                txt = txt.replace('</article>', rel_html + '</article>', 1)
+                art = re.search(r'<article[^>]*>.*?</article>', txt, re.S)
+                topics = build_topics('en', '../',
+                                      art.group(0) if art else txt,
+                                      'cold-air-intake', 'Engine & Intake', '')
+                txt = txt.replace('</article>', topics + rel_html + '</article>', 1)
 
         # affiliate tagging and the matching disclosure, for pages that bypass
         # render_page and so never pass through action()

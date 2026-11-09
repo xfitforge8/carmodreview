@@ -1,0 +1,11 @@
+AutoLoc One Touch window module, AUL-9862
+
+Product photograph from the Summit Racing image CDN:
+https://static.summitracing.com/global/images/prod/large/aul-9862.jpg
+
+CAVEAT: summitracing.com/parts/aul-9862 returns a bot-block page to
+non-browser clients, and BrowserOS Neo was returning HTTP 503 on the day
+this was fetched, so the listing page itself was never opened. The image
+is identified by the part number in its filename and by the product name
+printed on the pictured unit ("AutoLoc One Touch"). Confirm on the
+listing before this page is published.

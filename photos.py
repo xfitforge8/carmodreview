@@ -95,6 +95,15 @@ def publish_image(src, dst):
     os.makedirs(os.path.dirname(dst), exist_ok=True)
     if src in _PUBLISHED:
         return
+
+    # A WebP source stays WebP. Running it through `sips -s format jpeg` would
+    # put JPEG bytes in a file still named .webp, which the server types as
+    # image/webp and the browser then fails to decode.
+    if os.path.splitext(src)[1].lower() == WEBP_EXT:
+        _write_webp(src, dst)
+        _PUBLISHED[src] = dst
+        return
+
     try:
         # resize AND recompress in one pass: -Z alone keeps the original JPEG
         # quality, which is why it barely moved the byte count.
@@ -121,6 +130,33 @@ def publish_image(src, dst):
             if os.path.exists(webp):
                 os.remove(webp)
     _PUBLISHED[src] = dst
+
+
+def _write_webp(src, dst):
+    """Write src to dst as WebP, downscaled to MAX_EDGE, or copy if that fails.
+
+    cwebp writes to a temp name and then moves into place. Writing straight to
+    dst is what lost every product photograph once already: cwebp refuses to
+    overwrite its own input, and the recovery path removed the file it had just
+    produced, leaving the build with <img> tags pointing at nothing.
+    """
+    if not CWEBP:
+        shutil.copy(src, dst)
+        return
+    tmp = dst + '.tmp.webp'
+    try:
+        subprocess.run([CWEBP, '-quiet', '-q', str(WEBP_QUALITY),
+                        '-resize', str(MAX_EDGE), '0', src, '-o', tmp],
+                       capture_output=True, timeout=60, check=True)
+        if os.path.exists(tmp) and os.path.getsize(tmp) > 0:
+            os.replace(tmp, dst)
+            return
+    except (OSError, subprocess.SubprocessError):
+        pass
+    finally:
+        if os.path.exists(tmp):
+            os.remove(tmp)
+    shutil.copy(src, dst)
 
 
 def find_photos(photo_root, slug):

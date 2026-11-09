@@ -5,8 +5,16 @@
     <link>https://carmodreview.com/</link>
     <description>Car and truck parts guides built from published specifications, with every source named.</description>
     <language>en</language>
-    <lastBuildDate>Thu, 05 Nov 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 07 Nov 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://carmodreview.com/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>The Install Time on the Listing Is Not the Install Time</title>
+      <link>https://carmodreview.com/engine/listing-install-time-vs-owner-reports.html</link>
+      <guid isPermaLink="true">https://carmodreview.com/engine/listing-install-time-vs-owner-reports.html</guid>
+      <category>Engine &amp; Intake</category>
+      <pubDate>Sat, 07 Nov 2026 00:00:00 +0000</pubDate>
+      <description>We compared the install time on 24 truck part listings against what owners actually reported in 490 reviews. On the parts listed as under an hour, 4 of the 22 owners who named a time took two hours or more.</description>
+    </item>
     <item>
       <title>Why Only One Window Goes Up By Itself, and What You Can Do</title>
       <link>https://carmodreview.com/electrical/auto-up-windows.html</link>

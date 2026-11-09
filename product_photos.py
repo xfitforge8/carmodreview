@@ -17,6 +17,13 @@ Images are keyed by position in the article's pick blocks: NN-<sku>.webp beside
 NN-<sku>.txt, fetched by fetch_products.py. Position rather than product name,
 because the names carry translated punctuation that would make an unreadable
 filename, and the sidecar records the name and listing URL anyway.
+
+Some articles write their buy links as bare paragraphs rather than pick blocks,
+and one repeats the same four products across sixteen links. Position cannot key
+those, so a second convention exists beside it: sku-<sku>.webp, matched to the
+sku in each buy link's URL, injected once per distinct product rather than once
+per link. The position pass runs first; the sku pass only fills links the first
+one did not cover.
 """
 import html
 import os
@@ -65,8 +72,89 @@ def _name_in(block):
     return re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', '', m.group(1))).strip()
 
 
+def _sku_shots(product_root, slug):
+    """{sku (lowercase): image path} for one article, from sku-<sku>.webp files."""
+    d = os.path.join(product_root, slug)
+    if not os.path.isdir(d):
+        return {}
+    out = {}
+    for f in sorted(os.listdir(d)):
+        if not f.lower().endswith(IMG_EXT):
+            continue
+        m = re.match(r'^sku-(.+)\.\w+$', f, re.I)
+        if m:
+            out[m.group(1).lower()] = os.path.join(d, f)
+    return out
+
+
+def _match_sku(href, known):
+    """Which of `known` a buy URL names, or None.
+
+    Listing skus are not one shape -- s112594, z30481, 75-5138d, 31-10292,
+    29532red -- so rather than encode every retailer's convention, the URL's
+    last path segment is split on hyphens and its suffixes are tried longest
+    first against the skus we actually hold a photograph for. A URL naming a
+    part we have no photo of matches nothing and is left alone.
+
+    Amazon carries an ASIN in /dp/ instead, which is not a part number; it is
+    tried whole and against its first five characters.
+    """
+    m = re.search(r'/dp/([A-Za-z0-9]{10})', href)
+    if m:
+        asin = m.group(1).lower()
+        return asin if asin in known else None
+
+    # The sku can sit anywhere in the segment, not only at the end:
+    # …-tonneau-cover-s112141-silverado1500.html names its bed length after it.
+    tail = re.sub(r'\.html?$', '', href.split('?')[0].rstrip('/').rsplit('/', 1)[-1],
+                  flags=re.I).lower()
+    hits = [sku for sku in known
+            if re.search(r'(?:^|-)' + re.escape(sku) + r'(?:-|$)', tail)]
+    return max(hits, key=len) if hits else None
+
+
+def _figure(img, slug, rel, fallback, cls):
+    size = photos._dimensions(photos._published_path(img))
+    dims = f' width="{size[0]}" height="{size[1]}"' if size else ''
+    alt = _alt_for(img, fallback)
+    return (
+        f'<div class="{cls}">\n'
+        f'    <img src="{rel}img/products/{slug}/{os.path.basename(img)}" '
+        f'alt="{html.escape(alt)}" loading="lazy" decoding="async"{dims}>\n'
+        f'  </div>')
+
+
+def _inject_by_sku(body_html, slug, rel, product_root, used):
+    """Add a photo to buy links the position pass did not cover.
+
+    One photo per distinct product, not per link: an article that recommends
+    the same tonneau cover in four sections should show it once, in the first
+    place it is recommended, or the page turns into a wall of the same picture.
+    """
+    shots = _sku_shots(product_root, slug)
+    if not shots:
+        return body_html
+    seen = set(used)
+
+    def repl(m):
+        whole, href, label = m.group(0), m.group(2), m.group(3)
+        sku = _match_sku(href, shots)
+        if not sku or sku in seen:
+            return whole
+        seen.add(sku)
+        name = re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', '', label)).strip()
+        name = re.sub(r'\s*→$', '', name) or 'Product photograph'
+        fig = _figure(shots[sku], slug, rel, name, 'pick-photo pick-photo-wide')
+        return fig + '\n' + whole
+
+    # The whole <p class="buyrow"> line, so the figure sits above the button.
+    return re.sub(
+        r'(<p class="buyrow">\s*)<a class="buy" href="([^"]+)"[^>]*>(.*?)</a>',
+        repl, body_html, flags=re.S)
+
+
 def inject_product_photos(body_html, slug, rel, product_root):
-    """Add a photograph to the top of every pick block that has one.
+    """Add a photograph to every pick block that has one, then to stray buy links.
 
     Returns the html unchanged when there are no product images for this slug,
     so an article can ship before its photos are fetched.
@@ -77,31 +165,22 @@ def inject_product_photos(body_html, slug, rel, product_root):
     alt on a Spanish page is the kind of detail a screen-reader user notices.
     """
     shots = _shots(product_root, slug)
-    if not shots:
-        return body_html
 
     parts = body_html.split(_BLOCK)
-    if len(parts) == 1:
-        return body_html
+    used = set()
+    if len(parts) > 1:
+        rebuilt = [parts[0]]
+        for i, block in enumerate(parts[1:], 1):
+            img = shots.get(i)
+            if not img:
+                rebuilt.append(_BLOCK + block)
+                continue
+            used.add(os.path.basename(img))
+            rebuilt.append(f'{_BLOCK}\n  ' + _figure(img, slug, rel,
+                            _name_in(block), 'pick-photo') + '\n' + block)
+        body_html = ''.join(rebuilt)
 
-    rebuilt = [parts[0]]
-    for i, block in enumerate(parts[1:], 1):
-        img = shots.get(i)
-        if not img:
-            rebuilt.append(_BLOCK + block)
-            continue
-        size = photos._dimensions(photos._published_path(img))
-        dims = f' width="{size[0]}" height="{size[1]}"' if size else ''
-        alt = _alt_for(img, _name_in(block))
-        fig = (
-            f'{_BLOCK}\n'
-            f'  <div class="pick-photo">\n'
-            f'    <img src="{rel}img/products/{slug}/{os.path.basename(img)}" '
-            f'alt="{html.escape(alt)}" loading="lazy" decoding="async"{dims}>\n'
-            f'  </div>'
-        )
-        rebuilt.append(fig + block)
-    return ''.join(rebuilt)
+    return _inject_by_sku(body_html, slug, rel, product_root, used)
 
 
 def publish(product_root, out_root):
