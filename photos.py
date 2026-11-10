@@ -250,6 +250,12 @@ CATEGORY_SOURCE = {
     'exhaust': ['exhaust-systems-explained'],
     'brakes': ['brake-pads-rotors-guide'],
     'tuning': ['ecu-tuning-explained'],
+    # Both were missing, so these were the only two hubs with no photograph on
+    # them at all. Electrical has body photography; Tonneau has none -- its
+    # article is about four specific covers -- and falls back to the listing
+    # shot of the first one, in build.py.
+    'electrical': ['auto-up-windows'],
+    'tonneau': ['tonneau-covers-explained'],
 }
 
 

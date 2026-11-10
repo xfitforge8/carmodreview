@@ -1750,6 +1750,15 @@ def build_legacy_pages(sidebar_entries=None):
             # whose buy boxes carry no picture.
             txt = product_photos.inject_product_photos(
                 txt, 'legacy-f150-intake', '../', PRODUCT_ROOT)
+        else:
+            # The legacy hub had no photograph and no way to get one, since it
+            # is carried across verbatim rather than generated. It is the only
+            # remaining page above the post list that was pure text, so it gets
+            # the same listing shot its own guide uses for its first pick.
+            fig = hub_product_photo(['legacy-f150-intake'], '../')
+            if fig:
+                txt = txt.replace('  <ul class="post-list">',
+                                  fig + '  <ul class="post-list">', 1)
         # these pages predate the generator and carry their own stale affiliate
         # note and reading-time byline. Strip them, then re-add a disclosure
         # below only if the page actually links to a retailer -- the old text
@@ -2135,6 +2144,31 @@ def _strip_label(name):
     return re.sub(r'\s*\([^()]*\)\s*$', '', name).strip() or name
 
 
+def hub_product_photo(slugs, rel):
+    """A listing photograph for a hub that has no body photography of its own.
+
+    Only used when category_photo() found nothing. Two hubs were bare -- no
+    image at all above the post list -- because their articles' photography is
+    of the products themselves rather than of a car. The tonneau guide is the
+    clearest case: the entire subject is four specific covers, so the honest
+    picture of it is one of those covers, exactly as the buy box on the guide
+    shows it.
+    """
+    for slug in slugs:
+        for finder in (product_photos._shots, product_photos._sku_shots):
+            found = finder(PRODUCT_ROOT, slug)
+            if not found:
+                continue
+            img = (found[min(found)] if isinstance(next(iter(found)), int)
+                   else found[sorted(found)[0]])
+            alt = product_photos._alt_for(img, slug)
+            return (f'  <div class="pick-photo">'
+                    f'<img src="{rel}img/products/{slug}/{os.path.basename(img)}" '
+                    f'alt="{html.escape(alt)}" loading="lazy" decoding="async">'
+                    f'</div>\n')
+    return ''
+
+
 def homepage_strip_html(index_entries, rel, limit=8):
     """A rail of real product photographs across the top of the homepage.
 
@@ -2293,10 +2327,16 @@ def build_category_pages(arts, sidebar_entries=None):
             if not rows:
                 continue
             name = cl if code == 'en' else (ck if code == 'kr' else ce)
+            hub_fig = category_photo(cs, code, rel, PHOTO_ROOT)
+            if not hub_fig:
+                # Only when the hub has no photograph of its own: two figures
+                # above the post list is one too many.
+                hub_fig = hub_product_photo(
+                    [a['meta'].get('slug') or slugify(a['file']) for a in items], rel)
             inner = (f'  <div class="kicker">Car Mod Review</div>\n'
                      f'  <h1>{html.escape(name)}</h1>\n'
-                     + category_photo(cs, code, rel, PHOTO_ROOT) +
-                     f'  <ul class="post-list">\n{"".join(rows)}  </ul>\n')
+                     + hub_fig
+                     + f'  <ul class="post-list">\n{"".join(rows)}  </ul>\n')
             # English only; see the note on the about page above.
             alts = {'en': f'{DOMAIN}/{cs}/index.html'}
             trail = [('Home', f'{DOMAIN}/{prefix}/index.html' if prefix else f'{DOMAIN}/'),
