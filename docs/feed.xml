@@ -5,7 +5,7 @@
     <link>https://carmodreview.com/</link>
     <description>Car and truck parts guides built from published specifications, with every source named.</description>
     <language>en</language>
-    <lastBuildDate>Sat, 07 Nov 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 09 Nov 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://carmodreview.com/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>The Install Time on the Listing Is Not the Install Time</title>
@@ -24,20 +24,20 @@
       <description>All four windows drop with one press but only the driver's goes back up. It is not a setting and not a software lock. Here is what actually decides it, what the reset trick really does, and how to add it to the other doors.</description>
     </item>
     <item>
-      <title>What Truck Owners Actually Complain About (109 Low Reviews, Read)</title>
-      <link>https://carmodreview.com/engine/what-owners-complain-about.html</link>
-      <guid isPermaLink="true">https://carmodreview.com/engine/what-owners-complain-about.html</guid>
-      <category>Engine &amp; Intake</category>
-      <pubDate>Thu, 05 Nov 2026 00:00:00 +0000</pubDate>
-      <description>We read every one- to three-star review across 28 truck parts. Fitment beat every other failure by a wide margin, and codes were rarer than you would think.</description>
-    </item>
-    <item>
       <title>Tonneau Covers: What $190 Buys and What $1,500 Buys</title>
       <link>https://carmodreview.com/tonneau/tonneau-covers-explained.html</link>
       <guid isPermaLink="true">https://carmodreview.com/tonneau/tonneau-covers-explained.html</guid>
       <category>Tonneau &amp; Bed</category>
       <pubDate>Thu, 05 Nov 2026 00:00:00 +0000</pubDate>
       <description>Roll-up, tri-fold and retractable tonneau covers compared: live prices, review counts, and the bed options that break fitment.</description>
+    </item>
+    <item>
+      <title>What Truck Owners Actually Complain About (109 Low Reviews, Read)</title>
+      <link>https://carmodreview.com/engine/what-owners-complain-about.html</link>
+      <guid isPermaLink="true">https://carmodreview.com/engine/what-owners-complain-about.html</guid>
+      <category>Engine &amp; Intake</category>
+      <pubDate>Thu, 05 Nov 2026 00:00:00 +0000</pubDate>
+      <description>We read every one- to three-star review across 28 truck parts. Fitment beat every other failure by a wide margin, and codes were rarer than you would think.</description>
     </item>
     <item>
       <title>Intake Options From $65 to $476: What You Get at Each Price</title>

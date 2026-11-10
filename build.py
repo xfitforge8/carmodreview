@@ -1874,6 +1874,15 @@ def build_static_pages(index_entries, sidebar_entries=None):
                     body = body.replace('<hr>', '<hr>\n' + lead, 1)
                 else:
                     body = body + lead
+            # The product rail goes between the newest-guide block and the
+            # "Browse guides" line: high enough to be seen, low enough not to
+            # push the h1 or the lead below the fold.
+            strip = homepage_strip_html(index_entries, rel)
+            if strip:
+                if '<hr>' in body:
+                    body = body.replace('<hr>', strip + '<hr>', 1)
+                else:
+                    body = strip + body
             body_with_lead = body + '\n' + index_list_html(index_entries, code, rel)
             page = render_page(
                 lang=code, title=title if code != 'en' else
@@ -2112,6 +2121,86 @@ def featured_html(index_entries, code, rel):
                f'{html.escape(pretty)}</time> · {html.escape(catlabel)}</p>\n')
     out.append('  </section>\n')
     return ''.join(out)
+
+
+def _strip_label(name):
+    """Product name with its trailing fitment removed, for a tile caption.
+
+    The fitment is the most useful half of these names on a product page and
+    the least useful half on a 168px tile, where "…(19-26 2.7L Silverado
+    1500)" would take three lines and push the guide label out of the card.
+    It stays in the alt text, which is where a search engine and a screen
+    reader look for it.
+    """
+    return re.sub(r'\s*\([^()]*\)\s*$', '', name).strip() or name
+
+
+def homepage_strip_html(index_entries, rel, limit=8):
+    """A rail of real product photographs across the top of the homepage.
+
+    The homepage carried no images at all after the three stock pickup shots
+    were removed in 6ef8528: they were generic trucks on dirt roads, captioned
+    with a description of the photograph rather than of any part, and on a site
+    whose whole claim is that every picture shows the actual component they
+    worked against it. Rather than reintroduce a reference vehicle, this uses
+    the photography that already exists and is already verified -- the listing
+    shots fetched for the buy boxes, each one tied to the exact product its
+    guide recommends.
+
+    One tile per category, from each category's newest guide that has a photo,
+    so the rail shows an intake box beside wheels, a levelling spacer and a
+    brake kit instead of eight variations on one part. Every tile links to the
+    guide it came from.
+    """
+    rows = [e for e in index_entries
+            if 'en' in (e[7].get('langs_all') or set())]
+    by_cat = {}
+    for e in sorted(rows,
+                    key=lambda e: (str(e[7].get('published') or ''), e[0], e[1]),
+                    reverse=True):
+        by_cat.setdefault(e[3], []).append(e)
+
+    tiles = []
+    for catslug, catlabel, _kr, _es in CATEGORIES.values():
+        for _date, slug, _cat, cs, cl, _ck, _ce, meta in by_cat.get(catslug, []):
+            # Two keying conventions exist and both have to be tried: most
+            # guides number their photos by pick-block position (01-<sku>),
+            # but the tonneau and electrical guides write bare buy links and
+            # key theirs by listing sku (sku-<sku>). Reading only the first
+            # dropped both of those categories out of the rail.
+            shots = product_photos._shots(PRODUCT_ROOT, slug)
+            if shots:
+                img = shots[min(shots)]
+            else:
+                by_sku = product_photos._sku_shots(PRODUCT_ROOT, slug)
+                if not by_sku:
+                    continue
+                img = by_sku[sorted(by_sku)[0]]
+            name = product_photos._alt_for(img, cl)
+            title = ((meta.get('title') or {}).get('en') or slug)
+            title = re.sub(r'^#+\s*', '', title).strip().strip('"')
+            size = photos._dimensions(photos._published_path(img))
+            dims = (f' width="{size[0]}" height="{size[1]}"' if size else '')
+            tiles.append(
+                f'\n    <li class="home-strip-item">'
+                f'<a href="{rel}{cs}/{slug}.html" title="{html.escape(title)}">'
+                f'<img src="{rel}img/products/{slug}/{os.path.basename(img)}" '
+                f'alt="{html.escape(name)}" loading="lazy" decoding="async"{dims}>'
+                f'<span class="home-strip-name">{html.escape(_strip_label(name))}</span>'
+                f'<span class="home-strip-cat">{html.escape(catlabel)}</span>'
+                f'</a></li>')
+            break
+        if len(tiles) >= limit:
+            break
+
+    if not tiles:
+        return ''
+    return ('\n  <section class="home-strip" aria-label="Parts covered in the guides">\n'
+            '    <p class="home-strip-kicker">Parts in these guides</p>\n'
+            '    <p class="home-strip-note">Every photograph below is the listing&rsquo;s '
+            'own product shot, matched to the exact part the guide recommends.</p>\n'
+            '    <ul class="home-strip-rail">' + ''.join(tiles) + '\n    </ul>\n'
+            '  </section>\n')
 
 
 def index_list_html(index_entries, code, rel):
