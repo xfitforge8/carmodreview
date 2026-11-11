@@ -1207,3 +1207,52 @@ footer p { margin: 0 0 10px; }
   .pick-photo-wide { padding: 12px; margin: 18px 0 10px; }
   .pick-photo-wide img { max-width: 100%; }
 }
+
+/* ──────────────────────────────────────────────── dataset table (/data.html)
+   A 24-row table with a long product-name column. On a phone it has to scroll
+   inside its own box rather than push the page sideways -- the same failure the
+   homepage had, where a wide child forced the grid track wider than the
+   viewport. The wrapper is the scroll container; the table just gets wide. */
+.data-wrap {
+  overflow-x: auto;
+  margin: 18px 0 8px;
+  border: 1px solid var(--rule);
+  background: #fff;
+  -webkit-overflow-scrolling: touch;
+}
+.data-table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 640px;
+  font-size: 14px;
+}
+.data-table th,
+.data-table td {
+  text-align: left;
+  padding: 9px 12px;
+  border-bottom: 1px solid var(--rule);
+  vertical-align: top;
+}
+.data-table thead th {
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--rust-dk);
+  border-bottom: 2px solid var(--rule);
+  white-space: nowrap;
+}
+.data-table tbody th {
+  font-weight: 600;
+  color: var(--ink);
+  min-width: 240px;
+}
+.data-table .num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.data-table tbody tr:last-child th,
+.data-table tbody tr:last-child td { border-bottom: 0; }
+.data-table tbody tr:hover { background: #faf8f5; }

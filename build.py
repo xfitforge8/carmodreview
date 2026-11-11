@@ -732,6 +732,7 @@ PAGE = """<!DOCTYPE html>
     <p><strong>Car Mod Review</strong> &mdash; {foot_tag}</p>
     <p>
       <a href="{rel}methodology.html">{how}</a> &middot;
+      <a href="{rel}data.html">Data</a> &middot;
       <a href="{rel}contact.html">{contact}</a> &middot;
       <a href="{rel}about.html">{about}</a> &middot;
       <a href="{rel}legal/privacy-policy.html">{privacy}</a> &middot;
@@ -2026,6 +2027,14 @@ def build_static_pages(index_entries, sidebar_entries=None):
                 entries=sidebar_entries)
             open(os.path.join(OUT, 'methodology.html'), 'w', encoding='utf-8').write(page)
 
+    # The dataset page. Every number on it is computed from content/reviews/,
+    # the same JSON the guides quote, so it cannot drift from what the articles
+    # say. That is the point of publishing it: a table a reader can check
+    # against the guides is a citation, and a citation is the only kind of
+    # link-earning asset this site can produce without pretending to be
+    # somebody's forum friend.
+    build_dataset_page(sidebar_entries)
+
     # legal pages x3 languages. The affiliate disclosure is published now that
     # the footer links to it; its body states the true current status (no paid
     # relationships yet) rather than the participation list it used to claim.
@@ -2596,6 +2605,176 @@ def build_feed(items):
     print(f'  feed: {len(items)} items')
 
 
+def review_corpus():
+    """Every product review record on disk, deduplicated by SKU.
+
+    Deduplication is not cosmetic. The same SKU appears in several guides --
+    an intake that wins the budget comparison also appears in the category
+    guide and the turbo guide -- so summing the per-file rating counts counted
+    those owners two or three times and reported 11,764 ratings where the true
+    figure is 8,058. A dataset page that inflates its own sample size is worse
+    than no dataset page, because the first person who checks it finds the
+    error.
+
+    Returns a list of dicts, one per unique product, in a stable order.
+    """
+    root = os.path.join(SRC, 'reviews')
+    by_sku = {}
+    if not os.path.isdir(root):
+        return []
+    for guide in sorted(os.listdir(root)):
+        d = os.path.join(root, guide)
+        if not os.path.isdir(d):
+            continue
+        for fn in sorted(os.listdir(d)):
+            if not fn.endswith('.json'):
+                continue
+            try:
+                with open(os.path.join(d, fn), encoding='utf-8') as f:
+                    rec = json.load(f)
+            except (OSError, ValueError):
+                continue
+            sku = str(rec.get('sku') or fn)
+            if sku in by_sku:
+                by_sku[sku]['guides'].add(guide)
+                continue
+            by_sku[sku] = {
+                'sku': sku,
+                'name': rec.get('name') or fn,
+                'brand': rec.get('brand') or '',
+                'stars': rec.get('line_rating'),
+                'n': rec.get('rating_count') or 0,
+                'dist': rec.get('distribution') or {},
+                'install': (rec.get('install') or '').strip(),
+                'fetched': str(rec.get('fetched') or ''),
+                'guides': {guide},
+            }
+    return [by_sku[k] for k in sorted(by_sku)]
+
+
+def build_dataset_page(sidebar_entries=None):
+    """The /data/ page, built from the review corpus.
+
+    Every figure is computed here rather than typed in, so nothing on it can
+    contradict the guides that quote the same records.
+    """
+    rows = review_corpus()
+    if not rows:
+        return
+    total = sum(r['n'] for r in rows)
+    with_dist = [r for r in rows if r['dist']]
+    five = sum((r['dist'].get('5') or 0) * r['n'] / 100.0 for r in with_dist)
+    five_share = (five / total * 100) if total else 0
+    fetched = sorted({r['fetched'] for r in rows if r['fetched']})
+    fetched_txt = fetched[-1] if len(fetched) == 1 else (
+        f'{fetched[0]} to {fetched[-1]}' if fetched else 'not recorded')
+
+    # One row per product. The install column is left as the listing states
+    # it -- never normalised into a bucket, because "Less than 1 Hour" and
+    # "Afternoon" mean what the retailer wrote, and reinterpreting them here
+    # would make this table disagree with the guide that quotes it.
+    table = []
+    for r in sorted(rows, key=lambda r: (-r['n'], r['name'])):
+        stars = f'{r["stars"]:.1f}' if isinstance(r['stars'], (int, float)) else '&mdash;'
+        install = html.escape(r['install']) if r['install'] else 'not stated'
+        guide = sorted(r['guides'])[0]
+        cs = CATEGORIES.get(
+            {'leveling-kit-guide': 'Suspension',
+             'suspension-upgrades-guide': 'Suspension',
+             'wheels-buying-guide': 'Wheels & Tires',
+             '4x4-tire-buying-guide': 'Wheels & Tires',
+             'brake-pads-rotors-guide': 'Brakes',
+             'exhaust-systems-explained': 'Exhaust',
+             'tonneau-covers-explained': 'Tonneau & Bed',
+             'auto-up-windows': 'Electrical',
+             }.get(guide, 'Engine'), ('engine',))[0]
+        table.append(
+            f'      <tr><th scope="row">{html.escape(r["name"])}</th>'
+            f'<td>{html.escape(r["brand"])}</td>'
+            f'<td class="num">{stars}</td>'
+            f'<td class="num">{r["n"]:,}</td>'
+            f'<td>{install}</td>'
+            f'<td><a href="../{cs}/{guide}.html">guide</a></td></tr>\n')
+
+    body = (
+        '  <div class="kicker">Car Mod Review</div>\n'
+        '  <h1>The dataset behind our guides</h1>\n'
+        '  <p class="dek">Every product record we work from, published as a '
+        'table so you can check our arithmetic. '
+        f'{len(rows)} products, {total:,} owner ratings, '
+        f'collected {html.escape(fetched_txt)}.</p>\n'
+        '  <h2>What this is</h2>\n'
+        f'  <p>Our guides compare parts by reading what owners actually wrote, '
+        f'not by repeating the listing copy. This page is the corpus those '
+        f'comparisons come from: {len(rows)} distinct products across '
+        f'{len({g for r in rows for g in r["guides"]})} buying guides, '
+        f'carrying {total:,} individual owner ratings. The same records appear '
+        'in the guides, quoted and dated.</p>\n'
+        '  <h2>What the numbers say</h2>\n'
+        f'  <p>Across the {len(with_dist)} products with a published star '
+        f'distribution, {five_share:.1f}% of all ratings are five stars. That is '
+        'not a sign the parts are excellent. It is what retailer review '
+        'distributions look like: people who bothered to review a part they '
+        'chose and paid for tend to be pleased with it. The low-star reviews '
+        'are the useful ones, which is why our guides quote those and ignore '
+        'the four-star "great product, fast shipping" ones.</p>\n'
+        '  <h2>The full table</h2>\n'
+        '  <div class="data-wrap">\n'
+        '    <table class="data-table">\n'
+        '      <thead><tr><th scope="col">Product</th><th scope="col">Brand</th>'
+        '<th scope="col" class="num">Stars</th><th scope="col" class="num">Ratings</th>'
+        '<th scope="col">Install, as listed</th><th scope="col">Guide</th></tr></thead>\n'
+        '      <tbody>\n' + ''.join(table) + '      </tbody>\n'
+        '    </table>\n'
+        '  </div>\n'
+        '  <h2>What this table does not tell you</h2>\n'
+        '  <p>The star average and the rating count are what the retailer '
+        'publishes. We did not collect these reviews, we did not verify that '
+        'the reviewers owned the part, and we cannot detect a manipulated '
+        'review set. The install time is the listing\'s own claim, reproduced '
+        'as written rather than normalised, and a guide will always tell you '
+        'where owners disagreed with it.</p>\n'
+        '  <h2>Citing this</h2>\n'
+        '  <p>If you want to reference these figures, cite the page and the '
+        f'collection date: <em>Car Mod Review, The dataset behind our guides, '
+        f'collected {html.escape(fetched_txt)}, '
+        'https://carmodreview.com/data.html</em>. The table is regenerated from '
+        'the same source files the guides read, so a later version may carry a '
+        'different collection date and different counts.</p>\n'
+    )
+
+    ts = fetched[-1] if fetched else '2026-11-05'
+    jsonld = json.dumps({
+        '@context': 'https://schema.org',
+        '@type': 'Dataset',
+        'name': 'Car Mod Review product review corpus',
+        'description': (f'{len(rows)} car and truck parts, with '
+                        f'{total:,} owner ratings as published by the retailer, '
+                        'collected for the buying guides on carmodreview.com.'),
+        'url': f'{DOMAIN}/data.html',
+        'datePublished': ts,
+        'creator': {'@id': f'{DOMAIN}/#org'},
+        'isAccessibleForFree': True,
+        'license': f'{DOMAIN}/legal/terms-of-service.html',
+        'variableMeasured': ['star rating average', 'rating count',
+                             'star distribution', 'listed install time'],
+    }, ensure_ascii=False, indent=2)
+
+    page = render_page(
+        lang='en',
+        title='The dataset behind our guides | Car Mod Review',
+        desc=(f'All {len(rows)} products our guides compare, with '
+              f'{total:,} owner ratings and the install time each listing '
+              'states. Published so you can check our numbers.'),
+        canonical=f'{DOMAIN}/data.html',
+        body_html=body,
+        rel='',
+        jsonld=f'\n<script type="application/ld+json">\n{jsonld}\n</script>',
+        entries=sidebar_entries)
+    open(os.path.join(OUT, 'data.html'), 'w', encoding='utf-8').write(page)
+    print(f'  dataset page: {len(rows)} products, {total:,} ratings')
+
+
 def build_sitemap(arts):
     """Write sitemap.xml and robots.txt.
 
@@ -2634,7 +2813,7 @@ def build_sitemap(arts):
     # when build_static_pages actually writes it, or the sitemap advertises 404s.
     # The homepage goes in as "/" rather than "/index.html": both return the
     # same bytes, so listing the second form invites the duplicate.
-    static_paths = ('about.html', 'methodology.html', 'contact.html',
+    static_paths = ('about.html', 'methodology.html', 'data.html', 'contact.html',
                     'legal/privacy-policy.html',
                     'legal/affiliate-disclosure.html',
                     'legal/terms-of-service.html')
