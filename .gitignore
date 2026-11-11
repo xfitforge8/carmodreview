@@ -5,6 +5,17 @@ _prev_docs/
 __pycache__/
 *.pyc
 
+# Credentials. Affiliate IDs and API tokens appear in the public HTML of every
+# link they tag, but the tokens themselves do not, and this repo is public.
+# The Cloudflare token lives in ~/.config/carmodreview/ so it is outside the
+# checkout entirely; these patterns are the belt to that braces.
+.env
+*.env
+cloudflare.env
+credentials.json
+client_secret.json
+token.json
+
 # Rendered social video. Regenerate with `python3 make_short.py <slug>`
 # rather than committing binaries -- 2.4MB for 11 clips grows every article.
 social/*
