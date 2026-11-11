@@ -23,17 +23,17 @@ three-star reviews -- the P0106/P0171 Silverado review among them -- were
 captured in `visible` only, and an earlier version of this tool that skipped
 that bucket produced an incomplete population and therefore wrong percentages.
 
-The population is then every unique one- to three-star review, which is 117. Of
-those, 23 are not truck reviews at all -- AmericanTrucks pools ratings across its
+The population is then every unique one- to three-star review, which is 115. Of
+those, 24 are not truck reviews at all -- AmericanTrucks pools ratings across its
 whole catalogue, so low reviews written by Mustang, Wrangler, Outlander and
 Mariner owners sit in the same files. A truck buyer's guide cannot use those, so
-the table below reports the 94 truck reviews and prints the excluded count rather
+the table below reports the 91 truck reviews and prints the excluded count rather
 than quietly folding them in. The first version of the article did fold them in,
 and its percentages were wrong because of it.
 
 Classification is not a keyword guess. /tmp is no place to keep a decision this
 important, so the per-review verdicts live in content/reviews/LOW_TRIAGE.json,
-one entry per review id, written by reading all 109. `--audit` prints every
+one entry per review id, written by reading every one of them. `--audit` prints every
 review with its verdict so the map can be checked line by line.
 
 Categories, applied to what the reviewer complains about:

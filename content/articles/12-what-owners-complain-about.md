@@ -1,8 +1,8 @@
 ---
 title:
-  en: "What Truck Owners Actually Complain About (88 Low Reviews, Read)"
+  en: "What Truck Owners Actually Complain About (91 Low Reviews, Read)"
 seo_title:
-  en: "What Truck Owners Actually Complain About: 88 Reviews Read"
+  en: "What Truck Owners Actually Complain About: 91 Reviews Read"
 seo_desc:
   en: "We read every one- to three-star review across 28 truck parts. Fitment beat every other failure by a wide margin, and check engine lights were rarer than you would think."
 slug: what-owners-complain-about
@@ -21,24 +21,24 @@ of people who already bought the part. We had been quoting individual reviews
 inside each guide, but never stood back and asked what the whole pile says. So
 we did.
 
-This is what 88 low-rated owner reviews across 28 product listings have in
+This is what 91 low-rated owner reviews across 58 product listings have in
 common. Not the compliments — the part where it went wrong.
 
 ### How this was counted
 
 We keep every review we read in a local dataset, one record per product
-listing, and this analysis covers 28 such listings spanning cold air intakes,
+listing, and this analysis covers 58 such listings spanning cold air intakes,
 exhaust systems, leveling kits, brake pads, wheels and tyres. From those we
 pulled every review rated three stars or lower and removed duplicates, because
 the same part is listed once per vehicle and the same review sits on several
-pages. That came to 111 unique reviews.
+pages. That came to 115 unique reviews.
 
-Of those 111, 23 were not written by truck owners at all. AmericanTrucks pools
+Of those 115, 24 were not written by truck owners at all. AmericanTrucks pools
 ratings across its whole catalogue, so a listing for a Silverado intake carries
 low reviews from Mustang, Wrangler and Outlander owners alongside it. A truck
-guide has no business counting those, so we removed them. That leaves 88.
+guide has no business counting those, so we removed them. That leaves 91.
 
-Each of the 88 was then read and filed under the complaint it leads with.
+Each of the 91 was then read and filed under the complaint it leads with.
 "Fitment" means the reviewer says the part would not bolt on, the holes did not
 line up, the hoses were the wrong length, or the listing claimed a vehicle it
 does not fit. "Codes" means a check engine light or a specific diagnostic code.
@@ -47,23 +47,23 @@ either. Every review counts once, under one heading, and the tally is auditable
 — the per-review decisions live in a file alongside the dataset, and a script
 in the repository regenerates the table below.
 
-The percentages are shares of those 88, not of all reviews. A low-rated review
+The percentages are shares of those 91, not of all reviews. A low-rated review
 is a rare thing on these listings — the S&B intake alone carries 2,798 ratings
 at an average of 4.82 — so we are looking at the tail, which is exactly where a
 buyer's risk lives.
 
 ### Fitment is the complaint, by a wide margin
 
-Thirty-five of the 88 low reviews — 40% — are about the part not fitting. The
+Thirty-six of the 91 low reviews — 40% — are about the part not fitting. The
 next largest category is disappointment with performance, at 16. Fitment is more
 than twice the size of any other complaint, and it is the one you can partially
 check before you buy.
 
 The break down by part type is the interesting part:
 
-- **Intakes: 20 of the 35.** By far the worst offender.
-- **Exhaust: 7 of the 35.**
-- **Leveling kits: 6 of the 35.**
+- **Intakes: 20 of the 36.** By far the worst offender.
+- **Exhaust: 7 of the 36.**
+- **Leveling kits: 7 of the 36.**
 - **Tuners: 2.**
 
 An intake is a moulded plastic tube with a fixed geometry. It has to clear the
@@ -138,7 +138,7 @@ installation, and the cost of it lands on you.
 
 This is where reading the data corrected our own assumption. If you spend any
 time on truck forums you will come away certain that a cold air intake will
-throw codes. Across the 88 truck reviews, six mention a check engine light or a
+throw codes. Across the 91 truck reviews, six mention a check engine light or a
 diagnostic code — about 7% — and every one of the six is an intake.
 
 A Ranger XLT owner:
@@ -161,13 +161,13 @@ cause and it is not mysterious: an oiled cotton-gauze filter, over-oiled, coats
 the MAF element, which then under-reports airflow, and the ECU fuels lean to
 match. It is a real risk and it is worth understanding before you buy.
 
-But six in 88 is the honest number. Codes are the failure people fear and
+But six in 91 is the honest number. Codes are the failure people fear and
 fitment is the failure people get. If you are buying an intake and can only
 worry about one thing, worry about whether it will physically go on.
 
 ### Missing hardware: a smaller problem than fitment
 
-Five of the 88 — about 6% — are about something that should have been in the box
+Five of the 91 — about 5.5% — are about something that should have been in the box
 and was not.
 
 > <em>"Right from the start I was missing the rubber boot at the entrance of
@@ -184,14 +184,14 @@ morning into a second order and a second weekend. This is the single most
 avoidable category on the list: open the box and inventory it against the parts
 list before you start, and before the packaging is gone.
 
-Three of the five are leveling kits missing a differential drop — a cheap part
-that the instructions assume and the listing does not always mention. Both of
-the owners who ran into it found out afterwards, and one of them priced it at
-about $28.
+Three of the five are leveling kits, and two of those are missing the same
+part: a differential drop, a cheap bracket the instructions assume and the
+listing does not always mention. Both of the owners who ran into it found out
+afterwards, and one of them priced the missing bracket at $28.
 
 ### Bent, cracked and failed outright
 
-Twelve of the 88 are quality failures: cracked covers, pin holes in a pipe,
+Twelve of the 91 are quality failures: cracked covers, pin holes in a pipe,
 stripped lock nuts, a muffler coming apart internally, brake pads that squeal, a
 wheel bent from new.
 
@@ -263,12 +263,12 @@ reviews are what owners wrote after living with these parts.
 **What do truck owners complain about most?**
 
 Fitment, by a wide margin. We read every one- to three-star truck review across
-28 product listings, and fitment was 40% of them — more than twice the next
+58 product listings, and fitment was 40% of them — more than twice the next
 largest complaint, which was disappointment with performance.
 
 **Are check engine lights as common as people say?**
 
-Rarer than you would think. Six of the 88 low reviews mention a code, about 7%,
+Rarer than you would think. Six of the 91 low reviews mention a code, about 7%,
 and every one is an intake. Oil from an over-oiled filter fouling the MAF is the
 usual mechanism.
 
@@ -281,6 +281,6 @@ that advertise a long year range carry the most risk at the edges of that range.
 **What is the second most common problem?**
 
 Disappointment with performance — no gain, or worse fuel economy than stock —
-at 18%. Missing hardware is joint fifth at about 6%, which surprised us; it is
-the problem people talk about most but not the one they hit most.
+at 18%. Missing hardware is last but one at about 5.5%, which surprised us; it
+is the problem people talk about most but not the one they hit most.
 

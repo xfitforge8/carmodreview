@@ -1,0 +1,1 @@
+A custom suspension component in an auto garage. Spacer height is the whole specification; anything above about two inches needs more than a spacer.
