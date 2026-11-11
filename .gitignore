@@ -20,3 +20,9 @@ token.json
 # rather than committing binaries -- 2.4MB for 11 clips grows every article.
 social/*
 !social/public/
+
+# Outreach drafts. These carry the owner's real name and the affiliate
+# publisher ID, and they are correspondence rather than site content -- the
+# repo is public, so they stay local.
+content/OUTREACH-*.md
+AFFILIATE-READINESS_LOCAL.md
