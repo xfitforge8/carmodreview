@@ -97,18 +97,20 @@ regear or a lift.
   not going to match a Mickey Thompson for wet grip at the limit or for
   treadlife under a loaded truck. For commuting, occasional towing and winter
   that is mostly cold rain, it is the rational purchase.</p>
-  <p>The distribution says the same thing more precisely: 81% five stars, 13%
-  four, and about 2% at each of three, two and one. That is a wider spread than
-  the other two tires here, which is what a cheaper tire looks like in review
-  data &mdash; most owners happy, a small tail of real complaints rather than a
-  uniform chorus. The most useful one is a three-star about wear over time:
-  <em>"I put these on my F150 4x4 as a less expensive alternative and I liked
-  them initially. Not a negative review but over a couple seasons of wear I
-  experienced that they [...]"</em> That owner's point is the one this guide
-  makes above: the price is paid up front and the treadlife is paid later. Set
-  that against <em>"This is my second set. Low noise and great durability for
-  many years"</em> and you have the honest picture &mdash; a tire that some
-  owners buy twice and others find goes off after a few seasons.</p>
+  <p>The distribution says the same thing more precisely: most owners are
+  happy, and the small tail of real complaints is what a cheaper tire looks like
+  in review data &mdash; not a uniform chorus. The most useful low review is a
+  three-star, and it is worth being precise about it: that owner put the
+  Patagonia on an F-150, not a Silverado. <em>"I put these on my F150 4x4 as a
+  less expensive alternative and I liked them initially. Not a negative review
+  but over a couple seasons of wear I experienced that they lost traction with
+  the road consistently. Lots of fishtailing on wet pavement."</em> That is the
+  point this guide makes above, and it is a wear complaint rather than a fitment
+  one: the price is paid up front and the treadlife is paid later. Set it against
+  a Silverado owner who bought twice &mdash; <em>"This is my second set. Low
+  noise and great durability for many years"</em> &mdash; and you have the honest
+  picture: a tire some owners buy again and others find goes off after a few
+  seasons.</p>
   <dl class="spec">
     <div><dt>Price</dt><dd>$176.95 each</dd></div>
     <div><dt>Size</dt><dd>285/70R17 &mdash; approx. 33"</dd></div>
@@ -150,18 +152,20 @@ regear or a lift.
   It is within $8 of the NITTO, so the choice between them is about which
   construction you can actually get in your size, not about price.</p>
   <p>Mickey Thompson is a name with a real off-road history rather than a
-  marketing department, and 41 reviews is a reasonable evidence base. What those
-  41 reviews show is the narrowest spread of the three tires &mdash; 97.6% five
-  stars, 2.4% four, and nothing below that. Treat a 4.98 average with some
-  suspicion on principle, because a perfect score on a wear item usually means
-  the sample is young rather than that the tire is flawless. These owners are
-  describing the first impressions of a new tire, and the words are consistent
-  across them: <em>"Rides smooth no drone"</em>, <em>"Smooth ride quality and
-  easy to balance"</em>, <em>"Less road noise and handle well. Definitely worth
-  the extra money."</em></p>
-  <p>None of that is a treadwear claim, and this page does not make one. It is
-  the strongest evidence here that the tire does what an all-terrain is supposed
-  to do on the road, from the smallest but cleanest sample in the guide.</p>
+  marketing department. Here is the honest caveat on the 41: that count is
+  pooled across every size this tire is listed in, not just the 285/70R17, and
+  the reviews written against the 285/70R17 itself are only two. Both are
+  five-star and both are Silverado owners, and both are first impressions rather
+  than treadwear reports: <em>"These tires do great and snow and off road as
+  well. If you need a good all around tire this is the pick"</em> and
+  <em>"Literally there is nothing I can say negative about these tires. Love
+  them!"</em></p>
+  <p>Treat that with some suspicion on principle, because a flawless early
+  sample usually means the tyres are young rather than that the model is
+  faultless. What this page is willing to claim from it is narrow: the strongest
+  evidence here that an all-terrain does what it should on the road, from the
+  smallest sample in the guide. It makes no treadwear claim, and neither does
+  the listing.</p>
   <dl class="spec">
     <div><dt>Price</dt><dd>$307.89 each</dd></div>
     <div><dt>Size</dt><dd>285/70R17 &mdash; approx. 33"</dd></div>

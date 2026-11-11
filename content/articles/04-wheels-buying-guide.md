@@ -113,22 +113,22 @@ without an offset number is a wheel listing you cannot evaluate.
   consistency matters: changing diameter without changing offset keeps the
   geometry you already checked, which is exactly the discipline this article
   argues for. Two inches of diameter costs you sidewall and tyre price.</p>
-  <p>52 reviews is enough to see whether a wheel has a fitment or finish problem.
-  The distribution is 85% five stars and 12% four, with a single one-star, and
-  that one is worth reading in full because the owner rules out the easy
-  explanation: <em>"One of the wheels came bent from the manufacturer. I had to
-  have the body shop balance the wheel in order for it to be installed.
-  Considering the other 3 were fine I doubt it was damage due to delivery and
-  handling."</em> One bent wheel in 52 is not a pattern, but it is a reason to
-  open the boxes and spin each wheel before the tyres are mounted, while a return
-  is still straightforward.</p>
-  <p>There is a pattern in the four-star reviews, though, and it is about balance
-  rather than the wheel: <em>"the wheel weights fell off of the wheels while
-  getting shipped and had to get them all rebalanced"</em>, <em>"weights were all
-  off and loose in boxes"</em>, and one owner who had to redo the balancing
-  himself. Several of these are mounted-and-balanced packages, and stick-on
-  weights do not survive a courier. Budget for a rebalance at your local tyre
-  shop and treat it as part of the price rather than as a fault.</p>
+  <p>The 52 ratings on that page are not all about this wheel. The same review
+  pool is served to every fitment the Vex is sold in &mdash; the F-150, Ram and
+  Jeep versions &mdash; so most of those owners are describing a different bolt
+  pattern on a different truck. The reviews written against the 19&ndash;26
+  Silverado 20x9 specifically are scarce, and the one that speaks to appearance
+  is positive: <em>"I love the way it looks now. Definitely a better look than
+  the stock wheels."</em> Nobody in that group reports a fitment problem.</p>
+  <p>The pooled ratings are still worth something, because the casting is the
+  same whichever truck it is drilled for. The one-star on the page was written
+  by a Ram 1500 owner, which the listing shows alongside the review, and it is
+  useful because it rules out the easy explanation: <em>"One of the wheels came
+  bent from the manufacturer. I had to have the body shop balance the wheel in
+  order for it to be installed. Considering the other 3 were fine I doubt it was
+  damage due to delivery and handling."</em> One bent wheel in a pool that size
+  is not a pattern, but it is reason enough to unbox and spin each wheel before
+  the tyres go on, while a return is still straightforward.</p>
   <dl class="spec">
     <div><dt>Price</dt><dd>$269.99 each</dd></div>
     <div><dt>Size</dt><dd>20x9</dd></div>

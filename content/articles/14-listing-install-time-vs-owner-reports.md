@@ -74,9 +74,17 @@ Three intakes account for most of the spread on the under-an-hour side.
   <div class="pick-label">The one that took 4.5 hours</div>
   <h3>S&amp;B Cold Air Intake with Dry Extendable Filter (19&ndash;26 2.7L Silverado 1500)</h3>
   <div class="pick-price">$399.00 &middot; 2,798 reviews</div>
-  <p>Three owners named a whole-job time: 1 hour, 1 hour, and 4.5. Los505:
-   <em>"Can't lie though, watched video and still took me a good 4 1/2 hrs."</em>
-   The gap is the truck, not the part, and he still gave it five stars.</p>
+  <p>This is the sharpest example of the badge problem, and it needs one
+  correction to be honest. The 4.5-hour report is real but it was not written
+  about the 2.7L: Los505 owns a <strong>5.3L</strong> Silverado Custom Trail
+  Boss, and the listing shows that with his review. <em>"Beautiful sound, better
+  gas mileage, better response, more power. Incredible difference, totally worth
+  it. Can't lie though, watched video and still took me a good 4 1/2 hrs."</em>
+  He still gave it five stars. The listing also has no install-time review
+  written against the 2.7L fitment itself &mdash; the 2,798 ratings are pooled
+  across every vehicle S&amp;B sells this filter for. So the honest statement is
+  that the same filter housing has taken one owner four and a half hours on a
+  different engine, and that is the spread you should plan around.</p>
   <dl class="spec">
     <div><dt>Price</dt><dd>$399.00</dd></div>
     <div><dt>Fitment</dt><dd>2019&ndash;2026, 2.7L TurboMax</dd></div>
@@ -90,9 +98,16 @@ Three intakes account for most of the spread on the under-an-hour side.
   <div class="pick-label">Best all-round</div>
   <h3>aFe Momentum GT Cold Air Intake, Pro DRY S Filter (19&ndash;26 2.7L Silverado 1500)</h3>
   <div class="pick-price">$435.00 &middot; 436 reviews</div>
-  <p>Four owners timed it at 30, 45, 60 and 120 minutes, so three of the four beat
-   the badge. The 2-hour report said why: <em>"It took me 2hrs but I wanted to
-   make sure I didn't screw it up lol."</em></p>
+  <p>This is the counter-example, and every one of these reports is from a 2.7L
+  Silverado owner on the 2.7L listing. Four of them name a time: under an hour,
+  45 minutes, 2 hours and "a few hrs". Three of the four beat the
+  &ldquo;less than 1 hour&rdquo; badge, and the 2-hour report says exactly why it
+  ran long: <em>"I am very comfortable working on classic cars and this was my for
+  my 21 silverado 2.7l turbo. So I took my time. Saw people say it takes around
+  an hour to install. It took me 2hrs but I wanted to make sure I didn't screw it
+  up lol."</em> The 45-minute report is the most useful of the four because it
+  names the actual bottleneck: <em>"Getting the old intake out was a pain but
+  this just slipped right in."</em></p>
   <dl class="spec">
     <div><dt>Price</dt><dd>$435.00</dd></div>
     <div><dt>Fitment</dt><dd>2019&ndash;2026, 2.7L TurboMax</dd></div>

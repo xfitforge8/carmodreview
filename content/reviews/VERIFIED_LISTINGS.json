@@ -1,0 +1,43 @@
+{
+  "_comment": "Listings checked live in the browser on the date below but never scraped into content/reviews/. Without this file verify_quotes.py reports them as unbacked, which is the right default: a card whose price and review count rest on nothing should fail. An entry here is a claim that a human or an agent opened the live page and read the figure off it. Keep the note short and keep 'checked' honest.",
+  "proven-ground-53silverado1500-3-inch-single-exhaust-system-with-polished-tip-side-exit-s115448-53": {
+    "name": "C&L Single Exhaust System with Polished Tip; Side Exit (14-18 5.3L Silverado 1500)",
+    "price": "$389.99",
+    "reviews": 269,
+    "stock": "In Stock",
+    "checked": "2026-11-11",
+    "note": "Article carried 268; the live page shows 269."
+  },
+  "mbrp-silverado1500-armor-plus-high-flow-replacement-muffler-s5011409": {
+    "name": "MBRP Armor Plus High Flow Replacement Muffler (14-26 4.3L, 5.3L Silverado 1500)",
+    "price": "$199.99",
+    "reviews": null,
+    "stock": "Out of Stock",
+    "checked": "2026-11-11",
+    "note": "No per-product review count published; page shows an email-notify box rather than a buy button."
+  },
+  "hp-tuners-silverado1500-mpvi4-tuner-8-universal-credits-m04-000-08": {
+    "name": "HP Tuners MPVI4 Tuner with 8 Universal Credits (22-26 V8 Silverado 1500)",
+    "price": "$799.91",
+    "reviews": 37,
+    "stock": "In Stock",
+    "checked": "2026-11-11",
+    "note": "Page labels it '37 Reviews of HP Tuners' -- the count is for the brand line, not the MPVI4 alone."
+  },
+  "rough-country-silverado1500-350-inch-uca-lift-kit-n3-struts-premium-n3-shocks-red-29532red": {
+    "name": "Rough Country 3.50-Inch Forged UCA Lift Kit with N3 Struts and Premium N3 Shocks; Red (19-24 Silverado 1500)",
+    "price": "$939.95",
+    "reviews": 480,
+    "stock": "In Stock",
+    "checked": "2026-11-11",
+    "note": "'Customer Reviews (480)' with no product-line label. The M1 kit and other Rough Country Silverado kits show the same 480, so it is a brand-family pool."
+  },
+  "rough-country-silverado1500-350-inch-suspension-lift-kit-m1-struts-rear-m1-monotube-shocks-29540": {
+    "name": "Rough Country 3.50-Inch Suspension Lift Kit with M1 Struts and Rear M1 Monotube Shocks (19-24 Silverado 1500)",
+    "price": "$1,169.95",
+    "reviews": 480,
+    "stock": "In Stock",
+    "checked": "2026-11-11",
+    "note": "Same 480 as the N3 kit above -- brand-family pool, not this part number alone."
+  }
+}

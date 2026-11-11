@@ -143,15 +143,16 @@ forthright about it.
   off the pipe connector.</p>
   <p><em>"Sounds good but it stops there. The filter comes off the pipe connector
   every 50 miles or so, other reviews confirm this. tried cleaning with alcohol,
-  adhesive, over [...]"</em> A three-star from 2024 describes the same thing with
-  different words: <em>"the clamps it comes with are cheap had to buy all new
-  clamps air filter keeps falling off."</em> The sibling listings carry it too
-  &mdash; <em>"The filter keeps falling off witch can cause damage to your
-  motor"</em> &mdash; and a separate complaint that the MAF will not seat
-  properly across two units. An intake that sheds its filter is not a
-  cosmetic problem; that is an unfiltered path into the engine. If you buy this,
-  replace the clamps before you fit it and check the filter seating at every oil
-  change.</p>
+  adhesive, over [...]"</em> That one is a Silverado owner and is written against
+  this fitment. A three-star from 2024 describes the same thing with different
+  words: <em>"the clamps it comes with are cheap had to buy all new clamps air
+  filter keeps falling off."</em> The complaint also shows up on the Sierra
+  version of the same listing &mdash; <em>"The filter keeps falling off witch can
+  cause damage to your motor"</em> &mdash; which is the same part on a different
+  badge, and a separate complaint that the MAF will not seat properly across two
+  units. An intake that sheds its filter is not a cosmetic problem; that is an
+  unfiltered path into the engine. If you buy this, replace the clamps before you
+  fit it and check the filter seating at every oil change.</p>
   <dl class="spec">
     <div><dt>Price</dt><dd>$189.99</dd></div>
     <div><dt>Fitment</dt><dd>2019–2026, 5.3L and 6.2L V8</dd></div>
@@ -245,17 +246,28 @@ seeing dust.
   that decides engine life, and it is the one most intake marketing does not
   discuss.</p>
   <p>The reviews say the quiet part out loud, and it is worth reading before the
-  price: 224 ratings at 4.63 with 4.0% one star &mdash; the highest single-star
-  rate of any intake on this page. The complaints are not about the filter. One
-  owner received a box badged Corsa containing Volant parts: <em>"the box said
-  corsa ... the intake tube, filter, and plexiglass cover said volant."</em>
-  Another found the cover plate cracked at a screw hole straight out of the box:
+  price: 225 ratings at 4.63 with 4.0% one star &mdash; the highest single-star
+  rate of any intake on this page. Those figures pool every fitment this box is
+  sold in, which matters here because only five of the reviews were written
+  against the 19&ndash;26 5.3L. All five are five-star and all five are
+  Silverado owners, and they agree on the install: <em>"Everything fit perfectly.
+  The old intake manifold was a little tough to remove. The directions were very
+  clear."</em> and <em>"It was very easy to install took about 30 mins. Don't see
+  so much difference in power but it does sound way better when you step on
+  it."</em></p>
+  <p>The complaints that drive the one-star rate come from other fitments, and
+  it is worth knowing that rather than skipping it. One owner of a
+  <strong>2014&ndash;2018</strong> 5.3L received a box badged Corsa containing
+  Volant parts: <em>"the box said corsa ... the intake tube, filter, and
+  plexiglass cover said volant."</em> Another, a <strong>Ram 1500</strong>
+  owner, found the cover plate cracked at a screw hole straight out of the box:
   <em>"The only complaint I have is quality control should have better before
   shipping out product. The cover plate where 1 of the screws in the corner is
-  cracked right out the [...]"</em> A three-star is the most useful of the lot,
-  because it is about expectations rather than defects: <em>"I really thought you
-  would hear this intake more. I also thought you would get a little better fuel
-  mileage. The only postive is it looks nice under the hood."</em></p>
+  cracked right out the [...]"</em> And the most useful of the lot is a
+  three-star from a <strong>6.2L</strong> owner about expectations rather than
+  defects: <em>"I really thought you would hear this intake more. I also thought
+  you would get a little better fuel mileage. The only postive is it looks nice
+  under the hood."</em></p>
   <p>So: buy it for filtration, inspect it on arrival, and do not buy it for
   noise. That is the whole case, and it is a narrower one than the price
   suggests.</p>

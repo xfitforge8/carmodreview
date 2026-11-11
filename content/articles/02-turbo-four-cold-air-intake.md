@@ -85,13 +85,16 @@ is sealed, which is what this article has been about.
   spends a section on.</p>
   <p>Keep the 436 in proportion: those ratings are pooled across every truck this
   housing is listed for, so they are evidence about the housing and the filter
-  rather than about this engine specifically. Read that way they are consistent
-  and blunt. Owners repeatedly report no measurable gain: <em>"I haven't noticed
-  anything, still sounds the same and still feels the same. No gas mileage
-  increase or anything, kind of a let down for an intake that cost $400
-  plus."</em> If you are buying this for a number on a dyno sheet, the reviews
-  are telling you not to. If you are buying it for a sealed dry element and a
-  cleaner engine bay, they are not arguing with you.</p>
+  rather than about this engine specifically. The 2.7L Silverado fitment has
+  twenty reviews of its own &mdash; nineteen five-star and one three-star &mdash;
+  and they are consistent. Owners report a real but modest gain: <em>"I put this
+  on my 2021 Silverado an I must say a true difference in acceleration with the
+  added sound to the 2.7 which is nice also."</em> The single 2.7L complaint is
+  about materials rather than output: <em>"The quality of the plastic could be a
+  little more durable, seems kinda flimsy, but the ease of installation was
+  topnotch."</em> If you are buying this for a big number on a dyno sheet, the
+  reviews are telling you not to. If you are buying it for a sealed dry element
+  and a cleaner engine bay, they are not arguing with you.</p>
   <dl class="spec">
     <div><dt>Price</dt><dd>$435.00</dd></div>
     <div><dt>Fitment</dt><dd>2019&ndash;2026, 2.7L TurboMax</dd></div>
@@ -115,15 +118,18 @@ is sealed, which is what this article has been about.
   Saturday-morning bolt-on rather than a safety item, that is a reasonable trade
   to make. Just make it knowingly.</p>
   <p>And read the 36 rather than the average, because they are more specific than
-  the count suggests. The complaints cluster around moulding, not design: one
-  owner describes two units in a row arriving with pinholes in the intake pipe
-  and a gap around the MAF boss, the second better but still leaking at the
-  seams. Two others report a check engine light straight after fitting &mdash;
-  <em>"it made my check engine light come on"</em> &mdash; though one of those
-  attributes it to the 2.7L rather than the intake. A three-star rates the torque
-  noticeable and the airbox finish poor, and notes the 2.7L wants a MAF extension
-  pigtail that is not in the box. Inspect the pipe before you start, and check
-  whether your truck needs that pigtail.</p>
+  the count suggests. The worst complaint is a one-star from a Sierra 1500
+  Elevation owner &mdash; same 2.7L engine, different badge: <em>"First one had
+  pin holes in in the intake pipe and a huge hole around the maf area got second
+  one and the same thing but fewer holes at the seams of the intake piping save
+  your money and buy something better 2 of them were bad."</em> On the 2.7L
+  Silverado itself, a three-star reports fault codes: <em>"this cold air intake
+  system caused my truck to throw codes on my truck, but I think it was because
+  it was the 2.7l Turbomax."</em> He is unsure himself. Separately, a three-star
+  from a <strong>5.3L</strong> owner on this listing rates the torque noticeable
+  and the airbox finish poor, and says his truck needed a MAF extension pigtail
+  that is not in the box &mdash; a note about his engine, not this one. Inspect
+  the pipe before you start, and check whether your truck needs that pigtail.</p>
   <dl class="spec">
     <div><dt>Price</dt><dd>$368.00</dd></div>
     <div><dt>Fitment</dt><dd>2019&ndash;2026, 2.7L TurboMax</dd></div>
@@ -146,12 +152,15 @@ is sealed, which is what this article has been about.
   It is harder to argue with.</p>
   <p>One thing the number does not tell you: those 2,796 ratings are pooled
   across every vehicle S&amp;B lists this filter for &mdash; Duramax, Powerstroke,
-  EcoBoost, RAM &mdash; not just the 2.7L. Read that way the sample is still the
-  best evidence here, and the low reviews are specific rather than vague. The
-  recurring failure is the airbox not lining up: <em>"Holes do not line up to
-  bolt air box down"</em>, and one owner sent three units back without getting
-  one that fitted. That is a moulding and quality-control pattern rather than a
-  design flaw, and it is a small minority of a very large sample &mdash; but it
+  EcoBoost, RAM &mdash; and there is not a single review on this listing written
+  against the 2.7L Silverado fitment. That is the honest limit of the evidence
+  here, and it is a bigger caveat than the pooled count implies. What the low
+  reviews do show, from other fitments, is a moulding problem: <em>"Holes do not
+  line up to bolt air box down"</em> from a Duramax Sierra 2500 owner, and
+  <em>"Literally nothing about this intake fits, bolts don't line up, holes don't
+  line up, just bad"</em> from a Ram 1500 owner. Same filter housing, different
+  truck. If that pattern carries over it is a quality-control problem rather than
+  a design flaw, and it is a small minority of a very large sample &mdash; but it
   is the thing to check first when the box arrives.</p>
   <dl class="spec">
     <div><dt>Price</dt><dd>$399.00</dd></div>

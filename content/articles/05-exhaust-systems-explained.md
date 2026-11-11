@@ -95,7 +95,7 @@ do the cab and bed configurations.
 <div class="pick">
   <div class="pick-label">Best value</div>
   <h3>C&amp;L Single Exhaust System with Polished Tip, Side Exit (14&ndash;18 5.3L Silverado 1500)</h3>
-  <div class="pick-price">$389.99 &middot; 268 reviews</div>
+  <div class="pick-price">$389.99 &middot; 269 reviews</div>
   <p>This is the "character change without the drama" pick from the section
   above: a full cat-back with a single side exit, in the mid price band, with
   enough owners behind it that the fitment and drone questions are already
@@ -108,9 +108,9 @@ do the cab and bed configurations.
     <div><dt>Price</dt><dd>$389.99</dd></div>
     <div><dt>Fitment</dt><dd>2014&ndash;2018, 5.3L Silverado 1500</dd></div>
     <div><dt>Type</dt><dd>Cat-back, single side exit</dd></div>
-    <div><dt>Owner reviews</dt><dd>268</dd></div>
+    <div><dt>Owner reviews</dt><dd>269</dd></div>
   </dl>
-  <p class="buyrow"><a class="buy" href="https://www.americantrucks.com/proven-ground-53silverado1500-3-inch-single-exhaust-system-with-polished-tip-side-exit-s115448-53.html" rel="nofollow noopener" target="_blank">See the C&amp;L cat-back&nbsp;&rarr;</a> <span class="buy-note">list price checked 4 Nov 2026</span></p>
+  <p class="buyrow"><a class="buy" href="https://www.americantrucks.com/proven-ground-53silverado1500-3-inch-single-exhaust-system-with-polished-tip-side-exit-s115448-53.html" rel="nofollow noopener" target="_blank">See the C&amp;L cat-back&nbsp;&rarr;</a> <span class="buy-note">$389.99, 269 reviews, checked 11 Nov 2026</span></p>
 </div>
 
 <div class="pick">
@@ -124,14 +124,17 @@ do the cab and bed configurations.
   outlast a stainless system in a salt state.</p>
   <p>No published review count on this listing, which is the trade-off for the
   price. Treat it as the low-risk experiment: less money committed, less
-  evidence behind it.</p>
+  evidence behind it. As of 11 Nov 2026 the listing also showed the muffler out
+  of stock, with an email-notification box in place of the buy button, so check
+  availability before planning an install around it.</p>
   <dl class="spec">
     <div><dt>Price</dt><dd>$199.99</dd></div>
     <div><dt>Fitment</dt><dd>2014&ndash;2026, 4.3L and 5.3L Silverado 1500</dd></div>
     <div><dt>Type</dt><dd>Replacement muffler</dd></div>
     <div><dt>Material</dt><dd>Aluminised steel</dd></div>
+    <div><dt>Stock</dt><dd>Out of stock, 11 Nov 2026</dd></div>
   </dl>
-  <p class="buyrow"><a class="buy" href="https://www.americantrucks.com/mbrp-silverado1500-armor-plus-high-flow-replacement-muffler-s5011409.html" rel="nofollow noopener" target="_blank">See the MBRP muffler&nbsp;&rarr;</a> <span class="buy-note">list price checked 4 Nov 2026</span></p>
+  <p class="buyrow"><a class="buy" href="https://www.americantrucks.com/mbrp-silverado1500-armor-plus-high-flow-replacement-muffler-s5011409.html" rel="nofollow noopener" target="_blank">See the MBRP muffler&nbsp;&rarr;</a> <span class="buy-note">$199.99, out of stock 11 Nov 2026</span></p>
 </div>
 
 <div class="pick">
@@ -145,21 +148,31 @@ do the cab and bed configurations.
   will not fit the newer trucks no matter what the photo implies.</p>
   <p>The reviews are the other caveat, and this is the weakest listing in any
   guide on this site: 70 ratings at 4.33, with 5.7% at one star and 12.9% at
-  three. Compare that with the C&amp;L system above and the difference is not
-  subtle. The recurring complaint is not the pipes &mdash; owners like the pipes,
+  three. Those figures are the listing's own summary and they pool every fitment
+  it is sold in, so treat them as a description of the system rather than of your
+  truck. The recurring complaint is not the pipes &mdash; owners like the pipes,
   and several say so while still rating the product poorly. It is the muffler.
   <em>"Pipes were perfect fit muffler makes tin rattling sound when truck shifts
   gears. Not happy about the muffler. Feels flimsy will change muffler
   soon."</em> Another: <em>"The pipes are high quality and beautiful stainless!
-  The bad: Muffler has a rice-burner rattle at 3,500"</em>. And a third, after
-  six weeks: <em>"I have the muffler coming apart on the inside. Something came
-  loose inside the muffler."</em></p>
-  <p>There is also a loudness complaint that contradicts the marketing rather
-  than the build: <em>"Terribly loud. Horrible droning anytime engine is over
-  1500 rpm, concerning rattling when you really step on it."</em> This page does
-  not print decibel figures because none of these listings publishes one, but an
-  owner telling you it drones above 1500 rpm is more useful than a dB number
-  anyway &mdash; that is most of your highway cruise.</p>
+  The bad: Muffler has a rice-burner rattle at 3,500"</em>. And a third puts a
+  number on it: <em>"I am pretty sure a Coke can has thicker side walls than this
+  muffler. I did not even install the muffler as looking it over I deduced I
+  would be wasting my time."</em></p>
+  <p>The counterweight is that owners keep saying the pipes are the good part,
+  and one of them is specific about why the whole system is still worth the
+  money: <em>"the pipes and clamps are very thick, the muffler is pretty thin and
+  light weight, but it does the job for now. System installed easy enough on my
+  Silverado and has a nice rumble in acceleration but fairly quiet during
+  idle."</em> If you buy this, budget for a muffler swap or accept a rattle.</p>
+  <p>On noise the Silverado owners on this listing are mostly positive, which is
+  worth saying because the muffler complaints above could easily be read as the
+  system being loud. It is not, by these reports: <em>"Installed this system and
+  fired it up. Took 30 minutes to disassemble the stock exhaust and install this
+  exhaust. Sounds good with no popping or cab drone."</em> and <em>"Nice mild
+  rumble. The muffler is a straight through perforated core."</em> This page does
+  not print decibel figures because none of these listings publishes one, and a
+  quiet-by-report system is not the same as a measured-quiet one.</p>
   <p>So the honest framing is: buy this for stainless pipes at a low price and
   expect to replace the muffler. If that is not a job you want, the C&amp;L
   above is where the extra money goes.</p>

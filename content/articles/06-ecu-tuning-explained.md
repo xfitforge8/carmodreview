@@ -101,13 +101,15 @@ risk this article has been describing.
   full result.</p>
   <p>What the 132 reviews do say is worth reading closely, because the failure
   mode here is not a bad part, it is a wrong truck. The average is 4.76, but 2.3%
-  of owners give it one star &mdash; and they share a cause. <em>"Forget the 12th
-  digit of the VIN. This module will not support a 2023. Took the time and
-  expense to install and my truck would not even start."</em> Another, on a ZR2:
-  <em>"Very disappointed, did not work with my ZR2 there is nothing out yet for
-  my truck."</em> This listing is for 2019&ndash;2021 and the 2022 LD; buyers who
-  scanned the year range rather than checking their own VIN lost an afternoon and
-  a return.</p>
+  of owners give it one star &mdash; and they share a cause. This listing is for
+  2019&ndash;2021 and the 2022 LD, and the Silverado owners who bought outside
+  that range report a module that will not talk to the truck: <em>"Very
+  disappointed, did not work with my ZR2 there is nothing out yet for my
+  truck."</em> The same complaint appears on the Sierra version of the listing,
+  from a 2023 owner: <em>"Forget the 12th digit of the VIN. This module will not
+  support a 2023. Took the time and expense to install and my truck would not even
+  start."</em> Buyers who scanned the year range rather than checking their own
+  VIN lost an afternoon and a return.</p>
   <p>The complaint that should actually stop you is different, and it is one
   review rather than a pattern: <em>"It worked very well until it caused the
   truck to go into safe mode and I wanted to return it but American Trucks said
@@ -145,7 +147,7 @@ risk this article has been describing.
     <div><dt>Type</dt><dd>ECU flash &mdash; hardware plus 8 credits</dd></div>
     <div><dt>Reversible</dt><dd>Yes, but the flash is logged</dd></div>
   </dl>
-  <p class="buyrow"><a class="buy" href="https://www.americantrucks.com/hp-tuners-silverado1500-mpvi4-tuner-8-universal-credits-m04-000-08.html" rel="nofollow noopener" target="_blank">See the HP Tuners MPVI4&nbsp;&rarr;</a> <span class="buy-note">list price checked 4 Nov 2026</span></p>
+  <p class="buyrow"><a class="buy" href="https://www.americantrucks.com/hp-tuners-silverado1500-mpvi4-tuner-8-universal-credits-m04-000-08.html" rel="nofollow noopener" target="_blank">See the HP Tuners MPVI4&nbsp;&rarr;</a> <span class="buy-note">$799.91, 37 reviews, checked 11 Nov 2026</span></p>
 </div>
 
 <div class="pick">

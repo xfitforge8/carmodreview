@@ -104,15 +104,19 @@ interchangeable.
   ultimate bite. It is not the pad for towing heavy or for spirited driving
   &mdash; ceramic fades earlier when hot. For a truck that commutes, that trade is
   the correct one.</p>
-  <p>The reviews here are few but unusually clean: 17 ratings, 82% of them five
-  stars and the remaining 18% four, with not a single three-star-or-below. That
-  is rare on a brake listing, where a bad install usually produces a one-star
-  about noise that turns out to be a missing shim. The owners' own words are
-  about fit rather than performance &mdash; <em>"Installed easily work great
-  great fit would buy again"</em> &mdash; and the one qualified review is honest
-  about its own limits: <em>"Only driven for 40 miles now. The price is really
-  good. The dust is ok like with every other pad. No squiking or noise."</em>
-  Forty miles is not a durability test, and we are not treating it as one.</p>
+  <p>The reviews behind that 4.82 are mostly not from this truck. The
+  PowerStop review page is shared across every Z17 fitment, and of the ten
+  reviews on it, one was written against a Silverado &mdash; and that one is a
+  <strong>2005&ndash;2006</strong> truck with rear drums, not a 2019&ndash;2026.
+  The rest are F-150, Expedition, Super Duty, Ram and Sierra owners.</p>
+  <p>What that pooled sample does support is the pad family rather than this
+  fitment: 82% five stars and 18% four across the whole page, no three-star or
+  below, and the praise is about fit and quiet rather than bite. A Ram 1500 Lone
+  Star owner at four stars is honest about the limit of his own evidence:
+  <em>"Only driven for 40 miles now. The price is really good. The dust is ok
+  like with every other pad. No squiking or noise. Brake power is really good.
+  Can&rsquo;t say anything about wear yet."</em> Forty miles is not a
+  durability test and this page is not treating it as one.</p>
   <dl class="spec">
     <div><dt>Price</dt><dd>$38.28</dd></div>
     <div><dt>Fitment</dt><dd>2019&ndash;2026, Silverado 1500, rear</dd></div>
@@ -134,15 +138,23 @@ interchangeable.
   than doing them six months apart.</p>
   <p>The 6-lug fitment is the one to check against your own truck. Get this wrong
   and you will find out at the parts counter, not on the listing.</p>
-  <p>47 ratings at 4.85, with 89% five stars and 4% three stars. The three-star
-  and the four-star both describe the same thing and neither is alarming: pads
-  that took a while to bed in. <em>"Took some time verifying the parts that I
-  received were the correct ones for my truck, in the end they were. Brakes were
-  not wearing all the way across the rotor on the face side, back side was
-  perfect."</em> Uneven pad transfer on one face is what a not-quite-clean rotor
-  surface looks like in the first few hundred miles, and it is worth knowing so
-  you do not read it as a defect. The only other repeated note is a rusted
-  parking brake hanging up &mdash; that is the truck's age, not the kit.</p>
+  <p>47 ratings at 4.85, with 89% five stars and 4% three stars. Here is the
+  catch worth knowing before you read those ratings as evidence about a
+  2019&ndash;2026 truck: the C&amp;L page is shared across three fitments, and
+  every review on it was written against the <strong>2007&ndash;2018</strong>
+  kit, either front-only or front-and-rear. None of the 47 describes the
+  19&ndash;26 kit. They are all Silverado owners, so the truck is right and the
+  year is not.</p>
+  <p>Read that way, the four-star is still the useful one, because it is a
+  fitment note rather than a failure: <em>"Took some time verifying the parts
+  that I received were the correct ones for my truck, in the end they were.
+  Brakes were not wearing all the way across the rotor on the face side, back
+  side was perfect."</em> Uneven pad transfer on one face is what a not-quite-clean
+  rotor surface looks like in the first few hundred miles, and it is worth knowing
+  so you do not read it as a defect. The other repeated note is a rusted parking
+  brake hanging up &mdash; that is the truck's age, not the kit. And one owner
+  reports rotors that lasted over 100,000 miles on regular pad changes, which is
+  the only long-run number on the page.</p>
   <dl class="spec">
     <div><dt>Price</dt><dd>$390.95</dd></div>
     <div><dt>Fitment</dt><dd>2019&ndash;2026, Silverado 1500, 6-lug</dd></div>
@@ -165,19 +177,24 @@ interchangeable.
   &mdash; check fitment for your own year rather than assuming it carries over.</p>
   <p>A third caveat, and the reason this is the conditional pick rather than the
   default one: this listing has exactly six reviews and two of them are one star.
-  Both are about noise, and one is specific enough to take seriously.
-  <em>"I'm running 35 inch tires on a 2019 Silverado. My OEM pads stopped my
-  truck extremely well but started making noise at around 40k miles so I decided
-  to try to improve my braking performance with the Hawk LTS pads."</em> The
-  other is blunter: <em>"These pads i had for three months and switched them out
-  because the squeak like no other."</em></p>
-  <p>Read the sample size honestly &mdash; six reviews, and the two one-stars
-  are a third of them, which is a small enough base that a single unhappy owner
-  moves the average by half a star. But "squeaks" is not a random complaint on a
-  semi-metallic truck pad, and LTS is a harder compound than ceramic by design.
-  If brake noise would bother you more than fade resistance would, buy the
-  PowerStop and accept the earlier fade. The case for the Hawk is heat, and it is
-  a real case &mdash; it just is not a quiet one.</p>
+  Neither was written about this fitment, and that is the point worth knowing.
+  The two one-stars are a 2015&ndash;2020 F-150 owner who wrote <em>"These pads
+  i had for three months and switched them out because the squeak like no
+  other"</em>, and a <strong>2019</strong> Silverado owner &mdash; a
+  <strong>19&ndash;26</strong> truck, not the 07&ndash;18 this card covers
+  &mdash; who wrote: <em>"I'm running 35 inch tires on a 2019 Silverado. My OEM
+  pads stopped my truck extremely well but started making noise at around 40k
+  miles so I decided to try to improve my braking performance with the Hawk LTS
+  pads."</em></p>
+  <p>So the audible-complaint rate on this page is real but collapses across
+  several different trucks and pads. What survives is the design point: LTS is a
+  semi-metallic light-truck compound, harder than ceramic by intent, and these
+  pages do report squeak. Read the sample honestly &mdash; six reviews split
+  across several fitments is too small to put a number on. But "squeaks" is not a
+  random complaint on this kind of pad. If brake noise would bother you more than
+  fade resistance would, buy the PowerStop and accept the earlier fade. The case
+  for the Hawk is heat, and it is a real case &mdash; it just is not a quiet
+  one.</p>
   <dl class="spec">
     <div><dt>Price</dt><dd>$167.99</dd></div>
     <div><dt>Fitment</dt><dd>2007&ndash;2018, Silverado 1500, front</dd></div>

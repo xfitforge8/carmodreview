@@ -97,15 +97,25 @@ argues for &mdash; and all three are listed for the 2019&ndash;2026 half-ton.
   removes the over-oiling failure mode entirely, which is the single most common
   way an intake damages the vehicle it is fitted to.</p>
   <p>36 reviews is a modest base, and the complaints cluster around the moulding
-  rather than the design. The same intake is listed once per vehicle, so those
-  reviews sit on several pages; taken together, a one-star from September 2025
-  describes two units in a row arriving with pinholes in the intake pipe and a
-  gap around the MAF boss, the second better but still leaking at the seams. Two
-  further owners report a check engine light straight after fitting &mdash;
-  <em>"it made my check engine light come on"</em> &mdash; though one of those
-  attributes it to the 2.7L Turbomax rather than the intake. A three-star from
-  May 2026 rates the torque noticeable and the airbox finish poor, and notes the
-  2.7L wants a MAF extension pigtail that isn't in the box.</p>
+  rather than the design. Be precise about which owners they come from, because
+  the same intake is listed once per vehicle and the page mixes them. The worst
+  is a one-star from a Sierra 1500 Elevation owner, on the 2.7L Sierra version of
+  this kit: <em>"First one had pin holes in in the intake pipe and a huge hole
+  around the maf area got second one and the same thing but fewer holes at the
+  seams of the intake piping save your money and buy something better 2 of them
+  were bad."</em> That is the same engine and the same moulding, so it counts
+  &mdash; but it is one owner and a different nameplate. A one-star from a Ranger
+  owner adds <em>"it made my check engine light come on"</em>, which tells you
+  nothing about a Silverado. The one review that does describe the 2.7L
+  Silverado directly is a three-star reporting fault codes: <em>"this cold air
+  intake system caused my truck to throw codes on my truck, but I think it was
+  because it was the 2.7l Turbomax."</em> He is unsure himself, and one account
+  is not a pattern.</p>
+  <p>Separately, a three-star on this listing from a <strong>5.3L</strong>
+  Silverado owner rates the torque noticeable and the airbox finish poor, and
+  says his truck needed a MAF extension pigtail that was not in the box &mdash;
+  a note about his engine, not the 2.7L. Worth checking on yours, not a
+  documented 2.7L requirement.</p>
   <p>None of that is a reason to avoid it &mdash; 89% of the ratings are four or
   five stars. It is a reason to open the box and inspect the pipe before you
   start, rather than after you've thrown the packaging away.</p>
@@ -128,18 +138,31 @@ argues for &mdash; and all three are listed for the 2019&ndash;2026 half-ton.
   traffic. Dry filter, so no oiling ritual and no MAF contamination risk.</p>
   <p>The 436 reviews are pooled across every truck this housing is listed for
   &mdash; 2.7L and 3.0L Duramax Silverados, Sierras, F-150s, Colorados &mdash; so
-  read them as evidence about the housing rather than about this engine. Read
-  that way they are consistent, and they are specific. Owners repeatedly report
-  no measurable gain: <em>"I haven't noticed anything, still sounds the same and
-  still feels the same. No gas mileage increase or anything, kind of a let down
-  for an intake that cost $400 plus."</em> One 6.6L owner is blunter, and one
-  Ranger owner found it simply does not fit the 2025+ truck. The one complaint
-  worth acting on before you buy: a June 2026 review reports failing a smog
-  test because the kit carried no CARB exemption for a 2017-and-up Silverado.
-  That is one owner's account, not a ruling on the kit &mdash; the listing
-  states no EO number either way. But if you are in a state that inspects,
-  confirm the exemption for your model year before ordering. It is a $435
-  mistake you can avoid with a phone call.</p>
+  read the number as evidence about the housing rather than about this engine.
+  The reviews written against the 2.7L Silverado fitment itself are what matters
+  here, and there are twenty of them: nineteen five-star and one three-star. They
+  are consistent about what the part actually does. <em>"I put this on my 2021
+  Silverado an I must say a true difference in acceleration with the added sound
+  to the 2.7 which is nice also."</em> And <em>"Just installed this intake on my
+  2.7 turbo and I'm really impressed. Instructions were great and install went
+  smoothly. I was pleasantly surprised that unlike the one I had on my 5.3 this
+  one isn't overly loud. Has helped my fuel mileage slightly and definitely has
+  more power."</em></p>
+  <p>The single dissenting 2.7L voice is a three-star from a Custom Trail Boss
+  owner, and it is about finish rather than function: <em>"The quality of the
+  plastic could be a little more durable, seems kinda flimsy, but the ease of
+  installation was topnotch."</em> He goes on to say a check engine light came
+  on after the install and the truck reported a purge valve issue. That is one
+  owner, not a pattern, but on a sealed-box intake it is the fault code to know
+  about if you see it.</p>
+  <p>One more complaint is worth acting on before you buy, and it is not from
+  this fitment: a June 2026 review from a 2014&ndash;2018 6.2L High Country owner
+  is titled <em>"Not CARB EO compliant for 2017 and up silverados"</em> and says
+  he could not get the truck smogged without buying a stock intake. That is one
+  owner's account of a different fitment, not a ruling on this kit, and the
+  listing states no EO number either way. But if you are in a state that
+  inspects, confirm the exemption for your model year before ordering. It is a
+  $435 mistake you can avoid with a phone call.</p>
   <dl class="spec">
     <div><dt>Price</dt><dd>$435.00</dd></div>
     <div><dt>Fitment</dt><dd>2019&ndash;2026, 2.7L Silverado 1500</dd></div>
@@ -165,13 +188,18 @@ argues for &mdash; and all three are listed for the 2019&ndash;2026 half-ton.
   <em>"Holes do not line up to bolt air box down... s and b have sent me 3 now
   and none are correct."</em> The other is headed <em>"Terrible QC"</em> and
   says <em>"Literally nothing about this intake fits, bolts don’t line up, holes
-  don’t line up, just bad."</em> Two more report the wrong parts in the
-  kit, and one 2026 owner had to warm the lid plastic to get it to seat at all
-  &mdash; something the instructions do not mention.</p>
-  <p>That is a fitment-and-moulding pattern, not a design flaw, and it is a
-  minority of a very large sample. But "bolt it up cleanly" is exactly what
-  those owners say it did not do, so buy it expecting to be one of the 86% and
-  keep the packaging until it is seated.</p>
+  don’t line up, just bad."</em> Be clear about what those two are: neither was
+  written about the 2.7L Silverado. The first is a Duramax Sierra 2500 owner and
+  the second a Ram 1500 owner, which the listing shows with each review. That
+  does not make the moulding complaint irrelevant &mdash; it is the same filter
+  housing &mdash; but it is not evidence about your engine, and there are no
+  reviews on this listing written against the 2.7L at all.</p>
+  <p>So the honest summary is that this is a fitment-and-moulding pattern from
+  other trucks, not a demonstrated defect on yours, and any such pattern would be
+  a minority of a very large sample. But "bolt it up cleanly" is exactly what
+  those owners say it did not do, and no 2.7L owner has yet contradicted them, so
+  buy it expecting to be one of the 86% and keep the packaging until it is
+  seated.</p>
   <dl class="spec">
     <div><dt>Price</dt><dd>$399.00</dd></div>
     <div><dt>Fitment</dt><dd>2019&ndash;2026, 2.7L Silverado 1500</dd></div>
