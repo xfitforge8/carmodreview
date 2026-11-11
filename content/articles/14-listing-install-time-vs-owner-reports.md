@@ -4,7 +4,7 @@ title:
 seo_title:
   en: "Install Time: What Listings Say vs What Owners Report"
 seo_desc:
-  en: "We compared the install time on 24 truck part listings against what owners actually reported in 490 reviews. On the parts listed as under an hour, 4 of the 22 owners who named a time took two hours or more."
+  en: "We compared install times on 24 truck part listings against what owners reported in 490 reviews. Of the parts listed under an hour, 4 of 22 owners named 2+ hrs."
 slug: listing-install-time-vs-owner-reports
 category: Engine
 status: draft

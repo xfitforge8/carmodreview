@@ -4,7 +4,7 @@ title:
 seo_title:
   en: "Why Only the Driver Window Has Auto-Up"
 seo_desc:
-  en: "All four windows drop with one press but only the driver's goes back up. It is not a setting and not a software lock. Here is what actually decides it, what the reset trick really does, and how to add it to the other doors."
+  en: "All four windows drop with one press, but only the driver's goes back up. Not a setting, not a lock. What decides it, and how to add auto-up to the rest."
 slug: auto-up-windows
 category: Electrical
 status: draft

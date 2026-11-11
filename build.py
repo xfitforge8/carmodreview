@@ -426,7 +426,7 @@ def resolve_links(html_text, rel=''):
         slug = m.group(1)
         if slug in HUBLESS:
             return f'href="{rel}{HUBLESS[slug]}"'
-        return f'href="{rel}{slug}/index.html"'
+        return f'href="{rel}{slug}/"'
 
     def page_sub(m):
         path = m.group(1)
@@ -802,10 +802,10 @@ TAGLINE = {
 # putting it on a page with no commercial link would be a false statement about
 # that page.
 DISCLOSURE = {
-    'en': ('<div class="disclosure"><strong>Affiliate note.</strong> Links to '
-           'retailers on this page may earn us a commission if you buy through '
-           'them. It does not change what you pay, and it does not decide which '
-           'parts we pick or where they rank. '
+    'en': ('<div class="disclosure"><strong>Affiliate note.</strong> CarModReview '
+           'may earn a commission from purchases made through links on this page, '
+           'at no extra cost to you. It does not decide which parts we pick or '
+           'where they rank. '
            '<a href="{rel}legal/affiliate-disclosure.html">Full disclosure</a>.</div>'),
     'kr': ('<div class="disclosure"><strong>제휴 고지.</strong> 이 페이지의 소매점 '
            '링크를 통해 구매하시면 저희가 수수료를 받을 수 있습니다. 구매 가격은 '
@@ -886,6 +886,18 @@ def build_related(lang, rel, entries, current_slug, current_cat):
     """
     if not entries:
         return ''
+    # How many guides each category has. A category with one guide can never be
+    # anyone's same-category sibling, so the related block is its ONLY in-body
+    # route and the cross-category filler is its only chance of being linked to
+    # at all. Ordering the filler by filename gave every slot to whichever
+    # categories happened to sort early, and Brakes, Tonneau and Electrical --
+    # one guide each -- sat on three inbound links while ecu-tuning-explained
+    # collected eighteen. Feeding the scarcest categories the filler slots is
+    # what balances that.
+    per_cat = {}
+    for _d, _s, cat, *_rest in entries:
+        per_cat[cat] = per_cat.get(cat, 0) + 1
+
     same, other = [], []
     lrel = lang_root(rel, lang)
     for date, slug, cat, cs, cl, ck, ce, meta in entries:
@@ -901,8 +913,20 @@ def build_related(lang, rel, entries, current_slug, current_cat):
                f'{html.escape(title)}</a>'
                f'<span class="side-cat">{html.escape(catlabel)}</span>'
                f'</li>\n')
-        (same if cat == current_cat else other).append(row)
-    rows = (same + other)[:4]
+        if cat == current_cat:
+            same.append(row)
+        else:
+            other.append(((per_cat.get(cat, 99), slug), row))
+    # Every same-category sibling goes in; only the cross-category filler is
+    # capped. The old rule capped one flat (same + other) list at four, so in
+    # Engine -- six guides -- the fifth and sixth siblings were dropped from
+    # every other Engine guide's related block, permanently. That is how
+    # listing-install-time and what-owners-complain-about ended up with zero
+    # inbound links from any article while four guides they outrank linked past
+    # them. A reader on a brakes guide wants the other brakes guide, not four
+    # essays about intakes.
+    other.sort(key=lambda r: r[0])
+    rows = (same + [row for _k, row in other])[:6]
     if not rows:
         return ''
     return (f'\n  <div class="related">\n'
@@ -1138,7 +1162,7 @@ def default_sidebar(lang, rel, entries=None):
                       f'    </div>\n')
 
     items = ''.join(
-        f'        <li><a href="{lrel}{HUBLESS.get(slug, slug + "/index.html")}">'
+        f'        <li><a href="{lrel}{HUBLESS.get(slug, slug + "/")}">'
         f'{html.escape(label)}</a></li>\n'
         for slug, label in ((c[0], c[labels[lang]]) for c in CATEGORIES.values())
     )
@@ -1210,7 +1234,11 @@ def site_jsonld():
                 'url': f'{DOMAIN}/',
                 'name': 'Car Mod Review',
                 'publisher': {'@id': f'{DOMAIN}/#org'},
-                'inLanguage': ['en', 'ko', 'es'],
+                # English only. This used to list ko and es, left over from the
+                # three-language build; those pages are now redirect stubs and
+                # announcing them in schema.org tells Google the site has
+                # content it cannot crawl.
+                'inLanguage': 'en',
                 # site search is real (search.html), so declaring it is honest
                 'potentialAction': {
                     '@type': 'SearchAction',
@@ -1536,9 +1564,9 @@ def build():
             shots = find_photos(PHOTO_ROOT, slug)
             hero_img = (f'{DOMAIN}/img/photos/{slug}/{os.path.basename(shots[0])}'
                         if shots else None)
-            trail = [('Home', f'{DOMAIN}/{prefix}/index.html' if prefix else f'{DOMAIN}/'),
+            trail = [('Home', f'{DOMAIN}{prefix}/' if prefix else f'{DOMAIN}/'),
                      (catlabel if code == 'en' else cat,
-                      f'{DOMAIN}{prefix}/{catslug}/index.html'),
+                      f'{DOMAIN}{prefix}/{catslug}/'),
                      (title, canon)]
             jsonld = (article_jsonld(title, seo_desc, canon, published, date,
                                      catlabel if code == 'en' else cat, code, hero_img)
@@ -1843,7 +1871,12 @@ def build_static_pages(index_entries, sidebar_entries=None):
 
     for code, label, prefix in LANGS:
         rel = '../' if prefix else ''
-        alts = {'en': f'{DOMAIN}/index.html'}
+        # The canonical is the bare root, not /index.html. GitHub Pages serves
+        # identical bytes from both, which makes them duplicates, and Google
+        # reports the pair as "Duplicate, Google chose different canonical"
+        # rather than merging cleanly. Pointing every signal at "/" makes the
+        # choice unambiguous. The og:url and sitemap follow the same URL.
+        alts = {'en': f'{DOMAIN}/'}
         for c, _, p in LANGS[1:]:
             alts[c] = f'{DOMAIN}{p}/index.html'
         if code in langs_home:
@@ -1895,7 +1928,12 @@ def build_static_pages(index_entries, sidebar_entries=None):
             body_with_lead = body + '\n' + index_list_html(index_entries, code, rel)
             page = render_page(
                 lang=code, title=title if code != 'en' else
-                'Car Mod Review — Car and Truck Parts, Checked Against the Specs',
+                # 50 characters. The old wording ran to 63, and Google cuts the
+                # tail around 60 -- which threw away "Against the Specs", the one
+                # phrase that says what this site does differently from every
+                # other parts blog. "Spec-Checked" keeps that claim inside the
+                # limit instead of shortening it away.
+                'Car Mod Review — Car and Truck Parts, Spec-Checked',
                 desc='Car and truck parts guides built from published specifications, '
                      'with every source named. No invented numbers and no unverified claims.',
                 canonical=alts[code], body_html=body_with_lead,
@@ -2278,7 +2316,7 @@ def index_list_html(index_entries, code, rel):
             items,
             key=lambda e: (str(e[7].get('published') or ''), e[0], e[1]),
             reverse=True)
-        out.append(f'  <h3><a href="{rel}{HUBLESS.get(catslug, catslug + "/index.html")}">'
+        out.append(f'  <h3><a href="{rel}{HUBLESS.get(catslug, catslug + "/")}">'
                    f'{html.escape(labels[label_i - 1])}</a></h3>\n')
         out.append('  <ul class="post-list">\n')
         for e in items:
@@ -2338,8 +2376,11 @@ def build_category_pages(arts, sidebar_entries=None):
                      + hub_fig
                      + f'  <ul class="post-list">\n{"".join(rows)}  </ul>\n')
             # English only; see the note on the about page above.
-            alts = {'en': f'{DOMAIN}/{cs}/index.html'}
-            trail = [('Home', f'{DOMAIN}/{prefix}/index.html' if prefix else f'{DOMAIN}/'),
+            # "/engine/" not "/engine/index.html". GitHub Pages serves identical
+            # bytes from both, and two URLs for one hub is the duplicate the
+            # sitemap and every inbound link now avoid.
+            alts = {'en': f'{DOMAIN}/{cs}/'}
+            trail = [('Home', f'{DOMAIN}{prefix}/' if prefix else f'{DOMAIN}/'),
                      (name, alts[code])]
             hub_jsonld = breadcrumb_jsonld(trail) + (
                 '<script type="application/ld+json">\n' + json.dumps({
@@ -2591,17 +2632,23 @@ def build_sitemap(arts):
     # Static pages do not all exist in every language — about, methodology,
     # contact and terms are per-language authored, not generated. List a URL only
     # when build_static_pages actually writes it, or the sitemap advertises 404s.
-    for path in ('index.html', 'about.html', 'methodology.html', 'contact.html',
-                 'legal/privacy-policy.html',
-                 'legal/affiliate-disclosure.html',
-                 'legal/terms-of-service.html'):
+    # The homepage goes in as "/" rather than "/index.html": both return the
+    # same bytes, so listing the second form invites the duplicate.
+    static_paths = ('about.html', 'methodology.html', 'contact.html',
+                    'legal/privacy-policy.html',
+                    'legal/affiliate-disclosure.html',
+                    'legal/terms-of-service.html')
+    for code, _, prefix in LANGS:
+        if (prefix or '/') == '/':
+            urls.append((f'{DOMAIN}/', None))
+    for path in static_paths:
         for code, _, prefix in LANGS:
             if os.path.exists(os.path.join(OUT, *(prefix.strip('/').split('/')
                                                  if prefix else []), path)):
                 urls.append((f'{DOMAIN}{prefix}/{path}', None))
     for c in sorted(newest_by_cat):
         for code, _, prefix in LANGS:
-            urls.append((f'{DOMAIN}{prefix}/{c}/index.html', newest_by_cat[c]))
+            urls.append((f'{DOMAIN}{prefix}/{c}/', newest_by_cat[c]))
 
     # hand-written pages carried forward from the pre-generator site
     urls.append((f'{DOMAIN}/cold-air-intakes/', '2026-10-30'))
