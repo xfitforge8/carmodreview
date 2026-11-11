@@ -207,3 +207,22 @@ a low rating, fitment was the reason more often than everything else.
 Prices and review counts were read off live listings in November 2026. Nothing
 here is based on testing we performed; it is based on what owners wrote after
 living with these parts.
+
+### Frequently asked questions
+
+**What do truck owners complain about most?**
+
+Fitment, by a wide margin. We read every one- to three-star review across 28 truck parts, and fitment beat every other failure.
+
+**Are check engine lights as common as people say?**
+
+Rarer than you would think. The guide counted them and reports what the reviews actually said rather than what the reputation suggests.
+
+**Why do parts not fit?**
+
+Year model is where fitment breaks. A part that fits one model year of a generation may not fit another, and that is where the complaints cluster.
+
+**What is the second most common problem?**
+
+Missing hardware: the second most common disappointment, behind fitment.
+

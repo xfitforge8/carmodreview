@@ -195,6 +195,28 @@ argues for &mdash; and all three are listed for the 2019&ndash;2026 half-ton.
 
 ---
 
+### Frequently asked questions
+
+**Does a cold air intake actually add horsepower?**
+
+On a stock tune, usually not. The ECU holds its commanded power, so a bolt-on intake on a stock tune is mostly a sound modification. The exception is an intake designed and calibrated together with a tune, which is a different product sold as a package.
+
+**Will a cold air intake damage my MAF sensor?**
+
+It can, and over-oiling is the usual cause. Oil mist coats the MAF sensor's heated element, which then under-reports airflow, and the ECU reads that as a lean condition: rough idle, hesitation, and eventually a P0171 or P0174 lean code. Dry filter media avoids the oil problem entirely.
+
+**How do I clean a MAF sensor?**
+
+Use MAF cleaner, which is formulated to evaporate fully and not attack the sensor or its housing. Do not use brake cleaner, carb cleaner, or anything containing acetone or strong solvents; those will destroy the sensor.
+
+**What is heat soak and does it affect my intake?**
+
+Half of what is marketed as a cold air intake draws from inside the engine bay, which is the hottest air available once the car is warm and stationary. You would notice strong performance when moving and flat response in traffic. A sealed box against the hood or a dedicated duct is what makes cold air real.
+
+**Is a drop-in filter better than a full intake?**
+
+On a stock or near-stock engine, a good drop-in panel filter in the factory airbox is the most underrated option: it is cheap, carries no MAF risk, keeps the factory cold-air path, and gives a small real benefit.
+
 ## KR
 
 메커니즘 자체를 다루는 가이드이므로 어떤 플랫폼에도 적용됩니다. 터보 4기통이든 V8이든 디젤이든 물리는 같고, 특정 엔진만 다릅니다.

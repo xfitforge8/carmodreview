@@ -180,6 +180,24 @@ ranges are the listing's own, and they are not interchangeable &mdash; the
 
 ---
 
+### Frequently asked questions
+
+**What does a leveling kit actually do?**
+
+It raises the front of a truck to match the rear, removing the nose-down stance that comes from the factory rake. It changes how the truck sits, not how much it can carry or tow.
+
+**Is a leveling kit the same as a lift kit?**
+
+No. A leveling kit only takes out the front-to-rear rake; a lift kit raises the whole vehicle. The two change different things and carry different consequences for geometry.
+
+**What wears out faster after a leveling kit?**
+
+Geometry is what changes, and the parts that wear early follow from it. The kit itself is rarely the expensive part of the job, which is why the guide starts with the real cost rather than the sticker price.
+
+**Do I need an alignment after installing a leveling kit?**
+
+Yes. Changing front ride height changes alignment, and the guide treats alignment as part of the job rather than an optional extra.
+
 ## KR
 
 트럭 오너들이 가장 먼저 하는 작업은 성능이 아닙니다. 자세입니다.

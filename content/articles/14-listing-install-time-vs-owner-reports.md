@@ -185,3 +185,22 @@ means the afternoon — 5 of 16 owners beat 90 minutes; the rest ran to four hou
 Buy the part for what it does, on a day when the time does not matter.
 
 *CarModReview may earn a commission from purchases made through links on this page, at no extra cost to you.*
+
+### Frequently asked questions
+
+**How long does it actually take to install these parts?**
+
+The install time on the listing is not the install time. We compared 24 listings against what owners reported in 490 reviews.
+
+**What separates a one-hour install from a four-hour one?**
+
+The install notes cover what separates an hour from four, and it is usually one specific step rather than the whole job.
+
+**Are these parts legal in California?**
+
+California legality has its own section, because a part that is legal elsewhere can still fail a smog visual inspection without a CARB executive order.
+
+**Which part is the best alternative?**
+
+The guide names its best alternative at the end, after the numbers, rather than leading with a recommendation.
+

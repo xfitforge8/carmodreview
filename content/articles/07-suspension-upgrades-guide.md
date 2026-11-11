@@ -186,6 +186,24 @@ which is the axis that separates a shortcut from a proper job.
 
 ---
 
+### Frequently asked questions
+
+**What does suspension do besides holding the car up?**
+
+It controls how weight transfers, how the tires stay in contact with the road, and how the car behaves under load. Springs and dampers are only part of it.
+
+**Are cheap coilovers worth it?**
+
+Cheap kits are covered by what they actually give you. The guide ranks the options by what you get rather than by price alone, and explains where cheap kits ruin the ride.
+
+**Do I need an alignment after suspension work?**
+
+Geometry is the part people skip, and changing ride height changes it. The guide treats it as part of the job.
+
+**How do I choose spring rates?**
+
+Match spring rate to use. A rate that suits a track car is wrong for a daily driver, and the guide explains how to pick for the driving you actually do.
+
 ## KR
 
 다운스프링은 살 수 있는 가장 저렴한 튜닝 중 하나이고, 차를 나쁘게 만드는 가장 쉬운 방법 중 하나이기도 합니다. 각 옵션이 실제로 무엇을 하는지 정리해서, 핸들링을 사는지, 자세를 사는지, 아니면 둘 다 아닌지 판단하실 수 있게 하겠습니다.

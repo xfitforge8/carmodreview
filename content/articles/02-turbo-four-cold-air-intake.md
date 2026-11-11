@@ -176,6 +176,24 @@ is sealed, which is what this article has been about.
 
 ---
 
+### Frequently asked questions
+
+**Does a cold air intake help a 2.7L turbo four?**
+
+It can, but what it can and cannot do is narrower than the marketing suggests. The guide covers both before it talks about buying anything.
+
+**What are the failure modes to watch for?**
+
+Two failure modes are worth knowing, and the guide names them because they are the expensive outcomes rather than the inconvenient ones.
+
+**What should I expect realistically?**
+
+Realistic expectations on a turbo four get their own section, because the effect is different from what the same product does on a naturally aspirated V8.
+
+**Should I buy an intake or spend the money elsewhere?**
+
+Where the money is better spent first is covered directly, and the guide is willing to say the intake is not the first purchase.
+
 ## KR
 
 콜드에어 인테이크는 레벨링 킷 다음으로 많이 사는 부품이고, 마케팅 문구와 오너가 실제로 느끼는 것 사이의 간격이 가장 큰 튜닝이기도 합니다.

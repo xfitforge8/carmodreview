@@ -181,6 +181,24 @@ risk this article has been describing.
 
 ---
 
+### Frequently asked questions
+
+**What is the difference between a flash tune, a piggyback and a standalone?**
+
+They are three different approaches to the same problem, and they differ in what they can change and what they cost. The guide compares all three directly.
+
+**Will a tune void my warranty?**
+
+The warranty conversation is worth having before you buy rather than after, which is why it has its own section. The answer depends on the vehicle and the dealer, so the guide frames it as a conversation rather than a yes or no.
+
+**Do I need supporting hardware before tuning?**
+
+There is an order of operations for supporting hardware, and doing it out of order is what turns a tune into a repair bill.
+
+**Is data logging really necessary?**
+
+Yes. The guide treats data logging as not optional, because it is how you know the tune is doing what it claims on your vehicle.
+
 ## KR
 
 터보 엔진에서 튜닝은 투자 대비 효과가 가장 큰 튜닝이고, 동시에 가장 큰 결과를 동반하는 튜닝입니다. 특정 제품의 판촉이 아니라, 돈을 쓰기 전에 읽고 싶은 가이드입니다.

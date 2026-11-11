@@ -207,6 +207,24 @@ fitment text, not from a GM spec sheet.
 
 ---
 
+### Frequently asked questions
+
+**How much should I spend on a tonneau cover?**
+
+Roughly $190 to $1,500, and the cheapest one is the right answer more often than the category admits. The guide compares covers by the job they do rather than the name on the box.
+
+**What is the difference between roll-up, tri-fold and retractable covers?**
+
+They protect different things and suit different uses. The four jobs are set out in order of price, so the trade is visible at each step.
+
+**Is an open-box tonneau cover worth buying?**
+
+The open-box question has its own section, because the saving is real but the risk is not the same for every cover type.
+
+**What should I check before buying a tonneau cover?**
+
+Three things, and the guide puts them before a single cover is looked at, because getting them wrong makes the cover choice irrelevant.
+
 ## KR
 
 토노 커버는 트럭 베드 액세서리 중 판매량이 가장 많은 품목이면서, 동시에

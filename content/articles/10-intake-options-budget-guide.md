@@ -338,6 +338,24 @@ engine — check yours before ordering.
 
 ---
 
+### Frequently asked questions
+
+**What does a $65 drop-in panel filter get me?**
+
+A drop-in panel filter is the cheapest option in the comparison. What each price band actually changes is the whole point of the guide, and the difference is not proportional to the price.
+
+**Is a $476 intake worth three times a $190 one?**
+
+Not necessarily. The guide compares five approaches from a $65 drop-in to a $476 sealed box by what each one actually changes, rather than by what it costs.
+
+**What decides whether I notice a difference?**
+
+One thing decides whether you notice a difference, and the guide names it first, before the price bands.
+
+**Can I build my own intake?**
+
+The DIY option has its own section, and the guide explains what it actually is rather than treating it as a shortcut.
+
 ## KR
 
 인테이크는 하나의 제품군처럼 팔리지만, 실제로는 다섯 가지 다른 가격대의 다섯

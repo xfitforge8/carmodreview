@@ -185,6 +185,24 @@ regear or a lift.
 
 ---
 
+### Frequently asked questions
+
+**What load range tire do I need for a mostly-street 4x4?**
+
+Start with load, not looks. Load range E is the spec most often bought by mistake on a truck that never tows; it carries more weight than most owners need and rides harsher as a result.
+
+**What size tire fits my stock truck?**
+
+Read the door jamb sticker first. The size that fits stock is on the vehicle, not in a fitment chart, and the guide works from that sticker rather than from a listing.
+
+**Do I need to rotate 4x4 tires differently?**
+
+Yes. The 4x4 rule for rotation differs from a two-wheel-drive vehicle, and the guide covers it as its own step.
+
+**What tire pressure should I run?**
+
+The pressure question has its own section because the answer depends on load and use rather than on a single number for the tire.
+
 ## KR
 
 타이어는 어떤 트럭에서든 투자 대비 효과가 가장 큰 튜닝이고, 동시에 가장 잘못된 이유로 사는 부품입니다. 전형적인 실수는 실제로 타는 차가 아니라 상상 속에서 모는 차(진흙, 바위, 사냥터)를 기준으로 고르는 것입니다. 실제 주행의 90%가 출퇴근과 가끔의 트레일러인데도요.

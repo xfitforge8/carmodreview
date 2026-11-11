@@ -201,6 +201,24 @@ interchangeable.
 
 ---
 
+### Frequently asked questions
+
+**Do I need to replace rotors when I replace pads?**
+
+Not always, but rotors have their own section because the decision depends on wear rather than on the pad change.
+
+**What is brake bedding and do I need to do it?**
+
+Bedding transfers a layer of pad material to the rotor surface. The guide covers how to do it, and it is a step rather than an optional extra.
+
+**Which brake pad compound should I buy?**
+
+Pad compound is the real decision, and it is a trade: some pads trade dust for bite. The guide lays out the trade rather than naming one best pad.
+
+**Are stainless brake lines worth it?**
+
+Fluid and lines are called the cheap upgrade people forget, which is where the guide puts them in the order of spending.
+
 ## KR
 
 늘린 마력은 차가 멈추고 돌 수 있을 때만 랩타임이나 도로 속도로 환산됩니다. 브레이크는 튜닝된 차에서 가장 덜 튜닝되는 시스템입니다. 사람들은 배기에 수백만 원을 쓰고 패드는 건너뜁니다.

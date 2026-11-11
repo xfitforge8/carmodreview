@@ -184,6 +184,24 @@ do the cab and bed configurations.
 
 ---
 
+### Frequently asked questions
+
+**What is the difference between cat-back and axle-back?**
+
+A cat-back replaces everything from the catalytic converter rearward; an axle-back replaces only the section behind the rear axle. What each one changes is covered section by section.
+
+**Why does my exhaust drone at highway speed?**
+
+Drone comes from resonance in the system, and it has its own section because it is the most common complaint after fitting an exhaust.
+
+**Is an aftermarket exhaust legal?**
+
+It depends where you live. Sound and the law are covered together, and the guide states what the law requires rather than assuming one rule for everyone.
+
+**Does a cat-back add horsepower?**
+
+The guide deliberately gives no power numbers, and explains why: without a dyno chart from your own vehicle, a claimed figure is not something we can verify.
+
 ## KR
 
 배기는 소리를 위해 사고 나서 드론 때문에 후회하는 부품입니다. 시스템이 실제로 무엇을 하는지, 그리고 어느 부분이 어떤 특성을 만드는지 이해하는 것이, 좋은 구매와 고속도로 출퇴근마다 함께 살아야 하는 비싼 실수를 가르는 기준입니다.

@@ -192,3 +192,22 @@ hardware to every door costs money and no US rule requires it. A reset sequence
 re-teaches a memory — worth a minute after a battery change, useless as an upgrade.
 A module with its own sensing is the only thing that adds the feature, and only on
 trucks that still have a plain wire to the window motor.
+
+### Frequently asked questions
+
+**Why does only my driver window go up automatically?**
+
+It is not a setting and not a software lock. The guide explains what actually decides it, which comes down to how the switch and motor are specified rather than to a hidden option.
+
+**Does the reset procedure actually work?**
+
+The reset procedure everyone finds online is covered, and the guide explains what it really does, because it addresses one specific problem and not the others.
+
+**Can I add auto-up to the other doors?**
+
+Yes, and the guide covers what to look for in a module. It also says which question it cannot answer for your specific vehicle.
+
+**Is auto-up on other windows legal in the US?**
+
+What the US rule says has its own section, including the part of the rule that pulls the other way, because the requirement is narrower than it is often described.
+

@@ -278,6 +278,63 @@ RETIRED_LANGS = [('kr', '/kr'), ('es', '/es')]
 # that covers them, so no page ever links to a URL that does not exist.
 HUBLESS = {'tuning': 'engine/ecu-tuning-explained.html'}
 
+# An intro paragraph for each category hub.
+#
+# Every hub under about 160 words is a heading and a list of links: nothing on
+# the page says what the category covers, so it has nothing to rank for beyond
+# the three words in its title. These are written from what the guides in each
+# category actually say -- no new claims, no keyword stuffing, no sentence that
+# could be generated from the category name alone. A category with one guide
+# gets an intro that names that guide's real subject, because that is the
+# search the page can plausibly answer.
+HUB_INTRO = {
+    'engine': (
+        'Intakes, tuning and the things that go wrong after both. These guides '
+        'cover what a cold air intake does and does not change, why the MAF '
+        'sensor is the part that actually fails, how flash and piggyback tuning '
+        'differ, and what owners report when a part does not fit. Prices are '
+        'the ones we checked, with the date we checked them.'),
+    'suspension': (
+        'Leveling kits and suspension upgrades, and what each one costs you in '
+        'ride, geometry and parts wear. A leveling kit is the cheapest way to '
+        'change how a truck sits and the easiest way to wear out a ball joint; '
+        'these guides explain the trade before you buy rather than after.'),
+    'wheels-tires': (
+        'Wheel offset, tire load range and the numbers that decide whether a '
+        'set actually fits. Load range E is the spec most often bought by '
+        'mistake on a truck that never tows, and offset is the spec most often '
+        'guessed. Both are covered here with the figures named.'),
+    'exhaust': (
+        'Cat-back against axle-back, where drone comes from, and what the law '
+        'requires where you live. Exhaust is the upgrade with the widest gap '
+        'between the marketing and the measurement, which is why this guide '
+        'starts with the mechanisms rather than the sound clips.'),
+    'brakes': (
+        'Pads and rotors: what an upgrade actually changes, how bedding works, '
+        'and which pads trade dust for bite. Brakes are the one system where '
+        'the cheap option is not automatically the wrong one, and this guide '
+        'explains where the money does and does not buy stopping power.'),
+    'tonneau': (
+        'Tonneau covers from roughly $190 to $1,500, compared by the job they '
+        'do rather than the name on the box. Roll-up, tri-fold and retractable '
+        'covers protect different things, and the cheapest one is the right '
+        'answer more often than the category admits.'),
+    'electrical': (
+        'The small electrical behaviour nobody documents: why one window has '
+        'auto-up and the others do not, what the reset procedure really does, '
+        'and what it takes to add the function to the remaining doors.'),
+}
+
+
+def hub_intro(catslug, n_articles):
+    """The standfirst on a category hub, or '' when none is written."""
+    txt = HUB_INTRO.get(catslug)
+    if not txt:
+        return ''
+    return f'  <p class="dek">{html.escape(txt)}</p>\n'
+
+
+
 UI = {
     'en': dict(all_posts='All posts', how='How we pick', home='Home',
                published='Published', updated='Updated', minread='min read', verified='What we could not verify',
@@ -1283,6 +1340,48 @@ def disclosure_html(lang):
             f'  </div>\n')
 
 
+def extract_faq(md_text):
+    """Question/answer pairs from a 'Frequently asked questions' section.
+
+    The section is written in the article as a bolded question followed by a
+    paragraph, which is what a reader scrolls past. Structured data has to
+    match what is visible on the page -- Google treats a FAQPage that lists
+    questions the page does not show as spam -- so this reads the same text
+    the renderer prints rather than keeping a separate copy.
+
+    Returns a list of (question, answer) tuples, or [] when there is no FAQ.
+    """
+    m = re.search(r'^###?\s*Frequently asked questions\s*\n(.*?)(?=\n#{2,3}\s|\Z)',
+                  md_text, re.M | re.S | re.I)
+    if not m:
+        return []
+    pairs = []
+    block = m.group(1)
+    # **Question?** followed by one or more lines of answer.
+    for qm in re.finditer(r'\*\*(.+?)\*\*\s*\n+(.+?)(?=\n\s*\*\*|\Z)', block, re.S):
+        q = re.sub(r'\s+', ' ', qm.group(1)).strip()
+        a = re.sub(r'\s+', ' ', qm.group(2)).strip()
+        a = re.sub(r'[*_`]', '', a)
+        if q and a:
+            pairs.append((q, a))
+    return pairs
+
+
+def faq_jsonld(pairs):
+    """FAQPage structured data for the pairs above, or '' when there are none."""
+    if not pairs:
+        return ''
+    return ('<script type="application/ld+json">\n' + json.dumps({
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        'mainEntity': [
+            {'@type': 'Question',
+             'name': q,
+             'acceptedAnswer': {'@type': 'Answer', 'text': a}}
+            for q, a in pairs],
+    }, ensure_ascii=False, indent=2) + '\n</script>')
+
+
 def article_jsonld(title, desc, canonical, published, modified, section, lang, image=None):
     return ('<script type="application/ld+json">\n' + json.dumps({
         '@context': 'https://schema.org',
@@ -1571,6 +1670,7 @@ def build():
                      (title, canon)]
             jsonld = (article_jsonld(title, seo_desc, canon, published, date,
                                      catlabel if code == 'en' else cat, code, hero_img)
+                      + faq_jsonld(extract_faq(inner) if code == 'en' else [])
                       + breadcrumb_jsonld(trail))
             search_items.append({
                 'u': canon.replace(DOMAIN, '') or '/',
@@ -1847,6 +1947,62 @@ def build_legacy_pages(sidebar_entries=None):
                                       art.group(0) if art else txt,
                                       'cold-air-intake', 'Engine & Intake', '')
                 txt = txt.replace('</article>', topics + rel_html + '</article>', 1)
+
+            # The same FAQ the generated articles carry. This page is hand-
+            # written HTML rather than markdown, so the questions go in as HTML
+            # and the FAQPage JSON-LD is built from the same list -- Google
+            # penalises a FAQPage whose questions are not visible on the page,
+            # so the two must be generated from one source rather than typed
+            # twice. Every answer below is a sentence this page already makes;
+            # nothing new is claimed here.
+            legacy_faq = [
+                ('What is the best cold air intake for a 5.0L F-150?',
+                 'Best all-round is the Roush, around $430: CARB-legal, 4.7 '
+                 'stars over 500+ ratings, and the longest track record on '
+                 'this platform. Best value is the SR Performance at around '
+                 '$150, a third of the price and rated slightly higher, though '
+                 'you give up brand resale and some fit-and-finish polish.'),
+                ('Does a cold air intake add horsepower to a 5.0L F-150?',
+                 'An intake on a modern, factory-tuned truck typically '
+                 'produces a gain in the low single digits at the wheels, and '
+                 'the gain tends to be larger at high RPM than where you '
+                 'actually drive. What is reliably real is the sound. We found '
+                 'no dyno sheet published alongside these specific listings and '
+                 'we did not run one, so we print no horsepower number.'),
+                ('Is a cold air intake legal in California?',
+                 'Only the Roush listing we checked states an exemption '
+                 'outright. If smog inspection matters where you live, that '
+                 'single fact outweighs every other consideration on this '
+                 'page. For the other products, CARB status is listed as "not '
+                 'stated" rather than "not legal" &mdash; absence of a stated '
+                 'executive order number is not proof either way, but a part '
+                 'without a CARB EO will fail a California smog visual '
+                 'inspection.'),
+                ('Will these intakes fit my F-150?',
+                 'Only if year and engine both match. The 2015&ndash;2020 and '
+                 '2021&ndash;2026 trucks take different parts &mdash; confirm '
+                 'from the sticker in the driver\'s door jamb &mdash; and the '
+                 '5.0L V8, 2.7L EcoBoost and 3.5L EcoBoost take different '
+                 'intakes. Several products in the comparison table look '
+                 'identical and are not interchangeable.'),
+            ]
+            faq_html = ('\n  <h2>Frequently asked questions</h2>\n'
+                        + ''.join(
+                            f'  <p><strong>{html.escape(q)}</strong></p>\n'
+                            f'  <p>{a}</p>\n'
+                            for q, a in legacy_faq))
+            txt = txt.replace('</article>', faq_html + '</article>', 1)
+            faq_ld = ('<script type="application/ld+json">\n' + json.dumps({
+                '@context': 'https://schema.org',
+                '@type': 'FAQPage',
+                'mainEntity': [
+                    {'@type': 'Question', 'name': q,
+                     'acceptedAnswer': {
+                         '@type': 'Answer',
+                         'text': html.unescape(re.sub(r'<[^>]+>', '', a))}}
+                    for q, a in legacy_faq],
+            }, ensure_ascii=False, indent=2) + '\n</script>')
+            txt = txt.replace('</head>', faq_ld + '\n</head>', 1)
 
         # affiliate tagging and the matching disclosure, for pages that bypass
         # render_page and so never pass through action()
@@ -2383,6 +2539,7 @@ def build_category_pages(arts, sidebar_entries=None):
             inner = (f'  <div class="kicker">Car Mod Review</div>\n'
                      f'  <h1>{html.escape(name)}</h1>\n'
                      + hub_fig
+                     + hub_intro(cs, len(items))
                      + f'  <ul class="post-list">\n{"".join(rows)}  </ul>\n')
             # English only; see the note on the about page above.
             # "/engine/" not "/engine/index.html". GitHub Pages serves identical
