@@ -12,8 +12,8 @@ seo_desc:
 slug: suspension-upgrades-guide
 category: Suspension
 status: draft
-published: 2026-04-08
-last_updated: 2026-06-23
+published: 2026-11-03
+last_updated: 2026-11-05
 ---
 
 # Suspension Upgrades: Springs, Coilovers, and Why Cheap Kits Ruin Cars

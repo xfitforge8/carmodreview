@@ -12,8 +12,8 @@ seo_desc:
 slug: brake-pads-rotors-guide
 category: Brakes
 status: draft
-published: 2026-04-22
-last_updated: 2026-06-30
+published: 2026-11-03
+last_updated: 2026-11-05
 ---
 
 # Brake Pads and Rotors: The Upgrade That Makes You Faster

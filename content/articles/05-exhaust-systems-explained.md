@@ -12,8 +12,8 @@ seo_desc:
 slug: exhaust-systems-explained
 category: Exhaust
 status: draft
-published: 2026-03-11
-last_updated: 2026-06-09
+published: 2026-11-03
+last_updated: 2026-11-05
 ---
 
 # Exhaust Systems Explained: Cat-Back vs Axle-Back, Sound vs Drone, and Legal Reality

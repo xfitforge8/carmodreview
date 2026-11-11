@@ -12,8 +12,8 @@ seo_desc:
 slug: cold-air-intake-guide
 category: Engine
 status: draft
-published: 2026-05-13
-last_updated: 2026-07-07
+published: 2026-11-03
+last_updated: 2026-11-05
 ---
 
 # Cold Air Intake: What It Does, What It Doesn't, and the MAF Problem

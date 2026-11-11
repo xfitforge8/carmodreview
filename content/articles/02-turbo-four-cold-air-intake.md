@@ -13,8 +13,8 @@ seo_desc:
 slug: turbo-four-cold-air-intake
 category: Engine
 status: draft
-published: 2026-01-28
-last_updated: 2026-05-12
+published: 2026-11-04
+last_updated: 2026-11-05
 ---
 
 # Cold Air Intake on a Turbo Four: Worth It or Just Noise?

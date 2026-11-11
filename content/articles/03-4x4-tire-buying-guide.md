@@ -13,8 +13,8 @@ seo_desc:
 slug: 4x4-tire-buying-guide
 category: Wheels & Tires
 status: draft
-published: 2026-02-11
-last_updated: 2026-05-19
+published: 2026-11-04
+last_updated: 2026-11-05
 ---
 
 # Tire Buying for a Mostly-Street 4x4: Load Range, Size, and the E-Rated Trap

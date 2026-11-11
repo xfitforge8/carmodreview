@@ -14,8 +14,8 @@ seo_desc:
 slug: leveling-kit-guide
 category: Suspension
 status: draft
-published: 2026-01-14
-last_updated: 2026-05-06
+published: 2026-11-04
+last_updated: 2026-11-05
 ---
 
 # Leveling Kits: What They Change, What They Cost, What You Give Up

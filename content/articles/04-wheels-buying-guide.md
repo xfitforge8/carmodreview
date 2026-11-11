@@ -12,8 +12,8 @@ seo_desc:
 slug: wheels-buying-guide
 category: Wheels & Tires
 status: draft
-published: 2026-02-25
-last_updated: 2026-06-02
+published: 2026-11-03
+last_updated: 2026-11-05
 ---
 
 # How to Buy Aftermarket Wheels: Offset, Width, and What Actually Matters
