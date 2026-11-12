@@ -29,9 +29,9 @@
       "param": "irclickid",
       "id": "",
       "enabled": false,
-      "commission": "competitive, rate not published",
+      "commission": "4% base, less category cuts: -25% exhaust/wheels/tonneau/bumpers/tuners, -50% tires",
       "attribution_days": 30,
-      "note": "Apply via Impact. Impact usually issues a whole tracking URL from its dashboard rather than a single parameter -- if the dashboard gives you a full URL, use link_format 'template' and paste it into 'template' with {url} where the destination goes."
+      "note": "VERIFIED 12 Nov 2026: the RealTruck program is being PAUSED on Impact. Impact's own campaign page carries a notice dated 19 Aug 2026 saying RealTruck.com has transitioned to Partnerize and the RealTruck program is only live on Impact until that date. RealTruck's own marketing page still says 'apply via Impact' and is out of date. A Partnerize publisher account is now the route. The rate card, read off the Impact terms page: 4% base, reduced 25% on exhaust systems, wheels/rims, tonneau covers, nerf bars, hoop steps, seat covers, tool boxes, programmers/tuners, bug shields, fender flares, vent visors, bumpers and bed steps (effective 3%), and reduced 50% on tires (effective 2%). Most of this site's articles are in those categories, so the 4% headline is not the rate the site earns. SEM bidding on the RealTruck name is barred."
     },
     {
       "name": "Summit Racing",
@@ -55,7 +55,7 @@
       "enabled": false,
       "commission": "unknown - no public program",
       "attribution_days": null,
-      "note": "No public affiliate program exists as of 5 Nov 2026. Every product card on the site already links here, so this is the highest-value host to get a deal with. Ask them directly, and ask whether they are covered under the RealTruck Impact campaign -- Turn5 is the parent of both. Unverified; ask rather than assume."
+      "note": "RE-VERIFIED 12 Nov 2026: americantrucks.com/affiliate-program.html is STILL a 404 ('NOPE. NOT HERE.'). No public program. This is the single highest-value host on the site: 54 of 64 outbound product links point here, across 15 built pages, and every one earns nothing. Ask Turn5 (parent of AmericanTrucks and RealTruck) two questions directly: (1) is AmericanTrucks covered under the RealTruck Partnerize campaign, and (2) if not, is there any affiliate route, or only dealer pricing. Unverified until they answer."
     },
     {
       "name": "Amazon Associates",

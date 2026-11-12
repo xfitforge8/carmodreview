@@ -26,3 +26,5 @@ social/*
 # repo is public, so they stay local.
 content/OUTREACH-*.md
 AFFILIATE-READINESS_LOCAL.md
+# Affiliate account status / application records -- names the account holder.
+AFFILIATE-STATUS-*.md

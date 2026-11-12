@@ -1,6 +1,53 @@
 # CarModReview — Affiliate Application Readiness
 
 **Last updated: November 1, 2026**
+**Program status re-verified live: November 12, 2026 — see the section below.**
+
+---
+
+## Status as of 12 Nov 2026 — read this before the rest of the file
+
+**Nothing has been applied to. Not one of the five programs.** The site is live
+(HTTP 200, 33 URLs in the sitemap) with 16 articles written, and every product
+link is still `rel="nofollow"`. What follows corrects several assumptions in the
+older sections below.
+
+| Program | Live today? | Blocking step |
+|---|---|---|
+| **AmericanTrucks** | No program — affiliate page still 404 | Email Turn5; no account route exists |
+| **RealTruck** | Paused on Impact since 19 Aug 2026; moved to Partnerize | Partnerize publisher account + terms |
+| **Summit Racing** | Yes, on Impact | Impact publisher account + terms; possible audience floor |
+| **Amazon Associates** | Yes | Owner's rule: wait for original photography |
+| **eBay Partner Network** | Yes, via eBay sign-in | EPN signup + terms |
+
+**Corrections to older sections of this file:**
+
+1. **RealTruck is not simply "apply via Impact."** Impact's own campaign page
+   shows a notice dated 19 August 2026: RealTruck.com moved to Partnerize and the
+   RealTruck program is only live on Impact until that date, then paused. RealTruck's
+   own marketing page still says "apply via Impact" and is out of date. Trust the
+   network, not the marketing copy.
+2. **The RealTruck rate is not a flat 4%.** Read off the Impact program terms:
+   4% base, but **−25%** on exhaust systems, wheels/rims, tonneau covers, nerf
+   bars, hoop steps, seat covers, tool boxes, programmers/tuners, bug shields,
+   fender flares, vent visors, bumpers and bed steps (effective 3%), and **−50%**
+   on tires (effective 2%). That is most of this site's product mix.
+3. **Publisher 8119860 is not a confirmed account.** It appears in the original
+   brief. No Impact credential exists in the browser's saved-account store and no
+   application was ever filed. Do not write to anyone as though the account exists.
+4. **The domain blocker in §1 is cleared.** carmodreview.com returns 200 over
+   HTTPS. That section is history, not a current task.
+5. **The sitemap is incomplete.** 89 HTML pages are built, 33 are in the sitemap,
+   and the 56 missing include every `/es/` and `/ko/` page plus several category
+   hubs. Whether that is intentional is unresolved.
+
+**What each application actually requires, verified:** every route ends at the
+same two gates — create an account in the owner's name (the Impact form asks for
+email, password, date of birth and next-of-kin contact) and accept a full Terms
+of Service. The owner's standing instruction is that neither may be done on their
+behalf, so the applications stay unfiled until they decide otherwise.
+
+---
 
 This document tracks what's published, what's missing, and what each program requires. Keep it updated as you apply.
 
