@@ -6,6 +6,42 @@
 
 ---
 
+## Status as of 12 Nov 2026 — read this first
+
+**This table has drifted out of sync with the article folder.** Six entries
+(columns 2, 4, 5, 6, 8, 10) describe articles that were already written before
+this calendar was drawn up, and writing them as planned would have produced
+duplicates of published pages:
+
+| Calendar # | Already written, different title, same job |
+|---|---|
+| 2 | `15-leveling-kit-spacer-vs-control-arms.md` |
+| 4 | `08-brake-pads-rotors-guide.md` |
+| 5 | `03-4x4-tire-buying-guide.md` |
+| 6 | `14-listing-install-time-vs-owner-reports.md` |
+| 8 | `05-exhaust-systems-explained.md` |
+| 10 | `11-tonneau-covers-explained.md` (already covers $190 → $1,500) |
+| 3 | `10-intake-options-budget-guide.md` — "$65 to $476: what you get at each price" is the same argument at the same three prices |
+
+**Written today instead of #3:** `16-carb-legal-cold-air-intake-california.md`.
+Calendar #11 asked whether a cold air intake is CARB-legal and planned to say
+"the listings don't tell you". That premise turned out to be wrong: on
+re-reading four listings on 12 Nov 2026, **AIRAID's states outright that it does
+not have a CARB EO number.** The article was written to that finding rather than
+to the assumption.
+
+**Why #3 was not written as scheduled:** article 10 already walks $65 → $476 and
+names the same three intakes at the same prices. A second piece at "$190 vs
+$476" would be a re-cut of a published page. Given the choice between duplicate
+content and an unplanned article on the one compliance question the brief makes
+mandatory, I wrote the compliance one. Say the word if you want #3 anyway.
+
+**Unchanged and still blocked:** affiliate IDs. `content/affiliate.json` has all
+accounts `enabled: false` with empty IDs, so every product link is `nofollow`
+and the site cannot earn. That is the single highest-value thing outstanding.
+
+---
+
 ## Read this before the calendar: what changed from the brief
 
 The brief asks for articles on F-150, Tacoma, Wrangler, RAV4 and Civic. **I cannot
@@ -115,10 +151,23 @@ number in the article text, which keeps that honest automatically.
   which give one clear whole-job figure
 - All prices and rating counts quoted in Article #1
 
+**Verified 12 Nov 2026 (supersedes the 6 Nov note below):**
+- Four 2019-2026 Silverado 1500 intake listings opened live and searched for CARB
+  language. AIRAID 205-394 states "Does Not Have a CARB EO Number"; RedRock
+  S126726, aFe 50-70042D and Corsa 459536 state nothing about CARB at all.
+- Prices off the same four pages: $189.99, $318.00 (from $368.00), $435.00,
+  $475.99.
+- S&B 75-5138D was Out of Stock and showed no price on the buy box, so it is
+  not in the article.
+
 **Not verified:**
 - Any F-150, Tacoma, Wrangler, RAV4, Civic product, price or fitment — no data on disk
-- CARB EO numbers for any intake — no listing stated one (this is itself article 11's finding)
-- Live prices as of today, 6 Nov 2026 — BrowserOS Neo returned 503, no page opened
+- CARB EO numbers as compliance, in either direction: the absence of a statement
+  is not proof a part lacks an EO. The article says exactly that and tells the
+  reader to check the manufacturer's documentation by part number. Do not
+  upgrade that to "these parts are illegal" without an EO search per part.
+- Live prices as of today for the other 20 listings — only the four intakes above
+  were re-read on 12 Nov.
 - Whether the 49-review subset is representative of each listing's full review corpus
 
 **Needs your decision:**
