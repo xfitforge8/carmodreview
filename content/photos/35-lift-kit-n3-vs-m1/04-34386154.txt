@@ -1,0 +1,1 @@
+Side view of an off-road tire against the body. Tire size is the constraint that decides what a given lift will clear.
