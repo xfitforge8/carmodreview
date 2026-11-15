@@ -3048,14 +3048,39 @@ def build_sitemap(arts):
                     'legal/privacy-policy.html',
                     'legal/affiliate-disclosure.html',
                     'legal/terms-of-service.html')
+
+    def _built_date(path):
+        """The mtime of a built file, as YYYY-MM-DD, or None.
+
+        Static pages used to go into the sitemap with no <lastmod> at all, so
+        the eight most-linked pages on the site told a crawler nothing about
+        when they had last changed. <lastmod> is the only hint a sitemap gives
+        as to whether a known URL is worth recrawling; omitting it puts those
+        pages at the back of every crawl queue, which is the opposite of what
+        the pages a site's own nav points at should get.
+
+        The file's mtime is the honest source -- these are generated, so the
+        mtime moves whenever the template or the content behind them does.
+        Built files are rewritten on every build, so this reports the build
+        time rather than the last content edit. That is still a real signal
+        (the bytes did change) and it is monotonic, which hand-kept dates in
+        the frontmatter demonstrably were not.
+        """
+        try:
+            import datetime
+            return datetime.date.fromtimestamp(os.path.getmtime(path)).isoformat()
+        except OSError:
+            return None
+
     for code, _, prefix in LANGS:
         if (prefix or '/') == '/':
-            urls.append((f'{DOMAIN}/', None))
+            urls.append((f'{DOMAIN}/', _built_date(os.path.join(OUT, 'index.html'))))
     for path in static_paths:
         for code, _, prefix in LANGS:
-            if os.path.exists(os.path.join(OUT, *(prefix.strip('/').split('/')
-                                                 if prefix else []), path)):
-                urls.append((f'{DOMAIN}{prefix}/{path}', None))
+            built = os.path.join(OUT, *(prefix.strip('/').split('/')
+                                        if prefix else []), path)
+            if os.path.exists(built):
+                urls.append((f'{DOMAIN}{prefix}/{path}', _built_date(built)))
     for c in sorted(newest_by_cat):
         for code, _, prefix in LANGS:
             urls.append((f'{DOMAIN}{prefix}/{c}/', newest_by_cat[c]))
