@@ -884,9 +884,16 @@ def foot_social_html(indent='    '):
     return f'{indent}<p class="foot-social">\n{rows}{indent}</p>'
 
 TAGLINE = {
-    'en': 'Car parts, checked against the published specs',
+    # Kept short on purpose. This line sits under the 30px wordmark and is the
+    # least important text in the masthead, so it has to measure shorter than
+    # the brand or the eye reads the caption as the headline — which is exactly
+    # what a 43-character sentence did at 321px against a 155px wordmark. At
+    # 12.5px this one sets 170px against the wordmark's 194px, so the lockup
+    # steps down instead of competing. "Published" stays because checking
+    # against the published spec rather than a bench test is the whole claim.
+    'en': 'Checked against published specs',
     'kr': '공개 스펙과 대조하는 자동차 부품 정보',
-    'es': 'Piezas de auto contrastadas con las especificaciones publicadas',
+    'es': 'Contrastadas con especificaciones publicadas',
 }
 
 # Shown above the article on any page that links to a retailer, and only then.

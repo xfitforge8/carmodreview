@@ -145,12 +145,6 @@ footer > .wrap { max-width: 1080px; }
 /* Below the rail's useful width, stack it above the article rather than
    letting it crush the text measure. */
 @media (max-width: 900px) {
-  /* Below this width the brand and the nav group cannot share a row, so the
-     masthead wraps to two -- but it decides that after layout, when the nav's
-     real width is known. Reserving the wrapped row from the start means the
-     article below is never pushed down once the wrap happens. The extra height
-     is the search field that shares the group's row. */
-  .masthead-inner { row-gap: 12px; }
   .layout {
     /* minmax(0,1fr), not 1fr. `1fr` means minmax(auto,1fr), and the auto
        minimum is the content's min-content width. The homepage's product rail
@@ -369,26 +363,41 @@ footer > .wrap { max-width: 1080px; }
   flex-wrap: wrap;
 }
 
+/* 30px, up from 24px. The complaint that drove this was "too small / odd" and the
+   odd part was the tagline (see .brand-sub), but the wordmark was undersized too:
+   at 24px it was only 3px larger than the 21px deck every article opens with, so
+   the one piece of branding on the page read as just another line of text. At
+   30px it sets 194px wide, comfortably clear of the tagline beneath it, and still
+   well under the 44px h1 once you scroll into the article. Letter-spacing is
+   tighter to hold Car Mod and .Review together as one lockup. */
 .brand {
   font-family: var(--sans);
   font-weight: 800;
-  font-size: 24px;
-  letter-spacing: -.6px;
+  font-size: 30px;
+  letter-spacing: -.7px;
   color: var(--ink);
   text-decoration: none;
 }
 
 .brand span { color: var(--rust); }
 
+/* The tagline is a 43-character sentence, not a label, so the tracked
+   uppercase treatment that suits a two-word kicker fought it: at 11px with
+   1.4px letter-spacing it set 321px wide -- more than twice the 155px
+   wordmark above it -- and the eye read the caption as the headline. It is
+   sentence case now, at a size that sits under the brand instead of
+   alongside it, and the tracking is what makes the two lines read as one
+   lockup rather than two unrelated bits of text. */
 .brand-sub {
   display: block;
   font-family: var(--sans);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 1.4px;
-  text-transform: uppercase;
+  font-size: 12.5px;
+  font-weight: 400;
+  letter-spacing: .2px;
+  text-transform: none;
   color: var(--ink-3);
-  margin-top: 3px;
+  margin-top: 2px;
+  line-height: 1.3;
 }
 
 /* Nav and search travel together as one right-hand group. Left as siblings they
@@ -411,17 +420,29 @@ footer > .wrap { max-width: 1080px; }
 
 .nav {
   display: flex;
-  gap: 18px;
+  align-items: center;
+  gap: 16px;
   font-family: var(--sans);
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 600;
+  /* The nav keeps its natural width and the search field absorbs whatever is
+     left, because the search is the one thing that survives being narrower.
+     Left to shrink, the nav dropped "How we pick" onto a second line at
+     1280px and the three links stopped sharing a baseline. */
+  flex: 0 0 auto;
 }
 
+/* align-items:center on the nav and the anchors, because the default stretch
+   made each link 45px tall to match the search field beside it. The borders
+   then sat 9px below the text baseline, so the hover underline floated away
+   from the word instead of underlining it. */
 .nav a {
   color: var(--ink-2);
   text-decoration: none;
   border-bottom: 1px solid transparent;
-  padding-bottom: 2px;
+  padding-bottom: 1px;
+  align-self: center;
+  white-space: nowrap;
 }
 
 .nav a:hover { border-bottom-color: var(--rust); color: var(--rust); }
@@ -442,7 +463,7 @@ footer > .wrap { max-width: 1080px; }
   min-width: 0;
   width: 100%;
   font-family: var(--sans);
-  font-size: 13px;
+  font-size: 14px;
   padding: 6px 9px;
   border: 1px solid var(--rule);
   border-right: 0;
@@ -474,6 +495,25 @@ footer > .wrap { max-width: 1080px; }
 }
 
 .nav-search button:hover { border-color: var(--rust); color: var(--rust); }
+
+/* These three lived in the max-width:900px block far above, next to the layout
+   rules, and never applied: a media query adds no specificity, so the plain
+   .brand / .brand-sub / .masthead-inner rules that come later in the file won
+   on source order. On a phone the wordmark stayed at its desktop size and the
+   masthead's wrapped row kept the desktop 20px gap. They belong here, after the
+   rules they override. */
+@media (max-width: 900px) {
+  /* Below this width the brand and the nav group cannot share a row, so the
+     masthead wraps to two -- but it decides that after layout, when the nav's
+     real width is known. Reserving the wrapped row from the start means the
+     article below is never pushed down once the wrap happens. The extra height
+     is the search field that shares the group's row. */
+  .masthead-inner { row-gap: 12px; }
+  /* The wordmark keeps its lead over the tagline at every width, but 30px is a
+     desktop size; on a 390px phone it crowded the tagline onto a third line. */
+  .brand { font-size: 26px; }
+  .brand-sub { font-size: 12px; }
+}
 
 /* ---------- article ---------- */
 
