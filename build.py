@@ -116,11 +116,46 @@ CF_BEACON_SNIPPET = (
 )
 
 
-def analytics_tag():
-    """The Cloudflare beacon, or '' when no token is configured."""
-    if not CF_BEACON_TOKEN:
+# ─────────────────────────────────────────────────────────── AdSense
+#
+# The publisher ID is public -- it is the number that appears in every ad
+# request and in ads.txt, and it identifies the account rather than
+# authorising anything. Committed here for the same reason the Cloudflare
+# token is: it is configuration, not a secret.
+#
+# This is the verification snippet only. It loads the AdSense library so
+# Google can confirm the site and serve into it later. No <ins class=
+# "adsbygoogle"> unit is emitted anywhere in this file, so no ad renders and
+# no layout changes until an ad unit is deliberately added.
+ADSENSE_CLIENT = 'ca-pub-5923752113598101'
+
+ADSENSE_SNIPPET = (
+    '<script async src="https://pagead2.googlesyndication.com/pagead/js/'
+    'adsbygoogle.js?client={client}" crossorigin="anonymous"></script>'
+)
+
+
+def adsense_tag():
+    """The AdSense verification snippet, or '' when no client is configured."""
+    if not ADSENSE_CLIENT:
         return ''
-    return CF_BEACON_SNIPPET.format(token=CF_BEACON_TOKEN)
+    return ADSENSE_SNIPPET.format(client=ADSENSE_CLIENT)
+
+
+def analytics_tag():
+    """The head scripts every page carries: analytics, then AdSense.
+
+    Both go through here rather than being concatenated at the call site so
+    that a page is never covered by one and missed by the other. The empty
+    case still returns '' so a build with neither configured emits no stray
+    blank line in <head>.
+    """
+    tags = []
+    if CF_BEACON_TOKEN:
+        tags.append(CF_BEACON_SNIPPET.format(token=CF_BEACON_TOKEN))
+    if ADSENSE_CLIENT:
+        tags.append(ADSENSE_SNIPPET.format(client=ADSENSE_CLIENT))
+    return '\n'.join(tags)
 
 
 # ──────────────────────────────────────────────────────── contact address
@@ -2440,6 +2475,44 @@ def homepage_strip_html(index_entries, rel, limit=8):
             '  </section>\n')
 
 
+def category_thumb_html(catslug, rel):
+    """One lead photograph for a category heading on the homepage index.
+
+    The hub pages already carry a figure under their own H1, and this puts the
+    same photograph under the same category heading in the homepage index, so a
+    reader scanning the list sees the parts rather than eight lines of text.
+
+    It reuses category_photo() -- the identical image the hub picks -- so the
+    homepage and the hub a click away from it never disagree about what a
+    category looks like, and no second copy of the file is stored.
+
+    Two categories fall back to a listing shot by way of hub_product_photo():
+    tonneau (its article photographs four specific covers, not a car) and
+    anything else whose guides carry no body photography. That keeps the promise
+    the homepage makes elsewhere -- every picture is a real component, not a
+    stock truck -- rather than leaving a heading bare.
+    """
+    fig = category_photo(catslug, 'en', rel, PHOTO_ROOT, caption=False)
+    if fig:
+        # The hub figure carries .fig fig--photo, which caps height at 620px --
+        # far too tall for eight of them stacked in the index. .cat-thumb
+        # overrides that to a 220px banner (declared after .fig--photo in the
+        # stylesheet, so it wins on equal specificity).
+        #
+        # The inline aspect-ratio photo_html() writes exists to reserve the hero
+        # box before the stylesheet resolves. Here the box is a fixed 220px tall
+        # in CSS, so the ratio is not just redundant -- it describes a box that
+        # will never be drawn. Drop it rather than ship an inline style that
+        # contradicts the rule actually in force.
+        fig = re.sub(r'\s*style="aspect-ratio:[^"]*"', '', fig)
+        return fig.replace('class="fig fig--photo', 'class="fig fig--photo cat-thumb', 1)
+    # Tonneau and nothing else: its guides photograph four specific covers
+    # rather than a car, so there is no body photography to borrow. Fall back to
+    # the listing shot, exactly as the hub does.
+    prod = hub_product_photo(CATEGORY_SOURCE.get(catslug) or [], rel)
+    return prod.replace('class="pick-photo"', 'class="cat-thumb"', 1) if prod else ''
+
+
 def index_list_html(index_entries, code, rel):
     """The guides index on the homepage, in the same order as the left rail.
 
@@ -2483,6 +2556,7 @@ def index_list_html(index_entries, code, rel):
             reverse=True)
         out.append(f'  <h3><a href="{rel}{HUBLESS.get(catslug, catslug + "/")}">'
                    f'{html.escape(labels[label_i - 1])}</a></h3>\n')
+        out.append(category_thumb_html(catslug, rel))
         out.append('  <ul class="post-list">\n')
         for e in items:
             date, slug, cat, cs, cl, ck, ce, meta = e
@@ -3001,6 +3075,20 @@ def build_sitemap(arts):
     open(os.path.join(OUT, 'robots.txt'), 'w', encoding='utf-8').write(
         'User-agent: *\nAllow: /\n\n'
         f'Sitemap: {DOMAIN}/sitemap.xml\n')
+
+    # ads.txt authorises which ad networks may sell this site's inventory. It is
+    # generated rather than hand-written so it cannot drift from ADSENSE_CLIENT:
+    # if the publisher ID changes, the ads.txt changes with it.
+    #
+    # The line names google.com and the account's certification authority ID
+    # (f08c47fec0942fa0), which is Google's fixed value across all publishers --
+    # it is not per-account and is not a secret. Written only when a client is
+    # configured; an empty or wrong ads.txt is worse than none, because AdSense
+    # reads a present file as a claim about who may sell.
+    if ADSENSE_CLIENT:
+        pub = ADSENSE_CLIENT.replace('ca-', '', 1)
+        open(os.path.join(OUT, 'ads.txt'), 'w', encoding='utf-8').write(
+            f'google.com, {pub}, DIRECT, f08c47fec0942fa0\n')
     print(f'  sitemap: {len(urls)} urls')
 
 

@@ -894,6 +894,50 @@ footer p { margin: 0 0 10px; }
 
 /* ---------- post list ---------- */
 
+/* The lead photograph under each category heading in the homepage index. It
+   sits between the <h3> and the post list, so it needs to be short: a full
+   .fig--photo hero would run 620px tall and turn eight category blocks into a
+   scroll.
+
+   Two earlier attempts were wrong and both are worth recording.
+
+   The first was a 220px-tall full-width banner with object-fit: cover. Most of
+   this photography is portrait (1200x1803), so cover-cropping it to a 724x220
+   strip left about 20% of the frame: the Suspension tile was a corner of a
+   wheel arch and nothing else. That breaks the rule the whole site runs on --
+   a picture shows the part it claims to show.
+
+   The second dropped the crop (height: auto, max-height: 260px) and preserved
+   every frame, but eight tiles of very different widths -- 174px for the
+   portraits, 389px for the one landscape -- made the column look ragged and
+   broken rather than deliberate.
+
+   This version takes the convention the site already uses for mixed-orientation
+   product shots (.home-strip-item): a fixed 3:2 plate, a white background, and
+   object-fit: contain. Every tile is the same size, nothing is cropped, and a
+   portrait frame is centred on the plate instead of cropped to fill it. */
+.cat-thumb {
+  margin: 14px 0 18px;
+  padding: 0;
+}
+
+.cat-thumb img {
+  display: block;
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: contain;
+  background: #fff;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  padding: 10px;
+}
+
+@media (max-width: 560px) {
+  .cat-thumb img { max-width: 100%; }
+}
+
 .post-list { list-style: none; padding: 0; margin: 0; }
 
 .post-list li {

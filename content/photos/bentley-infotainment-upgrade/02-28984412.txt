@@ -1,0 +1,1 @@
+A dashboard running Apple CarPlay. CarPlay is the main thing the retrofit adds, since these cars predate Bentley fitting it.

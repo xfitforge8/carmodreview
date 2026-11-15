@@ -176,12 +176,18 @@ def _caption_for(path):
     return ''
 
 
-def photo_html(paths, slug, code, rel, hero=False):
+def photo_html(paths, slug, code, rel, hero=False, caption=True):
     """Photo figures for images that actually exist on disk.
 
     English carries the photography; the KR and ES pages keep their text and
     omit the figures rather than captioning a photo in a language it was not
     written in.
+
+    caption=False suppresses the <figcaption> but keeps the caption text as the
+    alt attribute. That is for places that want the photograph without a second
+    line of prose -- the homepage index puts one under eight category headings,
+    where eight captions read as clutter. Nothing is invented either way: the
+    alt is the sidecar text, and with no sidecar it falls back to the filename.
     """
     out = []
     for i, p in enumerate(paths):
@@ -189,7 +195,8 @@ def photo_html(paths, slug, code, rel, hero=False):
         cap = _caption_for(p)
         alt = cap or name
         role = ' fig--hero' if (hero and i == 0) else ''
-        fig_cap = f'\n    <figcaption>{html.escape(cap)}</figcaption>' if cap else ''
+        fig_cap = (f'\n    <figcaption>{html.escape(cap)}</figcaption>'
+                   if (cap and caption) else '')
         size = _dimensions(_published_path(p))
         dims = f' width="{size[0]}" height="{size[1]}"' if size else ''
         # Reserve the box from the file's real ratio even before the CSS lands.
@@ -227,7 +234,7 @@ def photo_html(paths, slug, code, rel, hero=False):
     return ''.join(out)
 
 
-def category_photo(category_slug, code, rel, photo_root):
+def category_photo(category_slug, code, rel, photo_root, caption=True):
     """One photograph for a category hub, or '' when the hub has none yet.
 
     A hub borrows the lead photo of its most representative article, so there is
@@ -238,7 +245,7 @@ def category_photo(category_slug, code, rel, photo_root):
     for slug in CATEGORY_SOURCE.get(category_slug, []):
         shots = find_photos(photo_root, slug)
         if shots:
-            return photo_html(shots[:1], slug, code, rel)
+            return photo_html(shots[:1], slug, code, rel, caption=caption)
     return ''
 
 
