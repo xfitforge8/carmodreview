@@ -1796,6 +1796,15 @@ def build_redirects():
         os.makedirs(os.path.dirname(dst), exist_ok=True)
         href = os.path.relpath(new, os.path.dirname(old) or '.')
         full = f'{DOMAIN}/{new}'
+        # Canonical must agree with the target page's own canonical, or the stub
+        # asserts a different preferred URL than the page it points at. Every
+        # real page canonicalises "/" rather than "/index.html" (see the note in
+        # render_page: both serve identical bytes, and the pair shows up in
+        # Search Console as "Duplicate, Google chose different canonical"). A
+        # stub that named /index.html would hand Google a URL the site itself
+        # says is not the canonical one.
+        if full.endswith('/index.html'):
+            full = full[:-len('index.html')]
         open(dst, 'w', encoding='utf-8').write(
             f'<!DOCTYPE html>\n<html lang="en">\n<head>\n'
             f'<meta charset="UTF-8">\n'
