@@ -92,6 +92,7 @@ Three intakes account for most of the spread on the under-an-hour side.
     <div><dt>Owner reviews</dt><dd>2,798</dd></div>
   </dl>
   <p class="buyrow"><a class="buy" href="https://www.americantrucks.com/sb-silverado1500-cold-air-intake-dry-extendable-filter-75-5138d.html" rel="nofollow noopener" target="_blank">See the S&amp;B dry intake&nbsp;&rarr;</a> <span class="buy-note">list price $399.00, checked 4 Nov 2026</span></p>
+  <p class="buy-note"><strong>Out of stock at AmericanTrucks, checked 14 Nov 2026.</strong> The listing shows a notify-me box instead of a buy button. It has been out since at least 11 Nov 2026. The closest in-stock alternative is the <a href="https://www.americantrucks.com/afe-silverado1500-momentum-gt-cold-air-intake-pro-dry-s-filter-black-50-70042d.html" rel="nofollow noopener" target="_blank">aFe Momentum GT at $435.00</a>, checked 12 Nov 2026.</p>
 </div>
 
 <div class="pick">

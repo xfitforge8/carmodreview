@@ -1735,6 +1735,17 @@ def build():
     build_legacy_pages(sidebar_entries)
     build_redirects()
     build_sitemap(arts)
+    # The F-150 guide is hand-written HTML that predates the generator, so it
+    # never enters feed_items with the rest. It is a published article and the
+    # feed is meant to carry every one of them, so it goes in here rather than
+    # being the single published guide a subscriber never sees.
+    feed_items.append({
+        'title': 'Best Cold Air Intake for a 5.0L F-150',
+        'desc': 'Roush, SR Performance and aFe compared for the 5.0L F-150, '
+                'with CARB status, prices and review counts off the listings.',
+        'url': f'{DOMAIN}/cold-air-intakes/best-cold-air-intake-f150-50l.html',
+        'published': '2026-10-30', 'modified': '2026-11-14',
+        'section': 'Engine'})
     build_feed(feed_items)
     build_search(search_items)
 
@@ -2577,8 +2588,14 @@ def index_list_html(index_entries, code, rel):
 
     if code == 'en' and os.path.exists(os.path.join(ROOT, '_prev_docs', 'cold-air-intakes', 'index.html')):
         out.append('  <h2>Also published</h2>\n  <ul class="post-list">\n')
-        out.append('    <li><a href="cold-air-intakes/index.html">Cold air intakes</a>'
+        # Link the guide itself, not just its hub. The hub was the only route to
+        # this page from the homepage, and a crawler that reaches it needs an
+        # anchor whose text describes the article rather than a category.
+        out.append('    <li><a href="cold-air-intakes/best-cold-air-intake-f150-50l.html">'
+                   'Best cold air intake for a 5.0L F-150</a>'
                    '<div class="meta">F-150 5.0L buying guide</div></li>\n')
+        out.append('    <li><a href="cold-air-intakes/index.html">Cold air intakes</a>'
+                   '<div class="meta">All intake guides</div></li>\n')
         out.append('  </ul>\n')
     return ''.join(out)
 

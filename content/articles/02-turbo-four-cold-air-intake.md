@@ -169,6 +169,7 @@ is sealed, which is what this article has been about.
     <div><dt>Owner reviews</dt><dd>2,796</dd></div>
   </dl>
   <p class="buyrow"><a class="buy" href="https://www.americantrucks.com/sb-silverado1500-cold-air-intake-dry-extendable-filter-75-5138d.html" rel="nofollow noopener" target="_blank">See the S&amp;B intake&nbsp;&rarr;</a> <span class="buy-note">list price checked 4 Nov 2026</span></p>
+  <p class="buy-note"><strong>Out of stock at AmericanTrucks, checked 14 Nov 2026.</strong> The buy button is replaced by a notify-me box, and has been since at least 11 Nov 2026. The in-stock alternative on this page is the <a href="https://www.americantrucks.com/afe-silverado1500-momentum-gt-cold-air-intake-pro-dry-s-filter-black-50-70042d.html" rel="nofollow noopener" target="_blank">aFe Momentum GT at $435.00</a>, checked 12 Nov 2026.</p>
 </div>
 
 <div class="callout">

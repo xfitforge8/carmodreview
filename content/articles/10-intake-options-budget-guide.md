@@ -1,14 +1,14 @@
 ---
 title:
-  en: "Intake Options From $65 to $476: What You Get at Each Price"
-  kr: "$65부터 $476까지, 인테이크 선택지: 가격대별로 무엇을 얻는가"
-  es: "Opciones de admisión de $65 a $476: qué obtienes en cada precio"
+  en: "Intake Options From $55 to $476: What You Get at Each Price"
+  kr: "$55부터 $476까지, 인테이크 선택지: 가격대별로 무엇을 얻는가"
+  es: "Opciones de admisión de $55 a $476: qué obtienes en cada precio"
 seo_title:
-  en: "Intake Options by Price: $65 Drop-In to $476 Sealed Box"
-  es: "Opciones de admisión por precio: de $65 a $476"
+  en: "Intake Options by Price: $55 Drop-In to $476 Sealed Box"
+  es: "Opciones de admisión por precio: de $55 a $476"
 seo_desc:
-  en: "Five intake approaches from a $65 drop-in panel to a $476 sealed box: what each one actually changes, and which is worth the money."
-  es: "Cinco enfoques de admisión, desde un panel de $65 hasta una caja sellada de $476: qué cambia cada uno y cuál vale el dinero."
+  en: "Five intake approaches from a $55 drop-in panel to a $476 sealed box: what each one actually changes, and which is worth the money."
+  es: "Cinco enfoques de admisión, desde un panel de $55 hasta una caja sellada de $476: qué cambia cada uno y cuál vale el dinero."
 slug: intake-options-budget-guide
 category: Engine
 status: draft
@@ -16,7 +16,7 @@ published: 2026-11-04
 last_updated: 2026-11-04
 ---
 
-# Intake Options From $65 to $476: What You Get at Each Price
+# Intake Options From $55 to $476: What You Get at Each Price
 
 ## EN
 
@@ -45,7 +45,7 @@ keeps the factory cold-air path, and a $190 open cone does not.
 So the price ladder below is not a quality ladder. It is a list of five
 different engineering trades.
 
-### 1. The $65–97 drop-in panel filter
+### 1. The $55–97 drop-in panel filter
 
 **What it is:** a reusable filter that drops into the factory airbox, reusing
 every other part of the factory intake.
@@ -68,7 +68,7 @@ Two current listings, both for the 2019–2026 truck:
 <div class="pick">
   <div class="pick-label">Cheapest that still works</div>
   <h3>K&amp;N Drop-In Replacement Air Filter (19–26 Silverado 1500)</h3>
-  <div class="pick-price">$69.00</div>
+  <div class="pick-price">$55.20</div>
   <p>Oiled cotton-gauze, reusable, drops into the stock airbox. This is the
   lowest-risk way to spend money on intake airflow: nothing about the factory
   intake tract changes, so there is nothing to get wrong.</p>
@@ -239,14 +239,14 @@ seeing dust.
 <div class="pick">
   <div class="pick-label">Most expensive, and why</div>
   <h3>Corsa Closed Box with Donaldson PowerCore Dry Filter (19–26 5.3L)</h3>
-  <div class="pick-price">$475.99 &middot; 224 reviews</div>
+  <div class="pick-price">$475.99 &middot; 160 reviews</div>
   <p>Sealed box, dry media, and a PowerCore element that is a genuinely
   different filtration design rather than a differently-coloured cotton gauze.
   If you drive on gravel or in agricultural dust, filtration quality is the spec
   that decides engine life, and it is the one most intake marketing does not
   discuss.</p>
   <p>The reviews say the quiet part out loud, and it is worth reading before the
-  price: 225 ratings at 4.63 with 4.0% one star &mdash; the highest single-star
+  price: 160 ratings at 4.6 with a high single-star rate &mdash; the highest single-star
   rate of any intake on this page. Those figures pool every fitment this box is
   sold in, which matters here because only five of the reviews were written
   against the 19&ndash;26 5.3L. All five are five-star and all five are
@@ -281,7 +281,7 @@ seeing dust.
     <div><dt>Fitment</dt><dd>2019–2026, 5.3L V8</dd></div>
     <div><dt>Filter</dt><dd>Donaldson PowerCore, dry</dd></div>
     <div><dt>Housing</dt><dd>Closed box</dd></div>
-    <div><dt>Owner reviews</dt><dd>224</dd></div>
+    <div><dt>Owner reviews</dt><dd>160</dd></div>
   </dl>
   <p class="buyrow"><a class="buy" href="https://www.americantrucks.com/corsa-silverado1500-powercore-closed-box-cold-air-intake-459536.html" rel="nofollow noopener" target="_blank">See the Corsa PowerCore&nbsp;&rarr;</a> <span class="buy-note">list price checked 4 Nov 2026</span></p>
 </div>
@@ -336,9 +336,12 @@ inspection.** We did not open any of these boxes. Where a listing states a seale
 or closed housing, this page says so; where it does not state one, this page does
 not claim one either.
 
-**No listing stated a CARB executive order number.** Absence of a claim is not
-proof of illegality, but if your state inspects, confirm exemption with the
-manufacturer before ordering rather than assuming it either way.
+**Not one of these three is CARB legal in California**, and each listing says so
+in its own way. Corsa states "CARB EO Pending… currently not legal for use in
+California." The aFe states "Not CARB Certified… not legal for use in
+California." The RedRock states "not currently CARB compliant" in its Q&A. If
+your state inspects, that is the answer, and it is the same answer at $189.99 and
+at $475.99.
 
 **Review counts are reported instead of star ratings,** because star ratings
 render inconsistently across these pages. A high review count means more people
@@ -352,13 +355,13 @@ engine — check yours before ordering.
 
 ### Frequently asked questions
 
-**What does a $65 drop-in panel filter get me?**
+**What does a $55 drop-in panel filter get me?**
 
 A drop-in panel filter is the cheapest option in the comparison. What each price band actually changes is the whole point of the guide, and the difference is not proportional to the price.
 
 **Is a $476 intake worth three times a $190 one?**
 
-Not necessarily. The guide compares five approaches from a $65 drop-in to a $476 sealed box by what each one actually changes, rather than by what it costs.
+Not necessarily. The guide compares five approaches from a $55 drop-in to a $476 sealed box by what each one actually changes, rather than by what it costs.
 
 **What decides whether I notice a difference?**
 
@@ -415,7 +418,7 @@ The DIY option has its own section, and the guide explains what it actually is r
 <div class="pick">
   <div class="pick-label">가장 싼, 그래도 되는 것</div>
   <h3>K&amp;N 드롭인 교체 필터 (19–26 실버라도 1500)</h3>
-  <div class="pick-price">$69.00</div>
+  <div class="pick-price">$55.20</div>
   <p>오일식 코튼 거즈, 재사용 가능, 순정 에어박스에 그대로 장착. 흡기 기류에
   돈을 쓰는 가장 위험 없는 방법입니다. 공장 흡기관은 아무것도 바뀌지 않으니
   잘못될 것도 없습니다.</p>
@@ -662,7 +665,7 @@ $190 no.
 Así que la escala de precios de abajo no es una escala de calidad. Es una lista
 de cinco intercambios de ingeniería distintos.
 
-### 1. El filtro de panel de $65–97
+### 1. El filtro de panel de $55–97
 
 **Qué es:** un filtro reutilizable que entra en la caja de aire de fábrica,
 reutilizando todas las demás piezas de la admisión original.
@@ -685,7 +688,7 @@ Dos listados actuales, ambos para el camión 2019–2026:
 <div class="pick">
   <div class="pick-label">Lo más barato que funciona</div>
   <h3>K&amp;N filtro de reemplazo drop-in (19–26 Silverado 1500)</h3>
-  <div class="pick-price">$69.00</div>
+  <div class="pick-price">$55.20</div>
   <p>Gasa de algodón aceitada, reutilizable, entra en la caja de fábrica. Es la
   forma de menor riesgo de gastar dinero en el flujo de admisión: nada del
   conducto de fábrica cambia, así que no hay nada que hacer mal.</p>

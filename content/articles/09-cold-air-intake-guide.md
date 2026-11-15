@@ -92,11 +92,11 @@ argues for &mdash; and all three are listed for the 2019&ndash;2026 half-ton.
 <div class="pick">
   <div class="pick-label">Best value</div>
   <h3>AIRAID SynthaMax Dry Filter (19&ndash;26 2.7L Silverado 1500)</h3>
-  <div class="pick-price">$368.00 &middot; 36 reviews</div>
+  <div class="pick-price">$318.00 (from $368.00) &middot; 34 reviews</div>
   <p>The cheapest dry-media option we found for this truck. Dry synthetic media
   removes the over-oiling failure mode entirely, which is the single most common
   way an intake damages the vehicle it is fitted to.</p>
-  <p>36 reviews is a modest base, and the complaints cluster around the moulding
+  <p>34 reviews is a modest base, and the complaints cluster around the moulding
   rather than the design. Be precise about which owners they come from, because
   the same intake is listed once per vehicle and the page mixes them. The worst
   is a one-star from a Sierra 1500 Elevation owner, on the 2.7L Sierra version of
@@ -120,12 +120,13 @@ argues for &mdash; and all three are listed for the 2019&ndash;2026 half-ton.
   five stars. It is a reason to open the box and inspect the pipe before you
   start, rather than after you've thrown the packaging away.</p>
   <dl class="spec">
-    <div><dt>Price</dt><dd>$368.00</dd></div>
+    <div><dt>Price</dt><dd>$318.00 (from $368.00)</dd></div>
     <div><dt>Fitment</dt><dd>2019&ndash;2026, 2.7L Silverado 1500</dd></div>
     <div><dt>Filter</dt><dd>SynthaMax &mdash; dry, no oiling</dd></div>
-    <div><dt>Owner reviews</dt><dd>36</dd></div>
+    <div><dt>Owner reviews</dt><dd>34</dd></div>
   </dl>
-  <p class="buyrow"><a class="buy" href="https://www.americantrucks.com/airaid-silverado1500-performance-cold-air-intake-yellow-synthamax-dry-filter-205-394.html" rel="nofollow noopener" target="_blank">See the AIRAID intake&nbsp;&rarr;</a> <span class="buy-note">list price checked 4 Nov 2026</span></p>
+  <p class="buyrow"><a class="buy" href="https://www.americantrucks.com/airaid-silverado1500-performance-cold-air-intake-yellow-synthamax-dry-filter-205-394.html" rel="nofollow noopener" target="_blank">See the AIRAID intake&nbsp;&rarr;</a> <span class="buy-note">price checked 12 Nov 2026</span></p>
+  <p class="buy-note"><strong>Not CARB legal in California.</strong> The listing states plainly: <em>"Does Not Have a CARB EO Number."</em> Without an Executive Order it fails a smog visual inspection in California and in the states that adopt California's standards.</p>
 </div>
 
 <div class="pick">
@@ -171,6 +172,7 @@ argues for &mdash; and all three are listed for the 2019&ndash;2026 half-ton.
     <div><dt>Owner reviews</dt><dd>436</dd></div>
   </dl>
   <p class="buyrow"><a class="buy" href="https://www.americantrucks.com/afe-silverado1500-momentum-gt-cold-air-intake-pro-dry-s-filter-black-50-70042d.html" rel="nofollow noopener" target="_blank">See the aFe Momentum GT&nbsp;&rarr;</a> <span class="buy-note">list price checked 4 Nov 2026</span></p>
+  <p class="buy-note"><strong>Not CARB legal in California.</strong> The listing states: <em>"Not CARB Certified… not legal for use in California or other states adopting California emission standards."</em></p>
 </div>
 
 <div class="pick">
@@ -207,13 +209,17 @@ argues for &mdash; and all three are listed for the 2019&ndash;2026 half-ton.
     <div><dt>Owner reviews</dt><dd>500+</dd></div>
   </dl>
   <p class="buyrow"><a class="buy" href="https://www.americantrucks.com/sb-silverado1500-cold-air-intake-dry-extendable-filter-75-5138d.html" rel="nofollow noopener" target="_blank">See the S&amp;B intake&nbsp;&rarr;</a> <span class="buy-note">list price checked 4 Nov 2026</span></p>
+  <p class="buy-note"><strong>Out of stock at AmericanTrucks, checked 14 Nov 2026.</strong> The listing shows a notify-me box instead of a buy button, and has since at least 11 Nov 2026. If you need the part now, the <a href="https://www.americantrucks.com/afe-silverado1500-momentum-gt-cold-air-intake-pro-dry-s-filter-black-50-70042d.html" rel="nofollow noopener" target="_blank">aFe Momentum GT at $435.00</a> is in stock (checked 12 Nov 2026) &mdash; also not CARB legal in California.</p>
 </div>
 
 <div class="callout">
   <div class="callout-title">What we could not confirm</div>
-  <p>None of these three listings states a CARB executive order number. Absence
-  of a claim is not proof of illegality, but if your state inspects, confirm
-  exemption with the manufacturer before ordering rather than assuming it.</p>
+  <p>Two of these three listings state their CARB status and both say the part
+  is not legal in California: AIRAID does not have an EO number, aFe is not CARB
+  certified and not legal for use in California or the adopting states. The S&amp;B
+  listing says nothing about CARB at all, which is not a clearance either. Absence
+  of an EO number is not proof of illegality on its own, but if your state
+  inspects, do not order any of the three expecting a plate under the hood.</p>
   <p>No horsepower figure appears on this page, for the reason set out above: no
   dyno sheet accompanies these listings and we ran no test of our own. The star
   distributions above are from each listing's own rating summary. Dry media is

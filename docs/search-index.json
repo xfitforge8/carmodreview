@@ -55,8 +55,8 @@
 },
 {
 "u": "/engine/intake-options-budget-guide.html",
-"t": "Intake Options From $65 to $476: What You Get at Each Price",
-"d": "Five intake approaches from a $65 drop-in panel to a $476 sealed box: what each one actually changes, and which is worth the money.",
+"t": "Intake Options From $55 to $476: What You Get at Each Price",
+"d": "Five intake approaches from a $55 drop-in panel to a $476 sealed box: what each one actually changes, and which is worth the money.",
 "c": "Engine & Intake"
 },
 {
@@ -92,7 +92,7 @@
 {
 "u": "/engine/carb-legal-cold-air-intake-california.html",
 "t": "Is a Cold Air Intake CARB-Legal in California? Four Listings, One Answer",
-"d": "Four 2019-2026 Silverado 1500 intakes, $189.99 to $475.99: only one listing states a CARB executive order, and that one says no.",
+"d": "Four 2019-2026 Silverado 1500 intakes, $189.99 to $475.99: all four state their CARB status, and all four say it is not legal in California.",
 "c": "Engine & Intake"
 },
 {
@@ -100,5 +100,11 @@
 "t": "Two 3.5-Inch Lift Kits, $230 Apart: What the M1 Shocks Actually Buy",
 "d": "Two Rough Country 3.5-inch Silverado lift kits share the same height, control arms and 34-inch tire limit. The $230 difference is in the dampers, and one fitment exclusion.",
 "c": "Suspension"
+},
+{
+"u": "/electrical/mcequal-equalizer-app.html",
+"t": "MCEqual Puts a Real Equalizer Back in GM's Google-Built Infotainment",
+"d": "MCEqual is a $3.99 equalizer app for vehicles running Android Automotive OS. The Max 2.0 update adds Android Auto EQ, synced lyrics and per-device presets.",
+"c": "Electrical"
 }
 ]

@@ -233,7 +233,8 @@ you never take.
 
 <p class="buyrow"><a class="buy" href="https://www.americantrucks.com/afe-silverado1500-magnum-flow-pro-dry-s-replacement-air-filter-31-10292.html" rel="nofollow noopener" target="_blank">aFe Magnum FLOW Pro DRY S filter&nbsp;&rarr;</a> <span class="buy-note">$97.00, 126 reviews, checked 6 Nov 2026</span></p>
 
-<p class="buyrow"><a class="buy" href="https://www.americantrucks.com/sb-silverado1500-cold-air-intake-dry-extendable-filter-75-5138d.html" rel="nofollow noopener" target="_blank">S&amp;B intake with dry filter&nbsp;&rarr;</a> <span class="buy-note">$399.00, checked 6 Nov 2026</span></p>
+<p class="buyrow"><a class="buy" href="https://www.americantrucks.com/sb-silverado1500-cold-air-intake-dry-extendable-filter-75-5138d.html" rel="nofollow noopener" target="_blank">S&amp;B intake with dry filter&nbsp;&rarr;</a> <span class="buy-note">$399.00, checked 6 Nov 2026 &middot; <strong>out of stock</strong>, checked 14 Nov 2026 &mdash; notify-me only</span></p>
+<p class="buyrow"><a class="buy" href="https://www.americantrucks.com/afe-silverado1500-momentum-gt-cold-air-intake-pro-dry-s-filter-black-50-70042d.html" rel="nofollow noopener" target="_blank">aFe Momentum GT, in stock&nbsp;&rarr;</a> <span class="buy-note">$435.00, checked 12 Nov 2026</span></p>
 
 ### What we could not verify
 

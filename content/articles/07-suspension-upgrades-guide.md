@@ -96,7 +96,7 @@ which is the axis that separates a shortcut from a proper job.
 <div class="pick">
   <div class="pick-label">Least money, least correction</div>
   <h3>Mammoth 3-Inch Front / 2-Inch Rear Leveling Kit (07&ndash;18 Silverado 1500)</h3>
-  <div class="pick-price">$139.99 &middot; 136 reviews</div>
+  <div class="pick-price">$138.99 &middot; 136 reviews</div>
   <p>Spacers, front and rear, at a price that reflects what they are: blocks
   that add height without correcting anything. 136 reviews is a substantial
   evidence base for a part this simple, and it is the cheapest way to a lifted
@@ -128,13 +128,13 @@ which is the axis that separates a shortcut from a proper job.
   load or dirt that is a real omission rather than a missing convenience &mdash;
   the part itself runs about $30, so buy it separately.</p>
   <dl class="spec">
-    <div><dt>Price</dt><dd>$139.99</dd></div>
+    <div><dt>Price</dt><dd>$138.99</dd></div>
     <div><dt>Fitment</dt><dd>2007&ndash;2018, Silverado 1500</dd></div>
     <div><dt>Lift</dt><dd>3 in front / 2 in rear</dd></div>
     <div><dt>Geometry correction</dt><dd>None &mdash; spacers only</dd></div>
     <div><dt>Owner reviews</dt><dd>136</dd></div>
   </dl>
-  <p class="buyrow"><a class="buy" href="https://www.americantrucks.com/rlt-3-front-2-rear-leveling-kit-0718-silverado-1500-chevy.html" rel="nofollow noopener" target="_blank">See the Mammoth leveling kit&nbsp;&rarr;</a> <span class="buy-note">list price checked 4 Nov 2026</span></p>
+  <p class="buyrow"><a class="buy" href="https://www.americantrucks.com/rlt-3-front-2-rear-leveling-kit-0718-silverado-1500-chevy.html" rel="nofollow noopener" target="_blank">See the Mammoth leveling kit&nbsp;&rarr;</a> <span class="buy-note">list price checked 11 Nov 2026</span></p>
 </div>
 
 <div class="pick">

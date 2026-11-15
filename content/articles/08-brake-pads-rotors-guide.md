@@ -196,12 +196,12 @@ interchangeable.
   for the Hawk is heat, and it is a real case &mdash; it just is not a quiet
   one.</p>
   <dl class="spec">
-    <div><dt>Price</dt><dd>$167.99</dd></div>
+    <div><dt>Price</dt><dd>$150.99</dd></div>
     <div><dt>Fitment</dt><dd>2007&ndash;2018, Silverado 1500, front</dd></div>
     <div><dt>Compound</dt><dd>LTS &mdash; light truck, heat-resistant</dd></div>
     <div><dt>Owner reviews</dt><dd>6</dd></div>
   </dl>
-  <p class="buyrow"><a class="buy" href="https://www.americantrucks.com/hawk-performance-silverado1500-lts-brake-pads-hb912y710.html" rel="nofollow noopener" target="_blank">See the Hawk LTS pads&nbsp;&rarr;</a> <span class="buy-note">list price checked 4 Nov 2026</span></p>
+  <p class="buyrow"><a class="buy" href="https://www.americantrucks.com/hawk-performance-silverado1500-lts-brake-pads-hb912y710.html" rel="nofollow noopener" target="_blank">See the Hawk LTS pads&nbsp;&rarr;</a> <span class="buy-note">list price checked 11 Nov 2026</span></p>
 </div>
 
 <div class="callout">

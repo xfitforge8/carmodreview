@@ -5,8 +5,16 @@
     <link>https://carmodreview.com/</link>
     <description>Car and truck parts guides built from published specifications, with every source named.</description>
     <language>en</language>
-    <lastBuildDate>Thu, 12 Nov 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 14 Nov 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://carmodreview.com/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>MCEqual Puts a Real Equalizer Back in GM's Google-Built Infotainment</title>
+      <link>https://carmodreview.com/electrical/mcequal-equalizer-app.html</link>
+      <guid isPermaLink="true">https://carmodreview.com/electrical/mcequal-equalizer-app.html</guid>
+      <category>Electrical</category>
+      <pubDate>Sat, 14 Nov 2026 00:00:00 +0000</pubDate>
+      <description>MCEqual is a $3.99 equalizer app for vehicles running Android Automotive OS. The Max 2.0 update adds Android Auto EQ, synced lyrics and per-device presets.</description>
+    </item>
     <item>
       <title>Two 3.5-Inch Lift Kits, $230 Apart: What the M1 Shocks Actually Buy</title>
       <link>https://carmodreview.com/suspension/35-lift-kit-n3-vs-m1.html</link>
@@ -21,7 +29,7 @@
       <guid isPermaLink="true">https://carmodreview.com/engine/carb-legal-cold-air-intake-california.html</guid>
       <category>Engine &amp; Intake</category>
       <pubDate>Thu, 12 Nov 2026 00:00:00 +0000</pubDate>
-      <description>Four 2019-2026 Silverado 1500 intakes, $189.99 to $475.99: only one listing states a CARB executive order, and that one says no.</description>
+      <description>Four 2019-2026 Silverado 1500 intakes, $189.99 to $475.99: all four state their CARB status, and all four say it is not legal in California.</description>
     </item>
     <item>
       <title>A 1.5-Inch Spacer or 1.75 Inches With Control Arms? What Each One Actually Changes</title>
@@ -88,12 +96,12 @@
       <description>Cold air intake on a 2.7L turbo four: what it can and cannot do, the MAF failure nobody warns you about, and what to buy first.</description>
     </item>
     <item>
-      <title>Intake Options From $65 to $476: What You Get at Each Price</title>
+      <title>Intake Options From $55 to $476: What You Get at Each Price</title>
       <link>https://carmodreview.com/engine/intake-options-budget-guide.html</link>
       <guid isPermaLink="true">https://carmodreview.com/engine/intake-options-budget-guide.html</guid>
       <category>Engine &amp; Intake</category>
       <pubDate>Wed, 04 Nov 2026 00:00:00 +0000</pubDate>
-      <description>Five intake approaches from a $65 drop-in panel to a $476 sealed box: what each one actually changes, and which is worth the money.</description>
+      <description>Five intake approaches from a $55 drop-in panel to a $476 sealed box: what each one actually changes, and which is worth the money.</description>
     </item>
     <item>
       <title>Aftermarket Wheels: Offset, Width, and the Numbers That Decide Fitment</title>
@@ -142,6 +150,14 @@
       <category>Brakes</category>
       <pubDate>Tue, 03 Nov 2026 00:00:00 +0000</pubDate>
       <description>Brake pads and rotors: what upgrading changes, how to bed them, and the pads that trade dust for bite.</description>
+    </item>
+    <item>
+      <title>Best Cold Air Intake for a 5.0L F-150</title>
+      <link>https://carmodreview.com/cold-air-intakes/best-cold-air-intake-f150-50l.html</link>
+      <guid isPermaLink="true">https://carmodreview.com/cold-air-intakes/best-cold-air-intake-f150-50l.html</guid>
+      <category>Engine</category>
+      <pubDate>Fri, 30 Oct 2026 00:00:00 +0000</pubDate>
+      <description>Roush, SR Performance and aFe compared for the 5.0L F-150, with CARB status, prices and review counts off the listings.</description>
     </item>
   </channel>
 </rss>

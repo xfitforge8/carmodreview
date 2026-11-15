@@ -4,12 +4,12 @@ title:
 seo_title:
   en: "Cold Air Intake CARB Legal in California? What Listings Say"
 seo_desc:
-  en: "Four 2019-2026 Silverado 1500 intakes, $189.99 to $475.99: only one listing states a CARB executive order, and that one says no."
+  en: "Four 2019-2026 Silverado 1500 intakes, $189.99 to $475.99: all four state their CARB status, and all four say it is not legal in California."
 slug: carb-legal-cold-air-intake-california
 category: Engine
 status: draft
 published: 2026-11-12
-last_updated: 2026-11-12
+last_updated: 2026-11-14
 ---
 
 # Is a Cold Air Intake CARB-Legal in California? Four Listings, One Answer
@@ -21,14 +21,15 @@ is not whether it adds power. It is whether it has an Executive Order number,
 because that is what the smog inspector looks for.
 
 I read four Silverado 1500 intake listings on 12 November 2026 and searched each
-one for CARB language. **One of the four states its status. It says the intake
-does not have a CARB Executive Order number.** The other three say nothing at
-all about CARB in any form.
+one for CARB language. **All four state their status. All four say the part is
+not legal in California.**
 
 That is the useful finding, and it is the opposite of what the shopping pages
-imply by omission. Silence is not permission. A listing that says nothing has
-told you nothing, and in a smog state the safe reading of "nothing" is the same
-as "no".
+imply by putting it where you will not read it. Every one of these sellers has
+disclosed the answer. None of them put it where a buyer looking at a price and a
+photo will see it. The information is on the page and it is easy to miss, which
+is a different problem from a seller who says nothing — and the four listings
+show four different ways of hiding the same sentence.
 
 ### What actually happens at inspection
 
@@ -48,42 +49,83 @@ truck with.
 
 ### The four intakes, as they were written on 12 November 2026
 
-I opened each listing and searched the page text for "CARB", "E.O." and
-"executive order". Prices were read off the same pages at the same time.
+I opened each listing and searched the full page source for "CARB", "E.O." and
+"executive order" — not just the visible description. Prices were read off the
+same pages at the same time.
 
-| Intake | Fits | Price | What the listing says about CARB |
-|---|---|---|---|
-| RedRock Cold Air Intake, Polished | 2019–2026 5.3L, 6.2L | $189.99 | Nothing |
-| AIRAID Performance Cold Air Intake | 2019–2026 2.7L | $318.00 (from $368.00) | **"Does Not Have a CARB EO Number"** |
-| aFe Momentum GT, Pro DRY S | 2019–2026 2.7L | $435.00 | Nothing |
-| Corsa Closed Box, Donaldson PowerCore | 2019–2026 5.3L | $475.99 | Nothing |
+| Intake | Fits | Price | What the listing says about CARB | Where it says it |
+|---|---|---|---|---|
+| RedRock Cold Air Intake, Polished | 2019–2026 5.3L, 6.2L | $189.99 | **"not currently CARB compliant"** | Q&A block, lower page |
+| AIRAID Performance Cold Air Intake | 2019–2026 2.7L | $318.00 (from $368.00) | **"Does Not Have a CARB EO Number"** | Features bullet |
+| aFe Momentum GT, Pro DRY S | 2019–2026 2.7L | $435.00 | **"Not CARB Certified… not legal for use in California"** | Description, mid-page |
+| Corsa Closed Box, Donaldson PowerCore | 2019–2026 5.3L | $475.99 | **"CARB EO Pending… currently not legal for use in California"** | Description, near the end |
 
 Prices are AmericanTrucks list prices on 12 November 2026. AIRAID was on sale:
 $318.00 against a regular $368.00, a $50.00 reduction the listing showed as 14%
 off.
 
-Note that the only honest listing is not the cheapest. Price tells you where a
-part sits in the range. It tells you nothing about whether the listing will
-mention the one certificate that decides whether you can drive the truck.
+Look at the last column. The cheapest part keeps its disclosure in a customer
+question at the bottom of the page. The most expensive one buries it three
+sentences from the end of a long description, behind a note about the warranty.
+Not one of the four leads with it.
 
-### Read the AIRAID line carefully
+Price tells you where a part sits in the range. It tells you nothing about
+whether you will find the one sentence that decides whether you can register the
+truck, and on this sample a higher price did not buy a clearer warning.
 
-"Do Not Have a CARB EO Number" is printed in the features list, between "No
-Tuning Required" and the warranty line, as a plain bullet. It is not a warning
-box, it is not in red, and it is not in the description beside it.
+Here are the four listings, so you can check the wording yourself rather than
+take my summary of it:
+
+<div class="card">
+  <p class="buyrow"><a class="buy" href="https://www.americantrucks.com/redrock-4x4-silverado1500-cold-air-intake-polished-s126726.html" rel="nofollow noopener" target="_blank">RedRock Cold Air Intake, Polished&nbsp;&rarr;</a> <span class="buy-note">$189.99 &middot; checked 12 Nov 2026 &middot; 2019–2026 5.3L, 6.2L</span></p>
+  <p class="buyrow"><a class="buy" href="https://www.americantrucks.com/airaid-silverado1500-performance-cold-air-intake-yellow-synthamax-dry-filter-205-394.html" rel="nofollow noopener" target="_blank">AIRAID Performance Cold Air Intake&nbsp;&rarr;</a> <span class="buy-note">$318.00 (from $368.00) &middot; checked 12 Nov 2026 &middot; 2019–2026 2.7L</span></p>
+  <p class="buyrow"><a class="buy" href="https://www.americantrucks.com/afe-silverado1500-momentum-gt-cold-air-intake-pro-dry-s-filter-black-50-70042d.html" rel="nofollow noopener" target="_blank">aFe Momentum GT, Pro DRY S&nbsp;&rarr;</a> <span class="buy-note">$435.00 &middot; checked 12 Nov 2026 &middot; 2019–2026 2.7L</span></p>
+  <p class="buyrow"><a class="buy" href="https://www.americantrucks.com/corsa-silverado1500-powercore-closed-box-cold-air-intake-459536.html" rel="nofollow noopener" target="_blank">Corsa Closed Box, Donaldson PowerCore&nbsp;&rarr;</a> <span class="buy-note">$475.99 &middot; checked 12 Nov 2026 &middot; 2019–2026 5.3L</span></p>
+  <p class="buy-note">None of these four is CARB-legal in California. The links are here so you can read the disclosure on the listing, not because there is a version of any of them you should buy.</p>
+</div>
+
+### Four listings, four places to hide one sentence
+
+**RedRock — in the Q&A, answering a question you would have to think to ask.**
+The exchange reads: *"Is the CA AQMD approved.... AKA CARB approval??"* and the
+store answers *"This RedRock cold air intake is not currently CARB compliant."*
+That answer is correct and direct. It is also the only place on the page the
+word CARB appears, it sits below the fold in a five-question panel, and it is
+answering a shopper who already knew to ask. It does not appear in the product
+description at all.
+
+**AIRAID — as a feature bullet.** "Does Not Have a CARB EO Number" is printed in
+the features list, between "No Tuning Required" and the warranty line, as a
+plain bullet. It is not a warning box, it is not in red, and it is not repeated
+in the description beside it.
 
 There is nothing deceptive about stating it. There is something revealing about
 where it sits: the same sentence that disqualifies the part from a California
 registration is formatted as a feature, at the same weight as "Bolt-On Design for
 Hassle-Free Installation".
 
-For a buyer outside California that bullet is neutral information. For a buyer
-inside California it is the whole answer, and it is one line down a spec list.
+**aFe — in the middle of the description, in plain prose.** "Not CARB Certified.
+This AFE Cold Air Intake is not CARB certified at this time, therefore it is not
+legal for use in California or other states adopting California emission
+standards." This is the most complete of the four: it names California *and* the
+adopting states, and it says why. It follows two paragraphs about horsepower and
+install time.
 
-Treat this as the worked example for every listing that says nothing: the
-information does exist, it does exist on the page when the seller chooses to
-publish it, and three of four sellers chose not to — which is not the same as
-having an EO number they forgot to mention.
+**Corsa — at the very end, after the warranty paragraph.** "CARB EO Pending. This
+PowerCore Closed Box Cold Air Intake is currently not legal for use in California
+or other states adopting California emissions standards." "Pending" is the
+optimistic framing of the same fact and it is the one that matters least at an
+inspection: an EO that has not been issued is not an EO. What the inspector
+reads is the plate, and there is no plate for a pending order.
+
+For a buyer outside California all four of these are neutral information. For a
+buyer inside California each one is the whole answer, and every one of them is
+one scroll away from where you decide to buy.
+
+Treat this as the worked example for every listing you shop: the disclosure
+exists, and it is usually not where the price is. On this sample, four out of
+four sellers disclosed and four out of four made it easy to miss — which is not
+the same as having an EO number nobody mentioned.
 
 ### How to check a part before you buy it
 
@@ -106,31 +148,42 @@ is, and it is printed on a plate under the hood for the inspector to find.
 
 ### What I would do with this set
 
-If the truck is registered in California, **none of these four is a safe
-purchase on the evidence in the listing**, including the three that say nothing.
-AIRAID has told you it is out. RedRock, aFe and Corsa have not told you either
-way, and "not told" is not a clearance.
+If the truck is registered in California, **none of these four is a legal
+purchase**, and none of the four leaves you guessing about it. All four say no.
+Two say it outright (aFe, Corsa), one says it as a bullet (AIRAID), and one says
+it only if you open the Q&A at the bottom of the page (RedRock).
 
-The honest sequence is: find the part you want, get its actual part number,
-search CARB for that number, and only then decide. If the manufacturer has no
-published EO for that part number, the answer is no regardless of what the
-store page implies.
+The practical problem is not seller honesty on this sample. It is that a
+disclosure which arrives after the price, after the photos and after the
+horsepower paragraph does not change a decision. Read for the EO number before
+you read for anything else.
+
+The sequence is: find the part you want, get its actual part number, search CARB
+for that number, and only then decide. If the manufacturer has no published EO
+for that part number, the answer is no regardless of what the store page implies.
+"Pending" is not an EO. "Not certified at this time" is not an EO.
 
 If you are outside California, this whole section does not bind you — but check
 your own state, because California is the strictest, not the only, state with an
-emissions visual inspection.
+emissions visual inspection. Arizona, Nevada, Colorado and a dozen others run
+some form of emissions programme, and several of them adopt California's
+standards outright. A part that is fine at home and a fail three states away is
+still a part you cannot use on the trip you bought it for.
 
 ### Frequently asked questions
 
 **Does a cold air intake need a CARB number in California?**
 
-Yes, on a 2019-or-newer vehicle. It is an emissions-related part, it needs an
-Executive Order, and it needs the EO plate fitted where an inspector can see it.
+Yes. It is an emissions-related part, it needs an Executive Order, and it needs
+the EO plate fitted where an inspector can see it. That applies to a 2019-or-newer
+truck and to older ones still running their original emissions equipment.
 
 **Will a CARB-legal intake say so on the listing?**
 
-On this sample, one out of four mentioned CARB at all, and that one was stating
-it does not comply. Do not read a listing's silence as approval.
+On this sample, all four listings mentioned CARB and all four were stating they
+do not comply. A listing that mentions CARB is telling you something; a listing
+that does not is telling you less, not clearing the part. Either way, the listing
+is not the record — the EO number is.
 
 **Can I pass a smog test with an illegal intake?**
 

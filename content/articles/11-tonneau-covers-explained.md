@@ -71,7 +71,7 @@ cover costs less than some unlined roll-ups.
 #### 1. Soft roll-up, around $190–275 — "keep the rain out"
 
 **Examples on the listing:** Proven Ground Velcro Roll-Up at $189.99 (59
-reviews), Proven Ground Locking Roll-Up at $189.99 (213 reviews), RedRock Soft
+reviews), Proven Ground Locking Roll-Up at $189.99 (136 reviews), RedRock Soft
 Roll-Up at $264.99 (42 reviews), Barricade Soft Roll Up at $274.99 (69 reviews).
 
 **What it does:** covers the bed, sheds water, rolls out of the way against the
@@ -83,16 +83,16 @@ tailgate latch integration, not to a hardened cover.
 
 **Who it is for:** someone whose bed carries cargo that needs to stay dry and
 out of sight, on a truck that is not parked somewhere theft is a live concern.
-At $189.99 with 213 reviews, the Proven Ground Locking Roll-Up is the volume
+At $189.99 with 136 reviews, the Proven Ground Locking Roll-Up is the volume
 seller in this tier, and the review count is the useful signal there rather than
 the price.
 
-<p class="buyrow"><a class="buy" href="https://www.americantrucks.com/proven-ground-silverado1500-locking-Roll-Up-tonneau-cover-s112594.html" rel="nofollow noopener" target="_blank">See the Proven Ground Locking Roll-Up&nbsp;&rarr;</a> <span class="buy-note">$189.99, 213 reviews, checked 6 Nov 2026</span></p>
+<p class="buyrow"><a class="buy" href="https://www.americantrucks.com/proven-ground-silverado1500-locking-Roll-Up-tonneau-cover-s112594.html" rel="nofollow noopener" target="_blank">See the Proven Ground Locking Roll-Up&nbsp;&rarr;</a> <span class="buy-note">$189.99, 136 reviews, checked 13 Nov 2026</span></p>
 
 #### 2. Hard tri-fold, around $400–700 — "keep the rain out and slow someone down"
 
 **Examples:** TruShield EZ Hard Fold at $399.99 (16 reviews), Proven Ground Low
-Profile Hard Tri-Fold at $649.99 (323 reviews), TruShield Low
+Profile Hard Tri-Fold at $649.99 (317 reviews), TruShield Low
 Profile Hard Tri-Fold at $629.99 (67 reviews), Rough Country Hard Low Profile
 Tri-Fold at $699.95 (126 reviews).
 
@@ -105,31 +105,33 @@ unless it is a flip-up design, and it takes more bed length when stowed than a
 roll-up. If you carry tall items regularly, this is the tier where that starts
 to matter.
 
-**The volume pick:** Proven Ground Low Profile Hard Tri-Fold at 323 reviews is
+**The volume pick:** Proven Ground Low Profile Hard Tri-Fold at 317 reviews is
 the most-reviewed cover in the entire category. That combination — highest
 review count in the category, and a listing that carries an open-box price — is
 about as strong a signal as a listing can give.
 
-<p class="buyrow"><a class="buy" href="https://www.americantrucks.com/proven-ground-silverado1500-low-profile-hard-tri-fold-tonneau-cover-s112595.html" rel="nofollow noopener" target="_blank">See the Proven Ground Hard Tri-Fold&nbsp;&rarr;</a> <span class="buy-note">$649.99, 323 reviews, checked 6 Nov 2026</span></p>
+<p class="buyrow"><a class="buy" href="https://www.americantrucks.com/proven-ground-silverado1500-low-profile-hard-tri-fold-tonneau-cover-s112595.html" rel="nofollow noopener" target="_blank">See the Proven Ground Hard Tri-Fold&nbsp;&rarr;</a> <span class="buy-note">$649.99, 317 reviews, checked 13 Nov 2026</span></p>
 
 #### 3. Premium hard folding and roll-up, around $1,200–1,600 — "the mechanism is the product"
 
-**Examples:** BAKFlip G2 at $1,199.99 (51 reviews), BAKFlip MX4 at $1,299.99 to
-$1,399.99 (222 reviews), BAKFlip MX4 TS at $1,599.99 (4 reviews), Revolver X4S
+**Examples:** BAKFlip G2 at $1,199.99 (51 reviews), BAKFlip MX4 at $1,299.99
+(220 reviews), BAKFlip MX4 TS at $1,599.99 (4 reviews), Revolver X4S
 roll-up at $1,499.99 (60 reviews).
 
 **What you are paying for at this price:** the hinge, the latch and the finish.
-The MX4's 222 reviews put it second only to the Proven Ground tri-fold in
+The MX4's 220 reviews put it second only to the Proven Ground tri-fold in
 volume, which is unusual at this price — buyers do not spend $1,300 on a cover
-222 times without the mechanism holding up.
+220 times without the mechanism holding up. The listing rates the MX4 for up to
+400 pounds of standing load, which is the useful number if you use the cover as
+a work surface.
 
-**The honest comparison:** the MX4 costs about 2.5× the Proven Ground tri-fold
+**The honest comparison:** the MX4 costs about 2.0× the Proven Ground tri-fold
 and both are aluminum hard tri-folds from established brands. The difference is
 in how the panels stack, how the latch feels, and how the finish survives
 sun. None of that is visible in a spec sheet, which is why the review counts
 matter more here than anywhere else on this page.
 
-<p class="buyrow"><a class="buy" href="https://www.americantrucks.com/bak-industries-bakflip-mx4-folding-tonneau-cover-s112141-silverado1500.html" rel="nofollow noopener" target="_blank">See the BAKFlip MX4&nbsp;&rarr;</a> <span class="buy-note">$1,299.99, 222 reviews, checked 6 Nov 2026</span></p>
+<p class="buyrow"><a class="buy" href="https://www.americantrucks.com/bak-industries-bakflip-mx4-folding-tonneau-cover-s112141-silverado1500.html" rel="nofollow noopener" target="_blank">See the BAKFlip MX4&nbsp;&rarr;</a> <span class="buy-note">$1,299.99, 220 reviews, checked 13 Nov 2026</span></p>
 
 #### 4. Retractable, around $1,000–1,300 — "it lives in a canister"
 
@@ -168,21 +170,21 @@ before you install anything.
 ### Which one to buy
 
 **If the truck is a daily and the bed carries groceries and tools:** a locking
-soft roll-up at $189.99. It does the job, it does not cost $1,300, and 213
+soft roll-up at $189.99. It does the job, it does not cost $1,300, and 136
 reviews is enough of a sample to trust.
 
-<p class="buyrow"><a class="buy" href="https://www.americantrucks.com/proven-ground-silverado1500-locking-Roll-Up-tonneau-cover-s112594.html" rel="nofollow noopener" target="_blank">Proven Ground Locking Roll-Up&nbsp;&rarr;</a> <span class="buy-note">$189.99 &middot; 213 reviews</span></p>
+<p class="buyrow"><a class="buy" href="https://www.americantrucks.com/proven-ground-silverado1500-locking-Roll-Up-tonneau-cover-s112594.html" rel="nofollow noopener" target="_blank">Proven Ground Locking Roll-Up&nbsp;&rarr;</a> <span class="buy-note">$189.99 &middot; 136 reviews</span></p>
 
 **If you want to stand on it and stop a knife:** a hard tri-fold. The Proven
-Ground at $649.99 with 323 reviews is the strongest evidence-backed pick in the
+Ground at $649.99 with 317 reviews is the strongest evidence-backed pick in the
 whole category.
 
-<p class="buyrow"><a class="buy" href="https://www.americantrucks.com/proven-ground-silverado1500-low-profile-hard-tri-fold-tonneau-cover-s112595.html" rel="nofollow noopener" target="_blank">Proven Ground Hard Tri-Fold&nbsp;&rarr;</a> <span class="buy-note">$649.99 &middot; 323 reviews</span></p>
+<p class="buyrow"><a class="buy" href="https://www.americantrucks.com/proven-ground-silverado1500-low-profile-hard-tri-fold-tonneau-cover-s112595.html" rel="nofollow noopener" target="_blank">Proven Ground Hard Tri-Fold&nbsp;&rarr;</a> <span class="buy-note">$649.99 &middot; 317 reviews</span></p>
 
 **If you want the mechanism to be the point:** the BAKFlip MX4. It is the only
 cover above $1,200 with a review count high enough to argue from.
 
-<p class="buyrow"><a class="buy" href="https://www.americantrucks.com/bak-industries-bakflip-mx4-folding-tonneau-cover-s112141-silverado1500.html" rel="nofollow noopener" target="_blank">BAKFlip MX4&nbsp;&rarr;</a> <span class="buy-note">$1,299.99 &middot; 222 reviews</span></p>
+<p class="buyrow"><a class="buy" href="https://www.americantrucks.com/bak-industries-bakflip-mx4-folding-tonneau-cover-s112141-silverado1500.html" rel="nofollow noopener" target="_blank">BAKFlip MX4&nbsp;&rarr;</a> <span class="buy-note">$1,299.99 &middot; 220 reviews</span></p>
 
 **If you carry tall cargo and hate folding panels:** a retractable, with the
 caveat that the canister eats bed space permanently and owner feedback is thin.
