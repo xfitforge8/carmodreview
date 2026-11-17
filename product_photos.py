@@ -183,12 +183,28 @@ def inject_product_photos(body_html, slug, rel, product_root):
     return _inject_by_sku(body_html, slug, rel, product_root, used)
 
 
-def publish(product_root, out_root):
-    """Copy product images into the build. Sidecars stay out, as with photos."""
+def publish(product_root, out_root, only=None):
+    """Copy product images into the build. Sidecars stay out, as with photos.
+
+    `only` is the set of top-level directory names to copy. A directory under
+    content/products/ is named after the slug of the article that references
+    it, so passing the slugs of the pages actually being written keeps the
+    drafts' photography out of the build: a draft directory holds images for a
+    page that does not exist, and publishing them ships unreferenced files to
+    the live site and into every deploy. Left as None, everything is copied --
+    which is what a one-off script wants, but not what build.py wants.
+    """
     if not os.path.isdir(product_root):
         return 0
     n = 0
     for dirpath, _, files in os.walk(product_root):
+        if only is not None:
+            rel_dir = os.path.relpath(dirpath, product_root)
+            top = rel_dir.split(os.sep)[0]
+            # Loose files at the root are copied; a subdirectory is copied only
+            # when it is one of the named ones.
+            if top not in (os.curdir, '') and top not in only:
+                continue
         for f in files:
             if not f.lower().endswith(IMG_EXT):
                 continue
