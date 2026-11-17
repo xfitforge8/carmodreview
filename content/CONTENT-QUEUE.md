@@ -40,7 +40,7 @@ were actually read.
 | 6 | Golf GTI cat-back buying guide | **"How To Modify Your Golf GTI \| THE ULTIMATE GUIDE" at 740K views** — the single highest non-truck signal found. Autocomplete: `golf gti exhaust`, `golf gti build`, `golf gti mk7`, `gti tuned mk7`, `gti burble tune`, `mk8 gti tune comparison` | **written** — `27-golf-gti-cat-back-exhaust.md`, plus `29-golf-gti-mk7-vs-mk8-tested.md` |
 | 7 | Honda Accord 2.0T exhaust and tune path | `accord 2.0t exhaust`, `accord 2.0t tuned`, `accord 2.0t 0-60`. Two videos: **582K** (vs Audi A4 / Camry TRD) and **155K** (K-Tuner Stage 2) | **written** — `32-accord-2t-exhaust-tune-path.md` |
 | 8 | Civic Si bolt-ons and tune | `civic si exhaust`, `civic si build`. **167K** view bolt-ons + tune review; the 17–21 Si sedan cat-back carries **209 reviews**, the most-reviewed fitment-specific exhaust found in this sweep | **written** — `33-civic-si-bolt-ons-tune-order.md` |
-| 9 | WRX / STI downpipe before cat-back | Appears across the JDM seeds. The **MAP WRX catted downpipe at $749.99 has 279 reviews** — more than any cat-back in the sweep, which says the demand is power-first on this platform | **prices verified** |
+| 9 | WRX / STI downpipe before cat-back | Appears across the JDM seeds. The **MAP WRX catted downpipe at $749.99 has 279 reviews** — more than any cat-back in the sweep, which says the demand is power-first on this platform | **written** — `34-wrx-downpipe-before-cat-back.md` |
 | 10 | Turbo Miata build order | **266K views** on a turbo Miata build; **115K** on ND2 Miata vs supercharged BRZ. Lower priority: the parts costs are build-dependent and the verified-price surface is thinner | research |
 
 Also seen but lower priority: `silverado transmission shudder / thermostat bypass /
@@ -113,6 +113,16 @@ power part: the **MAP WRX catted downpipe Rev 4 at $749.99 with 279 reviews**. T
 matters for article 9's shape — downpipe is the first real power step on a turbo car
 and the review volume says people buy it, which is a different article from
 "cat-back sound".
+
+**The finding that reshaped article 9 (17 Nov 2026).** COBB's own product page for the
+2015–2021 WRX NexGen Stage 2 package states the packages exist because of *"the removal
+of Downpipes"*, and a site search for "wrx downpipe" returns **40 results with zero
+named downpipe or J-pipe** — COBB still sells downpipes (67 results for the bare term,
+first hit a Mitsubishi Evo X part) but not one for the WRX. Meanwhile the Accessport
+carries **EO D-660-16 and D-660-43** on the 15–21 part and **seven EOs** on the 22–26
+part, and every MAP/Invidia downpipe listing checked carried no CARB text at all. So
+the article's thesis is that the tune is the legal first purchase and the downpipe is
+the one to think hardest about — not the old "downpipe then cat-back, done" framing.
 
 The number worth noticing across all four, and it is the opposite of what the
 "trucks are expensive" instinct predicts. Reading the dollar figures visible on the
