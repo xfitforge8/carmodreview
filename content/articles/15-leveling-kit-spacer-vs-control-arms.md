@@ -12,7 +12,7 @@ fun_fact:
   en: "Past about **two inches, height stops being the expensive part**. At that point a spacer starts breaking geometry the factory upper control arms cannot correct, and the control arms become the purchase that matters."
 category: Suspension
 vehicle: truck
-status: draft
+status: published
 published: 2026-11-11
 last_updated: 2026-11-11
 ---

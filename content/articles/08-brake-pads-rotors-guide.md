@@ -16,7 +16,7 @@ fun_fact:
   en: "Pads are where almost all the felt difference lives, and the **compound family matters more than the brand**. Organic is quiet and fades early; semi-metallic bites from cold and is dusty. That trade is the decision, not the logo on the box."
 category: Brakes
 vehicle: truck
-status: draft
+status: published
 published: 2026-11-03
 last_updated: 2026-11-16
 ---
@@ -240,6 +240,8 @@ Pad compound is the real decision, and it is a trade: some pads trade dust for b
 **Are stainless brake lines worth it?**
 
 Fluid and lines are called the cheap upgrade people forget, which is where the guide puts them in the order of spending.
+
+*CarModReview may earn a commission from purchases made through links on this page, at no extra cost to you.*
 
 ## KR
 

@@ -16,7 +16,7 @@ fun_fact:
   en: "On a MAF-equipped engine the ECU **measures the air coming in and fuels it accordingly**, so the engine holds its commanded power rather than making more. The sensor that makes the intake safe is also the one that caps what it can do."
 category: Engine
 vehicle: truck
-status: draft
+status: published
 published: 2026-11-03
 last_updated: 2026-11-05
 ---
@@ -255,6 +255,8 @@ Half of what is marketed as a cold air intake draws from inside the engine bay, 
 **Is a drop-in filter better than a full intake?**
 
 On a stock or near-stock engine, a good drop-in panel filter in the factory airbox is the most underrated option: it is cheap, carries no MAF risk, keeps the factory cold-air path, and gives a small real benefit.
+
+*CarModReview may earn a commission from purchases made through links on this page, at no extra cost to you.*
 
 ## KR
 

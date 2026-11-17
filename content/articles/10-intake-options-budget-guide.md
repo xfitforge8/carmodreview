@@ -16,7 +16,7 @@ fun_fact:
   en: "**Not one of the three kits on this page is CARB legal in California.** No EO number means it fails the visual inspection on its own, before any emissions test is run."
 category: Engine
 vehicle: truck
-status: draft
+status: published
 published: 2026-11-04
 last_updated: 2026-11-04
 ---
@@ -375,6 +375,8 @@ One thing decides whether you notice a difference, and the guide names it first,
 **Can I build my own intake?**
 
 The DIY option has its own section, and the guide explains what it actually is rather than treating it as a shortcut.
+
+*CarModReview may earn a commission from purchases made through links on this page, at no extra cost to you.*
 
 ## KR
 

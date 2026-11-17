@@ -16,7 +16,7 @@ fun_fact:
   en: "Wheel weight is worth paying down because it is unsprung *and* rotating. Rough rule of thumb: **1 lb off the wheels is worth about 3 lb off the car** for acceleration, and the suspension has less mass to control over bumps."
 category: Wheels & Tires
 vehicle: truck
-status: draft
+status: published
 published: 2026-11-03
 last_updated: 2026-11-05
 ---
@@ -191,6 +191,8 @@ Construction decides strength and weight for a given price. The guide ranks the 
 **Will these wheels fit my car?**
 
 Fitment has to be measured, not guessed. The guide gives the four numbers that decide it and what to check before buying.
+
+*CarModReview may earn a commission from purchases made through links on this page, at no extra cost to you.*
 
 ## KR
 

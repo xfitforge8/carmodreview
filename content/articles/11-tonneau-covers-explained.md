@@ -16,7 +16,7 @@ fun_fact:
   en: "Hinged covers run **$1,499.99 to $2,699.99** — more than twice the most popular hard tri-fold on the page. That is why most buyers skip the tier without asking what it is: one rigid lid on a bulkhead hinge, so nothing stacks against the cab and the front of the bed stays usable."
 category: Tonneau & Bed
 vehicle: truck
-status: draft
+status: published
 published: 2026-11-05
 last_updated: 2026-11-16
 ---
@@ -304,6 +304,8 @@ risk is not the same for every cover type.
 Three things — bed length, the CarbonPro bed and the MultiFlex tailgate — and the
 guide puts them before a single cover is looked at, because getting them wrong
 makes the cover choice irrelevant.
+
+*CarModReview may earn a commission from purchases made through links on this page, at no extra cost to you.*
 
 ## KR
 

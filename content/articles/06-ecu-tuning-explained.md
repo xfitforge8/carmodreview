@@ -16,7 +16,7 @@ fun_fact:
   en: "A **piggyback intercepts sensor signals** before the factory computer sees them and leaves the original calibration untouched — which is why it unplugs in minutes and why it also cannot move a boost target the ECU is still commanding."
 category: Engine
 vehicle: truck
-status: draft
+status: published
 published: 2026-11-03
 last_updated: 2026-11-16
 ---
@@ -284,6 +284,8 @@ before the hardware means paying for the calibration twice.
 
 Yes. Without a log you do not know whether the tune is doing what it claims on
 your engine, or whether it is knocking. This is not optional.
+
+*CarModReview may earn a commission from purchases made through links on this page, at no extra cost to you.*
 
 ## KR
 

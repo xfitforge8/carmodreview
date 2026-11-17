@@ -12,7 +12,7 @@ fun_fact:
   en: "A window going **down** cannot hurt anybody; there is nothing underneath it. A window going **up** can, so a window that closes by itself has to be able to feel something in the way and back off. That sensing costs money on every door you put it in, which is why it goes in one."
 category: Electrical
 vehicle: truck
-status: draft
+status: published
 published: 2026-11-06
 last_updated: 2026-11-06
 ---
@@ -215,4 +215,6 @@ Yes, and the guide covers what to look for in a module. It also says which quest
 **Is auto-up on other windows legal in the US?**
 
 What the US rule says has its own section, including the part of the rule that pulls the other way, because the requirement is narrower than it is often described.
+
+*CarModReview may earn a commission from purchases made through links on this page, at no extra cost to you.*
 

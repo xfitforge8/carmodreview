@@ -12,7 +12,7 @@ fun_fact:
   en: "Four of the 22 owners who named a whole-job time **took two hours or more, and two took four and a half**. The badge is not lying about the part; it is describing the install that went well."
 category: Engine
 vehicle: truck
-status: draft
+status: published
 published: 2026-11-07
 last_updated: 2026-11-07
 ---

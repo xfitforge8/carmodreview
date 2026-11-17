@@ -12,7 +12,7 @@ fun_fact:
   en: "Both kits lift the front **3.5 inches** and the rear **2.5 inches** — not 3.5 all round, which is worth stating because the names suggest otherwise. They level the truck rather than simply raising it."
 category: Suspension
 vehicle: truck
-status: draft
+status: published
 published: 2026-11-13
 last_updated: 2026-11-13
 ---

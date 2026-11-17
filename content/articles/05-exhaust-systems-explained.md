@@ -16,7 +16,7 @@ fun_fact:
   en: "Drone is not loudness. It is a **low-frequency resonance at roughly 1,800–2,500 rpm** — which is exactly highway cruising speed. A system can be loud at full throttle and quiet at 70 mph, or modest at full throttle and unbearable there."
 category: Exhaust
 vehicle: truck
-status: draft
+status: published
 published: 2026-11-03
 last_updated: 2026-11-16
 ---
@@ -251,6 +251,8 @@ Some, and mostly at high rpm. This guide deliberately does not quote a figure it
 **Do I need a tune after fitting an exhaust?**
 
 For sound and drivability, no. For power, yes — adding flow without changing the ECU's fueling and boost targets leaves most of the benefit unrealized. That is also the point where warranty considerations get serious.
+
+*CarModReview may earn a commission from purchases made through links on this page, at no extra cost to you.*
 
 ## KR
 

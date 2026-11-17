@@ -17,7 +17,7 @@ fun_fact:
   en: "The E-rated trap costs you grip, not just comfort. A stiffer sidewall on a light truck **conforms to the road less**, so the contact patch is smaller. An E-rated tire on an empty half-ton is over-specification you feel every mile."
 category: Wheels & Tires
 vehicle: truck
-status: draft
+status: published
 published: 2026-11-04
 last_updated: 2026-11-05
 ---
@@ -211,6 +211,8 @@ Yes. The 4x4 rule for rotation differs from a two-wheel-drive vehicle, and the g
 **What tire pressure should I run?**
 
 The pressure question has its own section because the answer depends on load and use rather than on a single number for the tire.
+
+*CarModReview may earn a commission from purchases made through links on this page, at no extra cost to you.*
 
 ## KR
 

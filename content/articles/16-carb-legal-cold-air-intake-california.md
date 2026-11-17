@@ -12,7 +12,7 @@ fun_fact:
   en: "The inspector is not measuring your horsepower — they are looking for an **EO identification plate under the hood**. An intake without one fails the visual inspection on its own, before any emissions test is run, so the truck can pass the tailpipe and still fail."
 category: Engine
 vehicle: truck
-status: draft
+status: published
 published: 2026-11-12
 last_updated: 2026-11-14
 ---

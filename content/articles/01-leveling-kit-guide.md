@@ -18,7 +18,7 @@ fun_fact:
   en: "The front of a stock half-ton sits low on purpose. The factory builds in a **rearward rake** so the truck sits level once it has weight in the bed or a trailer on the hitch. A leveling kit removes that, which is worth knowing before you tow."
 category: Suspension
 vehicle: truck
-status: draft
+status: published
 published: 2026-11-04
 last_updated: 2026-11-05
 ---
@@ -202,6 +202,8 @@ Geometry is what changes, and the parts that wear early follow from it. The kit 
 **Do I need an alignment after installing a leveling kit?**
 
 Yes. Changing front ride height changes alignment, and the guide treats alignment as part of the job rather than an optional extra.
+
+*CarModReview may earn a commission from purchases made through links on this page, at no extra cost to you.*
 
 ## KR
 

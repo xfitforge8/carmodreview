@@ -17,7 +17,7 @@ fun_fact:
   en: "The turbo is why an intake behaves differently here than on a V8. Cutting pre-turbo restriction can let the compressor reach its boost target with less work, which you feel as slightly quicker tip-in rather than as peak power."
 category: Engine
 vehicle: truck
-status: draft
+status: published
 published: 2026-11-04
 last_updated: 2026-11-05
 ---
@@ -208,6 +208,8 @@ Realistic expectations on a turbo four get their own section, because the effect
 **Should I buy an intake or spend the money elsewhere?**
 
 Where the money is better spent first is covered directly, and the guide is willing to say the intake is not the first purchase.
+
+*CarModReview may earn a commission from purchases made through links on this page, at no extra cost to you.*
 
 ## KR
 

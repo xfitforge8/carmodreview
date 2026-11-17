@@ -12,7 +12,7 @@ fun_fact:
   en: "The analysis started with 115 unique low reviews. **24 of them were not written by truck owners at all** — AmericanTrucks pools ratings across its catalogue, so a Silverado intake listing carries low reviews from Mustang, Wrangler and Outlander owners. Removing them left 91."
 category: Engine
 vehicle: truck
-status: draft
+status: published
 published: 2026-11-05
 last_updated: 2026-11-11
 ---
@@ -289,4 +289,6 @@ that advertise a long year range carry the most risk at the edges of that range.
 Disappointment with performance — no gain, or worse fuel economy than stock —
 at 18%. Missing hardware is last but one at about 5.5%, which surprised us; it
 is the problem people talk about most but not the one they hit most.
+
+*CarModReview may earn a commission from purchases made through links on this page, at no extra cost to you.*
 

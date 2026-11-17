@@ -16,7 +16,7 @@ fun_fact:
   en: "A damper has two jobs, not one: controlling the spring's motion, and keeping the tire on the road over bumps. Lowering the car breaks both at once, which is why the cheap version feels worse than stock rather than just firmer."
 category: Suspension
 vehicle: truck
-status: draft
+status: published
 published: 2026-11-03
 last_updated: 2026-11-05
 ---
@@ -217,6 +217,8 @@ Geometry is the part people skip, and changing ride height changes it. The guide
 **How do I choose spring rates?**
 
 Match spring rate to use. A rate that suits a track car is wrong for a daily driver, and the guide explains how to pick for the driving you actually do.
+
+*CarModReview may earn a commission from purchases made through links on this page, at no extra cost to you.*
 
 ## KR
 
