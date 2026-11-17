@@ -39,7 +39,7 @@ were actually read.
 | 5 | Cold air intake sound, before/after | `cold air intake sound` is the top autocomplete result for the whole seed; videos at **246K, 109K, 83K, 46K** | **written** — `31-cold-air-intake-sound.md` |
 | 6 | Golf GTI cat-back buying guide | **"How To Modify Your Golf GTI \| THE ULTIMATE GUIDE" at 740K views** — the single highest non-truck signal found. Autocomplete: `golf gti exhaust`, `golf gti build`, `golf gti mk7`, `gti tuned mk7`, `gti burble tune`, `mk8 gti tune comparison` | **written** — `27-golf-gti-cat-back-exhaust.md`, plus `29-golf-gti-mk7-vs-mk8-tested.md` |
 | 7 | Honda Accord 2.0T exhaust and tune path | `accord 2.0t exhaust`, `accord 2.0t tuned`, `accord 2.0t 0-60`. Two videos: **582K** (vs Audi A4 / Camry TRD) and **155K** (K-Tuner Stage 2) | **written** — `32-accord-2t-exhaust-tune-path.md` |
-| 8 | Civic Si bolt-ons and tune | `civic si exhaust`, `civic si build`. **167K** view bolt-ons + tune review; the 17–21 Si sedan cat-back carries **209 reviews**, the most-reviewed fitment-specific exhaust found in this sweep | **prices verified** |
+| 8 | Civic Si bolt-ons and tune | `civic si exhaust`, `civic si build`. **167K** view bolt-ons + tune review; the 17–21 Si sedan cat-back carries **209 reviews**, the most-reviewed fitment-specific exhaust found in this sweep | **written** — `33-civic-si-bolt-ons-tune-order.md` |
 | 9 | WRX / STI downpipe before cat-back | Appears across the JDM seeds. The **MAP WRX catted downpipe at $749.99 has 279 reviews** — more than any cat-back in the sweep, which says the demand is power-first on this platform | **prices verified** |
 | 10 | Turbo Miata build order | **266K views** on a turbo Miata build; **115K** on ND2 Miata vs supercharged BRZ. Lower priority: the parts costs are build-dependent and the verified-price surface is thinner | research |
 
@@ -73,6 +73,12 @@ Most-reviewed GTI cat-back: **Borla S-Type 140597, $1,014.99, 10 reviews** (MK7)
 |---|---|---|---|
 | MAPerformance cat-back | 22+ Civic Si | from **$949.99** | 48 |
 | MAP cat-back, sedan only | 17–21 Civic Si | from **$999.99** | **209** |
+| MAP front pipe | 16–21 Civic X 1.5T | **$349.99** | 46 |
+| PRL 3" front pipe | 16–21 Civic 1.5T | **$429.00** | 19 |
+| MAP catted downpipe | 16–21 Civic 1.5T | **$599.99** | **85** |
+| MAP downpipe | 22+ Civic / Si 1.5T | **$599.99** | 17 |
+| Invidia catted 70mm downpipe | 16–21 EX/Touring/Si | **$861.27** | 2 |
+| KTuner Flash V2 Touch | multiple Honda/Acura | **$749.00** | 248 |
 | Invidia Gemini, Ti burnt tips | 17–21 Civic Si sedan | **$1,163.76** (was $1,799.28) | 56 |
 | ARK Performance DT-S | 17–21 Civic Si sedan | **$1,437.84** (was $2,054.05) | 16 |
 

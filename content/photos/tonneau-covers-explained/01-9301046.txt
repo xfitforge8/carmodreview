@@ -1,0 +1,1 @@
+A pickup on a city street with its bed uncovered. An open bed is the baseline case: the tailgate is a vertical wall that the airflow separates from, which is the drag the cover is meant to reduce.

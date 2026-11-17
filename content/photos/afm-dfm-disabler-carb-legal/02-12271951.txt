@@ -1,0 +1,1 @@
+A diagnostic dongle plugged into a car's OBD port, its light on. This is physically the same socket a disabler occupies, which is why the device is visible to anyone who looks during an inspection.

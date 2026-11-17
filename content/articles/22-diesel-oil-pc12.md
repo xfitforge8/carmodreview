@@ -6,11 +6,15 @@ seo_title:
 seo_desc:
   en: "API PC-12 splits into two categories, CL-4 and FB-4, licensing January 1, 2027. Which one a Cummins, Power Stroke or Duramax owner should look for, and why they differ."
 slug: diesel-oil-pc12
+key_fact:
+  en: "**Diesel oil splits into two categories on 1 January 2027 and they are not interchangeable.** The new one is **API PC-12**, licensed as **CL-4** and **FB-4**; running the wrong one in a Cummins, Power Stroke or Duramax is the mistake to avoid."
+fun_fact:
+  en: "API approved PC-12 to support the EPA's 2027 heavy-duty rules, which require a **50% cut in particulates and up to a 90% cut in nitrogen oxides** — the oil is doing emissions work, not just lubrication work."
 category: Engine
 vehicle: truck
-status: draft
+status: published
 published: 2026-11-14
-last_updated: 2026-11-14
+last_updated: 2026-11-17
 ---
 
 # A New Diesel Oil Category Lands in 2027. Here's Which One Your Truck Needs.
@@ -149,3 +153,5 @@ Clogging So Darn Much," reporting comments from Shawn Whitacre of Chevron
 Lubricants on The Diesel Podcast; API PC-12 category documentation and the CL-4 /
 FB-4 certification marks as described in publicly available Mobil, Chevron,
 Phillips 66 and Lubrizol specification summaries, checked November 14, 2026.*
+
+*CarModReview may earn a commission from purchases made through links on this page, at no extra cost to you.*

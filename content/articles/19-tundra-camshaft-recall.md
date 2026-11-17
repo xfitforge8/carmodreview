@@ -6,11 +6,15 @@ seo_title:
 seo_desc:
   en: "A leaked dealer memo describes a 62,000-truck Tundra camshaft recall for 2022-2023 and 2025-2026 models. NHTSA has published nothing yet. What owners should do now."
 slug: tundra-camshaft-recall
+key_fact:
+  en: "**Nothing is official yet.** As of today no camshaft recall for these trucks appears in NHTSA's public database — everything comes from a dealer memo reported on 13 November 2026. If you own a 2022-2023 or 2025-2026 Tundra, wait to be contacted; there is no campaign number to book an inspection against."
+fun_fact:
+  en: "The gap nobody reports: the recall covers about **62,000 trucks** but Toyota estimates only **300 affected camshafts**. 62,000 is how many have to be *checked*; 300 is how many actually contain a part from the bad lot — which is why the remedy is an inspection, not an engine replacement."
 category: Tuning
 vehicle: truck
-status: draft
+status: published
 published: 2026-11-14
-last_updated: 2026-11-14
+last_updated: 2026-11-17
 ---
 
 # Toyota Tundra Camshaft Recall: 62,000 Trucks, but It Isn't Official Yet
@@ -21,7 +25,7 @@ Toyota is preparing a voluntary safety recall covering roughly 62,000 Tundra
 pickups, according to a dealer notice obtained by The Drive and published on
 November 13, 2026. Affected engines could lose motive power if a camshaft fails.
 
-**As of November 14, 2026, no camshaft recall for these trucks appears in
+**As of November 17, 2026, no camshaft recall for these trucks appears in
 NHTSA's public recall database.** Everything below on the forthcoming recall
 comes from that dealer memo. It is not yet an announced recall.
 
@@ -130,7 +134,7 @@ under 24V381.
 ### What we could not verify
 
 The recall itself. No NHTSA campaign number exists for a Tundra camshaft defect
-as of November 14, 2026. We checked the agency's recall API directly for model
+as of November 17, 2026. We checked the agency's recall API directly for model
 years 2022 through 2026 and found engine-related campaigns only for the
 main-bearing debris issue.
 
@@ -142,5 +146,7 @@ Owners can check their own VIN at
 authoritative source, and it will show the campaign once Toyota files it.
 
 *Sources: The Drive (November 13, 2026) for the dealer notice; NHTSA recall API,
-queried November 14, 2026, for campaigns 24V381 and 25V767 and for the absence of
+queried November 17, 2026, for campaigns 24V381 and 25V767 and for the absence of
 a camshaft campaign.*
+
+*CarModReview may earn a commission from purchases made through links on this page, at no extra cost to you.*

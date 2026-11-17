@@ -6,11 +6,15 @@ seo_title:
 seo_desc:
   en: "Audi of America's product chief told The Drive the company has gone as far as it will on touchscreens and is moving back to mechanical controls. Here's what that means for interiors."
 slug: audi-buttons-return
+key_fact:
+  en: "**Audi says it has gone as far as it will go with touchscreens, and the next interiors go back to physical controls.** Filip Brabec, Audi of America's SVP of Product Management, told The Drive: \"the general tendency is definitely to more mechanical controls.\""
+fun_fact:
+  en: "The admission landed on 11 November 2026, a decade after Audi put the first big central screen in a production car — so the company arguing for buttons is the same one that started the trend it is now reversing."
 category: Electrical
 vehicle: luxury
-status: draft
+status: published
 published: 2026-11-14
-last_updated: 2026-11-14
+last_updated: 2026-11-17
 ---
 
 # Audi Says It Went Too Far on Screens. The Rollers Are the Tell.
@@ -137,3 +141,5 @@ not received them, the reasonable posture is to wait for a production interior.
 *Source: The Drive, "Audi Says Touchscreens Have Gone as Far as They'll Go.
 Buttons Are Coming Back," updated November 11, 2026, quoting Filip Brabec of Audi
 of America.*
+
+*CarModReview may earn a commission from purchases made through links on this page, at no extra cost to you.*

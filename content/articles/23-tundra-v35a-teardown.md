@@ -6,11 +6,15 @@ seo_title:
 seo_desc:
   en: "A third teardown of a failed Toyota V35A twin-turbo V6 found a warped head and coolant intrusion, but no clear cause. What it adds to the recall picture."
 slug: tundra-v35a-teardown
+key_fact:
+  en: "**The third V35A teardown found a different failure than the first two.** Where those showed machining debris, this one showed a **warped head, coolant intrusion at the gaskets and uneven bearing wear** — so the engine has more than one way to fail."
+fun_fact:
+  en: "It is also the **second teardown of an engine that was already a replacement for a failed one**, which is the detail that matters if you are weighing whether the campaign remedy actually fixes the problem."
 category: Tuning
 vehicle: truck
-status: draft
+status: published
 published: 2026-11-14
-last_updated: 2026-11-14
+last_updated: 2026-11-17
 ---
 
 # A Third V35A Teardown Found Something New. It Still Isn't the Answer.
@@ -142,3 +146,5 @@ difference between the two, and Toyota has not commented on the teardown.
 *Sources: The Drive, "This Blown Toyota V6 May Hold the Secret to the Tundra's
 Engine Failures," reporting on the "I Do Cars" teardown, November 2026; NHTSA
 recall API for campaigns 24V381, 25V767 and 26V320, queried November 14, 2026.*
+
+*CarModReview may earn a commission from purchases made through links on this page, at no extra cost to you.*

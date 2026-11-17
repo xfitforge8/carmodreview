@@ -106,5 +106,95 @@
 "t": "MCEqual Puts a Real Equalizer Back in GM's Google-Built Infotainment",
 "d": "MCEqual is a $3.99 equalizer app for vehicles running Android Automotive OS. The Max 2.0 update adds Android Auto EQ, synced lyrics and per-device presets.",
 "c": "Electrical"
+},
+{
+"u": "/tuning/tundra-camshaft-recall.html",
+"t": "Toyota Tundra Camshaft Recall: 62,000 Trucks, but It Isn't Official Yet",
+"d": "A leaked dealer memo describes a 62,000-truck Tundra camshaft recall for 2022-2023 and 2025-2026 models. NHTSA has published nothing yet. What owners should do now.",
+"c": "Tuning"
+},
+{
+"u": "/electrical/audi-buttons-return.html",
+"t": "Audi Says It Went Too Far on Screens. The Rollers Are the Tell.",
+"d": "Audi of America's product chief told The Drive the company has gone as far as it will on touchscreens and is moving back to mechanical controls. Here's what that means for interiors.",
+"c": "Electrical"
+},
+{
+"u": "/electrical/bentley-infotainment-upgrade.html",
+"t": "Bentley Will Sell You a Better Screen. It Costs Almost Every Button.",
+"d": "Bentley now offers a 9.7-inch 2K CarPlay retrofit for second-gen Continental GT and Flying Spur. The price is undisclosed and most climate controls are deleted.",
+"c": "Electrical"
+},
+{
+"u": "/engine/diesel-oil-pc12.html",
+"t": "A New Diesel Oil Category Lands in 2027. Here's Which One Your Truck Needs.",
+"d": "API PC-12 splits into two categories, CL-4 and FB-4, licensing January 1, 2027. Which one a Cummins, Power Stroke or Duramax owner should look for, and why they differ.",
+"c": "Engine & Intake"
+},
+{
+"u": "/tuning/tundra-v35a-teardown.html",
+"t": "A Third V35A Teardown Found Something New. It Still Isn't the Answer.",
+"d": "A third teardown of a failed Toyota V35A twin-turbo V6 found a warped head and coolant intrusion, but no clear cause. What it adds to the recall picture.",
+"c": "Tuning"
+},
+{
+"u": "/engine/gm-lifter-failure-which-trucks.html",
+"t": "GM's Lifter Problem: Which Trucks It Hits and What the Bulletins Say",
+"d": "GM's own service bulletins name the 5.3L trucks with documented AFM and DFM lifter failures, including two 2020-2022 build windows L84 buyers should check.",
+"c": "Engine & Intake"
+},
+{
+"u": "/exhaust/muffler-delete-vs-straight-pipe.html",
+"t": "Muffler Delete vs Straight Pipe: What Each Actually Does",
+"d": "A muffler delete keeps your factory pipe and drops the muffler. A straight pipe replaces everything. What each costs, how they sound, and the drone risk.",
+"c": "Exhaust"
+},
+{
+"u": "/exhaust/exhaust-flapper-valve-rattle.html",
+"t": "Exhaust Flapper Valve: What It Does and How to Stop the Rattle",
+"d": "Your exhaust flapper valve is a noise-control flap, not a muffler. Why it chirps and rattles, what GM's own bulletin says, and what the free fix involves.",
+"c": "Exhaust"
+},
+{
+"u": "/exhaust/golf-gti-cat-back-exhaust.html",
+"t": "Golf GTI Cat-Back Exhaust: What the Options Cost and Which to Pick",
+"d": "Seven GTI cat-back exhausts priced from $738 to $1,519, read live: what axle-back saves you, why drone hits a DSG car differently, and what to check first.",
+"c": "Exhaust"
+},
+{
+"u": "/engine/afm-dfm-disabler-carb-legal.html",
+"t": "AFM and DFM Disablers: Which Ones Are Actually CARB Legal",
+"d": "The most-reviewed AFM disabler in the country is explicitly not legal in California. Here is which GM cylinder-deactivation modules carry a CARB EO number, and which do not.",
+"c": "Engine & Intake"
+},
+{
+"u": "/engine/golf-gti-mk7-vs-mk8-tested.html",
+"t": "Golf GTI: MK7 vs MK8 vs MK8.5, Generation by Generation",
+"d": "Instrumented test data for three GTI generations side by side: 0-60, braking, skidpad and VIR lap times, plus which one you can legally tune in California.",
+"c": "Engine & Intake"
+},
+{
+"u": "/tonneau/tonneau-cover-mpg-test.html",
+"t": "Do Tonneau Covers Improve MPG? Three Tests, Three Answers",
+"d": "Three real highway tests — a Ram, a Maverick and a Tacoma — returned +1.6 mpg, +5% and +0.1 mpg. What the wind tunnel data says, and why.",
+"c": "Tonneau & Bed"
+},
+{
+"u": "/engine/cold-air-intake-sound.html",
+"t": "Cold Air Intake Sound: What Actually Changes, and Where You Hear It",
+"d": "Owners report a 20-30% jump in sound, or nothing at all. What the before/after clips actually capture, why the factory air box was quiet, and what it costs.",
+"c": "Engine & Intake"
+},
+{
+"u": "/exhaust/accord-2t-exhaust-tune-path.html",
+"t": "Honda Accord 2.0T Exhaust and Tune: The Order That Actually Works",
+"d": "Five live-priced cat-backs from $1,019.99 and a KTuner flash at $749. What the manufacturer's own 88 lb-ft claim covers, and what it doesn't.",
+"c": "Exhaust"
+},
+{
+"u": "/tuning/civic-si-bolt-ons-tune-order.html",
+"t": "Civic Si Bolt-Ons and Tune: What to Buy First, and What It Actually Gains",
+"d": "KTuner's own dyno sheets show +56 wtq and +34 whp from a 23 PSI basemap on the 1.5T Si. Six live-priced parts, and why the tune comes before the exhaust.",
+"c": "Tuning"
 }
 ]

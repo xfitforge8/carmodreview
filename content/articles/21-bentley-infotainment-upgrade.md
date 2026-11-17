@@ -6,11 +6,15 @@ seo_title:
 seo_desc:
   en: "Bentley now offers a 9.7-inch 2K CarPlay retrofit for second-gen Continental GT and Flying Spur. The price is undisclosed and most climate controls are deleted."
 slug: bentley-infotainment-upgrade
+key_fact:
+  en: "**Bentley will retrofit a faster, larger screen into second-generation Continental GT and Flying Spur — and the upgrade deletes most of the physical climate controls below it.** The programme was announced the week of 13 November 2026."
+fun_fact:
+  en: "It is the reverse of the usual retrofit: instead of adding tech to an older car, Bentley is removing hard buttons from cars that already have them — while Audi, in the same week, said it is going back to switchgear."
 category: Electrical
 vehicle: luxury
-status: draft
+status: published
 published: 2026-11-14
-last_updated: 2026-11-14
+last_updated: 2026-11-17
 ---
 
 # Bentley Will Sell You a Better Screen. It Costs Almost Every Button.
@@ -137,3 +141,5 @@ systems is Bentley's own material.
 *Source: The Drive, "Would You Upgrade Your Old Car's Infotainment If It Cost You
 Almost Every Button?", updated November 13, 2026, reporting Bentley's
 announcement.*
+
+*CarModReview may earn a commission from purchases made through links on this page, at no extra cost to you.*

@@ -1,0 +1,1 @@
+A dashboard running Apple CarPlay. Once the head unit is a screen rather than a set of dials, the sound processing moves into software.

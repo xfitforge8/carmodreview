@@ -1,0 +1,1 @@
+A diagnostic tool, a smartphone running a scan app and a socket set laid out on a bench. A disabler does far less than this kit: it reports a condition to the controller and changes nothing in the calibration.
