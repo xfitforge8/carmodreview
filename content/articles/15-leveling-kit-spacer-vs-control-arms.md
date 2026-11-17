@@ -2,11 +2,16 @@
 title:
   en: "A 1.5-Inch Spacer or 1.75 Inches With Control Arms? What Each One Actually Changes"
 seo_title:
-  en: "1.5-Inch Spacer vs 1.75-Inch Leveling Kit With UCAs"
+  en: "1.5-Inch Spacer vs 1.75-Inch Kit With UCAs"
 seo_desc:
   en: "Four Silverado leveling kits from $36.99 to $529.95: what each one changes about the front end, and what owners report after installing them."
 slug: leveling-kit-spacer-vs-control-arms
+key_fact:
+  en: "Buy the **cheapest kit that gets the height you actually measured**, and put the saved money into the alignment. The four kits here run $36.99 to $529.95 and the geometry does not change with the badge."
+fun_fact:
+  en: "Past about **two inches, height stops being the expensive part**. At that point a spacer starts breaking geometry the factory upper control arms cannot correct, and the control arms become the purchase that matters."
 category: Suspension
+vehicle: truck
 status: draft
 published: 2026-11-11
 last_updated: 2026-11-11

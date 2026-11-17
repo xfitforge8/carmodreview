@@ -7,6 +7,7 @@ seo_desc:
   en: "Audi of America's product chief told The Drive the company has gone as far as it will on touchscreens and is moving back to mechanical controls. Here's what that means for interiors."
 slug: audi-buttons-return
 category: Electrical
+vehicle: luxury
 status: draft
 published: 2026-11-14
 last_updated: 2026-11-14

@@ -4,16 +4,21 @@ title:
   kr: "브레이크 패드와 디스크: 실제로 더 빨라지게 만드는 업그레이드"
   es: "Pastillas y discos de freno: la mejora que de verdad te hace más rápido"
 seo_title:
-  en: "Brake Pads and Rotors: The Upgrade That Makes You Faster"
+  en: "Brake Pads and Rotors: What to Upgrade and Why"
   es: "Pastillas y discos de freno: qué mejora de verdad"
 seo_desc:
-  en: "Brake pads and rotors: what upgrading changes, how to bed them, and the pads that trade dust for bite."
+  en: "Brake pads and rotors explained: what each pad compound does, which rotor type to pick, and how to bed new pads so they actually bite."
   es: "Pastillas y discos de freno: qué cambia de verdad una mejora, el rodaje correcto y las pastillas que cambian polvo por mordiente."
 slug: brake-pads-rotors-guide
+key_fact:
+  en: "Stopping power comes from clamping force, friction coefficient and rotor diameter — and then from **the tire, which is not part of the brake system at all**. The best kit in the world is limited by the contact patch, which is why brakes come after tires."
+fun_fact:
+  en: "Pads are where almost all the felt difference lives, and the **compound family matters more than the brand**. Organic is quiet and fades early; semi-metallic bites from cold and is dusty. That trade is the decision, not the logo on the box."
 category: Brakes
+vehicle: truck
 status: draft
 published: 2026-11-03
-last_updated: 2026-11-05
+last_updated: 2026-11-16
 ---
 
 # Brake Pads and Rotors: The Upgrade That Makes You Faster

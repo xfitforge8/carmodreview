@@ -7,6 +7,7 @@ seo_desc:
   en: "A third teardown of a failed Toyota V35A twin-turbo V6 found a warped head and coolant intrusion, but no clear cause. What it adds to the recall picture."
 slug: tundra-v35a-teardown
 category: Tuning
+vehicle: truck
 status: draft
 published: 2026-11-14
 last_updated: 2026-11-14

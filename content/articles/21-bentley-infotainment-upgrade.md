@@ -7,6 +7,7 @@ seo_desc:
   en: "Bentley now offers a 9.7-inch 2K CarPlay retrofit for second-gen Continental GT and Flying Spur. The price is undisclosed and most climate controls are deleted."
 slug: bentley-infotainment-upgrade
 category: Electrical
+vehicle: luxury
 status: draft
 published: 2026-11-14
 last_updated: 2026-11-14

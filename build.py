@@ -90,6 +90,7 @@ import photos
 from photos import (inject_photos, find_photos, photo_html, category_photo,
                     CATEGORY_SOURCE)
 import product_photos
+import vehicles
 
 # ───────────────────────────────────────────────────── analytics (Cloudflare)
 # Cloudflare Web Analytics: cookieless, collects no personal data, no consent
@@ -313,6 +314,15 @@ RETIRED_LANGS = [('kr', '/kr'), ('es', '/es')]
 # that covers them, so no page ever links to a URL that does not exist.
 HUBLESS = {'tuning': 'engine/ecu-tuning-explained.html'}
 
+# Vehicle types that have earned a page this build, as {slug: guide count},
+# filled in by build() before any page is rendered. The sidebar and the homepage
+# both read it, and both are built for every page, so it has to be a module-level
+# value rather than a local -- otherwise each would have to be told which vehicle
+# pages exist, and the one place that knows is the build loop. Empty until then,
+# which is why a page rendered before the assignment silently loses its
+# "By vehicle" block rather than crashing.
+VEHICLE_LIVE = {}
+
 # An intro paragraph for each category hub.
 #
 # Every hub under about 160 words is a heading and a list of links: nothing on
@@ -369,6 +379,66 @@ def hub_intro(catslug, n_articles):
     return f'  <p class="dek">{html.escape(txt)}</p>\n'
 
 
+# <title> and meta description per hub. Without this every hub shipped as
+# "Exhaust | Car Mod Review" with a description that was the category name
+# dropped into one shared sentence -- four words of unique text on a page whose
+# only job is to rank for the category. Each pair below names the questions the
+# guides under it actually answer, so the hub competes for the category term
+# instead of the boilerplate.
+#
+# Kept under 60 chars for the title and 160 for the description: the title is
+# used verbatim (no site-name suffix appended, so the budget is the whole tag),
+# and a description past 160 is truncated in the result with an ellipsis.
+HUB_META = {
+    'engine': (
+        'Cold Air Intakes and ECU Tuning: What They Change',
+        'Cold air intake and tuning guides: what each part changes, why the MAF '
+        'sensor fails, CARB legality in California, and what owners report after '
+        'install.'),
+    'suspension': (
+        'Leveling Kits and Lift Kits: Spacers vs Control Arms',
+        'Leveling and lift kit guides: what each changes in ride and geometry, '
+        'why ball joints wear out early, and how two kits at the same height '
+        'still differ.'),
+    'wheels-tires': (
+        'Wheel Offset and Tire Load Range: What Actually Fits',
+        'Wheel and tire guides: how offset decides fitment, why load range E is '
+        'bought by mistake, and which specs to check before you order a set.'),
+    'exhaust': (
+        'Cat-Back vs Axle-Back Exhaust: Sound, Drone and the Law',
+        'Exhaust guides: cat-back against axle-back, where highway drone comes '
+        'from, what muffler and resonator changes do, and what the noise law '
+        'requires.'),
+    'brakes': (
+        'Brake Pads and Rotors: Compounds, Bedding and Bite',
+        'Brake guides: what each pad compound changes, which rotor type to pick, '
+        'and how to bed new pads so they bite. Priced from listings we checked.'),
+    'tonneau': (
+        'Tonneau Covers: Roll-Up, Folding, Hinged, Retractable',
+        'Tonneau cover guides compared by the job they do: roll-up, folding, '
+        'hinged and retractable, with the prices and review counts we read on '
+        'the live listings.'),
+    'electrical': (
+        'Auto-Up Windows and GM Infotainment: What Actually Works',
+        'Electrical guides: why only one window has auto-up, what the reset '
+        'procedure does, and what it takes to add the function to the other '
+        'doors.'),
+    'cold-air-intakes': (
+        'Cold Air Intakes: Fitment, Sound and CARB Legality',
+        'Cold air intake guides by engine and by state: fitment, what the intake '
+        'actually changes, and whether a given part is CARB-legal in California.'),
+}
+
+
+def hub_title_desc(catslug, name):
+    """Title and description for a category hub, with a safe fallback."""
+    if catslug in HUB_META:
+        return HUB_META[catslug]
+    return (f'{name} Guides',
+            f'{name} guides built from published specifications: fitment, sizing '
+            'and what the numbers actually mean.')
+
+
 
 UI = {
     'en': dict(all_posts='All posts', how='How we pick', home='Home',
@@ -378,6 +448,7 @@ UI = {
                           'on this page. Commission never decides which products we pick or '
                           'where they rank.'),
                nav_cats='Categories', on='on',
+               key_label='The short answer', fun_label='The detail worth repeating',
                search='Search', search_label='Search guides', by='By', contact='Contact', about='About', privacy='Privacy',
                terms='Terms', disclosure='Affiliate disclosure',
                foot_tag=('car parts coverage that states its sources and says when it '
@@ -388,6 +459,7 @@ UI = {
                disc_body=('이 페이지의 링크를 통해 구매가 이루어지면 저희는 수수료를 받습니다. '
                           '수수료는 어떤 제품을 고르는지, 순위가 어떻게 되는지를 결정하지 않습니다.'),
                nav_cats='카테고리', on='',
+               key_label='한 줄 답', fun_label='기억할 만한 디테일',
                search='검색', search_label='가이드 검색', by='글쓴이', contact='문의', about='소개', privacy='개인정보처리방침',
                terms='이용약관', disclosure='제휴 고지',
                foot_tag='출처를 밝히고, 모르는 것은 모른다고 말하는 자동차 부품 정보.'),
@@ -398,6 +470,7 @@ UI = {
                           'esta página. La comisión nunca decide qué productos elegimos ni en qué '
                           'posición se clasifican.'),
                nav_cats='Categorías', on='',
+               key_label='La respuesta corta', fun_label='El detalle que vale repetir',
                search='Buscar', search_label='Buscar guías', by='Por', contact='Contacto', about='Sobre nosotros',
                privacy='Privacidad', terms='Términos', disclosure='Divulgación de afiliados',
                foot_tag=('información de piezas de auto que cita sus fuentes y dice '
@@ -1035,6 +1108,46 @@ def build_related(lang, rel, entries, current_slug, current_cat):
             f'  </div>\n')
 
 
+def build_keyfacts(meta, lang, rel):
+    """The two sentences a reader came for, pulled out of the prose.
+
+    Every guide here is written from verification, and the verification is the
+    reason to read it -- but the finding arrives eight paragraphs down, behind
+    the history and the caveats. A reader deciding in four seconds whether the
+    page answers their question never reaches it.
+
+    So each article names two things in its frontmatter: the short answer, and
+    the one fact in the piece a reader is most likely to repeat to somebody
+    else. Both are the author's own words lifted from the body, never new
+    claims -- the block cannot introduce a figure the article does not already
+    source. An article that declares neither simply renders without the block.
+    """
+    def pick(field):
+        val = (meta.get(field) or {}).get(lang) or (meta.get(field) or {}).get('en')
+        if not val:
+            return ''
+        out = md2html(str(val), rel)
+        return re.sub(r'^<p>|</p>\s*$', '', out.strip())
+
+    key = pick('key_fact')
+    fun = pick('fun_fact')
+    if not key and not fun:
+        return ''
+    cells = []
+    if key:
+        cells.append(f'    <div class="keyfact keyfact--key">\n'
+                     f'      <div class="keyfact-label">{UI[lang]["key_label"]}</div>\n'
+                     f'      <p class="keyfact-text">{key}</p>\n'
+                     f'    </div>\n')
+    if fun:
+        cells.append(f'    <div class="keyfact keyfact--fun">\n'
+                     f'      <div class="keyfact-label">{UI[lang]["fun_label"]}</div>\n'
+                     f'      <p class="keyfact-text">{fun}</p>\n'
+                     f'    </div>\n')
+    both = ' keyfacts--pair' if len(cells) == 2 else ''
+    return (f'\n  <div class="keyfacts{both}">\n{"".join(cells)}  </div>\n')
+
+
 def build_topics(lang, rel, body_html, cat, catlabel, title):
     """The topic row at the foot of an article, as magazines close a piece.
 
@@ -1271,7 +1384,21 @@ def default_sidebar(lang, rel, entries=None):
             f'      <ul class="side-list">\n{items}      </ul>\n'
             f'    </div>\n')
 
-    return recent + cats
+    # Vehicle types, when at least one has earned a page. This sits under the
+    # categories because it is the second question a reader asks -- "what part"
+    # and then "for what car" -- and it is the only way into those pages from
+    # anywhere but the homepage.
+    veh = ''
+    if lang == 'en' and VEHICLE_LIVE:
+        vitems = ''.join(
+            f'        <li><a href="{lrel}{v}/">{html.escape(vehicles.VEHICLES[v][0])}</a></li>\n'
+            for v in VEHICLE_LIVE)
+        veh = (f'    <div class="side-block">\n'
+               f'      <h2 class="side-title">By vehicle</h2>\n'
+               f'      <ul class="side-list">\n{vitems}      </ul>\n'
+               f'    </div>\n')
+
+    return recent + cats + veh
 
 
 def render_page(*, lang, title, desc, canonical, body_html, rel, jsonld='',
@@ -1493,6 +1620,24 @@ def build():
         if miss:
             print(f'    ! {a["file"]}: missing {",".join(miss)}')
 
+    # Second axis: what vehicle the guide is about, on top of what part it is
+    # about. Front matter wins; the scorer is only a fallback so a new guide
+    # cannot ship unfiled. See vehicles.py for why the two thresholds differ.
+    for a in arts:
+        prim, also = vehicles.classify(a['meta'], a['langs'].get('en', ''))
+        a['vehicle_primary'] = prim
+        a['vehicle_also'] = also
+    v_buckets = vehicles.group(arts)
+    v_live = vehicles.live(v_buckets)
+    # Set before any page renders: the sidebar on every page reads it.
+    global VEHICLE_LIVE
+    VEHICLE_LIVE = {v: len(v_buckets[v]) for v in v_live}
+    print('  vehicle types: ' + ', '.join(
+        f'{v}({len(v_buckets[v])})' for v in v_live)
+        + ' | hidden: ' + (', '.join(
+            f'{v}({len(v_buckets[v])})' for v in vehicles.ORDER
+            if v not in v_live) or 'none'))
+
     # grab the assets we want to preserve from the existing site
     prev = os.path.join(ROOT, '_prev_docs')
     if os.path.isdir(prev):
@@ -1568,10 +1713,31 @@ def build():
         if f.startswith('google') and f.endswith('.html'):
             shutil.copy(os.path.join(ROOT, f), os.path.join(OUT, f))
 
+    # Photography is published per page, not per directory on disk. A photo
+    # directory is named after the slug of the page that uses it, and drafts
+    # have directories long before they have pages: the tundra and audi drafts
+    # alone carried 3.2 MB of images that no built page referenced. Copying
+    # everything under content/photos/ and content/products/ shipped all of it
+    # to the live site on every deploy -- weight in the repo, weight in the
+    # Pages artefact, and a directory listing that quietly announces which
+    # articles are still unpublished.
+    #
+    # So the set of slugs below is the set of pages actually written this
+    # build, plus the two names that are not article slugs: 'home' for the
+    # homepage photography and 'legacy-f150-intake' for the carried-forward
+    # F-150 page, which predates the generator and has no .md of its own.
+    built_slugs = {(a['meta'].get('slug') or '') for a in arts}
+    built_slugs |= {'home', 'legacy-f150-intake'}
+    built_slugs.discard('')
+
     # real photographs, copied from content/photos/. Only image files are
     # published — the sidecar captions and the README stay out of the build.
     if os.path.isdir(PHOTO_ROOT):
         for dirpath, _, files in os.walk(PHOTO_ROOT):
+            rel_dir = os.path.relpath(dirpath, PHOTO_ROOT)
+            top = rel_dir.split(os.sep)[0]
+            if top not in (os.curdir, '') and top not in built_slugs:
+                continue
             for f in files:
                 if not f.lower().endswith(('.jpg', '.jpeg', '.png', '.webp', '.avif')):
                     continue
@@ -1583,7 +1749,9 @@ def build():
     # Product photographs, published to img/products/. Sidecars stay out for
     # the same reason the photo captions do: they record where an image came
     # from and are not part of the site.
-    n_prod = product_photos.publish(PRODUCT_ROOT, os.path.join(OUT, 'img', 'products'))
+    n_prod = product_photos.publish(PRODUCT_ROOT,
+                                    os.path.join(OUT, 'img', 'products'),
+                                    only=built_slugs)
     if n_prod:
         print(f'  product photos: {n_prod}')
 
@@ -1681,6 +1849,7 @@ def build():
                              f'{html.escape(editor_role)}</span>\n'
                              f'    <span>{UI[code]["published"]} {published}{revised}</span>\n'
                              f'  </div>\n')
+            body_html.append(build_keyfacts(meta, code, rel))
             art_html = md2html(inner, rel)
             art_html = inject_photos(art_html, slug, code, rel,
                                      find_photos(PHOTO_ROOT, slug))
@@ -1737,8 +1906,9 @@ def build():
                 f.write(page)
     print(f'  wrote {len(arts)} articles x {len(LANGS)} langs')
 
-    build_static_pages(index_entries, sidebar_entries)
+    build_static_pages(index_entries, sidebar_entries, arts)
     build_category_pages(arts, sidebar_entries)
+    build_vehicle_pages(arts, sidebar_entries)
     build_legacy_pages(sidebar_entries)
     build_redirects()
     build_sitemap(arts)
@@ -2081,7 +2251,7 @@ def build_legacy_pages(sidebar_entries=None):
         print(f'  carried forward {n} legacy page(s)')
 
 
-def build_static_pages(index_entries, sidebar_entries=None):
+def build_static_pages(index_entries, sidebar_entries=None, arts=None):
     """homepage, about, methodology, contact, legal x3, 404"""
     meta_about, body_about = read_doc(os.path.join(SRC, 'about-us.md'))
     langs_about, _ = split_langs(body_about)
@@ -2153,8 +2323,9 @@ def build_static_pages(index_entries, sidebar_entries=None):
                 # other parts blog. "Spec-Checked" keeps that claim inside the
                 # limit instead of shortening it away.
                 'Car Mod Review — Car and Truck Parts, Spec-Checked',
-                desc='Car and truck parts guides built from published specifications, '
-                     'with every source named. No invented numbers and no unverified claims.',
+                desc='Car and truck parts guides built from published specifications: '
+                     'fitment, sound, tuning and braking, with every source named. '
+                     'No invented numbers.',
                 canonical=alts[code], body_html=body_with_lead,
                 rel=rel, alts=alts, entries=index_entries)
             d = os.path.join(OUT, prefix.strip('/')) if prefix else OUT
@@ -2251,7 +2422,7 @@ def build_static_pages(index_entries, sidebar_entries=None):
     # against the guides is a citation, and a citation is the only kind of
     # link-earning asset this site can produce without pretending to be
     # somebody's forum friend.
-    build_dataset_page(sidebar_entries)
+    build_dataset_page(sidebar_entries, arts)
 
     # legal pages x3 languages. The affiliate disclosure is published now that
     # the footer links to it; its body states the true current status (no paid
@@ -2604,6 +2775,20 @@ def index_list_html(index_entries, code, rel):
         out.append('    <li><a href="cold-air-intakes/index.html">Cold air intakes</a>'
                    '<div class="meta">All intake guides</div></li>\n')
         out.append('  </ul>\n')
+
+    # The second axis, on the page most readers land on. Every guide is filed
+    # under a part category above; these are the same guides filed by what they
+    # fit, which is the question a reader who knows their car but not this site
+    # actually arrives with. Omitted entirely while no type has cleared
+    # MIN_PAGES, so the homepage never advertises an empty section.
+    if code == 'en' and VEHICLE_LIVE:
+        out.append('\n  <h2 id="by-vehicle">By vehicle</h2>\n  <ul class="veh-links">\n')
+        for v, n in VEHICLE_LIVE.items():
+            label = vehicles.VEHICLES[v][0]
+            plural = 'guide' if n == 1 else 'guides'
+            out.append(f'    <li><a href="{rel}{v}/">{html.escape(label)}</a>'
+                       f'<span class="veh-n">{n} {plural}</span></li>\n')
+        out.append('  </ul>\n')
     return ''.join(out)
 
 
@@ -2669,9 +2854,14 @@ def build_category_pages(arts, sidebar_entries=None):
             hub_shots = find_photos(PHOTO_ROOT, (CATEGORY_SOURCE.get(cs) or [''])[0])
             hub_img = (f'{DOMAIN}/img/photos/{(CATEGORY_SOURCE.get(cs) or [""])[0]}/'
                        f'{os.path.basename(hub_shots[0])}' if hub_shots else None)
-            page = render_page(lang=code, title=f'{name} | Car Mod Review',
-                               desc=(f'{name} guides built from published specifications — '
-                                     'fitment, sizing and what the numbers actually mean.'),
+            # The hub's own title/description, not the category name dropped
+            # into boilerplate. See HUB_META.
+            hub_title, hub_desc = hub_title_desc(cs, name)
+            if code != 'en':
+                hub_title = f'{name} | Car Mod Review'
+                hub_desc = (f'{name} guides built from published specifications — '
+                            'fitment, sizing and what the numbers actually mean.')
+            page = render_page(lang=code, title=hub_title, desc=hub_desc,
                                canonical=alts[code], body_html=inner, rel=rel, alts=alts,
                                jsonld=hub_jsonld, og_image=hub_img,
                                entries=sidebar_entries)
@@ -2679,6 +2869,156 @@ def build_category_pages(arts, sidebar_entries=None):
             os.makedirs(d, exist_ok=True)
             open(os.path.join(d, 'index.html'), 'w', encoding='utf-8').write(page)
     print(f'  wrote {len(by_cat)} category hubs x{len(LANGS)} langs')
+
+
+def build_vehicle_pages(arts, sidebar_entries=None):
+    """One page per vehicle type, cross-cutting the categories.
+
+    A reader arrives knowing what they drive and not which of nine categories
+    a part was filed under, so this is the axis the site was missing. The
+    groups come from vehicles.py: front matter first, body-text scoring as the
+    fallback, and a type only earns a page once it clears MIN_PAGES guides.
+
+    Only English. The retired-language stub rule in build.py applies here as
+    well, and a Korean page listing eight English titles is worse than none.
+    """
+    buckets = vehicles.group(arts)
+    live = vehicles.live(buckets)
+    if not live:
+        return
+
+    for vslug in live:
+        items = buckets[vslug]
+        label, blurb = vehicles.VEHICLES[vslug]
+        rel = '../'
+
+        # Grouped by category inside the vehicle page. A flat list of 18 truck
+        # guides is a wall; grouped, it reads as the same six sections the
+        # sidebar uses, which is the mental model the reader already has.
+        by_cat = {}
+        for a in items:
+            by_cat.setdefault(a['meta'].get('category', 'Engine'), []).append(a)
+
+        sections = []
+        for cat in CATEGORIES:
+            lst = by_cat.get(cat)
+            if not lst:
+                continue
+            cs, cl, _ck, _ce = CATEGORIES[cat]
+            rows = []
+            for a in lst:
+                meta = a['meta']
+                slug = meta.get('slug') or slugify(a['file'])
+                t = (meta.get('title') or {}).get('en') or slug
+                t = re.sub(r'^#+\s*', '', t).strip().strip('"')
+                d = str(meta.get('last_updated', ''))
+                rows.append(f'    <li><a href="{rel}{cs}/{slug}.html">'
+                            f'{html.escape(t)}</a>'
+                            f'<div class="meta">{d}</div></li>\n')
+            sections.append(
+                f'  <h2 class="veh-cat"><a href="{rel}{HUBLESS.get(cs, cs + "/")}">'
+                f'{html.escape(cl)}</a></h2>\n'
+                f'  <ul class="post-list">\n{"".join(rows)}  </ul>\n')
+        # Any category not in CATEGORIES still has to be reachable.
+        for cat, lst in by_cat.items():
+            if cat in CATEGORIES:
+                continue
+            rows = ''.join(
+                f'    <li><a href="{rel}engine/'
+                f'{html.escape(str(a["meta"].get("slug") or ""))}.html">'
+                f'{html.escape(re.sub(chr(94) + "#+ ", "", str((a["meta"].get("title") or {}).get("en") or a["meta"].get("slug"))))}'
+                f'</a><div class="meta">{a["meta"].get("last_updated", "")}</div></li>\n'
+                for a in lst)
+            sections.append(f'  <h2 class="veh-cat">{html.escape(cat)}</h2>\n'
+                            f'  <ul class="post-list">\n{rows}  </ul>\n')
+
+        # A figure, and this is the one place a vehicle page cannot copy what a
+        # hub does. A hub borrows the lead photo of a representative article,
+        # which works because the hub and the article are about the same thing.
+        # A vehicle page is about a *class* of vehicle, and the first guide in
+        # this group is as likely to be about window switches as about a truck --
+        # which is exactly what shipped on the first run: a Pickup Trucks page
+        # headed by a photograph of a door switch panel, captioned with the
+        # switch panel's caption.
+        #
+        # So a vehicle page prefers a product listing shot, which is a
+        # photograph of a part that fits the class, and borrows an article's
+        # editorial photography only when that article is about the vehicle
+        # itself. When neither is available it ships with no figure, which is
+        # honest for a page whose subject is a category of car and not a part.
+        fig = hub_product_photo(
+            [a['meta'].get('slug') or slugify(a['file']) for a in items], rel)
+
+        # The other live vehicle types, so the page is not a dead end for
+        # someone who landed on the wrong one.
+        others = [v for v in live if v != vslug]
+        more = ''
+        if others:
+            more = ('  <h2>Other vehicle types</h2>\n'
+                    '  <ul class="veh-links">\n'
+                    + ''.join(
+                        f'    <li><a href="{rel}{v}/">{html.escape(vehicles.VEHICLES[v][0])}</a>'
+                        f'<span class="veh-n">{len(buckets[v])} guides</span></li>\n'
+                        for v in others)
+                    + '  </ul>\n')
+
+        plural = 'guide' if len(items) == 1 else 'guides'
+        inner = (f'  <div class="kicker">Vehicle type</div>\n'
+                 f'  <h1>{html.escape(label)}</h1>\n'
+                 + fig
+                 + f'  <p class="dek">{html.escape(blurb)} '
+                 f'{len(items)} {plural}.</p>\n'
+                 + ''.join(sections) + more)
+
+        url = f'{DOMAIN}/{vslug}/'
+        title = f'{label} Guides and Fitment | Car Mod Review'
+        desc = (f'{len(items)} guides for {"pickup trucks" if vslug == "truck" else label.lower()}: '
+                'fitment, prices and what the listings do not tell you.')
+        # Kept honest about lastmod: the newest guide in the group, which is
+        # what the sitemap reports for category hubs too.
+        trail = [('Home', f'{DOMAIN}/'), (label, url)]
+        page_jsonld = breadcrumb_jsonld(trail) + (
+            '<script type="application/ld+json">\n' + json.dumps({
+                '@context': 'https://schema.org',
+                '@type': 'CollectionPage',
+                'name': f'{label} guides',
+                'description': desc,
+                'url': url,
+                'isPartOf': {'@id': f'{DOMAIN}/#site'},
+                'inLanguage': 'en',
+            }, ensure_ascii=False, indent=2) + '\n</script>')
+
+        page = render_page(lang='en', title=title, desc=desc, canonical=url,
+                           body_html=inner, rel=rel, alts={'en': url},
+                           jsonld=page_jsonld, og_image=og_image_for(items),
+                           entries=sidebar_entries)
+        d = os.path.join(OUT, vslug)
+        os.makedirs(d, exist_ok=True)
+        open(os.path.join(d, 'index.html'), 'w', encoding='utf-8').write(page)
+
+    print(f'  wrote {len(live)} vehicle pages: ' + ', '.join(live))
+
+
+def og_image_for(items):
+    """A product listing photograph from a group's guides, as an absolute URL.
+
+    Deliberately a listing shot and not an article's editorial photo, for the
+    same reason the vehicle page body skips category_photo(): a shared image
+    should show a part that fits the vehicle class, not whichever photograph
+    happened to lead the newest guide in the group.
+    """
+    for a in items:
+        slug = a['meta'].get('slug') or ''
+        if not slug:
+            continue
+        for finder in (product_photos._shots, product_photos._sku_shots):
+            found = finder(PRODUCT_ROOT, slug)
+            if not found:
+                continue
+            img = (found[min(found)] if isinstance(next(iter(found)), int)
+                   else found[sorted(found)[0]])
+            return f'{DOMAIN}/img/products/{slug}/{os.path.basename(img)}'
+    return None
 
 
 SEARCH_PAGE = r"""<!DOCTYPE html>
@@ -2916,7 +3256,7 @@ def review_corpus():
     return [by_sku[k] for k in sorted(by_sku)]
 
 
-def build_dataset_page(sidebar_entries=None):
+def build_dataset_page(sidebar_entries=None, arts=None):
     """The /data/ page, built from the review corpus.
 
     Every figure is computed here rather than typed in, so nothing on it can
@@ -2925,6 +3265,20 @@ def build_dataset_page(sidebar_entries=None):
     rows = review_corpus()
     if not rows:
         return
+
+    # Slug -> category, read from the articles themselves. This used to be a
+    # hand-kept dict right here, and it silently went stale: article 15 was
+    # added to Suspension but not to that dict, so its product rows linked to
+    # /engine/leveling-kit-spacer-vs-control-arms.html and every one of those
+    # links 404'd. Deriving from the frontmatter means a new guide is filed
+    # correctly the moment it exists, with no second place to update.
+    cat_by_slug = {}
+    for a in (arts or []):
+        m = a.get('meta') or {}
+        slug = m.get('slug')
+        cat = m.get('category')
+        if slug and cat and cat in CATEGORIES:
+            cat_by_slug[str(slug).strip()] = CATEGORIES[cat][0]
     total = sum(r['n'] for r in rows)
     with_dist = [r for r in rows if r['dist']]
     five = sum((r['dist'].get('5') or 0) * r['n'] / 100.0 for r in with_dist)
@@ -2942,23 +3296,14 @@ def build_dataset_page(sidebar_entries=None):
         stars = f'{r["stars"]:.1f}' if isinstance(r['stars'], (int, float)) else '&mdash;'
         install = html.escape(r['install']) if r['install'] else 'not stated'
         guide = sorted(r['guides'])[0]
-        cs = CATEGORIES.get(
-            {'leveling-kit-guide': 'Suspension',
-             'suspension-upgrades-guide': 'Suspension',
-             'wheels-buying-guide': 'Wheels & Tires',
-             '4x4-tire-buying-guide': 'Wheels & Tires',
-             'brake-pads-rotors-guide': 'Brakes',
-             'exhaust-systems-explained': 'Exhaust',
-             'tonneau-covers-explained': 'Tonneau & Bed',
-             'auto-up-windows': 'Electrical',
-             }.get(guide, 'Engine'), ('engine',))[0]
+        cs = cat_by_slug.get(guide, 'engine')
         table.append(
             f'      <tr><th scope="row">{html.escape(r["name"])}</th>'
             f'<td>{html.escape(r["brand"])}</td>'
             f'<td class="num">{stars}</td>'
             f'<td class="num">{r["n"]:,}</td>'
             f'<td>{install}</td>'
-            f'<td><a href="../{cs}/{guide}.html">guide</a></td></tr>\n')
+            f'<td><a href="{cs}/{guide}.html">guide</a></td></tr>\n')
 
     body = (
         '  <div class="kicker">Car Mod Review</div>\n'
@@ -3117,6 +3462,24 @@ def build_sitemap(arts):
     for c in sorted(newest_by_cat):
         for code, _, prefix in LANGS:
             urls.append((f'{DOMAIN}{prefix}/{c}/', newest_by_cat[c]))
+
+    # Vehicle-type pages. Same lastmod rule as the category hubs: the newest
+    # guide the page lists. A vehicle page that reported the build time would
+    # announce that all of them changed on every deploy, which is the exact
+    # mistake the _built_date docstring above describes.
+    v_newest = {}
+    for a in arts:
+        vp = a.get('vehicle_primary')
+        if vp not in vehicles.VEHICLES:
+            continue
+        d = (git_date(a['path'])
+             or str(a['meta'].get('last_updated', today)))
+        for v in [vp] + [x for x in (a.get('vehicle_also') or [])
+                         if x in vehicles.VEHICLES]:
+            if d > v_newest.get(v, ''):
+                v_newest[v] = d
+    for v in vehicles.live(vehicles.group(arts)):
+        urls.append((f'{DOMAIN}/{v}/', v_newest.get(v)))
 
     # hand-written pages carried forward from the pre-generator site
     urls.append((f'{DOMAIN}/cold-air-intakes/', '2026-10-30'))

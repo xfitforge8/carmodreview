@@ -4,14 +4,19 @@ title:
   kr: "온로드 위주 4x4 타이어 고르기: 하중 등급, 사이즈, 그리고 E-등급의 함정"
   es: "Llantas para una 4x4 de calle: índice de carga, medida y la trampa de la E"
 seo_title:
-  en: "4x4 Tire Guide: Load Range, Size, and the E-Rated Trap"
+  en: "4x4 Tires: Load Range, Size, and the E-Rated Trap"
   kr: "4x4 타이어 고르기: 하중 등급과 E-등급의 함정"
 seo_desc:
   en: "Tire buying for a mostly-street 4x4: load range, why E-rated tires ride worse, how to read your door jamb sticker, and the size that fits stock."
   kr: "온로드 위주 4x4 타이어 고르기: 하중 등급, E-등급이 승차감을 해치는 이유, 도어 스티커 읽는 법, 그리고 순정에 맞는 사이즈."
   es: "Comprar llantas para una 4x4 de uso urbano: índice de carga, por qué las E rinden peor, cómo leer la etiqueta de la puerta y la medida que entra de fábrica."
 slug: 4x4-tire-buying-guide
+key_fact:
+  en: "Read your door sticker before you read a tire page. Divide the heavier **GAWR** by two and that is the load each tire must carry fully loaded. For a mostly-street half-ton the answer is usually **SL, not Load Range E**."
+fun_fact:
+  en: "The E-rated trap costs you grip, not just comfort. A stiffer sidewall on a light truck **conforms to the road less**, so the contact patch is smaller. An E-rated tire on an empty half-ton is over-specification you feel every mile."
 category: Wheels & Tires
+vehicle: truck
 status: draft
 published: 2026-11-04
 last_updated: 2026-11-05

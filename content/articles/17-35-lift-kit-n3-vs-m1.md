@@ -2,11 +2,16 @@
 title:
   en: "Two 3.5-Inch Lift Kits, $230 Apart: What the M1 Shocks Actually Buy"
 seo_title:
-  en: "3.5-Inch Lift Kit: N3 vs M1 Shocks, $939 vs $1,169"
+  en: "3.5-Inch Lift Kit: N3 vs M1 Shocks, $230 Apart"
 seo_desc:
-  en: "Two Rough Country 3.5-inch Silverado lift kits share the same height, control arms and 34-inch tire limit. The $230 difference is in the dampers, and one fitment exclusion."
+  en: "Two Rough Country 3.5-inch Silverado lift kits share height, control arms and a 34-inch tire limit. The $230 gap is dampers, and one fitment exclusion."
 slug: 35-lift-kit-n3-vs-m1
+key_fact:
+  en: "The **$230 between these two kits is almost entirely the dampers**. Whether it is worth paying comes down to one question: what your truck does when it is not on pavement."
+fun_fact:
+  en: "Both kits lift the front **3.5 inches** and the rear **2.5 inches** — not 3.5 all round, which is worth stating because the names suggest otherwise. They level the truck rather than simply raising it."
 category: Suspension
+vehicle: truck
 status: draft
 published: 2026-11-13
 last_updated: 2026-11-13

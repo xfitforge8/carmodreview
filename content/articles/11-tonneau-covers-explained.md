@@ -4,30 +4,46 @@ title:
   kr: "토노 커버: $190짜리와 $1,500짜리는 무엇이 다른가"
   es: "Cubiertas de caja: qué compra $190 y qué compra $1,500"
 seo_title:
-  en: "Tonneau Covers: Types and Real Prices, Compared"
+  en: "Hinged Tonneau Cover Prices: Verified"
   es: "Cubiertas de caja: tipos y precios reales, comparados"
 seo_desc:
-  en: "Roll-up, tri-fold and retractable tonneau covers compared: live prices, review counts, and the bed options that break fitment."
+  en: "Hinged tonneau covers run $1,499.99 to $2,699.99 on a live listing — 20 of them, all one brand. What that buys, and how the other cover types compare."
   es: "Cubiertas enrollables, plegables y retráctiles comparadas: precios, reseñas y las opciones de caja que rompen la compatibilidad."
 slug: tonneau-covers-explained
+key_fact:
+  en: "Check three things before you look at a single cover: **bed length, bed option, and whether the listing is for your model year**. Fitment is what goes wrong here, not brand."
+fun_fact:
+  en: "Hinged covers run **$1,499.99 to $2,699.99** — more than twice the most popular hard tri-fold on the page. That is why most buyers skip the tier without asking what it is: one rigid lid on a bulkhead hinge, so nothing stacks against the cab and the front of the bed stays usable."
 category: Tonneau & Bed
+vehicle: truck
 status: draft
 published: 2026-11-05
-last_updated: 2026-11-05
+last_updated: 2026-11-16
 ---
 
 # Tonneau Covers: What $190 Buys and What $1,500 Buys
 
 ## EN
 
+**Hinged tonneau covers run from $1,499.99 to $2,699.99.** That range is what the live AmericanTrucks listing for the 2019–2026 Silverado 1500 showed on 16 November 2026, filtered to the hinged type: 20 covers, every one of them UnderCover, with the unpainted SE and LUX at the bottom of the range and the pre-painted Elite LX at $2,699.99 at the top. The most-reviewed one, the UnderCover SE in black textured at $1,499.99, carries 217 reviews.
+
+That is more than twice the price of the most popular hard tri-fold on this page
+($649.99), which is why hinged is the tier most buyers skip past without asking
+what it actually is. The short answer: a hinged cover is one rigid lid on a hinge
+at the bulkhead that lifts as a single piece, rather than folding in sections or
+rolling up. Nothing stacks against the cab and nothing rolls into a canister, so
+the whole bed stays usable — including the front, which is exactly where a
+folding cover's stacked panels sit.
+
 A tonneau cover is the highest-volume accessory in the truck bed catalog
 and the one buyers get wrong most often — not because the covers are bad, but
-because the category is sold as a single product when it is really four
-different jobs at four different prices.
+because the category is sold as a single product when it is really five
+different jobs at five different prices.
 
 Every price, review count and fitment note below was read off live AmericanTrucks
-listings for the 2019–2026 half-ton on 5 November 2026. The category
-listing carried 271 covers at the time of writing.
+listings for the 2019–2026 half-ton on 5 November 2026, and the hinged figures
+and category totals were re-read on 16 November 2026. The category listing
+carried 552 covers at that second check.
 
 ### Check these three things before you look at a single cover
 
@@ -51,22 +67,24 @@ against it. Listings say *w/o MultiFlex Tailgate* explicitly.
 If your truck has either option, that filter cuts the catalog roughly in half
 before price becomes a question at all.
 
-### What the 271 covers break down like
+### What the 552 covers break down like
 
 The listing's own filters give a clear picture of how this category is actually
-built. Of the covers on sale:
+built. Of the covers on sale on 16 November 2026:
 
-- **Roll-up: 62.** The largest single group.
-- **Hard folding: 57**, plus 25 soft folding and 10 hinged.
-- **Bed topper: 38** — a different product that shares the category.
-- **Retractable: 37** across manual and powered.
-- **Locking with tailgate lock: 105.** Nearly as many as non-locking (114).
+- **Roll up: 144.** The largest single group.
+- **Hard folding: 143**, plus 84 soft folding and **20 hinged**.
+- **Bed topper: 66** — a different product that shares the category.
+- **Retractable: 81** across manual (66) and powered (15).
+- **Locking with tailgate lock: 221.** The listing shows 272 non-locking.
 
-That last number is the one worth noticing. Locking is not a premium feature in
-this category anymore; it is close to half the market, and the cheapest locking
-cover costs less than some unlined roll-ups.
+Two things worth noticing in that list. **Hinged is by far the smallest type** —
+20 of 552, about 3.6% — which is why it has so little owner feedback and why
+almost nobody writes about it. And **locking is not a premium feature** in this
+category anymore: 221 covers have tailgate-lock integration against 272 that
+don't, so it is close to half the market.
 
-### The four jobs, in order of price
+### The five jobs, in order of price
 
 #### 1. Soft roll-up, around $190–275 — "keep the rain out"
 
@@ -151,6 +169,39 @@ tri-folds.
 
 <p class="buyrow"><a class="buy" href="https://www.americantrucks.com/barricade-silverado1500-retractable-tonneau-cover-z30481.html" rel="nofollow noopener" target="_blank">See the Barricade Retractable&nbsp;&rarr;</a> <span class="buy-note">$1,049.00, 9 reviews, checked 6 Nov 2026</span></p>
 
+#### 5. Hinged, $1,500–2,700 — "one lid, the whole bed, every time"
+
+This is the tier the query data says people are searching for and the one the
+category barely stocks. Twenty covers, all UnderCover, in four trim levels:
+
+| Model | Finish | Price | Reviews |
+|---|---|---|---|
+| SE | Black textured / unpainted | **$1,499.99** | 217 (black textured, 19–26) |
+| Elite | Black textured / unpainted | **$1,599.99** | 27 |
+| Elite Smooth | Unpainted | **$1,699.99** | — |
+| LUX | Unpainted / pre-painted | **$1,499.99–$2,599.99** | 53 (pre-painted, 19–26 short box) |
+| Elite LX | Pre-painted | **$2,699.99** | 40 (22–26 standard box w/ MultiFlex) |
+
+**What it does:** a single rigid lid hinged at the bulkhead. It lifts in one
+piece on gas struts, so there are no panels to stack and no canister eating bed
+space. The whole bed is open the moment the lid is up.
+
+**What you pay for:** the paint, mostly. The same SE in unpainted black textured
+is $1,499.99 and the pre-painted Elite LX is $2,699.99 — $1,200 for a factory
+colour match on a cover that is otherwise the same idea. Whether that is worth it
+depends entirely on whether you mind a black textured lid on a coloured truck.
+
+**The trade nobody mentions:** a hinged lid opens upward and rearward on struts.
+With a lifted truck or a low garage, check the clearance before you buy. It also
+cannot be partially opened the way a folding cover can — it is open or closed.
+
+**The review-count problem:** outside the SE, this tier has almost no owner
+feedback. 217 reviews on a $1,499.99 cover is a real sample. 27 on the Elite, 53
+on the pre-painted LUX, and single digits on several listings is not. The SE is
+the only hinged cover here with enough owners to argue from.
+
+<p class="buyrow"><a class="buy" href="https://www.americantrucks.com/silverado-bed-covers-tonneau-covers-2019.html/f/?ta%24205=Hinged" rel="nofollow noopener" target="_blank">See the 20 hinged covers&nbsp;&rarr;</a> <span class="buy-note">$1,499.99–$2,699.99, checked 16 Nov 2026</span></p>
+
 ### The open-box question
 
 Most of these listings carry an "Open box from" price, and the gaps are large:
@@ -211,21 +262,48 @@ fitment text, not from a GM spec sheet.
 
 ### Frequently asked questions
 
+**How much is a hinged tonneau cover?**
+
+**$1,499.99 to $2,699.99.** On the live 2019–2026 Silverado 1500 listing on 16
+November 2026, the 20 hinged covers ran from the unpainted UnderCover SE and LUX
+at $1,499.99 to the pre-painted Elite LX at $2,699.99. The most popular one, the
+SE in black textured, is $1,499.99 with 217 reviews.
+
+**What is a hinged tonneau cover?**
+
+One rigid lid hinged at the front of the bed that lifts as a single piece, usually
+on gas struts. It does not fold into panels and does not roll into a canister, so
+no bed space is lost to storage. It is open or closed — there is no partial-open
+position like a folding cover has.
+
+**Why are hinged covers so much more expensive?**
+
+Mostly the paint and the one-piece construction. The unpainted UnderCover SE and
+the pre-painted Elite LX are the same style of cover with a $1,200 gap between
+them, and that gap is a factory colour match. You are also paying for a
+single-piece lid rather than several hinged panels.
+
 **How much should I spend on a tonneau cover?**
 
-Roughly $190 to $1,500, and the cheapest one is the right answer more often than the category admits. The guide compares covers by the job they do rather than the name on the box.
+$189.99 to $2,699.99 across the whole category, and the cheap end is the right
+answer more often than the category admits. The guide compares covers by the job
+they do rather than the name on the box, so the trade is visible at every step.
 
-**What is the difference between roll-up, tri-fold and retractable covers?**
+**What is the difference between roll-up, tri-fold, retractable and hinged covers?**
 
-They protect different things and suit different uses. The four jobs are set out in order of price, so the trade is visible at each step.
+They protect different things and suit different uses. The five jobs are set out
+in order of price, so the trade is visible at each step.
 
 **Is an open-box tonneau cover worth buying?**
 
-The open-box question has its own section, because the saving is real but the risk is not the same for every cover type.
+The open-box question has its own section, because the saving is real but the
+risk is not the same for every cover type.
 
 **What should I check before buying a tonneau cover?**
 
-Three things, and the guide puts them before a single cover is looked at, because getting them wrong makes the cover choice irrelevant.
+Three things — bed length, the CarbonPro bed and the MultiFlex tailgate — and the
+guide puts them before a single cover is looked at, because getting them wrong
+makes the cover choice irrelevant.
 
 ## KR
 
@@ -236,7 +314,7 @@ Three things, and the guide puts them before a single cover is looked at, becaus
 
 아래의 모든 가격, 리뷰 수, 장착 관련 문구는 2026년 11월 5일 기준
 2019–2026 AmericanTrucks 리스팅에서 직접 읽은 값입니다. 글을
-쓰는 시점에 해당 카테고리에는 271개의 커버가 등록되어 있었습니다.
+쓰는 시점에 해당 카테고리에는 552개의 커버가 등록되어 있었습니다.
 
 ### 커버를 보기 전에 확인해야 할 세 가지
 
@@ -258,20 +336,23 @@ Three things, and the guide puts them before a single cover is looked at, becaus
 이 두 옵션 중 하나라도 있는 차량이라면, 가격을 따지기 전에 카탈로그의
 절반가량이 먼저 걸러집니다.
 
-### 271개 커버의 구성
+### 552개 커버의 구성
 
 리스팅 자체의 필터를 보면 이 카테고리가 실제로 어떻게 구성되는지 드러납니다.
 
-- **롤업: 62개.** 단일 그룹으로 가장 많습니다.
-- **하드 폴딩: 57개**, 소프트 폴딩 25개, 힌지형 10개가 더해집니다.
-- **베드 토퍼: 38개** — 카테고리만 공유하는 다른 제품입니다.
-- **리트랙터블: 37개** (수동 및 전동).
-- **테일게이트 잠금 연동: 105개.** 비잠금 114개와 거의 같습니다.
+- **롤업: 144개.** 단일 그룹으로 가장 많습니다.
+- **하드 폴딩: 143개**, 소프트 폴딩 84개, **힌지형 20개**가 더해집니다.
+- **베드 토퍼: 66개** — 카테고리만 공유하는 다른 제품입니다.
+- **리트랙터블: 81개** (수동 66개, 전동 15개).
+- **테일게이트 잠금 연동: 221개.** 비잠금은 272개입니다.
 
-마지막 숫자가 눈여겨볼 부분입니다. 잠금은 이제 고급 사양이 아니라 시장의
-절반에 가깝고, 가장 저렴한 잠금형 커버는 일부 무잠금 롤업보다 쌉니다.
+여기서 눈여겨볼 것은 두 가지입니다. **힌지형은 단연 가장 작은 유형**으로
+552개 중 20개, 약 3.6%에 불과합니다. 그래서 사용자 피드백이 거의 없고
+이 유형을 다루는 글도 거의 없습니다. 그리고 **잠금은 이제 고급 사양이
+아닙니다.** 테일게이트 잠금 연동이 221개, 비잠금이 272개로 시장의 절반에
+가깝고, 가장 저렴한 잠금형 커버는 일부 무잠금 롤업보다 쌉니다.
 
-### 가격순으로 본 네 가지 역할
+### 가격순으로 본 다섯 가지 역할
 
 #### 1. 소프트 롤업, 약 $190–275 — "비는 막는다"
 
@@ -336,6 +417,35 @@ $1,059.98 (리뷰 3), Retrax IX Flush Mount $1,299.99 (리뷰 25).
 **포기하는 것:** 캐니스터가 베드 앞부분 8~10인치가량을 영구히 차지하며,
 여기서 가장 기구가 복잡한 방식입니다. 이 구간의 리뷰 수는 3~25개로 전반적
 으로 낮아서, 롤업이나 트라이폴드보다 의지할 사용자 피드백이 훨씬 적습니다.
+
+#### 5. 힌지형, $1,500–2,700 — "뚜껑 하나, 매번 베드 전체"
+
+2026년 11월 16일 기준 2019–2026 Silverado 1500 리스팅에서 힌지형 필터를
+적용하면 **20개**가 나오고, 전부 UnderCover입니다. 가격은 **$1,499.99에서
+$2,699.99**까지입니다.
+
+| 모델 | 마감 | 가격 | 리뷰 |
+|---|---|---|---|
+| SE | 블랙 텍스처 / 미도장 | **$1,499.99** | 217 (블랙 텍스처, 19–26) |
+| Elite | 블랙 텍스처 / 미도장 | **$1,599.99** | 27 |
+| Elite Smooth | 미도장 | **$1,699.99** | — |
+| LUX | 미도장 / 도장 | **$1,499.99–$2,599.99** | 53 (도장, 19–26 숏박스) |
+| Elite LX | 도장 | **$2,699.99** | 40 (22–26 스탠다드박스, MultiFlex) |
+
+**하는 일:** 벌크헤드에 힌지로 붙은 단일 리드가 가스 스트럿으로 통째로
+들립니다. 쌓을 패널도, 베드 공간을 먹는 캐니스터도 없습니다.
+
+**무엇에 돈을 내는가:** 대부분 도장입니다. 같은 SE가 미도장 블랙 텍스처
+$1,499.99이고 도장 Elite LX가 $2,699.99로, 사실상 같은 방식의 커버에
+$1,200을 더 내는 셈입니다.
+
+**아무도 말하지 않는 제약:** 힌지 리드는 위쪽 뒤쪽으로 열립니다. 리프트가
+되어 있거나 차고가 낮다면 여유 공간을 먼저 확인해야 합니다. 또 폴딩 커버처럼
+부분적으로 열 수 없고 열리거나 닫히거나 둘 중 하나입니다.
+
+**리뷰 수 문제:** SE를 빼면 이 구간은 사용자 피드백이 거의 없습니다.
+$1,499.99 커버의 리뷰 217개는 실제 표본이지만, Elite 27개, 도장 LUX 53개,
+한 자릿수 리스팅 여럿은 아닙니다.
 
 ### 오픈박스, 사도 되는가
 
@@ -402,7 +512,7 @@ distintos.
 Todos los precios, recuentos de reseñas y notas de compatibilidad que aparecen
 abajo se leyeron directamente de listados activos de AmericanTrucks para el
 2019–2026 el 5 de noviembre de 2026. En el momento de escribir
-esto, la categoría tenía 271 cubiertas.
+esto, la categoría tenía 552 cubiertas.
 
 ### Revise estas tres cosas antes de mirar una sola cubierta
 
@@ -426,21 +536,23 @@ explícita.
 Si su camioneta tiene cualquiera de las dos opciones, ese filtro reduce el
 catálogo casi a la mitad antes de que el precio sea siquiera una pregunta.
 
-### Cómo se reparten las 271 cubiertas
+### Cómo se reparten las 552 cubiertas
 
 Los propios filtros del listado dejan ver cómo está armada la categoría:
 
-- **Enrollables: 62.** El grupo individual más grande.
-- **Plegables rígidas: 57**, más 25 plegables blandas y 10 con bisagra.
-- **Bed topper: 38** — un producto distinto que comparte la categoría.
-- **Retráctiles: 37** entre manuales y eléctricas.
-- **Con bloqueo de compuerta: 105.** Casi tantas como sin bloqueo (114).
+- **Enrollables: 144.** El grupo individual más grande.
+- **Plegables rígidas: 143**, más 84 plegables blandas y **20 con bisagra**.
+- **Bed topper: 66** — un producto distinto que comparte la categoría.
+- **Retráctiles: 81** entre manuales (66) y eléctricas (15).
+- **Con bloqueo de compuerta: 221.** El listado muestra 272 sin bloqueo.
 
-El último dato es el que vale la pena notar. El bloqueo ya no es una función
-premium en esta categoría: es casi la mitad del mercado, y la cubierta con
-bloqueo más barata cuesta menos que algunos enrollables sin forro.
+Hay dos datos que vale la pena notar. **La de bisagra es de lejos la variante más
+pequeña** — 20 de 552, alrededor del 3.6% — y por eso tiene tan poco comentario de
+propietarios y casi nadie escribe sobre ella. Y **el bloqueo ya no es una función
+premium**: 221 cubiertas tienen integración con el bloqueo de la compuerta frente
+a 272 que no, casi la mitad del mercado.
 
-### Los cuatro trabajos, por orden de precio
+### Los cinco trabajos, por orden de precio
 
 #### 1. Enrollable blanda, unos $190–275 — "que no entre la lluvia"
 
@@ -514,6 +626,37 @@ alrededor de los primeros 8 a 10 pulgadas según el modelo— y es la opción
 mecánicamente más compleja. Los recuentos de reseñas en este tramo son bajos en
 general (de 3 a 25), así que hay mucho menos opinión de propietarios que para los
 enrollables y los trípticos.
+
+#### 5. Con bisagra, $1,500–2,700 — "una tapa, toda la caja, cada vez"
+
+Con el filtro de bisagra aplicado al listado 2019–2026 Silverado 1500 el 16 de
+noviembre de 2026 aparecen **20 cubiertas**, todas UnderCover, entre
+**$1,499.99 y $2,699.99**.
+
+| Modelo | Acabado | Precio | Reseñas |
+|---|---|---|---|
+| SE | Negro texturizado / sin pintar | **$1,499.99** | 217 (negro texturizado, 19–26) |
+| Elite | Negro texturizado / sin pintar | **$1,599.99** | 27 |
+| Elite Smooth | Sin pintar | **$1,699.99** | — |
+| LUX | Sin pintar / pintada | **$1,499.99–$2,599.99** | 53 (pintada, 19–26 caja corta) |
+| Elite LX | Pintada | **$2,699.99** | 40 (22–26 caja estándar, MultiFlex) |
+
+**Qué hace:** una tapa rígida única con bisagra en el mamparo que se levanta de
+una pieza sobre amortiguadores de gas. No hay paneles que apilar ni canister que
+coma espacio de caja.
+
+**Por qué cuesta tanto:** sobre todo por la pintura. La misma SE sin pintar en
+negro texturizado cuesta $1,499.99 y la Elite LX pintada $2,699.99: $1,200 por
+igualar el color de fábrica en una cubierta que por lo demás es la misma idea.
+
+**La limitación que nadie menciona:** se abre hacia arriba y hacia atrás sobre
+amortiguadores. Con la camioneta elevada o un garaje bajo, conviene medir el
+espacio libre antes de comprar. Tampoco se abre parcialmente como una plegable:
+o está abierta o está cerrada.
+
+**El problema de las reseñas:** fuera de la SE, este tramo casi no tiene opinión
+de propietarios. 217 reseñas en una cubierta de $1,499.99 sí son una muestra; 27
+en la Elite, 53 en la LUX pintada y un dígito en varios listados no lo son.
 
 ### La cuestión del open box
 

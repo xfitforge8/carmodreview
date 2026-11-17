@@ -7,6 +7,7 @@ seo_desc:
   en: "A leaked dealer memo describes a 62,000-truck Tundra camshaft recall for 2022-2023 and 2025-2026 models. NHTSA has published nothing yet. What owners should do now."
 slug: tundra-camshaft-recall
 category: Tuning
+vehicle: truck
 status: draft
 published: 2026-11-14
 last_updated: 2026-11-14

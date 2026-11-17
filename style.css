@@ -825,6 +825,69 @@ tbody tr:hover { background: var(--paper-2); }
   margin: 0 0 10px;
 }
 
+/* ---------- key facts ---------- */
+
+/* Two sentences lifted out of the article and set above it: the answer, and
+   the one detail a reader is likely to repeat. The body below still carries
+   both in full context -- this is a signpost, not a summary, and nothing here
+   is a figure the article does not source further down.
+
+   Deliberately not a .callout. A callout is a note *about* the piece (a
+   correction, a caveat); this is the piece. It sits between the byline and
+   the first paragraph, so it reads as part of the masthead rather than as
+   something interrupting the prose. */
+.keyfacts {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+  margin: 0 0 34px;
+}
+
+/* Two facts side by side say "these are a pair, read both"; one alone keeps
+   the full measure so a single wide sentence is not squeezed into a column. */
+.keyfacts--pair { grid-template-columns: 1fr 1fr; }
+
+.keyfact {
+  background: var(--paper);
+  padding: 20px 22px 4px;
+}
+
+/* The key answer carries the rust rule; the fun fact carries teal, so the
+   two read as a matched pair without competing for the same accent. */
+.keyfact--key { box-shadow: inset 3px 0 0 var(--rust); }
+.keyfact--fun { box-shadow: inset 3px 0 0 var(--teal); }
+
+.keyfact-label {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: var(--rust);
+  margin-bottom: 9px;
+}
+
+.keyfact--fun .keyfact-label { color: var(--teal); }
+
+/* Set larger and tighter than body copy: these are the two lines most likely
+   to be read on a phone screen before anything else loads. */
+.keyfact-text {
+  font-size: 17.5px;
+  line-height: 1.5;
+  margin: 0 0 16px;
+  color: var(--ink);
+}
+
+.keyfact-text a { color: var(--rust-dk); }
+
+@media (max-width: 640px) {
+  .keyfacts--pair { grid-template-columns: 1fr; }
+  .keyfact { padding: 17px 18px 2px; }
+  .keyfact-text { font-size: 16.5px; }
+}
+
 /* ---------- footer ---------- */
 
 footer {
@@ -1340,3 +1403,57 @@ footer p { margin: 0 0 10px; }
 .data-table tbody tr:last-child th,
 .data-table tbody tr:last-child td { border-bottom: 0; }
 .data-table tbody tr:hover { background: #faf8f5; }
+
+/* ── Vehicle-type pages ───────────────────────────────────────────────
+   The second axis. A category hub answers "what part"; these answer "for
+   what car". The only new element is the category heading inside a
+   vehicle page -- otherwise the markup is the same post-list every hub
+   already uses, which is why there is nothing else to style here. */
+.veh-cat {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.1px;
+  text-transform: uppercase;
+  margin: 38px 0 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--rule);
+}
+.veh-cat a { color: var(--ink-3); text-decoration: none; }
+.veh-cat a:hover { color: var(--rust-dk); }
+.veh-cat:first-of-type { margin-top: 26px; }
+
+/* The "other vehicle types" list. A reader who lands on SUV by mistake needs
+   a way to the right page that is not the browser's back button. */
+.veh-links {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 10px;
+}
+.veh-links li {
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  padding: 13px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+}
+.veh-links a {
+  font-weight: 600;
+  color: var(--ink);
+  text-decoration: none;
+}
+.veh-links a:hover { color: var(--rust-dk); }
+.veh-n {
+  font-family: var(--sans);
+  font-size: 12px;
+  color: var(--ink-3);
+  white-space: nowrap;
+}
+@media (max-width: 620px) {
+  .veh-links { grid-template-columns: 1fr; }
+}

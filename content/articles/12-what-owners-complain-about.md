@@ -2,11 +2,16 @@
 title:
   en: "What Truck Owners Actually Complain About (91 Low Reviews, Read)"
 seo_title:
-  en: "What Truck Owners Actually Complain About: 91 Reviews Read"
+  en: "What Truck Owners Complain About: 91 Reviews Read"
 seo_desc:
-  en: "We read every one- to three-star review across 28 truck parts. Fitment beat every other failure by a wide margin, and check engine lights were rarer than you would think."
+  en: "We read every one- to three-star review across 58 truck parts. Fitment beat every other failure by a wide margin, and warning lights were rarer than expected."
 slug: what-owners-complain-about
+key_fact:
+  en: "**Fitment is the complaint, 40% of the time** — 36 of the 91 low reviews. And **20 of those 36 are intakes**, by far the worst offender, because an intake is a moulded tube with fixed geometry and no adjustment."
+fun_fact:
+  en: "The analysis started with 115 unique low reviews. **24 of them were not written by truck owners at all** — AmericanTrucks pools ratings across its catalogue, so a Silverado intake listing carries low reviews from Mustang, Wrangler and Outlander owners. Removing them left 91."
 category: Engine
+vehicle: truck
 status: draft
 published: 2026-11-05
 last_updated: 2026-11-11

@@ -6,7 +6,12 @@ seo_title:
 seo_desc:
   en: "All four windows drop with one press, but only the driver's goes back up. Not a setting, not a lock. What decides it, and how to add auto-up to the rest."
 slug: auto-up-windows
+key_fact:
+  en: "There is **no setting to turn on**. Auto-up on the other three windows is a part, not a preference, and it is only in the driver's door — no dealer can switch it on for you."
+fun_fact:
+  en: "A window going **down** cannot hurt anybody; there is nothing underneath it. A window going **up** can, so a window that closes by itself has to be able to feel something in the way and back off. That sensing costs money on every door you put it in, which is why it goes in one."
 category: Electrical
+vehicle: truck
 status: draft
 published: 2026-11-06
 last_updated: 2026-11-06

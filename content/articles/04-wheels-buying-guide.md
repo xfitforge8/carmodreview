@@ -4,13 +4,18 @@ title:
   kr: "애프터마켓 휠: 오프셋, 폭, 그리고 장착을 결정하는 숫자들"
   es: "Llantas de aleación: offset, ancho y los números que deciden el montaje"
 seo_title:
-  en: "Aftermarket Wheels: Offset, Width, and What Matters"
+  en: "Aftermarket Wheels: Offset, Width, and Fitment"
   es: "Cómo comprar llantas de aleación: offset y ancho"
 seo_desc:
   en: "How offset and width change the way a car drives, and which wheel specs still matter once you look past the marketing."
   es: "Cómo el offset y el ancho cambian de verdad el comportamiento del coche, y qué especificaciones importan."
 slug: wheels-buying-guide
+key_fact:
+  en: "**Offset decides whether the wheel fits.** Diameter, width and bolt pattern are easy; offset is what causes nearly every rubbing and clearance problem, and it is what changes steering feel by moving the scrub radius."
+fun_fact:
+  en: "Wheel weight is worth paying down because it is unsprung *and* rotating. Rough rule of thumb: **1 lb off the wheels is worth about 3 lb off the car** for acceleration, and the suspension has less mass to control over bumps."
 category: Wheels & Tires
+vehicle: truck
 status: draft
 published: 2026-11-03
 last_updated: 2026-11-05

@@ -7,6 +7,7 @@ seo_desc:
   en: "API PC-12 splits into two categories, CL-4 and FB-4, licensing January 1, 2027. Which one a Cummins, Power Stroke or Duramax owner should look for, and why they differ."
 slug: diesel-oil-pc12
 category: Engine
+vehicle: truck
 status: draft
 published: 2026-11-14
 last_updated: 2026-11-14

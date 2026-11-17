@@ -10,7 +10,12 @@ seo_desc:
   en: "Springs, coilovers and the cheap kits that ruin rides: how each upgrade works and where the money is worth spending."
   es: "Muelles, coilovers y los kits baratos que arruinan el coche: cómo funciona cada mejora y dónde vale la pena gastar."
 slug: suspension-upgrades-guide
+key_fact:
+  en: "**Springs without matched dampers is the mistake.** Lowering changes the spring rate and takes away travel; if you keep the stock damper it is now under-damped for the stiffer spring *and* over-worked because it has less room to move. That is the mechanical reason cheap lowering springs feel bad."
+fun_fact:
+  en: "A damper has two jobs, not one: controlling the spring's motion, and keeping the tire on the road over bumps. Lowering the car breaks both at once, which is why the cheap version feels worse than stock rather than just firmer."
 category: Suspension
+vehicle: truck
 status: draft
 published: 2026-11-03
 last_updated: 2026-11-05

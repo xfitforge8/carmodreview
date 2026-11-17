@@ -4,13 +4,18 @@ title:
   kr: "콜드에어 인테이크: 하는 일, 못 하는 일, 그리고 MAF 문제"
   es: "Admisión de aire frío: qué hace, qué no hace y el problema del MAF"
 seo_title:
-  en: "Cold Air Intake: What It Does and the MAF Problem"
+  en: "Cold Air Intake: What It Does and the MAF Risk"
   es: "Admisión de aire frío: qué hace y el problema del MAF"
 seo_desc:
   en: "How a cold air intake works, why half of what's sold isn't one, and the MAF and heat-soak problems to avoid."
   es: "Cómo funciona de verdad una admisión de aire frío, por qué la mitad no lo son, y los problemas de MAF y calor."
 slug: cold-air-intake-guide
+key_fact:
+  en: "**The ECU is the limit.** Adding airflow capacity does not change the ECU's boost targets or fuel mapping, so a bolt-on intake on a stock tune is mostly a sound modification. Real gains exist ahead of the turbo, and they are small."
+fun_fact:
+  en: "On a MAF-equipped engine the ECU **measures the air coming in and fuels it accordingly**, so the engine holds its commanded power rather than making more. The sensor that makes the intake safe is also the one that caps what it can do."
 category: Engine
+vehicle: truck
 status: draft
 published: 2026-11-03
 last_updated: 2026-11-05

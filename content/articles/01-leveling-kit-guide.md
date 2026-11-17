@@ -4,7 +4,7 @@ title:
   kr: "레벨링 킷: 무엇이 바뀌고 무엇을 잃는가"
   es: "Kits de nivelación: qué cambian, cuánto cuestan y qué se pierde"
 seo_title:
-  en: "Leveling Kits: What They Change and What They Cost"
+  en: "Leveling Kits: What They Change and Cost"
   kr: "레벨링 킷: 실제로 무엇이 바뀌는가"
   es: "Kit de nivelación: qué cambia y cuánto cuesta"
 seo_desc:
@@ -12,7 +12,12 @@ seo_desc:
   kr: "4x4 트럭에서 레벨링 킷이 바꾸는 것: 차고, 지오메트리, 얼라인먼트, 그리고 일찍 마모되는 부품들."
   es: "Qué cambia un kit de nivelación en una camioneta 4x4: altura, geometría, alineación y las piezas que se desgastan antes."
 slug: leveling-kit-guide
+key_fact:
+  en: "A **1.5-inch strut spacer, a proper alignment, and re-aimed headlights** is the whole job on a mostly-street truck. Past about two inches the factory upper control arms can no longer hold caster and camber, and the calculus changes."
+fun_fact:
+  en: "The front of a stock half-ton sits low on purpose. The factory builds in a **rearward rake** so the truck sits level once it has weight in the bed or a trailer on the hitch. A leveling kit removes that, which is worth knowing before you tow."
 category: Suspension
+vehicle: truck
 status: draft
 published: 2026-11-04
 last_updated: 2026-11-05

@@ -70,6 +70,18 @@
       "note": "Your tag looks like 'yourtag-20'. Amazon takes it as ?tag=... in the query string -- NOT as a path segment. 24-hour cookie plus an 89-day window for items already in the cart. A new account gets 180 days from applying to refer three sales or it is closed, so do not apply until the site has real traffic."
     },
     {
+      "name": "MAPerformance",
+      "host": "maperformance.com",
+      "network": null,
+      "link_format": "query_param",
+      "param": "",
+      "id": "",
+      "enabled": false,
+      "commission": "unknown - no program verified",
+      "attribution_days": null,
+      "note": "Registered 16 Nov 2026 as a MERCHANT HOST ONLY, not a program. No affiliate program was verified for MAPerformance and nothing here claims one; the row exists so the build injects the FTC disclosure on pages that link to it. Without a host registered, build_disclosure() returns an empty string and a page full of MAPerformance links ships with no disclosure at all - which is exactly what happened to the first GTI draft. Its links carry rel=\"nofollow noopener\" and earn nothing. If a program is ever verified, fill in network/param/id and set enabled true, the same as any other row."
+    },
+    {
       "name": "eBay Partner Network",
       "host": "ebay.com",
       "network": "epn",

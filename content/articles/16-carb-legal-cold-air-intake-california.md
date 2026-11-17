@@ -2,11 +2,16 @@
 title:
   en: "Is a Cold Air Intake CARB-Legal in California? Four Listings, One Answer"
 seo_title:
-  en: "Cold Air Intake CARB Legal in California? What Listings Say"
+  en: "Is Your Cold Air Intake CARB Legal in California?"
 seo_desc:
   en: "Four 2019-2026 Silverado 1500 intakes, $189.99 to $475.99: all four state their CARB status, and all four say it is not legal in California."
 slug: carb-legal-cold-air-intake-california
+key_fact:
+  en: "If the truck is registered in California, the question is **whether the intake has an Executive Order number**, not whether it adds power. All four listings read for this article state their status, and **all four say the part is not legal in California**."
+fun_fact:
+  en: "The inspector is not measuring your horsepower — they are looking for an **EO identification plate under the hood**. An intake without one fails the visual inspection on its own, before any emissions test is run, so the truck can pass the tailpipe and still fail."
 category: Engine
+vehicle: truck
 status: draft
 published: 2026-11-12
 last_updated: 2026-11-14

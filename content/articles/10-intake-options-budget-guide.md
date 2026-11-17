@@ -4,13 +4,18 @@ title:
   kr: "$55부터 $476까지, 인테이크 선택지: 가격대별로 무엇을 얻는가"
   es: "Opciones de admisión de $55 a $476: qué obtienes en cada precio"
 seo_title:
-  en: "Intake Options by Price: $55 Drop-In to $476 Sealed Box"
+  en: "Intake by Price: $55 Drop-In to $476 Sealed Box"
   es: "Opciones de admisión por precio: de $55 a $476"
 seo_desc:
   en: "Five intake approaches from a $55 drop-in panel to a $476 sealed box: what each one actually changes, and which is worth the money."
   es: "Cinco enfoques de admisión, desde un panel de $55 hasta una caja sellada de $476: qué cambia cada uno y cuál vale el dinero."
 slug: intake-options-budget-guide
+key_fact:
+  en: "The cheapest option that genuinely works is a **drop-in panel filter in the factory air box** — it keeps the sealed housing and the factory fender draw, and it costs a fraction of a kit."
+fun_fact:
+  en: "**Not one of the three kits on this page is CARB legal in California.** No EO number means it fails the visual inspection on its own, before any emissions test is run."
 category: Engine
+vehicle: truck
 status: draft
 published: 2026-11-04
 last_updated: 2026-11-04

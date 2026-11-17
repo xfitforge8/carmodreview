@@ -2,11 +2,16 @@
 title:
   en: "The Install Time on the Listing Is Not the Install Time"
 seo_title:
-  en: "Install Time: What Listings Say vs What Owners Report"
+  en: "Install Time: Listings vs What Owners Report"
 seo_desc:
   en: "We compared install times on 24 truck part listings against what owners reported in 490 reviews. Of the parts listed under an hour, 4 of 22 owners named 2+ hrs."
 slug: listing-install-time-vs-owner-reports
+key_fact:
+  en: "The **\"Less than 1 Hour\" badge points the right way but is a best case**. Across 24 listings and 490 reviews, the parts badged under an hour had a median reported install of about **38 minutes**. Plan for the median and keep the afternoon free anyway."
+fun_fact:
+  en: "Four of the 22 owners who named a whole-job time **took two hours or more, and two took four and a half**. The badge is not lying about the part; it is describing the install that went well."
 category: Engine
+vehicle: truck
 status: draft
 published: 2026-11-07
 last_updated: 2026-11-07
