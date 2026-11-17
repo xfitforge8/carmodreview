@@ -1893,7 +1893,8 @@ def build():
             if code == 'en':
                 feed_items.append({'title': title, 'desc': seo_desc,
                                    'url': canon, 'published': published,
-                                   'modified': date, 'section': catlabel})
+                                   'modified': date, 'section': catlabel,
+                                   'slug': slug})
             page = render_page(
                 lang=code, title=page_title, desc=seo_desc, canonical=canon,
                 body_html='\n'.join(body_html), rel=rel,
@@ -3182,8 +3183,16 @@ def build_feed(items):
     # the two newest guides carry published 2026-11-05, so without it the tie
     # fell through to the URL and listed them alphabetically -- putting the
     # older tonneau guide above the one published after it.
+    #
+    # The URL is a bad final key, because it starts with the category. Two
+    # guides published the same day in different categories fell back to
+    # /exhaust/ before /tuning/ regardless of which was written later, so the
+    # feed listed the Civic guide above the WRX guide that replaced it as the
+    # homepage lead. The slug orders the article number, which is authoring
+    # order, so the feed now agrees with the homepage on ties.
     items = sorted(items, key=lambda i: (i['published'], i.get('modified') or '',
-                                         i['url']), reverse=True)
+                                         i.get('slug') or '', i['url']),
+                   reverse=True)
     last = items[0]['modified'] if items else datetime.date.today().isoformat()
     out = ['<?xml version="1.0" encoding="UTF-8"?>',
            '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">',

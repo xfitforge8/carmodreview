@@ -8,20 +8,20 @@
     <lastBuildDate>Tue, 17 Nov 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://carmodreview.com/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
-      <title>Civic Si Bolt-Ons and Tune: What to Buy First, and What It Actually Gains</title>
-      <link>https://carmodreview.com/tuning/civic-si-bolt-ons-tune-order.html</link>
-      <guid isPermaLink="true">https://carmodreview.com/tuning/civic-si-bolt-ons-tune-order.html</guid>
-      <category>Tuning</category>
-      <pubDate>Tue, 17 Nov 2026 00:00:00 +0000</pubDate>
-      <description>KTuner's own dyno sheets show +56 wtq and +34 whp from a 23 PSI basemap on the 1.5T Si. Six live-priced parts, and why the tune comes before the exhaust.</description>
-    </item>
-    <item>
       <title>WRX Downpipe Before Cat-Back: The Order That Works, and the Part That Got Pulled</title>
       <link>https://carmodreview.com/exhaust/wrx-downpipe-before-cat-back.html</link>
       <guid isPermaLink="true">https://carmodreview.com/exhaust/wrx-downpipe-before-cat-back.html</guid>
       <category>Exhaust</category>
       <pubDate>Tue, 17 Nov 2026 00:00:00 +0000</pubDate>
       <description>MAPerformance's WRX catted downpipe has 279 reviews at $749.99 and no CARB number. COBB's Accessport has EO D-660-16 and its Stage 2 now skips the downpipe entirely.</description>
+    </item>
+    <item>
+      <title>Civic Si Bolt-Ons and Tune: What to Buy First, and What It Actually Gains</title>
+      <link>https://carmodreview.com/tuning/civic-si-bolt-ons-tune-order.html</link>
+      <guid isPermaLink="true">https://carmodreview.com/tuning/civic-si-bolt-ons-tune-order.html</guid>
+      <category>Tuning</category>
+      <pubDate>Tue, 17 Nov 2026 00:00:00 +0000</pubDate>
+      <description>KTuner's own dyno sheets show +56 wtq and +34 whp from a 23 PSI basemap on the 1.5T Si. Six live-priced parts, and why the tune comes before the exhaust.</description>
     </item>
     <item>
       <title>Do Tonneau Covers Improve MPG? Three Tests, Three Answers</title>
@@ -40,30 +40,6 @@
       <description>A muffler delete keeps your factory pipe and drops the muffler. A straight pipe replaces everything. What each costs, how they sound, and the drone risk.</description>
     </item>
     <item>
-      <title>Golf GTI Cat-Back Exhaust: What the Options Cost and Which to Pick</title>
-      <link>https://carmodreview.com/exhaust/golf-gti-cat-back-exhaust.html</link>
-      <guid isPermaLink="true">https://carmodreview.com/exhaust/golf-gti-cat-back-exhaust.html</guid>
-      <category>Exhaust</category>
-      <pubDate>Mon, 16 Nov 2026 00:00:00 +0000</pubDate>
-      <description>Seven GTI cat-back exhausts priced from $738 to $1,519, read live: what axle-back saves you, why drone hits a DSG car differently, and what to check first.</description>
-    </item>
-    <item>
-      <title>Exhaust Flapper Valve: What It Does and How to Stop the Rattle</title>
-      <link>https://carmodreview.com/exhaust/exhaust-flapper-valve-rattle.html</link>
-      <guid isPermaLink="true">https://carmodreview.com/exhaust/exhaust-flapper-valve-rattle.html</guid>
-      <category>Exhaust</category>
-      <pubDate>Mon, 16 Nov 2026 00:00:00 +0000</pubDate>
-      <description>Your exhaust flapper valve is a noise-control flap, not a muffler. Why it chirps and rattles, what GM's own bulletin says, and what the free fix involves.</description>
-    </item>
-    <item>
-      <title>Honda Accord 2.0T Exhaust and Tune: The Order That Actually Works</title>
-      <link>https://carmodreview.com/exhaust/accord-2t-exhaust-tune-path.html</link>
-      <guid isPermaLink="true">https://carmodreview.com/exhaust/accord-2t-exhaust-tune-path.html</guid>
-      <category>Exhaust</category>
-      <pubDate>Mon, 16 Nov 2026 00:00:00 +0000</pubDate>
-      <description>Five live-priced cat-backs from $1,019.99 and a KTuner flash at $749. What the manufacturer's own 88 lb-ft claim covers, and what it doesn't.</description>
-    </item>
-    <item>
       <title>Golf GTI: MK7 vs MK8 vs MK8.5, Generation by Generation</title>
       <link>https://carmodreview.com/engine/golf-gti-mk7-vs-mk8-tested.html</link>
       <guid isPermaLink="true">https://carmodreview.com/engine/golf-gti-mk7-vs-mk8-tested.html</guid>
@@ -72,12 +48,28 @@
       <description>Instrumented test data for three GTI generations side by side: 0-60, braking, skidpad and VIR lap times, plus which one you can legally tune in California.</description>
     </item>
     <item>
+      <title>Golf GTI Cat-Back Exhaust: What the Options Cost and Which to Pick</title>
+      <link>https://carmodreview.com/exhaust/golf-gti-cat-back-exhaust.html</link>
+      <guid isPermaLink="true">https://carmodreview.com/exhaust/golf-gti-cat-back-exhaust.html</guid>
+      <category>Exhaust</category>
+      <pubDate>Mon, 16 Nov 2026 00:00:00 +0000</pubDate>
+      <description>Seven GTI cat-back exhausts priced from $738 to $1,519, read live: what axle-back saves you, why drone hits a DSG car differently, and what to check first.</description>
+    </item>
+    <item>
       <title>GM's Lifter Problem: Which Trucks It Hits and What the Bulletins Say</title>
       <link>https://carmodreview.com/engine/gm-lifter-failure-which-trucks.html</link>
       <guid isPermaLink="true">https://carmodreview.com/engine/gm-lifter-failure-which-trucks.html</guid>
       <category>Engine &amp; Intake</category>
       <pubDate>Mon, 16 Nov 2026 00:00:00 +0000</pubDate>
       <description>GM's own service bulletins name the 5.3L trucks with documented AFM and DFM lifter failures, including two 2020-2022 build windows L84 buyers should check.</description>
+    </item>
+    <item>
+      <title>Exhaust Flapper Valve: What It Does and How to Stop the Rattle</title>
+      <link>https://carmodreview.com/exhaust/exhaust-flapper-valve-rattle.html</link>
+      <guid isPermaLink="true">https://carmodreview.com/exhaust/exhaust-flapper-valve-rattle.html</guid>
+      <category>Exhaust</category>
+      <pubDate>Mon, 16 Nov 2026 00:00:00 +0000</pubDate>
+      <description>Your exhaust flapper valve is a noise-control flap, not a muffler. Why it chirps and rattles, what GM's own bulletin says, and what the free fix involves.</description>
     </item>
     <item>
       <title>Cold Air Intake Sound: What Actually Changes, and Where You Hear It</title>
@@ -96,6 +88,14 @@
       <description>The most-reviewed AFM disabler in the country is explicitly not legal in California. Here is which GM cylinder-deactivation modules carry a CARB EO number, and which do not.</description>
     </item>
     <item>
+      <title>Honda Accord 2.0T Exhaust and Tune: The Order That Actually Works</title>
+      <link>https://carmodreview.com/exhaust/accord-2t-exhaust-tune-path.html</link>
+      <guid isPermaLink="true">https://carmodreview.com/exhaust/accord-2t-exhaust-tune-path.html</guid>
+      <category>Exhaust</category>
+      <pubDate>Mon, 16 Nov 2026 00:00:00 +0000</pubDate>
+      <description>Five live-priced cat-backs from $1,019.99 and a KTuner flash at $749. What the manufacturer's own 88 lb-ft claim covers, and what it doesn't.</description>
+    </item>
+    <item>
       <title>A Third V35A Teardown Found Something New. It Still Isn't the Answer.</title>
       <link>https://carmodreview.com/tuning/tundra-v35a-teardown.html</link>
       <guid isPermaLink="true">https://carmodreview.com/tuning/tundra-v35a-teardown.html</guid>
@@ -112,20 +112,20 @@
       <description>A leaked dealer memo describes a 62,000-truck Tundra camshaft recall for 2022-2023 and 2025-2026 models. NHTSA has published nothing yet. What owners should do now.</description>
     </item>
     <item>
-      <title>A New Diesel Oil Category Lands in 2027. Here's Which One Your Truck Needs.</title>
-      <link>https://carmodreview.com/engine/diesel-oil-pc12.html</link>
-      <guid isPermaLink="true">https://carmodreview.com/engine/diesel-oil-pc12.html</guid>
-      <category>Engine &amp; Intake</category>
-      <pubDate>Sat, 14 Nov 2026 00:00:00 +0000</pubDate>
-      <description>API PC-12 splits into two categories, CL-4 and FB-4, licensing January 1, 2027. Which one a Cummins, Power Stroke or Duramax owner should look for, and why they differ.</description>
-    </item>
-    <item>
       <title>MCEqual Puts a Real Equalizer Back in GM's Google-Built Infotainment</title>
       <link>https://carmodreview.com/electrical/mcequal-equalizer-app.html</link>
       <guid isPermaLink="true">https://carmodreview.com/electrical/mcequal-equalizer-app.html</guid>
       <category>Electrical</category>
       <pubDate>Sat, 14 Nov 2026 00:00:00 +0000</pubDate>
       <description>MCEqual is a $3.99 equalizer app for vehicles running Android Automotive OS. The Max 2.0 update adds Android Auto EQ, synced lyrics and per-device presets.</description>
+    </item>
+    <item>
+      <title>A New Diesel Oil Category Lands in 2027. Here's Which One Your Truck Needs.</title>
+      <link>https://carmodreview.com/engine/diesel-oil-pc12.html</link>
+      <guid isPermaLink="true">https://carmodreview.com/engine/diesel-oil-pc12.html</guid>
+      <category>Engine &amp; Intake</category>
+      <pubDate>Sat, 14 Nov 2026 00:00:00 +0000</pubDate>
+      <description>API PC-12 splits into two categories, CL-4 and FB-4, licensing January 1, 2027. Which one a Cummins, Power Stroke or Duramax owner should look for, and why they differ.</description>
     </item>
     <item>
       <title>Bentley Will Sell You a Better Screen. It Costs Almost Every Button.</title>
@@ -184,14 +184,6 @@
       <description>All four windows drop with one press, but only the driver's goes back up. Not a setting, not a lock. What decides it, and how to add auto-up to the rest.</description>
     </item>
     <item>
-      <title>Tonneau Covers: What $190 Buys and What $1,500 Buys</title>
-      <link>https://carmodreview.com/tonneau/tonneau-covers-explained.html</link>
-      <guid isPermaLink="true">https://carmodreview.com/tonneau/tonneau-covers-explained.html</guid>
-      <category>Tonneau &amp; Bed</category>
-      <pubDate>Thu, 05 Nov 2026 00:00:00 +0000</pubDate>
-      <description>Hinged tonneau covers run $1,499.99 to $2,699.99 on a live listing — 20 of them, all one brand. What that buys, and how the other cover types compare.</description>
-    </item>
-    <item>
       <title>What Truck Owners Actually Complain About (91 Low Reviews, Read)</title>
       <link>https://carmodreview.com/engine/what-owners-complain-about.html</link>
       <guid isPermaLink="true">https://carmodreview.com/engine/what-owners-complain-about.html</guid>
@@ -200,20 +192,12 @@
       <description>We read every one- to three-star review across 58 truck parts. Fitment beat every other failure by a wide margin, and warning lights were rarer than expected.</description>
     </item>
     <item>
-      <title>Tires for a Mostly-Street 4x4: Load Range, Size, and the E-Rated Trap</title>
-      <link>https://carmodreview.com/wheels-tires/4x4-tire-buying-guide.html</link>
-      <guid isPermaLink="true">https://carmodreview.com/wheels-tires/4x4-tire-buying-guide.html</guid>
-      <category>Wheels &amp; Tires</category>
-      <pubDate>Wed, 04 Nov 2026 00:00:00 +0000</pubDate>
-      <description>Tire buying for a mostly-street 4x4: load range, why E-rated tires ride worse, how to read your door jamb sticker, and the size that fits stock.</description>
-    </item>
-    <item>
-      <title>Leveling Kits: What They Change, What They Cost, What You Give Up</title>
-      <link>https://carmodreview.com/suspension/leveling-kit-guide.html</link>
-      <guid isPermaLink="true">https://carmodreview.com/suspension/leveling-kit-guide.html</guid>
-      <category>Suspension</category>
-      <pubDate>Wed, 04 Nov 2026 00:00:00 +0000</pubDate>
-      <description>What a leveling kit changes on a 4x4 truck: ride height, geometry, alignment, and the parts that wear out early.</description>
+      <title>Tonneau Covers: What $190 Buys and What $1,500 Buys</title>
+      <link>https://carmodreview.com/tonneau/tonneau-covers-explained.html</link>
+      <guid isPermaLink="true">https://carmodreview.com/tonneau/tonneau-covers-explained.html</guid>
+      <category>Tonneau &amp; Bed</category>
+      <pubDate>Thu, 05 Nov 2026 00:00:00 +0000</pubDate>
+      <description>Hinged tonneau covers run $1,499.99 to $2,699.99 on a live listing — 20 of them, all one brand. What that buys, and how the other cover types compare.</description>
     </item>
     <item>
       <title>Cold Air Intake on a Turbo Four: Noise, Power, or Neither?</title>
@@ -224,12 +208,28 @@
       <description>Cold air intake on a 2.7L turbo four: what it can and cannot do, the MAF failure nobody warns you about, and what to buy first.</description>
     </item>
     <item>
+      <title>Leveling Kits: What They Change, What They Cost, What You Give Up</title>
+      <link>https://carmodreview.com/suspension/leveling-kit-guide.html</link>
+      <guid isPermaLink="true">https://carmodreview.com/suspension/leveling-kit-guide.html</guid>
+      <category>Suspension</category>
+      <pubDate>Wed, 04 Nov 2026 00:00:00 +0000</pubDate>
+      <description>What a leveling kit changes on a 4x4 truck: ride height, geometry, alignment, and the parts that wear out early.</description>
+    </item>
+    <item>
       <title>Intake Options From $55 to $476: What You Get at Each Price</title>
       <link>https://carmodreview.com/engine/intake-options-budget-guide.html</link>
       <guid isPermaLink="true">https://carmodreview.com/engine/intake-options-budget-guide.html</guid>
       <category>Engine &amp; Intake</category>
       <pubDate>Wed, 04 Nov 2026 00:00:00 +0000</pubDate>
       <description>Five intake approaches from a $55 drop-in panel to a $476 sealed box: what each one actually changes, and which is worth the money.</description>
+    </item>
+    <item>
+      <title>Tires for a Mostly-Street 4x4: Load Range, Size, and the E-Rated Trap</title>
+      <link>https://carmodreview.com/wheels-tires/4x4-tire-buying-guide.html</link>
+      <guid isPermaLink="true">https://carmodreview.com/wheels-tires/4x4-tire-buying-guide.html</guid>
+      <category>Wheels &amp; Tires</category>
+      <pubDate>Wed, 04 Nov 2026 00:00:00 +0000</pubDate>
+      <description>Tire buying for a mostly-street 4x4: load range, why E-rated tires ride worse, how to read your door jamb sticker, and the size that fits stock.</description>
     </item>
     <item>
       <title>Aftermarket Wheels: Offset, Width, and the Numbers That Decide Fitment</title>
