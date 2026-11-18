@@ -32,11 +32,10 @@ DOMAIN = 'https://carmodreview.com'
 def git_date(path):
     """Date of the last commit that touched this file, or None.
 
-    Used for dateModified and the sitemap's <lastmod>. Both are instructions to
-    a search engine about whether a page is worth recrawling, so they have to
-    track the file rather than a field someone remembers to bump. Falls back to
-    None when git is unavailable or the file is untracked -- the caller then
-    keeps whatever the front matter said, so a source tarball still builds.
+    The caller is content_date(); on its own this is the wrong number to publish
+    as dateModified, because it counts any commit at all. Kept for that helper.
+    Falls back to None when git is unavailable or the file is untracked, so a
+    source tarball still builds.
     """
     try:
         out = subprocess.run(
@@ -48,6 +47,107 @@ def git_date(path):
     except (OSError, subprocess.SubprocessError):
         pass
     return None
+
+
+def git_dates(paths):
+    """One `git log` for the whole content tree: {path: last commit date}.
+
+    A single pass instead of one subprocess per article. build.py asks for about
+    ninety of these across the render loop, the sitemap and the hub pages.
+    """
+    try:
+        out = subprocess.run(
+            ['git', 'log', '--format=@%ad', '--date=short', '--name-only'],
+            cwd=ROOT, capture_output=True, text=True, timeout=120)
+        if out.returncode != 0:
+            return {}
+    except (OSError, subprocess.SubprocessError):
+        return {}
+    seen, stamp = {}, None
+    for line in out.stdout.splitlines():
+        if line.startswith('@'):
+            stamp = line[1:]
+            continue
+        if not line.strip() or not stamp or line in seen:
+            continue
+        # git log walks newest first, so the first date a path appears under is
+        # its most recent commit. Skip dated commits that only touch other
+        # files, which is most of them.
+        if line in paths:
+            seen[line] = stamp
+    return seen
+
+
+def content_date(path, meta):
+    """The date this article's CONTENT last changed -- the honest dateModified.
+
+    Frontmatter last_updated: is the authority. It is the only value that knows
+    whether a commit changed the article or merely touched the file.
+
+    The commit date is deliberately NOT a floor here, though it looks like one.
+    This file used a commit date until 2026-11-18, and it went wrong exactly the
+    way a mechanical edit should be expected to: one commit removed a single
+    disclosure line from all 41 articles for a reason that had nothing to do with
+    their content, and every page on the site started claiming it had been
+    revised that day. The byline read "Updated 2026-11-18" on guides where the
+    only change was a deleted line -- false, on our own page, and invisible
+    unless you go looking. A site whose whole argument is that its numbers are
+    checkable cannot afford a date that is not.
+
+    The failure this replaces was last_updated: drifting *stale* -- nine guides
+    claiming May when they had been rewritten in November. That is a real
+    problem, so it is still checked, but the answer is to say so at build time
+    rather than to let git inflate the date on our behalf. See date_drift().
+    """
+    declared = str(meta.get('last_updated') or '').strip()
+    if re.fullmatch(r'\d{4}-\d{2}-\d{2}', declared):
+        return declared
+    # No usable frontmatter: fall back rather than publish nothing.
+    return commit_dates().get(rel_key(path))
+
+
+def date_drift(articles):
+    """Articles whose file changed on a later day than last_updated: claims.
+
+    Not an error -- a mechanical commit that touches the file without changing
+    the article is legitimate and common, and it is the case this check exists
+    to keep out of the published date. It is a nudge: if a commit DID revise the
+    prose, last_updated: was not bumped and the date in the sitemap is now older
+    than the work it describes. Only a human can tell the two apart, so the build
+    prints the list and moves on.
+    """
+    out = []
+    for a in articles:
+        declared = str(a['meta'].get('last_updated') or '').strip()
+        committed = commit_dates().get(rel_key(a['path']))
+        if (re.fullmatch(r'\d{4}-\d{2}-\d{2}', declared) and committed
+                and committed > declared):
+            out.append((a['file'], declared, committed))
+    return out
+
+
+def rel_key(path):
+    """Repo-relative path, because that is what `git log --name-only` prints.
+
+    The article loader hands us an absolute path under ROOT. Without this the
+    commit_dates() lookup misses every article and returns None, which makes the
+    floor in content_date() silently do nothing -- a bug that looks exactly like
+    working code, since a missing floor still produces a plausible date.
+    """
+    return os.path.relpath(path, ROOT).replace(os.sep, '/')
+
+
+@functools.lru_cache(maxsize=1)
+def commit_dates():
+    """git_dates() over every markdown source, computed once per build."""
+    paths = set()
+    for d in (os.path.join(SRC, 'articles'), os.path.join(SRC, 'legal')):
+        if not os.path.isdir(d):
+            continue
+        for name in os.listdir(d):
+            if name.endswith('.md'):
+                paths.add(f'content/{os.path.basename(d)}/{name}')
+    return git_dates(paths)
 
 
 def css_version():
@@ -1318,10 +1418,12 @@ def default_sidebar(lang, rel, entries=None):
         # tiebreaker, so a genuinely revised guide still floats up among articles
         # published the same day.
         #
-        # Both keys are needed. date alone was tried first and broke: it now comes
-        # from git_date, so a batch of edits stamps every article with one date
-        # and the list collapsed into alphabetical order by slug. published alone
-        # would lose the "keeps its figures current" signal the site is built on.
+        # Both keys are needed. date alone was tried first and broke: it came
+        # from the commit date at the time, so a batch of edits stamped every
+        # article with one date and the list collapsed into alphabetical order by
+        # slug. It is content_date() now, which fixes that, but published alone
+        # would still lose the "keeps its figures current" signal the site is
+        # built on.
         order = sorted(
             entries,
             key=lambda e: (str(e[7].get('published') or ''), e[0], e[1]),
@@ -1609,6 +1711,23 @@ def build():
             f'{v}({len(v_buckets[v])})' for v in vehicles.ORDER
             if v not in v_live) or 'none'))
 
+    # A commit that revises prose without bumping last_updated: publishes a date
+    # older than the work it describes. Only a human can tell that apart from a
+    # mechanical commit, so this reports and continues rather than guessing.
+    #
+    # One line by default. The bulk case is legitimate -- on 2026-11-18 a single
+    # mechanical commit touched 41 files -- and printing 38 filenames on every
+    # build would train everyone to scroll past the check entirely. Set
+    # DATES_VERBOSE=1 when auditing before a release to see the whole list.
+    drift = date_drift(arts)
+    if drift:
+        print(f'  date drift: {len(drift)} file(s) committed after '
+              f'last_updated: (DATES_VERBOSE=1 for the list)')
+        if os.environ.get('DATES_VERBOSE'):
+            for fn, declared, committed in drift:
+                print(f'    {fn}: last_updated {declared}, '
+                      f'last commit {committed}')
+
     # grab the assets we want to preserve from the existing site
     prev = os.path.join(ROOT, '_prev_docs')
     if os.path.isdir(prev):
@@ -1738,7 +1857,7 @@ def build():
         cslug, clabel, ckr, ces = CATEGORIES.get(m.get('category', 'Engine'),
                                                  ('engine', 'Engine', '엔진', 'Motor'))
         sidebar_entries.append((
-            git_date(a['path']) or str(m.get('last_updated', '2026-11-01')),
+            content_date(a['path'], m),
             m.get('slug') or slugify(a['file']),
             m.get('category', 'Engine'), cslug, clabel, ckr, ces,
             # published has to travel with the entry: default_sidebar sorts on
@@ -1755,15 +1874,10 @@ def build():
         cat = meta.get('category', 'Engine')
         catslug, catlabel, catkr, cates = CATEGORIES.get(cat, ('engine', cat, cat, cat))
         slug = meta.get('slug') or slugify(a['file'])
-        # dateModified has to describe the file, not a hand-maintained field.
-        # last_updated: was written by hand and had drifted: nine guides still
-        # claimed May-July 2026 after every one of them had been rewritten with
-        # quoted owner reviews and corrected prices this week. A search engine
-        # reads dateModified and the sitemap's <lastmod> to decide whether to
-        # recrawl; both were reporting these pages as untouched, so the edits
-        # were invisible to the one audience they were meant for. The commit
-        # date of the article file is the honest answer and cannot drift.
-        date = git_date(a['path']) or str(meta.get('last_updated', '2026-11-01'))
+        # dateModified has to describe the content, and the frontmatter's
+        # last_updated: is where that is recorded. This used to read the commit
+        # date instead -- see content_date() for what that cost.
+        date = content_date(a['path'], meta) or '2026-11-01'
         # datePublished must not move -- it is when the page first existed, and
         # rewriting last_updated: must never be able to restate it.
         published = str(meta.get('published', date))
@@ -3379,7 +3493,7 @@ def build_sitemap(arts):
         # while a not-newer lastmod tells the crawler not to bother coming
         # back, and Google resolves that conflict by distrusting lastmod for
         # the whole file.
-        d = (git_date(a['path'])
+        d = (content_date(a['path'], a['meta'])
              or str(a['meta'].get('last_updated', today)))
         for code, _, prefix in LANGS:
             if code in a['langs']:
@@ -3440,7 +3554,7 @@ def build_sitemap(arts):
         vp = a.get('vehicle_primary')
         if vp not in vehicles.VEHICLES:
             continue
-        d = (git_date(a['path'])
+        d = (content_date(a['path'], a['meta'])
              or str(a['meta'].get('last_updated', today)))
         for v in [vp] + [x for x in (a.get('vehicle_also') or [])
                          if x in vehicles.VEHICLES]:
