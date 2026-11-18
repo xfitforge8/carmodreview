@@ -1,0 +1,2 @@
+A mechanic servicing a brake system. A micrometer reading at several points around the disc tells you both the current thickness and whether it varies, and both numbers matter before machining.
+Measure in more than one place.

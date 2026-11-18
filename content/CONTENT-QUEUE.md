@@ -493,3 +493,44 @@ quarter" before the build.
 
 Liqui Moly ($8.99/500 ml, 42 reviews) is the value pick by price per ounce but
 publishes no boiling figures. Worth a manufacturer spec-sheet lookup.
+
+---
+
+## Article 43 — rotor resurfacing (written 18 Nov 2026)
+
+File: `43-brake-rotor-resurface-vs-replace.md`. EN 1,443 / KR 312 / ES 441 words,
+10 `###` sections, 4 buyrows, 5 rotors verified live 18 Nov 2026.
+
+### The spine is a subtraction
+
+Every rotor carries a nominal and a discard thickness, and the gap is all the
+metal you may ever remove. PowerStop AR85130SCR (2009 F-150) is 1.180 nominal /
+1.120 discard = **0.060 in.** of usable life. Resurfacing spends part of it
+permanently, which is why a previously machined rotor rarely takes a second cut.
+
+### The counterintuitive finding, stated carefully
+
+The drilled/slotted PowerStop AR8584XPR has **0.095 in.** between nominal and
+discard — more than the 0.060 in. solid-surface rotor. Summit's drilled pair has
+0.079 in. Both drilled rotors here beat both solid ones on usable range.
+
+The article is explicit that **this is not a controlled drilling-vs-not test**:
+the discs are different diameters for different applications, and usable
+thickness range says nothing about crack resistance under thermal cycling. What
+it does refute is assuming the margin from a product title.
+
+### Two rotors, identical specs, $69.29 apart
+
+PowerStop AR85130SCR ($89.99) and Frozen Rotors 2527FZR ($159.28) carry the same
+12.99 in. diameter, same 1.180 nominal, same 1.120 discard. The premium buys a
+60-hour cryogenic treatment, not more wearable material. That distinction is in
+the article because it is what the specs actually show.
+
+### Declined to invent
+
+- EBC RK7042 publishes a nominal 1.011 in. but **no discard thickness**. Table
+  shows a dash and the article says why, rather than filling the gap.
+- No machining costs are quoted, because no listing prices the service. The
+  cost comparison is qualitative and the article says so.
+- Added a "What I could not verify" section covering machining cost, the
+  cryogenic claim, and drilled-rotor cracking resistance.
