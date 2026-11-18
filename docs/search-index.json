@@ -202,5 +202,35 @@
 "t": "WRX Downpipe Before Cat-Back: The Order That Works, and the Part That Got Pulled",
 "d": "MAPerformance's WRX catted downpipe has 279 reviews at $749.99 and no CARB number. COBB's Accessport has EO D-660-16 and its Stage 2 now skips the downpipe entirely.",
 "c": "Exhaust"
+},
+{
+"u": "/exhaust/exhaust-manifold-leak-repair.html",
+"t": "Exhaust Manifold Leak: Why It Ticks Cold and Goes Quiet Hot",
+"d": "A manifold leak ticks on a cold start and fades as the engine warms. Why that happens, how to confirm it in ten minutes, and what the gaskets, bolts and repair clamps cost.",
+"c": "Exhaust"
+},
+{
+"u": "/engine/transmission-shudder-fluid-misfire.html",
+"t": "Transmission Shudder: Misfire, Fluid, or Converter?",
+"d": "A light-throttle shudder is usually fluid or a misfire, not a failed transmission. How to tell them apart with a scan tool, and what the fluid, filter and bypass parts cost.",
+"c": "Engine & Intake"
+},
+{
+"u": "/engine/duramax-3l-service-oil-fuel-filter-sound.html",
+"t": "3.0L Duramax Service: The Oil Is a Licence, the Filter Is a Part Number",
+"d": "One 3.0L Duramax diesel takes a dexos D oil from a GM licence list and one of two different ACDelco fuel filters. How to read the fitment page, and what each part costs.",
+"c": "Engine & Intake"
+},
+{
+"u": "/tonneau/bed-rack-with-tonneau-cover.html",
+"t": "A Bed Rack and a Tonneau Cover: What Decides Whether They Fit Together",
+"d": "Racks from $399.99 to $881.99, read live: the stake pocket decides whether a rack and a tonneau cover can share one bed, and drilling is the second question.",
+"c": "Tonneau & Bed"
+},
+{
+"u": "/tuning/boosted-miata-build-order.html",
+"t": "Boosted Miata Build Order: The Parts That Decide Whether It Survives",
+"d": "The MegaSquirt Gen2 is $829.99 and the MS3Pro is $1,299.99, but the $395 Haltech harness is not the $1,655 kit. The verified build order, and the one part no catalog sells you.",
+"c": "Tuning"
 }
 ]

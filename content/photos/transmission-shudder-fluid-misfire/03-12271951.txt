@@ -1,0 +1,1 @@
+A wireless OBD-II adapter seated in a vehicle's diagnostic port with its status light lit. Reading transmission fluid temperature and pending misfire counters off the port is what separates a converter shudder from an engine misfire, and it is the cheapest step in the whole diagnosis.

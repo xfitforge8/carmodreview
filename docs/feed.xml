@@ -5,8 +5,16 @@
     <link>https://carmodreview.com/</link>
     <description>Car and truck parts guides built from published specifications, with every source named.</description>
     <language>en</language>
-    <lastBuildDate>Tue, 17 Nov 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 18 Nov 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://carmodreview.com/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Boosted Miata Build Order: The Parts That Decide Whether It Survives</title>
+      <link>https://carmodreview.com/tuning/boosted-miata-build-order.html</link>
+      <guid isPermaLink="true">https://carmodreview.com/tuning/boosted-miata-build-order.html</guid>
+      <category>Tuning</category>
+      <pubDate>Wed, 18 Nov 2026 00:00:00 +0000</pubDate>
+      <description>The MegaSquirt Gen2 is $829.99 and the MS3Pro is $1,299.99, but the $395 Haltech harness is not the $1,655 kit. The verified build order, and the one part no catalog sells you.</description>
+    </item>
     <item>
       <title>WRX Downpipe Before Cat-Back: The Order That Works, and the Part That Got Pulled</title>
       <link>https://carmodreview.com/exhaust/wrx-downpipe-before-cat-back.html</link>
@@ -16,12 +24,44 @@
       <description>MAPerformance's WRX catted downpipe has 279 reviews at $749.99 and no CARB number. COBB's Accessport has EO D-660-16 and its Stage 2 now skips the downpipe entirely.</description>
     </item>
     <item>
+      <title>Transmission Shudder: Misfire, Fluid, or Converter?</title>
+      <link>https://carmodreview.com/engine/transmission-shudder-fluid-misfire.html</link>
+      <guid isPermaLink="true">https://carmodreview.com/engine/transmission-shudder-fluid-misfire.html</guid>
+      <category>Engine &amp; Intake</category>
+      <pubDate>Tue, 17 Nov 2026 00:00:00 +0000</pubDate>
+      <description>A light-throttle shudder is usually fluid or a misfire, not a failed transmission. How to tell them apart with a scan tool, and what the fluid, filter and bypass parts cost.</description>
+    </item>
+    <item>
+      <title>Exhaust Manifold Leak: Why It Ticks Cold and Goes Quiet Hot</title>
+      <link>https://carmodreview.com/exhaust/exhaust-manifold-leak-repair.html</link>
+      <guid isPermaLink="true">https://carmodreview.com/exhaust/exhaust-manifold-leak-repair.html</guid>
+      <category>Exhaust</category>
+      <pubDate>Tue, 17 Nov 2026 00:00:00 +0000</pubDate>
+      <description>A manifold leak ticks on a cold start and fades as the engine warms. Why that happens, how to confirm it in ten minutes, and what the gaskets, bolts and repair clamps cost.</description>
+    </item>
+    <item>
+      <title>3.0L Duramax Service: The Oil Is a Licence, the Filter Is a Part Number</title>
+      <link>https://carmodreview.com/engine/duramax-3l-service-oil-fuel-filter-sound.html</link>
+      <guid isPermaLink="true">https://carmodreview.com/engine/duramax-3l-service-oil-fuel-filter-sound.html</guid>
+      <category>Engine &amp; Intake</category>
+      <pubDate>Tue, 17 Nov 2026 00:00:00 +0000</pubDate>
+      <description>One 3.0L Duramax diesel takes a dexos D oil from a GM licence list and one of two different ACDelco fuel filters. How to read the fitment page, and what each part costs.</description>
+    </item>
+    <item>
       <title>Civic Si Bolt-Ons and Tune: What to Buy First, and What It Actually Gains</title>
       <link>https://carmodreview.com/tuning/civic-si-bolt-ons-tune-order.html</link>
       <guid isPermaLink="true">https://carmodreview.com/tuning/civic-si-bolt-ons-tune-order.html</guid>
       <category>Tuning</category>
       <pubDate>Tue, 17 Nov 2026 00:00:00 +0000</pubDate>
       <description>KTuner's own dyno sheets show +56 wtq and +34 whp from a 23 PSI basemap on the 1.5T Si. Six live-priced parts, and why the tune comes before the exhaust.</description>
+    </item>
+    <item>
+      <title>A Bed Rack and a Tonneau Cover: What Decides Whether They Fit Together</title>
+      <link>https://carmodreview.com/tonneau/bed-rack-with-tonneau-cover.html</link>
+      <guid isPermaLink="true">https://carmodreview.com/tonneau/bed-rack-with-tonneau-cover.html</guid>
+      <category>Tonneau &amp; Bed</category>
+      <pubDate>Tue, 17 Nov 2026 00:00:00 +0000</pubDate>
+      <description>Racks from $399.99 to $881.99, read live: the stake pocket decides whether a rack and a tonneau cover can share one bed, and drilling is the second question.</description>
     </item>
     <item>
       <title>Do Tonneau Covers Improve MPG? Three Tests, Three Answers</title>

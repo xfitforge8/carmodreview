@@ -41,11 +41,101 @@ were actually read.
 | 7 | Honda Accord 2.0T exhaust and tune path | `accord 2.0t exhaust`, `accord 2.0t tuned`, `accord 2.0t 0-60`. Two videos: **582K** (vs Audi A4 / Camry TRD) and **155K** (K-Tuner Stage 2) | **written** — `32-accord-2t-exhaust-tune-path.md` |
 | 8 | Civic Si bolt-ons and tune | `civic si exhaust`, `civic si build`. **167K** view bolt-ons + tune review; the 17–21 Si sedan cat-back carries **209 reviews**, the most-reviewed fitment-specific exhaust found in this sweep | **written** — `33-civic-si-bolt-ons-tune-order.md` |
 | 9 | WRX / STI downpipe before cat-back | Appears across the JDM seeds. The **MAP WRX catted downpipe at $749.99 has 279 reviews** — more than any cat-back in the sweep, which says the demand is power-first on this platform | **written** — `34-wrx-downpipe-before-cat-back.md` |
-| 10 | Turbo Miata build order | **266K views** on a turbo Miata build; **115K** on ND2 Miata vs supercharged BRZ. Lower priority: the parts costs are build-dependent and the verified-price surface is thinner | research |
+| 10 | Turbo Miata build order | **266K views** on a turbo Miata build; **115K** on ND2 Miata vs supercharged BRZ. The "verified-price surface is thinner" premise in this row was **wrong and is now corrected**: MAPerformance carries a deep Miata catalog, but it splits cleanly in half — every standalone ECU is NA/NB (1990–2005) and both forced-induction kits are ND (2016+), so no single model year can buy both halves from that shelf | **written** — `39-boosted-miata-build-order.md` |
+| 11 | Exhaust manifold leak / broken manifold bolt | Not on the original list — repair intent, which the sweep had not searched. `exhaust manifold leak` videos at **737K, 553K, 413K, 352K, 271K, 186K, 171K**; `broken exhaust manifold bolt` at **2.5M, 2.5M, 773K, 355K, 342K, 167K, 128K**. The 355K is a product review of a single OEM Tools extractor, so the buying intent in this cluster is on the tool, not the manifold | **written** — `35-exhaust-manifold-leak-repair.md` |
+| 12 | Transmission shudder: misfire, fluid or converter | The cluster the note below flagged as lower priority, promoted because the price surface turned out to be deep on Summit. `transmission shudder fix` videos at **428K, 419K, 261K, 251K, 233K, 172K, 95K**; `transmission shudder light throttle` adds **288K** (GM low-rpm shudder), **107K** (Ford Escape/Fusion 35mph); `torque converter shudder vs misfire` adds **703K** and **534K**. The diagnosis angle is the one the videos keep missing: they sell an additive before establishing whether the vibration is engine or transmission | **written** — `36-transmission-shudder-fluid-misfire.md` |
+| 13 | 3.0 Duramax service: oil, fuel filter, and the diesel sound | `duramax 3.0 oil change / fuel filter change / diesel sound` — a service cluster, not a parts cluster. `diesel sound` splits it: the same traffic that wants a maintenance answer also wants a resonator or exhaust answer on the same engine | **written** — `37-duramax-3l-service-oil-fuel-filter-sound.md` |
+| 14 | Bed rack with tonneau cover | 12-deep autocomplete cluster that had been parked as "accessory-fitment": `bed rack with tonneau cover`, `bed rack compatible with tonneau cover`, `rci bed rack tonneau cover adapters`, `bed rack for diamondback tonneau cover`, plus tundra/f150/tacoma/gladiator/maverick/yakima/voodoo/thule combos. Promoted because the fitment answer turned out to be one physical dimension, not a per-truck lookup | **written** — `38-bed-rack-with-tonneau-cover.md` |
 
-Also seen but lower priority: `silverado transmission shudder / thermostat bypass /
-cooler line` (13-deep cluster, repair intent), `duramax 3.0 oil change / fuel filter
-change / diesel sound`, `bed rack with tonneau cover` (12-deep, accessory-fitment).
+### What the bed rack piece cost to source
+
+**The deciding fact was in a `Notes` field, not in a fitment chart.** Elevate's own
+listing says the rack *"Works in conjunction with tonneau covers that mount inside
+bed rails without overlapping stake hole pockets"* — which is the whole article in
+one sentence, because it names the surface rather than a cover brand. Rough
+Country's 10204 supplies the negative case in the same field: *"Will not fit 6 ft.
+7 in. bed. Will not fit tri-fold bed cover, or Rough Country's hard shell rooftop
+tent."* Two exclusions of different kinds in one sentence, and only the second one
+is about this topic.
+
+**Same-brand siblings can have opposite mounting styles at a $99.96 spread.** Rough
+Country 10204 is $399.99, stake holes, no drilling. 10406 is $499.95, bed rail,
+**Drilling Required: Yes**. The cheaper one is the one that rules out the most
+common cover type. That inversion is the piece's `fun_fact` and it came straight off
+the two spec blocks.
+
+**A populated `Notes` field is the tell for a listing worth reading.** Thule 34000
+looks like a $94.95 rack in category search; its `Notes` reads *"Mounting kit for
+Toyota Tacomas (without toolbox)"*, its `Part Type` is *"Bed and Ladder Rack
+Accessories"* and its accessory type is *"Hardware kit."* Three correct fields, none
+of which says rack.
+
+**Unresolved: the Elevate TS Rail.** Elevate's description names it as the adapter
+for covers *without* integrated T-slots, sold separately. A Summit search for it on
+17 Nov 2026 returned the rack itself and nothing else. The article says the rail
+exists and that it was not found in that search, and does not quote a price for it.
+
+### Two extraction traps this cluster re-taught
+
+**Summit part URLs still redirect to unrelated products.** `/part/backrack/30109/6613020`
+resolved to a Troy Lee Designs sweatshirt (TLD-731835004). Real hrefs have to come
+off the search DOM, not be assembled from a part number.
+
+**The untrusted-content envelope contains square brackets.** A scraper that finds
+its JSON payload with `text.index('[')` slices the `[UNTRUSTED_PAGE_CONTENT …]`
+prefix instead of the payload and parses nothing. Strip both markers and cut at the
+`Tip: this session` trailer first. This one silently returned zero rows for six
+Pexels queries before it was spotted.
+
+
+### What the Duramax piece cost to source, and what it could not get
+
+**Summit's part URL can redirect to a different product.** Five of them did in one
+sitting: `wix-filters/57060/1478899` resolved to a WIX 51045, `wix-filters/57060xp/5156181`
+to a Rhodes Race Cars shock mount, `acdelco/13539108/7584903` to an AMS Performance
+intake, `summit-racing/sum-127001/9479286` to a promo banner, `acdelco/19391402/5410236`
+to a United Pacific part. Never copy an item id from a listing that was not re-searched
+by keyword first.
+
+**Fitment is checked page by page.** `?page=N` on `/applications` returns 27 rows a page
+and up to ~22 pages on a big listing. The rows name Make, Model, Beginning/Ending Year,
+Engine Size and Engine Family; the engine-family string (`3.0L/183`) plus a `DURAMAX`
+match is the whole verification. That is what separated three real 3.0L filters from
+WIX 33481 (school buses), WIX WL10255 (M22 x 1.5, Buick Enclave) and K&N HP-1017
+(M22 x 1.5, Alfa Giulia).
+
+**Vehicle-filtered listings break card extractors.** Adding
+`/engine/3-0l-183-diesel` to a `/search/department/...` URL does filter correctly, but
+the result cards come back empty; parse the `Part Number: ` text blocks instead.
+
+**The dexos D list is the authority, not the bottle.** `gmdexos.com/brands/dexosd/index.html`
+carries a supplier and an eleven-digit licence number per entry. Absence is provable by
+substring count on the page (`SCHAEF=0 MOTUL=0 LIQUI=0 REDLINE=0`), which is what makes
+the "suitable for" argument in the article defensible rather than an accusation.
+
+### What the transmission-shudder piece cost to source, and what it could not get
+
+Summit Racing was the working source again, and the `/search?keyword=` form was the
+only one that returned usable cards. Two things are worth carrying forward:
+
+**Fitment is a separate page and it is the one that matters.** Every fluid, filter
+and gasket listing carries an `/applications` suffix that returns a "Results Found"
+count and the transmission codes. That is how the LubeLocker trap was caught: the
+81-review pan gasket returns eight applications naming the Turbo-Hydramatic 250 and
+350, while the 6L80 version of the same gasket at the same price returns exactly
+one Chevrolet application and has one review. A reader searching "6L80 pan gasket"
+lands on the popular one first.
+
+**The two products the top videos name are not on Summit at all.** Lubegard did not
+return a single result, and the branded "instant shudder fix" returned one unrelated
+Belltech carrier bearing across four searches. The piece names the products it can
+verify, says plainly that the video-famous one is not on the retailer checked, and
+publishes no price for it. Do not quote it from memory in a later revision.
+
+One more thing worth knowing for the next repair-intent piece: Summit's fitment
+counts are per listing, so a single part can legitimately show 2,176 applications
+for one fluid and 450 for one gasket. Read the count as "how many vehicles this
+listing claims," never as "how many vehicles this part fits."
 
 ### Verified non-truck prices (read 16 Nov 2026)
 
@@ -148,6 +238,14 @@ could be ohter sports car, family sedan" / "and anything"). The constraint that 
 not move is the pricing rule: a piece is only writable once fitment, price and review
 count have been read on a live listing. Rows 6–9 meet that bar; row 10 does not yet.
 
+Row 11 was not on the original list and is the first repair-intent piece on the site.
+It met the bar on Summit Racing, which turned out to be the working source for this
+whole cluster: AmericanTrucks' `/search?q=` and `/catalogsearch/result/?q=` both
+ignore the query string and return wheels, and Summit's `/search/part-type/<slug>`
+endpoint returns "0 results for empty search" for any slug that is not an exact
+internal name. The URL form that works is `/search?keyword=<terms>` — that one
+returns product cards with part number, price and review count in the card text.
+
 
 ## Verification notes — traps found
 
@@ -245,6 +343,54 @@ covering 2014–2017 Silverado 1500, 2015–2017 Suburban and Tahoe. Read it at
 
 TSB PDFs have no `pdftotext` on this machine. Extraction that works: inflate the
 `stream...endstream` blocks with `zlib`, then pull `(...)` text-show operators.
+
+### What the Miata piece cost to source, and the two premises it broke
+
+**The queue's own premise was wrong.** Row 10 said the verified-price surface for a
+Miata was "thinner." It is not thin — it is *split*. Every standalone ECU in the
+MAPerformance catalog fits a 1990-2005 NA/NB (MegaSquirt Gen2 in 1994-1995 and
+1999-2000, MS3Pro in five bands across 1990-2005, Haltech Elite 750/1500 harness
+kits in 1990-1997 and 1998-2005). Both forced-induction kits fit a 2016+ ND
+(HKS GT2 $5,310.00, Edelbrock E-Force $6,595.95). There is no model year where
+both halves of the build can be bought from the same catalog. That split became
+the article's thesis instead of a footnote.
+
+**There is no Miata turbo kit in the catalog at all.** Ten queries turned up zero.
+The trap: `Tomioka IHX475 JB Turbo Kit` is slugged
+`/products/tomioka-ihx475-jb-turbo-kit-multiple-fitments-tr-tw1002` and reads
+`Multiple Fitments (TR-TW1002)` in its title, which looks like it covers everything.
+The body copy says it is a bolt-on for a **VW Golf R/S3**, and a scan for "Miata"
+on that page returned nothing. "Multiple Fitments" is not a fitment claim for your
+car; the Miata mentions have to be read out of the description.
+
+### Three false positives that would have become false CARB claims
+
+A naive `/(CARB|Executive Order|EO)/` scan of these product pages hits three
+separate parts that have no EO at all:
+
+- Tomioka turbo kit -> "**Carb**on Fiber Turbo Blanket"
+- Haltech Elite 750 harness kit -> "**carb**ureted drag racing vehicles"
+- DeatschWerks DW340 pump -> "**Carb**on Commutators and Brushes"
+
+Every one of them would have read as "this part is CARB-legal" to a careless
+pass. The article states that **no** EO was found on any part in the guide, which
+is the only defensible version of the claim. Substring-match the whole word, and
+print the surrounding text before concluding anything.
+
+### The price moved between two reads of the same page
+
+The HKS GT2 Pro Kit read **$5,900.00** in one pass and **$5,310.00** in a later
+one, same URL, same day. Any figure carried over from an earlier session has to be
+re-read before it goes in the file. All prices in article 39 were read on
+18 Nov 2026 and every one is stamped with that date.
+
+### Worst naming trap found so far: $1,260 for one word
+
+`haltech-elite-750-...-adaptor-harness-1998-2005-...-ht-140621` is **$395.00** and
+is the harness alone. `haltech-elite-750-...-adaptor-harness-kit-1998-2005-...-ht-150621`
+is **$1,655.00** and includes the ECU. Both titles render as "Haltech Elite 750
+Mazda Miata NB Plug'n'Play Adaptor Harness." Only the word **kit** separates them.
+Same shape on the Elite 1500 ($2,059.00 kit vs harness-only).
 
 ## Standing rules for every article
 

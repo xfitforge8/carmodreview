@@ -13,7 +13,7 @@ fun_fact:
 category: Electrical
 vehicle: truck
 vehicle_also: [suv]
-status: draft
+status: published
 published: 2026-11-14
 last_updated: 2026-11-16
 ---
