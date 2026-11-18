@@ -448,3 +448,48 @@ live demolished that. What is actually true:
 Bolt-pattern and center-bore columns are blank for four spacers where Summit
 does not publish a bore. Filling those needs a vehicle-specific lookup, not a
 guess.
+
+---
+
+## Article 42 — brake fluid (written 18 Nov 2026)
+
+File: `42-brake-fluid-flush-guide.md`. EN 1,579 / KR 415 / ES 525 words,
+10 `###` sections, 4 buyrows, 7 fluids verified live 18 Nov 2026.
+
+### Queue correction
+
+Items 2, 3, 4 and 5 in the topic queue were already written AND published
+(`26-exhaust-flapper-valve-rattle`, `28-afm-dfm-disabler-carb-legal`,
+`30-tonneau-cover-mpg-test`, `31-cold-air-intake-sound`) — all four in the live
+sitemap. The queue was stale, so this article was chosen fresh from gap analysis
+plus YouTube autocomplete instead: Brakes was the thinnest category at 2 articles.
+
+Demand checked live: `brake fluid flush interval` returned 400K, 328K views on
+the top explainers and a 13M-view how-to. `brake rotor resurfacing vs
+replacement` was the runner-up (497K, 5.7M) and is still open.
+
+### Why the spine is the wet boiling point
+
+Summit publishes boiling points on only two of the seven fluids, so the article
+quotes those two and explicitly declines to state figures for the other five
+rather than lifting them from a forum table. The two that do publish happen to be
+the cleanest possible comparison: **Summit SUM-943020 at $14.99/16.90 oz vs Motul
+600 at $23.99/500 ml** — 16.90 US fl oz is 499.8 ml, so the bottles are the same
+size, and the $9 buys 22°F dry and 16°F wet.
+
+Legal floor verified from the primary source, not a blog: eCFR 49 CFR 571.116
+gives DOT 4 as **230°C (446°F) ERBP and 155°C (311°F) wet**. The article quotes
+the regulation directly.
+
+### Numbers checked by arithmetic, not eyeballed
+
+Per-ounce column (price / volume in US fl oz) recomputed in Python for all seven
+rows before publishing; 3.38x spread between Wagner at $0.42 and Motul at $1.42.
+One draft sentence claimed the Summit's 16°F dry-to-wet gap was "a third" of its
+72°F margin over the legal floor — it is 22%, so it was corrected to "under a
+quarter" before the build.
+
+### Still open from this shelf
+
+Liqui Moly ($8.99/500 ml, 42 reviews) is the value pick by price per ounce but
+publishes no boiling figures. Worth a manufacturer spec-sheet lookup.
