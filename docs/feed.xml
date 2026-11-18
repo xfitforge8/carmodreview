@@ -8,20 +8,20 @@
     <lastBuildDate>Wed, 18 Nov 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://carmodreview.com/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
+      <title>The Stuck Brake Rotor: What Actually Frees It, and What the Bolt Costs</title>
+      <link>https://carmodreview.com/brakes/stuck-brake-rotor-removal.html</link>
+      <guid isPermaLink="true">https://carmodreview.com/brakes/stuck-brake-rotor-removal.html</guid>
+      <category>Brakes</category>
+      <pubDate>Wed, 18 Nov 2026 00:00:00 +0000</pubDate>
+      <description>The retaining bolt costs $9.99 and carries 55 reviews. Four rotors from $50.99 to $215.99, priced live, and the order that gets a rusted rotor off without a torch.</description>
+    </item>
+    <item>
       <title>Boosted Miata Build Order: The Parts That Decide Whether It Survives</title>
       <link>https://carmodreview.com/tuning/boosted-miata-build-order.html</link>
       <guid isPermaLink="true">https://carmodreview.com/tuning/boosted-miata-build-order.html</guid>
       <category>Tuning</category>
       <pubDate>Wed, 18 Nov 2026 00:00:00 +0000</pubDate>
       <description>The MegaSquirt Gen2 is $829.99 and the MS3Pro is $1,299.99, but the $395 Haltech harness is not the $1,655 kit. The verified build order, and the one part no catalog sells you.</description>
-    </item>
-    <item>
-      <title>WRX Downpipe Before Cat-Back: The Order That Works, and the Part That Got Pulled</title>
-      <link>https://carmodreview.com/exhaust/wrx-downpipe-before-cat-back.html</link>
-      <guid isPermaLink="true">https://carmodreview.com/exhaust/wrx-downpipe-before-cat-back.html</guid>
-      <category>Exhaust</category>
-      <pubDate>Tue, 17 Nov 2026 00:00:00 +0000</pubDate>
-      <description>MAPerformance's WRX catted downpipe has 279 reviews at $749.99 and no CARB number. COBB's Accessport has EO D-660-16 and its Stage 2 now skips the downpipe entirely.</description>
     </item>
     <item>
       <title>Transmission Shudder: Misfire, Fluid, or Converter?</title>
@@ -48,20 +48,28 @@
       <description>One 3.0L Duramax diesel takes a dexos D oil from a GM licence list and one of two different ACDelco fuel filters. How to read the fitment page, and what each part costs.</description>
     </item>
     <item>
-      <title>Civic Si Bolt-Ons and Tune: What to Buy First, and What It Actually Gains</title>
-      <link>https://carmodreview.com/tuning/civic-si-bolt-ons-tune-order.html</link>
-      <guid isPermaLink="true">https://carmodreview.com/tuning/civic-si-bolt-ons-tune-order.html</guid>
-      <category>Tuning</category>
-      <pubDate>Tue, 17 Nov 2026 00:00:00 +0000</pubDate>
-      <description>KTuner's own dyno sheets show +56 wtq and +34 whp from a 23 PSI basemap on the 1.5T Si. Six live-priced parts, and why the tune comes before the exhaust.</description>
-    </item>
-    <item>
       <title>A Bed Rack and a Tonneau Cover: What Decides Whether They Fit Together</title>
       <link>https://carmodreview.com/tonneau/bed-rack-with-tonneau-cover.html</link>
       <guid isPermaLink="true">https://carmodreview.com/tonneau/bed-rack-with-tonneau-cover.html</guid>
       <category>Tonneau &amp; Bed</category>
       <pubDate>Tue, 17 Nov 2026 00:00:00 +0000</pubDate>
       <description>Racks from $399.99 to $881.99, read live: the stake pocket decides whether a rack and a tonneau cover can share one bed, and drilling is the second question.</description>
+    </item>
+    <item>
+      <title>WRX Downpipe Before Cat-Back: The Order That Works, and the Part That Got Pulled</title>
+      <link>https://carmodreview.com/exhaust/wrx-downpipe-before-cat-back.html</link>
+      <guid isPermaLink="true">https://carmodreview.com/exhaust/wrx-downpipe-before-cat-back.html</guid>
+      <category>Exhaust</category>
+      <pubDate>Tue, 17 Nov 2026 00:00:00 +0000</pubDate>
+      <description>MAPerformance's WRX catted downpipe has 279 reviews at $749.99 and no CARB number. COBB's Accessport has EO D-660-16 and its Stage 2 now skips the downpipe entirely.</description>
+    </item>
+    <item>
+      <title>Civic Si Bolt-Ons and Tune: What to Buy First, and What It Actually Gains</title>
+      <link>https://carmodreview.com/tuning/civic-si-bolt-ons-tune-order.html</link>
+      <guid isPermaLink="true">https://carmodreview.com/tuning/civic-si-bolt-ons-tune-order.html</guid>
+      <category>Tuning</category>
+      <pubDate>Tue, 17 Nov 2026 00:00:00 +0000</pubDate>
+      <description>KTuner's own dyno sheets show +56 wtq and +34 whp from a 23 PSI basemap on the 1.5T Si. Six live-priced parts, and why the tune comes before the exhaust.</description>
     </item>
     <item>
       <title>Do Tonneau Covers Improve MPG? Three Tests, Three Answers</title>
@@ -136,6 +144,14 @@
       <description>Five live-priced cat-backs from $1,019.99 and a KTuner flash at $749. What the manufacturer's own 88 lb-ft claim covers, and what it doesn't.</description>
     </item>
     <item>
+      <title>MCEqual Puts a Real Equalizer Back in GM's Google-Built Infotainment</title>
+      <link>https://carmodreview.com/electrical/mcequal-equalizer-app.html</link>
+      <guid isPermaLink="true">https://carmodreview.com/electrical/mcequal-equalizer-app.html</guid>
+      <category>Electrical</category>
+      <pubDate>Sat, 14 Nov 2026 00:00:00 +0000</pubDate>
+      <description>MCEqual is a $3.99 equalizer app for vehicles running Android Automotive OS. The Max 2.0 update adds Android Auto EQ, synced lyrics and per-device presets.</description>
+    </item>
+    <item>
       <title>A Third V35A Teardown Found Something New. It Still Isn't the Answer.</title>
       <link>https://carmodreview.com/tuning/tundra-v35a-teardown.html</link>
       <guid isPermaLink="true">https://carmodreview.com/tuning/tundra-v35a-teardown.html</guid>
@@ -150,14 +166,6 @@
       <category>Tuning</category>
       <pubDate>Sat, 14 Nov 2026 00:00:00 +0000</pubDate>
       <description>A leaked dealer memo describes a 62,000-truck Tundra camshaft recall for 2022-2023 and 2025-2026 models. NHTSA has published nothing yet. What owners should do now.</description>
-    </item>
-    <item>
-      <title>MCEqual Puts a Real Equalizer Back in GM's Google-Built Infotainment</title>
-      <link>https://carmodreview.com/electrical/mcequal-equalizer-app.html</link>
-      <guid isPermaLink="true">https://carmodreview.com/electrical/mcequal-equalizer-app.html</guid>
-      <category>Electrical</category>
-      <pubDate>Sat, 14 Nov 2026 00:00:00 +0000</pubDate>
-      <description>MCEqual is a $3.99 equalizer app for vehicles running Android Automotive OS. The Max 2.0 update adds Android Auto EQ, synced lyrics and per-device presets.</description>
     </item>
     <item>
       <title>A New Diesel Oil Category Lands in 2027. Here's Which One Your Truck Needs.</title>
