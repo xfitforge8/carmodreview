@@ -181,7 +181,6 @@ is for off-road testing and that the vehicle should be flashed back to factory
 before driving on a public road — that sentence is there for a reason, and it is
 the sentence a dealer will point at.
 
-
 ### The CARB question, which on this car is the whole question
 
 None of the parts above state a CARB Executive Order number on their listings.
@@ -202,8 +201,6 @@ If you are in a state that inspects, the tune is the part to think hardest about
 because a flashed ECU is not something you can quietly leave in place at test time.
 KTuner's own documentation says to flash back to stock — which is also the answer
 to "can I undo this," and it is yes.
-
-*CarModReview may earn a commission from purchases made through links on this page, at no extra cost to you.*
 
 ## KR
 
@@ -246,8 +243,6 @@ KTuner의 2017–2021 Si 페이지는 23 PSI 베이스맵에서 **토크 +56 lb-
 캣백은 촉매 뒤에 있어 다르지만, 어느 리스트도 상태를 명시하지 않았습니다. 구매 전에
 판매자에게 EO 번호를 요구하세요.
 
-*CarModReview may earn a commission from purchases made through links on this page, at no extra cost to you.*
-
 ## ES
 
 **El 1.5 turbo del Civic Si es el motor donde la compra más barata supera a todas las
@@ -288,4 +283,3 @@ downpipe y un tune no son legales para uso en calle en California y fallan la
 inspección visual de smog.** El cat-back está detrás del convertidor y es distinto, pero
 ningún listado declara su estado. Pide el número de EO antes de comprar.
 
-*CarModReview may earn a commission from purchases made through links on this page, at no extra cost to you.*

@@ -209,8 +209,6 @@ Realistic expectations on a turbo four get their own section, because the effect
 
 Where the money is better spent first is covered directly, and the guide is willing to say the intake is not the first purchase.
 
-*CarModReview may earn a commission from purchases made through links on this page, at no extra cost to you.*
-
 ## KR
 
 콜드에어 인테이크는 레벨링 킷 다음으로 많이 사는 부품이고, 마케팅 문구와 오너가 실제로 느끼는 것 사이의 간격이 가장 큰 튜닝이기도 합니다.
@@ -257,7 +255,6 @@ Where the money is better spent first is covered directly, and the guide is will
 체감할 수 있는 출력 향상을 기대하고 사지는 마시고, 7월 정체 구간에서 뜨거운 엔진룸 공기를 마시는 오픈 콘형도 사지 마세요. 밀폐형 박스, 공장 펜더 흡기, 오일을 적게 바른 필터, 매 서비스마다 MAF 청소. 센서 하나와 린 코드 재진단에 주말을 날리지 않는 버전의 이 튜닝입니다.
 
 ---
-
 
 ## ES
 

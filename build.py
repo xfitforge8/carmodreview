@@ -443,36 +443,25 @@ def hub_title_desc(catslug, name):
 UI = {
     'en': dict(all_posts='All posts', how='How we pick', home='Home',
                published='Published', updated='Updated', minread='min read', verified='What we could not verify',
-               disc_title='Affiliate note',
-               disc_body=('We earn commissions from qualifying purchases made through links '
-                          'on this page. Commission never decides which products we pick or '
-                          'where they rank.'),
                nav_cats='Categories', on='on',
                key_label='The short answer', fun_label='The detail worth repeating',
                search='Search', search_label='Search guides', by='By', contact='Contact', about='About', privacy='Privacy',
-               terms='Terms', disclosure='Affiliate disclosure',
+               terms='Terms',
                foot_tag=('car parts coverage that states its sources and says when it '
                          "doesn't know.")),
     'kr': dict(all_posts='모든 글', how='선정 기준', home='홈',
                published='발행일', updated='수정', minread='분 소요', verified='확인하지 못한 것',
-               disc_title='제휴 고지',
-               disc_body=('이 페이지의 링크를 통해 구매가 이루어지면 저희는 수수료를 받습니다. '
-                          '수수료는 어떤 제품을 고르는지, 순위가 어떻게 되는지를 결정하지 않습니다.'),
                nav_cats='카테고리', on='',
                key_label='한 줄 답', fun_label='기억할 만한 디테일',
                search='검색', search_label='가이드 검색', by='글쓴이', contact='문의', about='소개', privacy='개인정보처리방침',
-               terms='이용약관', disclosure='제휴 고지',
+               terms='이용약관',
                foot_tag='출처를 밝히고, 모르는 것은 모른다고 말하는 자동차 부품 정보.'),
     'es': dict(all_posts='Todas las guías', how='Cómo elegimos', home='Inicio',
                published='Publicado', updated='Actualizado', minread='min de lectura', verified='Lo que no pudimos verificar',
-               disc_title='Nota de afiliación',
-               disc_body=('Ganamos comisiones por compras realizadas a través de los enlaces de '
-                          'esta página. La comisión nunca decide qué productos elegimos ni en qué '
-                          'posición se clasifican.'),
                nav_cats='Categorías', on='',
                key_label='La respuesta corta', fun_label='El detalle que vale repetir',
                search='Buscar', search_label='Buscar guías', by='Por', contact='Contacto', about='Sobre nosotros',
-               privacy='Privacidad', terms='Términos', disclosure='Divulgación de afiliados',
+               privacy='Privacidad', terms='Términos',
                foot_tag=('información de piezas de auto que cita sus fuentes y dice '
                          'cuándo no lo sabe.')),
 }
@@ -901,7 +890,6 @@ PAGE = """<!DOCTYPE html>
       <a href="{rel}contact.html">{contact}</a> &middot;
       <a href="{rel}about.html">{about}</a> &middot;
       <a href="{rel}legal/privacy-policy.html">{privacy}</a> &middot;
-      <a href="{rel}legal/affiliate-disclosure.html">{disclosure}</a> &middot;
       <a href="{rel}legal/terms-of-service.html">{terms}</a>
     </p>
     {foot_social}
@@ -969,27 +957,15 @@ TAGLINE = {
     'es': 'Contrastadas con especificaciones publicadas',
 }
 
-# Shown above the article on any page that links to a retailer, and only then.
-# The FTC wants the disclosure before the first affiliate link, not in a footer,
-# so this sits in the main column above the content. It is conditional because
-# putting it on a page with no commercial link would be a false statement about
-# that page.
-DISCLOSURE = {
-    'en': ('<div class="disclosure"><strong>Affiliate note.</strong> CarModReview '
-           'may earn a commission from purchases made through links on this page, '
-           'at no extra cost to you. It does not decide which parts we pick or '
-           'where they rank. '
-           '<a href="{rel}legal/affiliate-disclosure.html">Full disclosure</a>.</div>'),
-    'kr': ('<div class="disclosure"><strong>제휴 고지.</strong> 이 페이지의 소매점 '
-           '링크를 통해 구매하시면 저희가 수수료를 받을 수 있습니다. 구매 가격은 '
-           '달라지지 않으며, 어떤 부품을 선택하고 순위를 매기는지에도 영향을 주지 '
-           '않습니다. <a href="{rel}legal/affiliate-disclosure.html">전체 고지</a>.</div>'),
-    'es': ('<div class="disclosure"><strong>Nota de afiliación.</strong> Los enlaces '
-           'a minoristas en esta página pueden generarnos una comisión si compra a '
-           'través de ellos. No cambia lo que usted paga ni decide qué piezas '
-           'elegimos ni en qué orden las clasificamos. '
-           '<a href="{rel}legal/affiliate-disclosure.html">Divulgación completa</a>.</div>'),
-}
+# The site is on AdSense, not affiliate programs, so there is no commission
+# disclosure to show. Kept as an empty mapping rather than deleted so
+# build_disclosure() below stays a no-op instead of raising KeyError on the
+# caller, and so re-enabling a program later is a one-line change.
+#
+# If an affiliate program is ever turned on, a disclosure block has to come
+# back here *and* the assert_disclosure() check below re-enabled, because
+# rel="sponsored" without a visible disclosure is a compliance problem.
+DISCLOSURE = {}
 
 
 SHARE_LABEL = {
@@ -1284,16 +1260,14 @@ def build_share(lang, canonical, title):
 
 
 def build_disclosure(lang, rel, body_html):
-    """The disclosure block, but only for pages that link to a retailer.
+    """Empty on an AdSense site: no commission relationship, so no note.
 
-    Keyed on any merchant host, not just one: the disclosure is owed because
-    the page has commercial links, regardless of which store they point at or
-    whether that store's program has approved the site yet.
+    The site monetises through ads rather than affiliate programs, so there is
+    nothing to disclose here. Kept as a function so the call sites do not
+    change, and so a future affiliate program only has to populate DISCLOSURE
+    to bring the block back.
     """
-    urls = re.findall(r'href=["\'](https?://[^"\']+)["\']', body_html)
-    if not any(url_links_to_merchant(u) for u in urls):
-        return ''
-    return DISCLOSURE[lang].format(rel=rel) + '\n'
+    return ''
 
 
 def lang_root(rel, lang):
@@ -1429,7 +1403,6 @@ def render_page(*, lang, title, desc, canonical, body_html, rel, jsonld='',
         search=ui['search'], search_label=ui['search_label'], by=ui['by'], contact=ui['contact'],
         about=ui['about'],
         privacy=ui['privacy'], terms=ui['terms'], foot_tag=ui['foot_tag'],
-        disclosure=ui['disclosure'],
         disclosure_block=build_disclosure(lang, rel, body_html),
         sidebar=sidebar or default_sidebar(lang, rel, entries),
     )
@@ -1503,10 +1476,8 @@ def faq_jsonld(pairs):
 
 
 def disclosure_html(lang):
-    ui = UI[lang]
-    return (f'  <div class="disclosure">\n'
-            f'    <strong>{ui["disc_title"]}:</strong> {ui["disc_body"]}\n'
-            f'  </div>\n')
+    """Empty on an AdSense site — see DISCLOSURE above."""
+    return ''
 
 
 def extract_faq(md_text):
@@ -2429,7 +2400,6 @@ def build_static_pages(index_entries, sidebar_entries=None, arts=None):
     # the footer links to it; its body states the true current status (no paid
     # relationships yet) rather than the participation list it used to claim.
     for fn, slug in (('privacy-policy.md', 'privacy-policy'),
-                     ('affiliate-disclosure.md', 'affiliate-disclosure'),
                      ('terms-of-service.md', 'terms-of-service')):
         meta, body = read_doc(os.path.join(SRC, 'legal', fn))
         langs, _ = split_langs(body)
@@ -2445,9 +2415,6 @@ def build_static_pages(index_entries, sidebar_entries=None, arts=None):
             title = {('privacy-policy', 'en'): 'Privacy Policy',
                      ('privacy-policy', 'kr'): '개인정보 처리방침',
                      ('privacy-policy', 'es'): 'Política de privacidad',
-                     ('affiliate-disclosure', 'en'): 'Affiliate Disclosure',
-                     ('affiliate-disclosure', 'kr'): '제휴 고지',
-                     ('affiliate-disclosure', 'es'): 'Divulgación de afiliados',
                      ('terms-of-service', 'en'): 'Terms of Service',
                      ('terms-of-service', 'kr'): '이용약관',
                      ('terms-of-service', 'es'): 'Términos del servicio'}[(slug, code)]
@@ -2459,13 +2426,6 @@ def build_static_pages(index_entries, sidebar_entries=None, arts=None):
                 ('privacy-policy', 'kr'): 'Car Mod Review가 수집하는 데이터, 분석 도구와 제휴 링크 처리 방식, 삭제 요청 방법.',
                 ('privacy-policy', 'es'): 'Qué datos recoge Car Mod Review, cómo se manejan las '
                     'analíticas y los enlaces de afiliado, y cómo solicitar su eliminación.',
-                ('affiliate-disclosure', 'en'): 'How Car Mod Review handles affiliate links, '
-                    'commission, and editorial independence — including our current status.',
-                ('affiliate-disclosure', 'kr'): 'Car Mod Review의 제휴 링크, 수수료, 편집 독립성 '
-                    '방침과 현재 제휴 관계 여부를 안내합니다.',
-                ('affiliate-disclosure', 'es'): 'Cómo trata Car Mod Review los enlaces de '
-                    'afiliación, las comisiones y la independencia editorial, incluido nuestro '
-                    'estado actual.',
                 ('terms-of-service', 'en'): 'The terms that govern use of Car Mod Review: '
                     'accuracy, liability, external links and third-party platforms.',
                 ('terms-of-service', 'kr'): 'Car Mod Review 이용에 적용되는 정확성, 책임의 한계, '
@@ -3433,7 +3393,6 @@ def build_sitemap(arts):
     # same bytes, so listing the second form invites the duplicate.
     static_paths = ('about.html', 'methodology.html', 'data.html', 'contact.html',
                     'legal/privacy-policy.html',
-                    'legal/affiliate-disclosure.html',
                     'legal/terms-of-service.html')
 
     def _built_date(path):

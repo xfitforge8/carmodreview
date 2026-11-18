@@ -149,4 +149,3 @@ authoritative source, and it will show the campaign once Toyota files it.
 queried November 17, 2026, for campaigns 24V381 and 25V767 and for the absence of
 a camshaft campaign.*
 
-*CarModReview may earn a commission from purchases made through links on this page, at no extra cost to you.*

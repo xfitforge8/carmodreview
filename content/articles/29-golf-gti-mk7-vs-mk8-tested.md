@@ -475,5 +475,3 @@ quieres manual**, solo MK7 y MK7.5. En un turbo de cuatro cilindros la potencia 
 del downpipe y la calibración; el cat-back da el sonido. Comprarlos al revés es la
 forma más común de que un propietario de GTI pague dos veces.
 
-*CarModReview may earn a commission from purchases made through links on this page, at no extra cost to you.*
-

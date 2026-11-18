@@ -203,8 +203,6 @@ Geometry is what changes, and the parts that wear early follow from it. The kit 
 
 Yes. Changing front ride height changes alignment, and the guide treats alignment as part of the job rather than an optional extra.
 
-*CarModReview may earn a commission from purchases made through links on this page, at no extra cost to you.*
-
 ## KR
 
 트럭 오너들이 가장 먼저 하는 작업은 성능이 아닙니다. 자세입니다.
@@ -259,7 +257,6 @@ Yes. Changing front ride height changes alignment, and the guide treats alignmen
 진짜 오프로드 능력을 원한다면: 레벨링 킷을 건너뛰고 기하학이 보정된 정식 리프트를 사세요. 레벨링 킷은 자세 튜닝이고, 그걸 원한다고 말하는 데 부끄러울 건 없습니다. 다만 마케팅 페이지가 그걸 성능 업그레이드라고 설득하게 두지만 마세요.
 
 ---
-
 
 ## ES
 

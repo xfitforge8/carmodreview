@@ -401,4 +401,50 @@ Same shape on the Elite 1500 ($2,059.00 kit vs harness-only).
   drafts) to `/tmp`, `python3 build.py`, move back. Then confirm the slug appears
   **zero** times in `docs/sitemap.xml`.
 - Close browser tabs when done.
-- Disclosure line at the end of every article.
+- ~~Disclosure line at the end of every article.~~ **Removed 18 Nov 2026** — the
+  site is on AdSense, not affiliate programs, so the commission note was deleted
+  site-wide (63 lines in 41 articles), along with the build-time disclosure
+  block, the footer link, and `legal/affiliate-disclosure.md`. The privacy
+  policy now describes Google AdSense advertising cookies instead of affiliate
+  tracking cookies.
+
+---
+
+## Article 41 — wheel spacers (written 18 Nov 2026)
+
+File: `41-wheel-spacers-thickness-guide.md`. EN 1,537 / KR 469 / ES 615 words,
+10 `###` sections, 6 buyrows, 9 spacers verified live 18 Nov 2026.
+
+### The finding that drove the rewrite
+
+The first draft was built on notes saying "cheap quarter-inch spacer = lift-kit
+clearance shim, expensive two-inch = stance part." Re-reading every product page
+live demolished that. What is actually true:
+
+- **Thickness does not predict price at all.** Three 0.250-inch spacers cost
+  $13.99, $39.99 and $70.01 — a 5x spread at identical thickness.
+- **The 2-inch bolt-on ($89.99) is $70 cheaper than the 1.25-inch ($159.99)**,
+  with the same "studs included" feature set. The price ladder inverts.
+- **Center bore is the spec that decides fit.** Spidertrax WHS007K is 106.17 mm
+  and Trail-Gear 140019-2-KIT is 72.00 mm — same $159.99, same 1.250 inch, same
+  pair quantity, 34 mm apart in the hole. No title, price or thickness field
+  reveals it.
+- Rough Country's 1065 copy does say *"designed to allow the use of factory
+  wheels with Rough Country lift kits"* — but the 1101 at $89.99 says *"beefier
+  stance"*, so the cheap/clearance framing only holds for the $39.99 part, not
+  as a general rule.
+- Summit SUM-75832B is **sold as Each**, every other spacer is a pair.
+
+### Corrections caught before publish
+
+- WHS010K is 1.5 in **5 x 5 Jeep**, not Toyota — an early note had it wrong.
+- Trail-Gear 140019-2-KIT is 5 x 4.5 Jeep/Ford, not 6 x 5.5 Toyota.
+- The `HUB-WORD` flag fired on pages where "hub-centric" appeared only inside a
+  Rough Country bullet about *some models, application dependent* — not a claim
+  about the part being viewed. Written into the article as the caution it is.
+
+### Still to do
+
+Bolt-pattern and center-bore columns are blank for four spacers where Summit
+does not publish a bore. Filling those needs a vehicle-specific lookup, not a
+guess.

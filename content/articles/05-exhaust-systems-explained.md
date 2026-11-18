@@ -252,8 +252,6 @@ Some, and mostly at high rpm. This guide deliberately does not quote a figure it
 
 For sound and drivability, no. For power, yes — adding flow without changing the ECU's fueling and boost targets leaves most of the benefit unrealized. That is also the point where warranty considerations get serious.
 
-*CarModReview may earn a commission from purchases made through links on this page, at no extra cost to you.*
-
 ## KR
 
 배기는 소리를 위해 사고 나서 드론 때문에 후회하는 부품입니다. 시스템이 실제로 무엇을 하는지, 그리고 어느 부분이 어떤 특성을 만드는지 이해하는 것이, 좋은 구매와 고속도로 출퇴근마다 함께 살아야 하는 비싼 실수를 가르는 기준입니다.

@@ -142,4 +142,3 @@ not received them, the reasonable posture is to wait for a production interior.
 Buttons Are Coming Back," updated November 11, 2026, quoting Filip Brabec of Audi
 of America.*
 
-*CarModReview may earn a commission from purchases made through links on this page, at no extra cost to you.*

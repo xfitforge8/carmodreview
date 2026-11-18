@@ -270,8 +270,6 @@ gasket. A missing bolt head means pricing the clamp for that specific position a
 extractor set as a fallback before deciding whether this is a driveway job or a shop
 job.
 
-*CarModReview may earn a commission from purchases made through links on this page, at no extra cost to you.*
-
 ## KR
 
 **배기 매니폴드 누유는 냉간 시동 직후 30초 동안 가장 크고, 엔진이 데워지면
@@ -427,8 +425,6 @@ M8×1.25 나사산, 12포인트 헤드, 8740 크로몰리, 170,000 psi, 12개 �
 줄어든다면 그 30초 안에 헤드 플랜지에 비눗물을 뿌립니다. 거품이 나오고 체결부가
 멀쩡하다면 가스켓은 **$17.99**에서 **$23.99**짜리 부품입니다. 볼트 머리가 없다면
 해당 위치의 클램프 키트와 추출기 세트를 함께 견적해 보십시오.
-
-*CarModReview may earn a commission from purchases made through links on this page, at no extra cost to you.*
 
 ## ES
 
@@ -590,4 +586,3 @@ sujetadores están intactos, la junta cuesta entre **$17.99** y **$23.99**. Si f
 una cabeza de tornillo, presupuesta la abrazadera de esa posición concreta y el juego
 extractor antes de decidir si es trabajo de garaje o de taller.
 
-*CarModReview may earn a commission from purchases made through links on this page, at no extra cost to you.*

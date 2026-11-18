@@ -100,8 +100,6 @@ suspension and it is in neither price.
 
 ---
 
-*CarModReview may earn a commission from purchases made through links on this page, at no extra cost to you.*
-
 <div class="pick">
   <div class="pick-label">The value pick</div>
   <h3>Rough Country 3.50-Inch Forged UCA Lift Kit with N3 Struts and Premium N3 Shocks, Red (19&ndash;24 Silverado 1500)</h3>

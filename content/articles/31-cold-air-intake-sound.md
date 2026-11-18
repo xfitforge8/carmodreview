@@ -213,8 +213,6 @@ intake uses, which is covered in the [engine and intake guides](cat:engine).
 The noise is not the question. The CARB Executive Order is. Without an EO number the
 part is not legal in California regardless of how it sounds.
 
-*CarModReview may earn a commission from purchases made through links on this page, at no extra cost to you.*
-
 ## Sources
 
 View counts, titles, channel names, upload dates and descriptions read from the videos
@@ -378,8 +376,6 @@ EO 플레이트를 찾습니다. 배기가스 수치는 통과해도 플레이�
 
 소리는 문제가 아닙니다. CARB Executive Order가 기준입니다.
 
-*CarModReview may earn a commission from purchases made through links on this page, at no extra cost to you.*
-
 ## ES
 
 **El cambio de sonido de una admisión directa es real, y es una de las pocas
@@ -491,4 +487,3 @@ No por el sonido. Depende del alojamiento del MAF que use la admisión.
 
 El sonido no es la cuestión. El Executive Order de CARB sí.
 
-*CarModReview may earn a commission from purchases made through links on this page, at no extra cost to you.*

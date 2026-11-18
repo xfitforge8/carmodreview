@@ -212,8 +212,6 @@ Yes. The 4x4 rule for rotation differs from a two-wheel-drive vehicle, and the g
 
 The pressure question has its own section because the answer depends on load and use rather than on a single number for the tire.
 
-*CarModReview may earn a commission from purchases made through links on this page, at no extra cost to you.*
-
 ## KR
 
 타이어는 어떤 트럭에서든 투자 대비 효과가 가장 큰 튜닝이고, 동시에 가장 잘못된 이유로 사는 부품입니다. 전형적인 실수는 실제로 타는 차가 아니라 상상 속에서 모는 차(진흙, 바위, 사냥터)를 기준으로 고르는 것입니다. 실제 주행의 90%가 출퇴근과 가끔의 트레일러인데도요.
@@ -274,7 +272,6 @@ The pressure question has its own section because the answer depends on load and
 좋은 타이어가 저렴한 타이어보다 주는 성능 향상은 대부분의 볼트온 엔진 부품보다 큽니다. 여기에 먼저 쓰세요.
 
 ---
-
 
 ## ES
 

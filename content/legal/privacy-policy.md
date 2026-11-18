@@ -17,19 +17,22 @@ This policy explains what information CarModReview ("we", "us") collects, why, a
 **Cookies.** We use cookies and similar technologies for three purposes:
 - **Essential** — site functionality, security, remembering preferences.
 - **Analytics** — understanding which pages are useful (e.g., Google Analytics).
+- **Advertising** — serving and measuring the ads that fund the site (Google AdSense).
 
-### Affiliate and third-party cookies
+### Advertising and third-party cookies
 
-When you click an affiliate link, the merchant or affiliate network may set a cookie on your device to attribute the eventual sale. These cookies typically expire within 24 hours to 30 days depending on the program. We do not control these cookies and do not receive your personal data from them — we receive aggregate commission reports only.
+This site is supported by advertising delivered through Google AdSense. Google and its partners may use cookies to serve ads based on your prior visits to this site or other sites, and to measure how those ads perform.
 
-Third parties that may set cookies through this site include Amazon, eBay, CJ Affiliate, Impact, Rakuten, Awin, ShareASale, Google Analytics, and individual retailers.
+Google's use of advertising cookies enables it and its partners to serve ads to you based on your visit to this site and/or other sites on the internet. You can opt out of personalised advertising by visiting Google's Ads Settings, and you can opt out of a third-party vendor's use of cookies for personalised advertising at aboutads.info.
+
+Third parties that may set cookies through this site include Google (Analytics and AdSense) and the advertising partners Google works with. We do not control these cookies and do not receive your personal data from them — we receive aggregate reports only.
 
 ### How we use information
 
 - To operate and improve the site
 - To respond to inquiries
 - To measure aggregate traffic and page performance
-- To attribute affiliate commissions
+- To serve and measure advertising
 - To comply with legal obligations
 
 **We do not sell your personal information.** We do not share your email address with advertisers.
@@ -126,20 +129,22 @@ We may update this policy. Material changes will be noted with a revised "last u
 **쿠키.** 당사는 세 가지 목적으로 쿠키 및 유사 기술을 사용합니다.
 - **필수** — 사이트 기능, 보안, 설정 기억
 - **분석** — 어떤 페이지가 유용한지 파악 (예: Google Analytics)
-- **제휴 추적** — 구매가 당사 링크를 통해 발생했음을 기록하여 소매점이 당사에 수수료를 지급하도록 함. 이 쿠키는 당사가 아닌 소매점 또는 제휴 네트워크가 설정합니다.
+- **광고** — 사이트를 운영하는 광고의 게재 및 측정 (Google AdSense)
 
-### 제휴 및 제3자 쿠키
+### 광고 및 제3자 쿠키
 
-제휴 링크를 클릭하시면, 판매처 또는 제휴 네트워크가 최종 판매를 귀속시키기 위해 귀하의 기기에 쿠키를 설정할 수 있습니다. 이러한 쿠키는 프로그램에 따라 통상 24시간에서 30일 내에 만료됩니다. 당사는 이 쿠키를 통제하지 않으며, 이를 통해 귀하의 개인정보를 제공받지 않습니다. 당사가 받는 것은 집계된 수수료 보고서뿐입니다.
+본 사이트는 Google AdSense를 통한 광고로 운영됩니다. Google 및 그 파트너는 본 사이트 또는 다른 사이트의 이전 방문 기록을 바탕으로 광고를 게재하고 그 성과를 측정하기 위해 쿠키를 사용할 수 있습니다.
 
-본 사이트를 통해 쿠키를 설정할 수 있는 제3자는 Amazon, eBay, CJ Affiliate, Impact, Rakuten, Awin, ShareASale, Google Analytics 및 개별 소매점을 포함합니다.
+Google의 광고 쿠키 사용을 통해 Google과 파트너는 본 사이트 및/또는 인터넷의 다른 사이트 방문 기록을 기반으로 광고를 게재할 수 있습니다. Google 광고 설정에서 맞춤 광고를 거부할 수 있으며, aboutads.info에서 제3자 공급업체의 맞춤 광고 쿠키 사용을 거부할 수 있습니다.
+
+본 사이트를 통해 쿠키를 설정할 수 있는 제3자는 Google(Analytics 및 AdSense)과 Google이 협력하는 광고 파트너를 포함합니다. 당사는 이 쿠키를 통제하지 않으며, 이를 통해 귀하의 개인정보를 제공받지 않습니다. 당사가 받는 것은 집계 보고서뿐입니다.
 
 ### 정보 이용 목적
 
 - 사이트 운영 및 개선
 - 문의 응대
 - 집계 트래픽 및 페이지 성과 측정
-- 제휴 수수료 귀속
+- 광고 게재 및 측정
 - 법적 의무 준수
 
 **당사는 귀하의 개인정보를 판매하지 않습니다.** 광고주에게 귀하의 이메일 주소를 제공하지 않습니다.
@@ -235,20 +240,22 @@ Esta política explica qué información recopila CarModReview ("nosotros"), por
 **Cookies.** Utilizamos cookies y tecnologías similares con tres fines:
 - **Esenciales** — funcionalidad del sitio, seguridad, recordar preferencias.
 - **Analíticas** — entender qué páginas resultan útiles (p. ej., Google Analytics).
-- **Seguimiento de afiliados** — registrar que una compra se originó en nuestro enlace, para que el minorista nos acredite la comisión. Estas cookies las establece el minorista o la red de afiliados, no nosotros directamente.
+- **Publicidad** — servir y medir los anuncios que financian el sitio (Google AdSense).
 
-### Cookies de afiliados y de terceros
+### Cookies publicitarias y de terceros
 
-Cuando hace clic en un enlace de afiliado, el comerciante o la red de afiliados puede establecer una cookie en su dispositivo para atribuir la venta. Estas cookies suelen caducar entre 24 horas y 30 días según el programa. No controlamos estas cookies y no recibimos sus datos personales a través de ellas: solo recibimos informes agregados de comisiones.
+Este sitio se sostiene con publicidad servida a través de Google AdSense. Google y sus socios pueden usar cookies para servir anuncios basados en sus visitas previas a este sitio u otros sitios, y para medir el rendimiento de esos anuncios.
 
-Los terceros que pueden establecer cookies a través de este sitio incluyen Amazon, eBay, CJ Affiliate, Impact, Rakuten, Awin, ShareASale, Google Analytics y minoristas individuales.
+El uso de cookies publicitarias por parte de Google permite que Google y sus socios le sirvan anuncios basados en su visita a este sitio y/o a otros sitios de internet. Puede desactivar la publicidad personalizada en la Configuración de anuncios de Google, y puede desactivar el uso de cookies de un proveedor externo para publicidad personalizada en aboutads.info.
+
+Los terceros que pueden establecer cookies a través de este sitio incluyen Google (Analytics y AdSense) y los socios publicitarios con los que trabaja Google. No controlamos estas cookies y no recibimos sus datos personales a través de ellas: solo recibimos informes agregados.
 
 ### Cómo utilizamos la información
 
 - Para operar y mejorar el sitio
 - Para responder a consultas
 - Para medir el tráfico agregado y el rendimiento de las páginas
-- Para atribuir comisiones de afiliados
+- Para servir y medir publicidad
 - Para cumplir obligaciones legales
 
 **No vendemos su información personal.** No compartimos su dirección de correo con anunciantes.

@@ -241,8 +241,6 @@ Pad compound is the real decision, and it is a trade: some pads trade dust for b
 
 Fluid and lines are called the cheap upgrade people forget, which is where the guide puts them in the order of spending.
 
-*CarModReview may earn a commission from purchases made through links on this page, at no extra cost to you.*
-
 ## KR
 
 늘린 마력은 차가 멈추고 돌 수 있을 때만 랩타임이나 도로 속도로 환산됩니다. 브레이크는 튜닝된 차에서 가장 덜 튜닝되는 시스템입니다. 사람들은 배기에 수백만 원을 쓰고 패드는 건너뜁니다.

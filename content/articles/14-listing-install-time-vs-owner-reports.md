@@ -205,8 +205,6 @@ means the afternoon — 5 of 16 owners beat 90 minutes; the rest ran to four hou
 
 Buy the part for what it does, on a day when the time does not matter.
 
-*CarModReview may earn a commission from purchases made through links on this page, at no extra cost to you.*
-
 ### Frequently asked questions
 
 **How long does it actually take to install these parts?**

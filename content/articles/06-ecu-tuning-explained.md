@@ -285,8 +285,6 @@ before the hardware means paying for the calibration twice.
 Yes. Without a log you do not know whether the tune is doing what it claims on
 your engine, or whether it is knocking. This is not optional.
 
-*CarModReview may earn a commission from purchases made through links on this page, at no extra cost to you.*
-
 ## KR
 
 터보 엔진에서 튜닝은 투자 대비 효과가 가장 큰 튜닝이고, 동시에 가장 큰 결과를 동반하는 튜닝입니다. 특정 제품의 판촉이 아니라, 돈을 쓰기 전에 읽고 싶은 가이드입니다.

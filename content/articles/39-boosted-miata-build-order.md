@@ -240,8 +240,6 @@ the ECU and the boost are the two that change the emissions equipment. Ask the
 seller for an EO number in writing before you buy either, and if there is not
 one, the car is not a California street car any more.
 
-*CarModReview may earn a commission from purchases made through links on this page, at no extra cost to you.*
-
 ## KR
 
 **터보 미아타 영상은 전부 터보 이야기만 합니다. 2년 뒤에도 차가 달리고 있는지를
@@ -296,8 +294,6 @@ XClutch $389.22는 1.6리터 1990–1993 전용입니다. 기어박스를 내린
 "**carb**ureted"라는 단어뿐이었습니다. EO 번호가 없으면 스탠드얼론 ECU와 과급
 키트는 캘리포니아에서 **도로 주행이 불법**이며, 배기가스가 깨끗하게 나와도 스모그
 육안 검사에서 떨어집니다. 구매 전에 판매자에게 EO 번호를 서면으로 요구하십시오.
-
-*CarModReview may earn a commission from purchases made through links on this page, at no extra cost to you.*
 
 ## ES
 
@@ -358,4 +354,3 @@ textos de producto. Sin EO, una ECU standalone y un kit de sobrealimentación **
 legales para circular en California** y fallan la inspección visual de smog aunque el
 escape lea limpio. Pide el número de EO por escrito antes de comprar.
 
-*CarModReview may earn a commission from purchases made through links on this page, at no extra cost to you.*

@@ -154,4 +154,3 @@ Lubricants on The Diesel Podcast; API PC-12 category documentation and the CL-4 
 FB-4 certification marks as described in publicly available Mobil, Chevron,
 Phillips 66 and Lubrizol specification summaries, checked November 14, 2026.*
 
-*CarModReview may earn a commission from purchases made through links on this page, at no extra cost to you.*

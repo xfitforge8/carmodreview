@@ -194,8 +194,6 @@ restriction language — but if you are buying for a California-registered vehic
 and the listing does not state the friction material compliance, that is the
 question to ask the seller, not one this page can answer for you.
 
-*CarModReview may earn a commission from purchases made through links on this page, at no extra cost to you.*
-
 ## KR
 
 **디스크는 허브에 녹으로 붙습니다. 그리고 대개 사람들이 영상으로 찍는 부품이
@@ -268,8 +266,6 @@ Bendix 두 개 $101.98, Z36 패드 한 세트 $108.99, 볼트 두 개 $19.98 —
 함량을 규제하므로, 해당 주에 등록된 차량용이라면 목록에 마찰재 규정 문구가 있는지
 판매자에게 확인하십시오.
 
-*CarModReview may earn a commission from purchases made through links on this page, at no extra cost to you.*
-
 ## ES
 
 **El disco se suelda al buje por óxido, y la pieza que impide sacarlo casi nunca es
@@ -341,4 +337,3 @@ una admisión o una reprogramación. California sí regula el contenido de cobre
 pastillas: si el vehículo está registrado allí, pide al vendedor la declaración del
 material de fricción.
 
-*CarModReview may earn a commission from purchases made through links on this page, at no extra cost to you.*

@@ -248,4 +248,3 @@ both read directly on 16 November 2026.
 
 ---
 
-*CarModReview may earn a commission from purchases made through links on this page, at no extra cost to you.*

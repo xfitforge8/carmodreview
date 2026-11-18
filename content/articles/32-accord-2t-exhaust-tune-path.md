@@ -195,8 +195,6 @@ If you only do one thing, do the tune, and put the exhaust on the list for later
 The car will be quicker on the day you flash it, and it will sound like a family
 sedan until you do not.
 
-*CarModReview may earn a commission from purchases made through links on this page, at no extra cost to you.*
-
 ---
 
 ## KR

@@ -147,4 +147,3 @@ difference between the two, and Toyota has not commented on the teardown.
 Engine Failures," reporting on the "I Do Cars" teardown, November 2026; NHTSA
 recall API for campaigns 24V381, 25V767 and 26V320, queried November 14, 2026.*
 
-*CarModReview may earn a commission from purchases made through links on this page, at no extra cost to you.*

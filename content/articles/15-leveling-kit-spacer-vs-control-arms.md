@@ -180,4 +180,3 @@ modification will get looked at. In the US the Magnuson-Moss Warranty Act puts t
 burden on the manufacturer to show the modification caused the failure. Keep the
 receipts.
 
-*CarModReview may earn a commission from purchases made through links on this page, at no extra cost to you.*

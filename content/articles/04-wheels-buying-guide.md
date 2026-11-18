@@ -192,8 +192,6 @@ Construction decides strength and weight for a given price. The guide ranks the 
 
 Fitment has to be measured, not guessed. The guide gives the four numbers that decide it and what to check before buying.
 
-*CarModReview may earn a commission from purchases made through links on this page, at no extra cost to you.*
-
 ## KR
 
 휠은 가장 눈에 띄는 튜닝이면서, 잘못 사면 되돌리기 가장 어려운 부품이기도 합니다. 핏이 안 맞는 휠은 휠라이너를 갈아버리고, 휠베어링을 망가뜨리고, 차를 순정보다 나쁘게 만들 수 있습니다. 다행히 결정은 숫자 네 개로 좁혀지고, 그걸 이해하면 마케팅 문구는 대부분 소음이 됩니다.

@@ -240,8 +240,6 @@ family and specs listing both a bypass valve and an anti-drainback valve. And if
 the goal is the noise rather than the service, the resonator delete at **$116.99**
 is a bolt-on with no cutting and no tuning.
 
-*CarModReview may earn a commission from purchases made through links on this page, at no extra cost to you.*
-
 ## KR
 
 **3.0L 듀라맥스는 정비할 때 두 가지를 묻습니다. 그런데 그 두 질문은 성격이 다릅니다.**
@@ -436,8 +434,6 @@ DPF 이후 시스템은 바로 이 문장이 겨냥하는 부품입니다.
 장착 페이지가 엔진 패밀리를 명시하고, 스펙에 바이패스 밸브와 역류방지 밸브가 모두
 적혀 있기 때문입니다. 목적이 정비가 아니라 소리라면, 절단이나 튜닝이 없는 볼트온
 레저네이터 삭제 **$116.99**가 출발점입니다.
-
-*CarModReview may earn a commission from purchases made through links on this page, at no extra cost to you.*
 
 ## ES
 
@@ -636,4 +632,3 @@ válvula de derivación y antirretorno. Y si el objetivo es el sonido y no el se
 el eliminador de resonador de **$116.99** es atornillado, sin cortes ni
 reprogramación.
 
-*CarModReview may earn a commission from purchases made through links on this page, at no extra cost to you.*

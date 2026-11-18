@@ -256,8 +256,6 @@ Half of what is marketed as a cold air intake draws from inside the engine bay, 
 
 On a stock or near-stock engine, a good drop-in panel filter in the factory airbox is the most underrated option: it is cheap, carries no MAF risk, keeps the factory cold-air path, and gives a small real benefit.
 
-*CarModReview may earn a commission from purchases made through links on this page, at no extra cost to you.*
-
 ## KR
 
 메커니즘 자체를 다루는 가이드이므로 어떤 플랫폼에도 적용됩니다. 터보 4기통이든 V8이든 디젤이든 물리는 같고, 특정 엔진만 다릅니다.

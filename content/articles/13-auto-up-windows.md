@@ -216,5 +216,3 @@ Yes, and the guide covers what to look for in a module. It also says which quest
 
 What the US rule says has its own section, including the part of the rule that pulls the other way, because the requirement is narrower than it is often described.
 
-*CarModReview may earn a commission from purchases made through links on this page, at no extra cost to you.*
-

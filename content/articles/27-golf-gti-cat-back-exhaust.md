@@ -134,7 +134,6 @@ materials, valving, tip finish and a brand — not a different amount of pipe.
 $738.00, and its ceiling is $1,684.00. If you are shopping for a Mk8, budget higher
 than the numbers you will find in threads about Mk7s.
 
-
 ### About that $386 system
 
 The cheapest GTI cat-back in the catalog is the Invidia Q300 at **$386.40**, and it
@@ -415,4 +414,3 @@ visual de smog.**
 
 ---
 
-*CarModReview may earn a commission from purchases made through links on this page, at no extra cost to you.*

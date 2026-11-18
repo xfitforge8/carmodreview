@@ -220,8 +220,6 @@ complete answer, because the emissions side of it is no longer a footnote. COBB
 adjusted its catalog and wrote the reason on its own product pages. That is worth
 more attention than any single dyno claim on a listing.
 
-*CarModReview may earn a commission from purchases made through links on this page, at no extra cost to you.*
-
 ## KR
 
 **터보 스바루에서 다운파이프는 첫 번째 실질적 출력 단계이고, 리뷰 데이터도 그렇게
@@ -277,8 +275,6 @@ have been impacted by the removal of Downpipes."*
 3. **다운파이프는 세 번째, 조건을 알고 나서.** MAP $749.99, EO 없음.
 4. **캣백은 마지막, 소리를 위해.** 토메이 $1,161.00, 리뷰 201개.
 
-*CarModReview may earn a commission from purchases made through links on this page, at no extra cost to you.*
-
 ## ES
 
 **En un Subaru turbo el downpipe es el primer paso real de potencia, y los datos de
@@ -326,4 +322,3 @@ la inspección visual de smog. El tune de COBB sí tiene EO y sí es legal.**
 3. **Downpipe tercero, con los ojos abiertos.** MAP $749.99, sin EO.
 4. **Cat-back al final, por sonido.** Tomei $1,161.00, 201 reseñas.
 
-*CarModReview may earn a commission from purchases made through links on this page, at no extra cost to you.*

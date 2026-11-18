@@ -218,8 +218,6 @@ Geometry is the part people skip, and changing ride height changes it. The guide
 
 Match spring rate to use. A rate that suits a track car is wrong for a daily driver, and the guide explains how to pick for the driving you actually do.
 
-*CarModReview may earn a commission from purchases made through links on this page, at no extra cost to you.*
-
 ## KR
 
 다운스프링은 살 수 있는 가장 저렴한 튜닝 중 하나이고, 차를 나쁘게 만드는 가장 쉬운 방법 중 하나이기도 합니다. 각 옵션이 실제로 무엇을 하는지 정리해서, 핸들링을 사는지, 자세를 사는지, 아니면 둘 다 아닌지 판단하실 수 있게 하겠습니다.

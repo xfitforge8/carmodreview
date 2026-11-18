@@ -228,8 +228,6 @@ open. And if the rack is going on a Tacoma, read the T-slot line before anything
 else, because that is the one truck in this sweep where the cover has to bring the
 mounting channel itself.
 
-*CarModReview may earn a commission from purchases made through links on this page, at no extra cost to you.*
-
 ## KR
 
 **베드 랙과 토노 커버를 같은 적재함에 함께 장착할 수 있는지는 제품 사양서가 이미
@@ -408,8 +406,6 @@ Adarac은 카고 랙입니다. 셋 다 짐을 실을 수 있지만 같은 수의
 유지하면서 안쪽 레일을 비워 두므로 양쪽 문이 다 열려 있습니다. 그리고 타코마에
 다는 경우라면 T-슬롯 문장을 가장 먼저 읽으십시오. 이번 조사에서 커버가 장착 채널을
 직접 들고 와야 하는 유일한 트럭입니다.
-
-*CarModReview may earn a commission from purchases made through links on this page, at no extra cost to you.*
 
 ## ES
 
@@ -616,4 +612,3 @@ dos puertas. Y si la parrilla va en una Tacoma, lee la línea del T-slot antes q
 nada, porque es el único camión de este barrido donde la cubierta tiene que traer
 el canal de montaje.
 
-*CarModReview may earn a commission from purchases made through links on this page, at no extra cost to you.*

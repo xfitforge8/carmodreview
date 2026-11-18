@@ -253,8 +253,6 @@ needs, buy the fluid by the specification on the cap rather than by the color of
 the bottle, and remember that the three GM fluids on this page do not substitute
 for one another.
 
-*CarModReview may earn a commission from purchases made through links on this page, at no extra cost to you.*
-
 ## KR
 
 **가벼운 스로틀에서 정속으로 달릴 때 나타나고, 액셀을 더 밟거나 떼면
@@ -376,8 +374,6 @@ $7.99짜리 마찰 조정제가 가장 싼 두 가지 확인 방법입니다.
 캡에 적힌 규격으로 고르십시오. 이 페이지의 GM 오일 세 가지는 서로를 대신하지
 못합니다.
 
-*CarModReview may earn a commission from purchases made through links on this page, at no extra cost to you.*
-
 ## ES
 
 **Un temblor que aparece con poco acelerador, se mantiene a velocidad constante y
@@ -488,4 +484,3 @@ temperatura del aceite a la que empieza el temblor, verifique el nivel según el
 procedimiento y pruebe el modificador de fricción de **$7.99** antes de algo más
 caro.
 
-*CarModReview may earn a commission from purchases made through links on this page, at no extra cost to you.*

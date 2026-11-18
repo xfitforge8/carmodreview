@@ -305,8 +305,6 @@ Three things — bed length, the CarbonPro bed and the MultiFlex tailgate — an
 guide puts them before a single cover is looked at, because getting them wrong
 makes the cover choice irrelevant.
 
-*CarModReview may earn a commission from purchases made through links on this page, at no extra cost to you.*
-
 ## KR
 
 토노 커버는 트럭 베드 액세서리 중 판매량이 가장 많은 품목이면서, 동시에

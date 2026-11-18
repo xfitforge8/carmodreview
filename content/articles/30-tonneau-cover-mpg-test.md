@@ -228,8 +228,6 @@ same route in both directions.
 
 If weather, security or resale are the reason, the fuel number is a tiebreaker at most.
 
-*CarModReview may earn a commission from purchases made through links on this page, at no extra cost to you.*
-
 ## Sources
 
 Fuel economy figures, routes, speeds, weather, tire pressures and methodology read
@@ -401,8 +399,6 @@ Daily Motor는 2022 매버릭 XLT 2.0L 에코부스트로 60마일 구간을 돌
 
 아니요. 패널 재질은 연비와 무관합니다. 선택 기준은 보안과 열었을 때 차지하는 공간입니다.
 
-*CarModReview may earn a commission from purchases made through links on this page, at no extra cost to you.*
-
 ## ES
 
 **La misma pregunta se ha probado en vídeo al menos tres veces, y las tres respuestas no
@@ -515,4 +511,3 @@ en **509,99 desde 629,99, con 317 reseñas**, la más reseñada de la categoría
 reseñas**; la BAK Revolver X4S desde **1.499,99 con 57 reseñas**. Ninguna merece comprarse
 por el consumo.
 
-*CarModReview may earn a commission from purchases made through links on this page, at no extra cost to you.*

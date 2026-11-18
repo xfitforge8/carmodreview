@@ -210,8 +210,6 @@ in means the technician cannot use it.
 
 ---
 
-*CarModReview may earn a commission from purchases made through links on this page, at no extra cost to you.*
-
 <div class="pick">
   <div class="pick-label">The only one with a CARB number</div>
   <h3>Range DFM Module (22&ndash;26 V8 Silverado 1500)</h3>
