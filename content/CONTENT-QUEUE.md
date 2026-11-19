@@ -534,3 +534,78 @@ the article because it is what the specs actually show.
   cost comparison is qualitative and the article says so.
 - Added a "What I could not verify" section covering machining cost, the
   cryogenic claim, and drilled-rotor cracking resistance.
+
+## Article 44 — wheel alignment after a lift kit (draft)
+
+**Queue staleness, second time.** Items 2-5 of the supplied queue were already
+published: 26-exhaust-flapper-valve-rattle, 28-afm-dfm-disabler-carb-legal,
+30-tonneau-cover-mpg-test, 31-cold-air-intake-sound. Picked a gap instead:
+Wheels & Tires had three articles and Suspension four, against fourteen in
+Engine.
+
+**Demand verified live, 18 Nov 2026.** YouTube `ytd-video-renderer` innerText on
+a search for "wheel alignment after lift kit": 1.7M views ("FREE ALIGNMENTS
+FOREVER"), 876K ("Understanding the Wheel Alignment Process"), 105K ("How To
+Properly Align Your Lifted Subaru"), 48K, 27K, 25K, 16K. Google autocomplete
+returned empty for all three test queries, so view counts are the evidence here
+rather than suggestion data.
+
+### The spine: every kit is priced per wheel
+
+Eight parts verified live. Five alignment kits and their published per-kit
+quantity:
+
+| Kit | Price | Covers | Front axle |
+|---|---|---|---|
+| Moog K80277 | $12.99 | one front wheel | $25.98 |
+| Moog K6669 | $65.99 | one front wheel | $131.98 |
+| SPC 82387 | $75.99 | one front wheel | $151.98 |
+| SPC 86376 | $66.99 | one front wheel | $133.98 |
+| SPC 86377 | $99.99 | not stated | — |
+
+All figures read from the listing spec blocks on 18 Nov 2026, after "See More
+Specifications" expansion, between the `Part Number:` and `Brand:` markers.
+
+### The trap that is actually worth money
+
+**"Sold as a pair" does not mean both front wheels.** SPC 82387's spec row reads
+*Includes Alignment Components For: One front wheel* and *Quantity: Sold as a
+pair.* The pair is two cam bolts for one strut. A $75.99 kit is $151.98 at the
+counter, and the information is in a spec row, not the title or the price.
+
+### The $14.99 part that is not an alignment kit
+
+Search results surface SPC 6766099 at $14.99. Its Part Type is *Wheel Alignment
+Kit Replacement Components* and its notes say *Replacement hardware for
+SPS-67660* — a hardware bag. SPC 67660 itself is $195.99 and described as
+*Control Arm, Adjustable, Alignment, Rear, Scion, Subaru, Each* — a Subaru rear
+arm. Nothing in that chain is a truck front alignment kit. This is in the article
+because the search results do not separate them.
+
+### Correction ranges are what you buy
+
+Moog K6669 ±1.00° camber and caster; SPC 86376 ±1.50° both; SPC 82387 ±2.00°
+camber only, caster not rated. SPC 86377 at $99.99 — the most expensive part —
+publishes no degree figures at all, only an application list (2019+ Silverado/
+Sierra). The article states that rather than inferring a number.
+
+### Declined to invent
+
+- SPC 86377's correction range. Application list only, no degrees.
+- Moog K80277's correction range. Listing says "adjustable caster/camber plates"
+  with no figures.
+- Fitment for any specific truck. The applications tables lazy-load and were not
+  read; the article tells the reader to check by VIN.
+- Labour cost. No listing prices the alignment service.
+
+### Photos
+
+Five Pexels photos, each page title verified before download: 3806288, 6720507,
+38324578, 8986137, 37175105. Sidecars carry alt + caption naming the source.
+
+### Operational note
+
+`python3 build.py` takes ~29s in the foreground. The same command backgrounded
+through the harness wrapper produced empty output and a hung process twice
+(6:48 elapsed, 0% CPU, no sockets), and the hold/restore chain then left the
+article in /tmp. Run builds in the foreground with a long timeout.
