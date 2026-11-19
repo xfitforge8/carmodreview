@@ -916,3 +916,83 @@ image generically.
 Only article 48 was held for this build: 44-47 are now published, 41-43 were
 already live. Build gave 69 URLs unchanged, no page, no photo directory, and
 `docs/` byte-identical.
+
+---
+
+## Article 49 — `49-load-range-ply-rating-guide.md`
+
+`slug: load-range-ply-rating-guide` | category: Wheels & Tires | vehicle: truck
+(+suv) | `status: draft` | EN 1,245 / KR 265 / ES 509 | 22 `###`, 5 photos
+
+### Why this one
+
+Wheels & Tires was the joint-thinnest published category at 4, and "load range"
+appeared in exactly **one** of 47 articles — a passing mention in the 4x4 tire
+buying guide. Genuine gap, not a re-run.
+
+Demand verified on YouTube 19 Nov, query "load range e rated tires explained":
+100K, 44K, 29K, 17K, 3.8K, 928 views. Viewers are asking a definitional question,
+which is exactly what a spec-block comparison answers.
+
+### Verified live 19 Nov 2026 — all five are 285/70-17, same day
+
+| Tire | Price | Load range | Load index | Max load | Tread plies | Sidewall plies | Weight |
+|---|---|---|---|---|---|---|---|
+| Toyo Open Country A/T III | $320.99 | P-metric (no letter) | 117 | **2,833 lbs.** | not published | not published | 46.0 lbs. |
+| BFGoodrich All-Terrain T/A KO3 | $320.99 | C | 116/113 | 2,755 lbs. | **6** | **6** | 57.0 lbs. |
+| Falken Wildpeak A/T4W | $316.99 | E | 126/123 | **3,750 lbs.** | **10** | **3** | 65.4 lbs. |
+| Mickey Thompson Baja Boss A/T | $307.99 | SL | 116 | 2,756 lbs. | not published | not published | 48.8 lbs. |
+| Nitto Ridge Grappler | $300.99 | XL | 116 | 2,756 lbs. | not published | not published | 48.7 lbs. |
+
+Also read: all five DOT-Approved Yes; 3PMSF Yes on Toyo/KO3/Falken/MT, **No**
+on Nitto; UTQG 600 (Toyo), 500 (Nitto), absent on the three LT-style tires;
+speed ratings T (Toyo), S (KO3, Falken), Q (Nitto), T (MT).
+
+### The finding
+
+**Load Range E published 10 tread plies and 3 sidewall plies.** Load Range C
+published 6 and 6. Anyone converting the letter to a ply count gets both wrong,
+in opposite directions. Ply rating stopped describing physical plies when
+cotton gave way to other cord materials; the letters survived as load bands. The
+article's core point is that tread ply and sidewall ply are separate construction
+details and *neither* is the ply rating.
+
+Second finding: the **P-metric** Toyo carries 2,833 lbs. against the **LT Load
+Range C** KO3's 2,755 — 78 lbs. more, at the identical $320.99, and 11 lbs.
+lighter per corner (44 lbs. across four).
+
+Third: four tires, four different letters (SL, XL, C, none), and max load lands
+within 78 lbs. of itself across all four. At this size the letter is not a price
+or capacity tier. Only the Falken separates, and on the number.
+
+### Deliberate choices
+
+- **No conversion table.** Every load-range-to-ply table I have seen is
+  unreliable, and the two products that publish plies contradict the popular
+  ones. The article says plainly that it will not supply one.
+- **No claim that P-metric is better than LT.** The verified fact is a price,
+  weight and capacity comparison between two specific tires. LT construction
+  exists for reasons this article could not source, and it says so.
+- **No load-at-pressure arithmetic.** Max load is quoted at a stated inflation
+  pressure that was not read on all five, so no derating is attempted.
+- **Deferred to the vehicle on capacity.** Load range cannot raise a payload
+  rating; that comes off the door jamb. Stated explicitly to head off the most
+  common misreading.
+- **Corrected an error before commit:** the article first called the KO3 the
+  "Trail-Terrain" — the spec block read was the All-Terrain T/A KO3. Fixed in
+  all three languages. Also fixed a ranking sentence that called the KO3
+  "third-weakest" when it is in fact the lowest of the five.
+
+### Photos
+
+Five verified Pexels photos, each `/photo/<id>/` title read individually:
+7019611 (tire with pebbles in treads), 5578887 (truck tire close-up), 9576099
+(black tires), 7019607 (truck chassis and tires), 7019610 (dirty tire).
+Captions tie each photo to a specific spec field rather than describing the
+stock image.
+
+### Operational
+
+Articles 48 and 49 were **both** held for this build — 48 is still an unpushed
+draft from the previous run. Build: 69 URLs unchanged, 0 hits for either slug in
+sitemap, no pages, no photo directories, `docs/` byte-identical.
