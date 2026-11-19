@@ -8,7 +8,6 @@
   },
   "editorial": {
     "no_fabricated_experience": true,
-    "affiliate_disclosure": "required_on_every_page",
     "methodology_page": "required",
     "min_sources_per_post": 3,
     "publish_cadence_early": "3-4 posts/week, depth over volume"
@@ -22,6 +21,8 @@
   ],
   "notes": [
     "Dates on posts must reflect the actual publish date. Backdating is not permitted.",
+    "last_updated: is the authority for dateModified, <lastmod> and the byline. Raise it when the prose changes, not when a commit merely touches the file. A mechanical commit must never move a date.",
+    "Publishing a date older than the work it describes is the same failure in the other direction. The build reports drift; only a human can tell a revision from a mechanical edit.",
     "Every post must state what it could not verify."
   ],
   "monetization": {
