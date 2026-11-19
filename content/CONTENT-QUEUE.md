@@ -1085,3 +1085,46 @@ it. Current published category counts: Engine 14, Exhaust 7, Suspension 5,
 Brakes 5, Wheels & Tires 4, Tonneau & Bed 4, Electrical 4, Tuning 4 — plus
 drafts 48 (Electrical), 49 (Wheels & Tires), 50 (Tuning). Once those publish,
 the thinnest are Suspension and Brakes at 5 each.
+
+---
+
+## PUBLISHED — articles 48, 49, 50 (2026-11-19)
+
+All three were flipped from `status: draft` to `status: published` and deployed.
+Live sitemap went 69 -> 72 URLs, feed 48 -> 51 items, search index 47 -> 50.
+
+| # | Page | Category |
+|---|---|---|
+| 48 | `/electrical/led-headlights-street-legal-dot.html` | Electrical |
+| 49 | `/wheels-tires/load-range-ply-rating-guide.html` | Wheels & Tires |
+| 50 | `/tuning/truck-tuner-carb-eo-guide.html` | Tuning |
+
+Verified live after deploy: all three return 200, each serves its 5 `<img>`
+blocks, sitemap 72 `<loc>`, feed 51 `<item>`. All three dated 2026-11-19, and
+git confirms zero prior adds to `docs/` for any of them, so publish date and
+first-existence agree.
+
+### Deploy incident, and the lesson
+
+The first Pages build for commit `0354370` errored with **duration 0** and the
+API's only detail is `"Page build failed."`. Cause: I ran
+`gh api -X POST repos/.../pages/builds` manually while GitHub's own automatic
+build for the same push was already queued, producing two builds for one
+commit; the loser errored instantly. Re-triggering cleanly built in the normal
+time.
+
+**Do not POST a Pages build after a push.** Pushing to `main` already queues
+one. Only trigger manually if a deploy has genuinely stalled with no build in
+flight, and check `pages/builds` for an existing entry on the same commit first.
+
+The commit itself was sound throughout: 107 files, no non-ASCII filenames, all
+15 image references resolving locally, `.nojekyll` tracked, 573 files in docs/.
+
+### Updated category counts (published)
+
+Engine 14, Exhaust 7, Suspension 5, Brakes 5, Wheels & Tires 5,
+Tonneau & Bed 4, Electrical 5, Tuning 5.
+
+Thinnest now: **Tonneau & Bed at 4**, then Suspension / Brakes / Wheels & Tires
+/ Electrical / Tuning at 5 each. Next run should look at Tonneau & Bed, or at
+Suspension and Brakes which have had no new article in this session.
