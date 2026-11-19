@@ -27,6 +27,29 @@ PHOTO_ROOT = os.path.join(SRC, 'photos')
 PRODUCT_ROOT = os.path.join(SRC, 'products')
 DOMAIN = 'https://carmodreview.com'
 
+# What each generated static page is rendered FROM, so its sitemap <lastmod>
+# can name the input that changed instead of the build clock.
+#
+# build.py is deliberately NOT listed even though it emits the markup. It is
+# committed on nearly every working day, so including it would put all seven
+# pages on the same recent date again -- the exact uniform-timestamp problem
+# this is meant to fix. That leaves a page's lastmod understated when a commit
+# changes its markup without touching its content, which is the lesser error
+# and the same trade the article dates make: a stale date is a smaller lie than
+# a fresh one that is false.
+#
+# A page missing from this map, or whose sources git cannot date, gets no
+# <lastmod> at all rather than a guessed one. See _source_date().
+STATIC_SOURCES = {
+    'index.html': ['content/homepage.md'],
+    'about.html': ['content/about-us.md'],
+    'methodology.html': ['_prev_docs/methodology.html'],
+    'data.html': ['content/reviews'],
+    'contact.html': ['content/site.json'],
+    'legal/privacy-policy.html': ['content/legal/privacy-policy.md'],
+    'legal/terms-of-service.html': ['content/legal/terms-of-service.md'],
+}
+
 
 @functools.lru_cache(maxsize=None)
 def git_date(path):
@@ -3509,38 +3532,36 @@ def build_sitemap(arts):
                     'legal/privacy-policy.html',
                     'legal/terms-of-service.html')
 
-    def _built_date(path):
-        """The mtime of a built file, as YYYY-MM-DD, or None.
+    def _source_date(path):
+        """Newest commit date among the files that actually feed a static page.
 
-        Static pages used to go into the sitemap with no <lastmod> at all, so
-        the eight most-linked pages on the site told a crawler nothing about
-        when they had last changed. <lastmod> is the only hint a sitemap gives
-        as to whether a known URL is worth recrawling; omitting it puts those
-        pages at the back of every crawl queue, which is the opposite of what
-        the pages a site's own nav points at should get.
+        These pages are generated, so their lastmod cannot come from the built
+        file: build.py rewrites every one of them on every run, and the bytes
+        are usually identical. Reading the mtime -- what this did until
+        2026-11-19 -- reported the BUILD time, so all seven static pages plus
+        the homepage announced a change on every deploy of a site whose
+        homepage content had not moved since 2026-11-05. That is the same
+        false-uniform-timestamp failure that dateModified had, and the fix is
+        the same: name the input that changed, not the clock.
 
-        The file's mtime is the honest source -- these are generated, so the
-        mtime moves whenever the template or the content behind them does.
-        Built files are rewritten on every build, so this reports the build
-        time rather than the last content edit. That is still a real signal
-        (the bytes did change) and it is monotonic, which hand-kept dates in
-        the frontmatter demonstrably were not.
+        Falls back to None when git cannot answer, which omits <lastmod>
+        rather than inventing one.
         """
-        try:
-            import datetime
-            return datetime.date.fromtimestamp(os.path.getmtime(path)).isoformat()
-        except OSError:
+        inputs = STATIC_SOURCES.get(path)
+        if not inputs:
             return None
+        dates = [d for d in (git_date(p) for p in inputs) if d]
+        return max(dates) if dates else None
 
     for code, _, prefix in LANGS:
         if (prefix or '/') == '/':
-            urls.append((f'{DOMAIN}/', _built_date(os.path.join(OUT, 'index.html'))))
+            urls.append((f'{DOMAIN}/', _source_date('index.html')))
     for path in static_paths:
         for code, _, prefix in LANGS:
             built = os.path.join(OUT, *(prefix.strip('/').split('/')
                                         if prefix else []), path)
             if os.path.exists(built):
-                urls.append((f'{DOMAIN}{prefix}/{path}', _built_date(built)))
+                urls.append((f'{DOMAIN}{prefix}/{path}', _source_date(path)))
     for c in sorted(newest_by_cat):
         for code, _, prefix in LANGS:
             urls.append((f'{DOMAIN}{prefix}/{c}/', newest_by_cat[c]))
@@ -3548,7 +3569,7 @@ def build_sitemap(arts):
     # Vehicle-type pages. Same lastmod rule as the category hubs: the newest
     # guide the page lists. A vehicle page that reported the build time would
     # announce that all of them changed on every deploy, which is the exact
-    # mistake the _built_date docstring above describes.
+    # mistake _source_date() above was written to stop.
     v_newest = {}
     for a in arts:
         vp = a.get('vehicle_primary')

@@ -681,3 +681,86 @@ arithmetic 04 does not contain, so it complements rather than duplicates.
 Draft-hold now has to include 44 as well as 45: 44 is still `status: draft` but
 live in `docs/`, so a build with only 45 held produced 66 URLs. Held both,
 confirmed 65.
+
+---
+
+## Article 46 — `46-tonneau-cover-spec-row-guide.md`
+
+`slug: tonneau-cover-spec-row-guide` | category: Tonneau & Bed | vehicle: truck
+| `status: draft` | EN 1,330 words, KR 452, ES 561 | 9 `###`, 5 photos, 5 buyrows
+
+### Why this one
+
+Tonneau & Bed was the thinnest category at 3 articles. Demand checked on
+YouTube: "hard vs soft tonneau cover" returns 714K, 571K, 345K, 187K, 125K views
+on the top five results. The category earns its fourth piece.
+
+### Overlap check
+
+`11-tonneau-covers-explained.md` is 2,399 EN words and owns the tier/price-band
+story (soft roll-up $190-275 up through hinged $1,500-2,700). It contains
+**zero** occurrences of "Full Truck Bed Access" or "Toolbox Compatible". This
+article is about the spec row, not the tier, so it complements rather than
+duplicates. `30-tonneau-cover-mpg-test.md` owns the fuel-economy question and
+this article quotes no MPG figure at all.
+
+### The angle changed during verification
+
+The first draft framed "Full Bed Access: No" on the $1,999.95 Rough Country as a
+straight inversion — most expensive, only No, beaten by a $189.99 cover. Reading
+the feature list corrected that: its **first listed feature is a removable
+canister**, so "No" describes the cover as delivered, not a limit on the bed.
+That turned a negative framing into the real story — the two retractables here
+are two legitimate answers to the same problem (canister stays and bed stays
+usable vs. canister comes out). The article now leads with that.
+
+### Verified live 18-19 Nov 2026, all five spec blocks re-read
+
+| Cover | Price | Full bed access | Toolbox | Location | Warranty |
+|---|---|---|---|---|---|
+| Summit SUM-484800 | $189.99 | Yes | No | Top of bed rails | 1-year |
+| TruXedo 297701 | $349.99 | Yes | No | Top of bed rails | 5-year |
+| BAK 448339 | $1,199.99 | Yes | **Yes** | **Inside bed rails** | 5-year |
+| Retrax 60378 | $1,599.99 | Yes | No | Inside bed rails | **Limited lifetime** |
+| Rough Country 51509550 | $1,999.95 | **No** | No | Top of bed rails | 5-year |
+
+All five: 5 1/2 ft. bed, Drilling Required: No, Hinged: No.
+
+### Listing contradictions found on the Rough Country (all verbatim)
+
+1. Title says **5'7"** bed; spec row says **5 1/2 ft.**
+2. Title says **"Powered"**; description says **"manually operated"**
+3. Spec row says **5-year** cover and frame; feature list says **"3-Year
+   Limited Warranty"**
+4. Spec row says **Full Bed Access: No**; feature list says **"Removable
+   canister for total bed access"**
+
+Four disagreements on one $1,999.95 page. The article reports all four and tells
+the reader to confirm by manufacturer part number — it does not pick a winner.
+
+### Deliberate choices
+
+- **No MPG numbers, manufacturer or otherwise.** Several listings imply
+  aerodynamic benefit; none publishes a measured figure, so none is quoted.
+- **No negative disclaimers.** The Rough Country section is framed as "confirm
+  before ordering", not "avoid this part".
+- **Canister cost stated as design reasoning, not measurement.** No listing
+  publishes the bed volume a canister consumes; Retrax is the only one that
+  publishes a container size (11 in. squared spiral track).
+- **No fitment claims beyond bed length.** Application tables lazy-load and were
+  not read.
+
+### Photos
+
+Five verified Pexels photos (each `/photo/<id>/` page title read individually,
+not scraped from search results): 33038583, 31905602, 4895403, 9331872,
+12748714. **Pexels has no tonneau cover photography** — six search terms
+returned only bare truck beds. Captions say so honestly ("the bed fully open and
+uncovered", "from outside, five covers at five prices look the same"), matching
+the convention already used by `tonneau-cover-mpg-test`.
+
+### Operational
+
+Draft-hold must now hold **44, 45 and 46**. Confirmed: build with all three held
+gives 65 URLs, 43 articles, and none of the three appear in `docs/sitemap.xml`
+or `docs/`.
