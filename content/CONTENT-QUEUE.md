@@ -764,3 +764,84 @@ the convention already used by `tonneau-cover-mpg-test`.
 Draft-hold must now hold **44, 45 and 46**. Confirmed: build with all three held
 gives 65 URLs, 43 articles, and none of the three appear in `docs/sitemap.xml`
 or `docs/`.
+
+---
+
+## Article 47 — `47-big-brake-kits-wheel-diameter.md`
+
+`slug: big-brake-kits-wheel-diameter` | category: Brakes | vehicle: truck (+suv)
+| `status: draft` | EN 1,452 words, KR 323, ES 477 | 10 `###`, 4 buyrows, 5 photos
+
+### Why this one, and why the queue was skipped again
+
+The supplied topic queue has now been stale five runs running — items 2 through 5
+(exhaust flapper, AFM/DFM disabler, tonneau MPG, CAI sound) already exist as
+published articles 26, 28, 30 and 31. Re-walking it would duplicate them.
+
+Picked from the live gap instead. Published counts by category were: Engine 14
+(30% of the site), Exhaust 7, Electrical/Tuning/Suspension 4 each, Tonneau 3,
+**Brakes 2**, **Wheels & Tires 2**. Brakes was joint-thinnest.
+
+Demand checked on YouTube 19 Nov: "big brake kit worth it" returns 2.7M, 1.1M,
+231K, 156K, 151K; "brake caliper upgrade truck" returns 447K, 239K, 231K, 156K.
+
+### Overlap check
+
+**No brake article mentions "big brake" at all.** Grepped counts across
+`08-brake-pads-rotors-guide` (2,187 EN words), `40-stuck-brake-rotor-removal`
+(1,618), `42-brake-fluid-flush-guide` (1,654) and
+`43-brake-rotor-resurface-vs-replace` (1,526): zero occurrences in every one.
+Article 43 owns rotor discard thickness; this owns kit selection. Complementary.
+
+### Verified live 19 Nov 2026
+
+| Kit | Price | Rotor | Pistons | Min wheel | Bolt | Rear incl. | Reman |
+|---|---|---|---|---|---|---|---|
+| PowerStop KC2073-36 | $1,269.84 | 12.80 in. | 2 | **none published** | 8 x 6.50 in. | Yes | **Yes** |
+| Wilwood AERO6 140-9789-D | $2,692.54 | 14.25 in. | 6 | 18 in. | 6 x 5.50 in. | No | No |
+| Wilwood TX6R 140-13877 | $3,200.56 | 16.00 in. | 6 | 20 in. | 8 x 6.50 in. | No | No |
+| Wilwood TX6R 140-13873 | $3,268.50 | 15.00 in. | 6 | 20 in. | 8 x 6.50 in. | No | No |
+
+Fifth part, referenced but not in the table: PowerStop **BBK-JK-002R** (Jeep),
+$1,010.99, front rotor 13.50 in., rear 14.25 in., **one piston** per front
+caliper.
+
+All four table kits: master cylinder, brake booster and front spindles **not**
+included. AERO6 notes: will not fit aluminum spindles, cast iron only.
+
+### Inversions this article is built on
+
+1. **The rear rotor is bigger than the front** on BBK-JK-002R — 14.25 in. against
+   13.50 in., on a kit sold as a front-and-rear upgrade.
+2. **"Big brake" with one piston** per caliper at $1,010.99, the same count as a
+   base economy car, and `Remanufactured: Yes` at a four-figure price.
+3. **The cheaper PowerStop includes both axles** ($1,269.84) while every Wilwood
+   is front-only at 2-2.5x the price — so per-axle the gap is far wider than the
+   stickers suggest.
+4. **Bolt pattern splits the market before price does**: the $2,692.54 AERO6 is
+   the only 6-lug kit, the other three are 8 x 6.50 in.
+
+### Deliberate choices
+
+- **No stopping-distance claim of any kind.** No listing publishes a 60-0 figure
+  before or after, so none is made. The article says so twice.
+- **"None published" is stated, not interpreted.** The PowerStop Chevy/GMC kit has
+  a blank minimum-wheel field; the article says that is a question for the
+  seller, not a claim of universal fit.
+- **Remanufactured framed as a difference, not a defect.** It is legitimate and
+  warrantied; at four figures it belongs in the decision.
+- **No fitment claims.** Spec blocks read, application tables not.
+
+### Photos
+
+Five verified Pexels photos, each `/photo/<id>/` title read individually:
+833320, 34277926, 6870299, 36774072, 27534016. Unlike the tonneau article —
+where Pexels had no cover photography at all — real brake caliper and rotor
+photos are plentiful, so every caption describes an actual brake component.
+
+### Operational
+
+Four articles are now held from builds: **44, 45, 46, 47**. Articles 41-43 are
+also `status: draft` but are already committed in `docs/`, so holding them would
+delete live pages; they are left alone. Confirmed build: 65 URLs, 43 articles,
+none of 44-47 in `docs/sitemap.xml` or `docs/`, no photo directory leaked.
