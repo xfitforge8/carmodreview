@@ -609,3 +609,75 @@ Five Pexels photos, each page title verified before download: 3806288, 6720507,
 through the harness wrapper produced empty output and a hung process twice
 (6:48 elapsed, 0% CPU, no sockets), and the hold/restore chain then left the
 article in /tmp. Run builds in the foreground with a long timeout.
+
+## Article 45 — wheel offset vs backspacing (draft)
+
+**Queue stale for the third time.** Items 2-5 of the supplied queue are 26, 28,
+30 and 31, all published. Picked a verified gap instead.
+
+**Demand verified live 18 Nov 2026** from YouTube `ytd-video-renderer` on
+"wheel offset explained": **921K** ("How To Choose Wheel Offset For Your Chevy
+Silverado"), **735K** ("Truck Wheel Offset Explained | Ford F150"), **513K**
+("What is Wheel Offset?"), **502K** ("How to measure your Wheel Offset / ET"),
+**429K** ("What's the Best Stance for Your Truck?"), **411K**, 251K, 148K, 110K.
+
+### The spine: the two specs are one spec, so listings self-check
+
+Backspacing = (width + 1) ÷ 2 + offset ÷ 25.4
+
+Verified against five wheels read live, worst case 0.04 in.:
+
+| Wheel | Width | Offset | Calculated | Listed |
+|---|---|---|---|---|
+| Vision SW60 | 6.50 | +40 | 5.32 | **5.33** |
+| Method MR305 | 8.50 | +25 | 5.73 | **5.70** |
+| Black Rhino Tembo | 9.00 | +12 | 5.47 | **5.47** |
+| Moto Metal MO970 | 9.00 | +18 | 5.71 | **5.71** |
+| Fuel Vapor D560 | 9.00 | +20 | 5.79 | **5.75** |
+
+I tested the naive form first (`width/2 + offset/25.4`) and it was off by a
+consistent -0.5 in. on all five. That consistency is what identified the missing
+inch as bead flange rather than a data error -- which is exactly the diagnostic
+the article teaches.
+
+### The counterintuitive pair
+
+Vision SW60: 6.5 in. wide, **+40 mm** offset, backspace **5.33 in.**
+Black Rhino Tembo: 9.0 in. wide, **+12 mm** offset, backspace **5.47 in.**
+
+More than three times the positive offset and still the shallower backspace,
+because 2.5 in. of extra width moves the centre line 1.25 in. before offset
+counts at all. Big offset numbers do not mean the wheel sits further in.
+
+### Other figures verified
+
+Bolt patterns 6x135, 6x139.70, 8x165.10, 8x180. Center bore **57.10 mm**
+(Vision) to **125.10 mm** (Moto Metal) -- 68 mm spread, in no title. Load rating
+**1,520 lbs.** to **3,700 lbs.** per wheel. Black Rhino wheel weight **33.2
+lbs.**, Vision **12.9 lbs.** (16x6.5 steel vs 18x9 aluminum, so size and
+material, not quality).
+
+### Deliberate choices
+
+- **No prices in the article.** Read but not quoted: the piece is about
+  specification, prices move, and quoting them would date the article on a page
+  whose value is durable arithmetic. Stated in "What I could not verify".
+- **Flange constant presented as empirical, not exact.** It matched five wheels
+  to 0.04 in.; flange thickness varies by construction, and the article says a
+  small gap is normal and a large one is a red flag.
+- **No fitment claims.** Application tables lazy-load and were not read;
+  readers are told to confirm by year/make/model/trim.
+- **Load rating basis flagged as unverified** -- whether each brand accounts for
+  dynamic load or a safety factor is not comparable without manufacturer docs.
+
+### Overlap check
+
+`04-wheels-buying-guide.md` covers offset, width and fitment across 1,944 words
+and mentions **backspacing zero times**. This article is the backspacing
+arithmetic 04 does not contain, so it complements rather than duplicates.
+
+### Operational
+
+Draft-hold now has to include 44 as well as 45: 44 is still `status: draft` but
+live in `docs/`, so a build with only 45 held produced 66 URLs. Held both,
+confirmed 65.
