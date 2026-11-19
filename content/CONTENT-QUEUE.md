@@ -845,3 +845,74 @@ Four articles are now held from builds: **44, 45, 46, 47**. Articles 41-43 are
 also `status: draft` but are already committed in `docs/`, so holding them would
 delete live pages; they are left alone. Confirmed build: 65 URLs, 43 articles,
 none of 44-47 in `docs/sitemap.xml` or `docs/`, no photo directory leaked.
+
+---
+
+## Article 48 — `48-led-headlights-street-legal-dot.md`
+
+`slug: led-headlights-street-legal-dot` | category: Electrical | vehicle: truck
+(+suv) | `status: draft` | EN 1,356 / KR 343 / ES 522 | 10 `###`, 5 photos
+
+### Why this one
+
+Electrical was tied thinnest at 4 published articles, and had no lighting
+article at all: across 47 articles "headlight" appears seven times, all passing
+mentions in suspension and intake pieces.
+
+Demand verified on YouTube 19 Nov: "led headlight bulb upgrade truck" returns
+4.3M, 3.2M, 1.3M, 922K, 589K, 369K views. This is the strongest cluster seen in
+any of the last three runs.
+
+### Verified live 19 Nov 2026
+
+| Product | Price | Type | Colour temp | Street legal | DOT | Qty |
+|---|---|---|---|---|---|---|
+| PIAA LEH172E | $148.99 | bulb kit H8/H9/H11/H16 | 6600K | **Yes** | not stated | pair |
+| Oracle 5769-123 | $324.79 | 7 in. sealed LED | not published | not stated | not stated | **individually** |
+| J.W. Speaker 8700 Evo 2 | $464.75 | 7 in. sealed LED | not published | **DOT-approved** | **Yes** | pair |
+
+PIAA also lists: 18.0 W low beam, controller-free, JIS S2 waterproof.
+Oracle: Halo/DRL Yes (white), SwitchBack amber turn signals.
+Both sealed units: CAPA Certified No, NSF Certified No.
+
+### The finding
+
+A $148.99 kit states **Street Legal: Yes** and publishes **no lumen field, no
+candlepower field, no DOT field and no SAE field** — all four searched for on the
+page and all four absent. The $464.75 pair states DOT-approved in its notes and
+publishes three certification fields, answering No on two of them.
+
+The per-unit inversion: Oracle is $324.79 for **one**, J.W. Speaker $464.75 for
+**two** — $324.79 vs $232.38 per lamp, so the DOT-approved pair is **$92.41
+cheaper per unit**. That vanishes if you compare stickers without reading the
+quantity field.
+
+### Deliberate choices
+
+- **No lumen comparison at all.** None of the three publishes a figure, so any
+  brightness ranking would be invented. The article says this explicitly and
+  tells the reader the ranking they want cannot be honestly built.
+- **6600K framed as colour, not brightness** — the single most common misreading
+  of a headlight spec.
+- **No assertion about FMVSS 108 self-certification.** An earlier draft claimed
+  DOT approval is manufacturer self-certification under FMVSS 108; I could not
+  verify that live, so the final text describes what the two certification fields
+  mean and no more. Likewise a specific FMVSS/Vehicle Code citation was removed
+  and replaced with a plain statement that lighting is a different rulebook from
+  CARB.
+- **PIAA's street-legal claim is not contradicted.** The article says it is a
+  manufacturer claim worth taking seriously, and that the page simply gives you
+  no standard to check it against.
+
+### Photos
+
+Five verified Pexels photos, each `/photo/<id>/` title read individually:
+33695403, 17286224, 31140747, 28339262, 38510054. All are genuine headlight
+photography. Captions tie each to a spec field rather than describing the stock
+image generically.
+
+### Operational
+
+Only article 48 was held for this build: 44-47 are now published, 41-43 were
+already live. Build gave 69 URLs unchanged, no page, no photo directory, and
+`docs/` byte-identical.
