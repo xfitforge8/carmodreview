@@ -280,5 +280,23 @@
 "t": "Big Brake Kits: The Wheel Diameter Field Decides Before the Price",
 "d": "Four verified truck big brake kits from $1,010.99 to $3,268.50. The cheapest needs 17 in. wheels, the priciest needs 20 in. — and one $1,010 'big brake kit' has a single piston per caliper.",
 "c": "Brakes"
+},
+{
+"u": "/electrical/led-headlights-street-legal-dot.html",
+"t": "LED Headlights: The Street Legal Field Is Published, the Lumens Are Not",
+"d": "Three LED headlight products from $148.99 to $464.75. One says Street Legal: Yes and publishes no lumens and no DOT marking. A DOT-approved pair costs 3x and lists its certifications.",
+"c": "Electrical"
+},
+{
+"u": "/wheels-tires/load-range-ply-rating-guide.html",
+"t": "Load Range E Does Not Mean Ten Plies, and the Listings Prove It",
+"d": "Five 285/70-17 tires from $300.99 to $320.99. One Load Range E lists 10 tread plies but only 3 sidewall plies. A P-metric tire carries more weight than an LT Load Range C. Verified specs.",
+"c": "Wheels & Tires"
+},
+{
+"u": "/tuning/truck-tuner-carb-eo-guide.html",
+"t": "One of Five Truck Programmers Publishes a CARB EO Number",
+"d": "Five handheld programmers from $268.95 to $448.95. One publishes CARB EO D-770 and D-802-19. Four publish no EO field at all. Also: the $448.95 'Pro' ships with no pre-loaded tunes.",
+"c": "Tuning"
 }
 ]
