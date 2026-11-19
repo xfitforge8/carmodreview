@@ -1,0 +1,1 @@
+A handheld code reader connected to a vehicle. Every programmer in this article plugs into the same OBD-II port, and that port is also where the stock calibration is read out before anything is written. Photo: Pexels.

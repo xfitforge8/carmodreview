@@ -996,3 +996,92 @@ stock image.
 Articles 48 and 49 were **both** held for this build — 48 is still an unpushed
 draft from the previous run. Build: 69 URLs unchanged, 0 hits for either slug in
 sitemap, no pages, no photo directories, `docs/` byte-identical.
+
+---
+
+## Article 50 — `50-truck-tuner-carb-eo-guide.md`
+
+`slug: truck-tuner-carb-eo-guide` | category: Tuning | vehicle: truck (+suv) |
+`status: draft` | EN 1,220 / KR 308 / ES 497 | 23 `###`, 5 photos
+
+The supplied topic queue was stale for the **sixth** consecutive run — items 2–5
+are published articles 26, 28, 30, 31. Chose by category gap and product-class
+fit instead: Tuning is tied thinnest at 4 published, and all four existing Tuning
+articles are platform build-orders (Tundra, Civic Si, Miata). **There was no
+truck programmer article at all**, and programmer listings publish a CARB EO
+field, which is this site's core competence.
+
+### Verified live 19 Nov 2026
+
+| Device | Price | Rating | EO published | Writes |
+|---|---|---|---|---|
+| Superchips GM Flashcal 2545 | $268.95 | 4.0 · 18 | none | speedo/gears/TPMS, **no tune** |
+| SCT X4 Power Flash 7015 | $377.99 | 4.25 · 79 | none | **pre-loaded** tunes |
+| Bully Dog BDX 40470 | $377.99 | 3.5 · 16 | none | pre-loaded + 10 custom |
+| Superchips Flashpaq F5 Pro 3874 | $448.95 | 4.5 · 8 | none | **NO pre-loaded tunes** |
+| DiabloSport inTune i3 8200 | $448.95 | 4.5 · 18 | **D-770, D-802-19** | pre-loaded, 50-state |
+
+### The finding
+
+**Exactly one of five publishes a CARB EO number.** The i3 lists
+`CARB EO Number(s): D-770 / D-802-19` and `Emissions: California EO Approved`.
+The other four return nothing for CARB, Executive Order, EO#, 50-State or
+emissions — all five terms searched on each page.
+
+Both EO numbers were verified independently, not taken from the listing:
+- **D-770** title read in full: *"Relating to Exemptions Under Section 27156 of
+  the California Vehicle Code — DiabloSport inTune 12 CE, inTune 13 CE, inTune
+  12, inTune 13, Predator 2, and Trinity 2 Programmers."* The i3 is **not named
+  in that title**, which is precisely why the second number matters.
+- **D-802-19** covers "GM V-8 Tunes... manufactured and marketed by Powerteq...
+  and its subsidiaries DiabloSport, Edge Products, and Superchips."
+
+Second finding: **the $448.95 "Pro" ships with zero pre-loaded tunes** and exists
+to load HP Tuners dealer files, while the $377.99 SCT X4 is pre-loaded. "Pro"
+means unlocked for custom files, not more in the box.
+
+Third: the cheapest device ($268.95) is a **recalibrator, not a tuner** — 26–38
+in. speedo correction, gear swaps, TPMS, no engine calibration.
+
+### Deliberate choices
+
+- **`CA Warning` was checked before it was written about, and kept out.** Every
+  listing carries that badge; clicking it reads *"Cancer and Reproductive Harm"*
+  — Proposition 65, unrelated to CARB. Conflating the two would have been a false
+  emissions claim. The article says so explicitly to pre-empt the misreading.
+- **Absence of an EO is reported as absence, not as prohibition.** The text says
+  the listing does not let you confirm legality, and separately states the rule
+  for parts with no applicable EO. It does not assert the four lack one.
+- **No horsepower or torque figures for any device.** None publishes a dyno number
+  for a specific application on the listing page.
+- **Bully Dog's "not for use on applications with deleted emission controls"**
+  framed as a restriction, not a compliance claim.
+- **CARB's searchable EO database was unreachable** — ww2.arb.ca.gov restructured;
+  `/applications/aftermarket-parts-database`, `/executive-orders-search`,
+  `/msprog/aftermkt/...` all 404, and `ssl.arb.ca.gov/AftermarketParts/` returns
+  "Request Rejected". The EO titles were verified via web search of the documents
+  instead, and the failure is disclosed in the article's "could not verify".
+
+### Photos
+
+Five verified Pexels photos, each `/photo/<id>/` title read individually:
+12271947, 4116193, 6870326, 12271949, 12271948. All OBD/diagnostic-tool
+photography. Captions tie each to a spec field.
+
+Note: a heredoc with a missing trailing newline silently swallowed three sidecars
+into one file. Caught by `wc -l` (should have been 5 separate 1-line files, got
+2 files with one 956 bytes long). Rewritten with Write.
+
+### Operational
+
+Articles 48, 49 **and** 50 were all held for this build — 48 and 49 are still
+unpublished drafts from earlier runs. Build: 69 URLs unchanged, 0 hits for all
+three slugs in sitemap, no pages, no photo directories, `docs/` byte-identical.
+
+### Queue note for future runs
+
+The supplied 5-item queue has now been stale six times running. Do not re-walk
+it. Current published category counts: Engine 14, Exhaust 7, Suspension 5,
+Brakes 5, Wheels & Tires 4, Tonneau & Bed 4, Electrical 4, Tuning 4 — plus
+drafts 48 (Electrical), 49 (Wheels & Tires), 50 (Tuning). Once those publish,
+the thinnest are Suspension and Brakes at 5 each.
