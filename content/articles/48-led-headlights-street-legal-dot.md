@@ -228,9 +228,9 @@ PIAA 스펙란은 **합법: 예**이고 설명란도 "street-legal replacements"
 **J.W. Speaker 8700 Evo 2, $464.75**는 반대입니다. 노트에 *"DOT-approved"*라고
 명시하고, 스펙란에 **CAPA 인증: 아니오**, **NSF 인증: 아니오**를 함께 적습니다.
 
-모순처럼 보이지만 아닙니다. DOT 승인은 제조사가 FMVSS 108을 충족한다고 스스로
-선언하는 것이고, CAPA와 NSF는 애프터마켓 부품 품질에 관한 별도의 제3자 프로그램
-입니다. DOT을 충족하면서 CAPA 인증이 없을 수 있습니다.
+모순처럼 보이지만 아닙니다. CAPA와 NSF는 애프터마켓 부품 품질에 관한 제3자
+프로그램이고, DOT 표시는 해당 램프가 연방 조명 기준을 충족한다는 문제입니다. DOT
+표시가 있으면서 두 인증이 모두 없을 수 있습니다.
 
 중요한 것은 이 페이지가 세 가지 답을 모두 공개한다는 점입니다.
 
@@ -251,8 +251,8 @@ PIAA의 **6600K**는 색을 재는 값입니다. 할로겐보다 차갑고 주�
 ### 어느 것이 캘리포니아 규정과 관련됩니까
 
 배기가스와 무관합니다. 헤드라이트는 CARB Executive Order 대상이 아니고 스모그
-검사와도 상관없습니다. 조명의 적법성은 FMVSS 108과 캘리포니아 차량법의 문제로,
-이 사이트가 흡기·배기·튜너에 적용하는 규정과는 다른 규정집입니다.
+검사와도 상관없습니다. 조명의 적법성은 차량 장비에 관한 문제로, 이 사이트가
+흡기·배기·튜너에 적용하는 규정과는 다른 규정집입니다.
 
 ### 확인하지 못한 것
 
@@ -299,9 +299,10 @@ esa página la palabra es todo lo que hay, y no se puede comprobar.
 El **J.W. Speaker 8700 Evo 2, $464,75**, hace lo contrario. Sus notas dicen
 *«DOT-approved»* y la ficha añade **CAPA: No** y **NSF: No**.
 
-Parece contradictorio y no lo es: la aprobación DOT es una autodeclaración del
-fabricante conforme a la FMVSS 108, mientras CAPA y NSF son programas externos de
-calidad de piezas. Un faro puede cumplir DOT sin estar certificado por CAPA.
+Parece contradictorio y no lo es: CAPA y NSF son programas externos de calidad de
+piezas de posventa, mientras que una marca DOT se refiere a que la lámpara cumple
+una norma federal de iluminación. Un faro puede llevar la marca DOT sin tener
+ninguna de las dos certificaciones.
 
 ### Qué compra la diferencia de precio
 
@@ -316,8 +317,9 @@ Los 6600K miden color, no cantidad de luz. Ninguno de los tres publica lúmenes,
 que no se puede clasificar su brillo con la información de las fichas.
 
 Los faros no son equipo de emisiones: no hay Executive Order de CARB y no afectan
-a la inspección de humos. La legalidad de la iluminación se rige por la FMVSS 108 y
-el código de vehículos de California, que es otro reglamento distinto.
+a la inspección de humos. La legalidad de la iluminación es una cuestión de equipo
+del vehículo, y es un reglamento distinto del que este sitio consulta para
+admisiones, escapes y programadores.
 
 ### Lo que no pude verificar
 
