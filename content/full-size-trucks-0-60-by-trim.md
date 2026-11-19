@@ -156,7 +156,3 @@ Figures were read from the outlets' own published test results and model pages:
 Also [MotorTrend's Silverado engine comparison](https://www.motortrend.com/reviews/chevy-silverado-1500-engine-comparison),
 [TFLtruck's 5.3 vs 6.2 shootout](https://tfltruck.com/2020/02/do-you-really-need-the-big-v8-2020-chevy-silverado-5-3-vs-6-2-0-60-mph-shootout-video/),
 and [Road & Track on the Ramcharger](https://www.roadandtrack.com/news/a63917438/ram-reveals-2026-ramcharger-details/).
-
----
-
-*CarModReview may earn a commission from purchases made through links on this page, at no extra cost to you.*
