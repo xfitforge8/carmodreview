@@ -256,5 +256,29 @@
 "t": "Resurface or Replace a Rotor: The Discard Thickness Number Decides",
 "d": "A PowerStop rotor has 0.060 in. of usable material between nominal and discard. Five verified rotors with their real specs, and why the drilled one has more margin.",
 "c": "Brakes"
+},
+{
+"u": "/suspension/wheel-alignment-after-lift-kit.html",
+"t": "Alignment After a Lift Kit: Every Kit Is Priced Per Wheel",
+"d": "Four alignment kits that all cover one front wheel, priced $12.99 to $99.99. What a front axle really costs, and the $14.99 part that is not an adjustment kit at all.",
+"c": "Suspension"
+},
+{
+"u": "/wheels-tires/wheel-offset-vs-backspacing.html",
+"t": "Offset and Backspacing: One Number Describes the Other",
+"d": "Backspacing equals half the width plus one inch, plus offset divided by 25.4. Verified against five wheels from 6.5 to 9 inches wide. Use it to catch a listing that contradicts itself.",
+"c": "Wheels & Tires"
+},
+{
+"u": "/tonneau/tonneau-cover-spec-row-guide.html",
+"t": "Tonneau Cover Spec Rows: What \"Full Bed Access: No\" Really Means",
+"d": "Five tonneau covers from $189.99 to $1,999.95, field by field. What full bed access measures, how a removable canister changes it, and which field decides your toolbox.",
+"c": "Tonneau & Bed"
+},
+{
+"u": "/brakes/big-brake-kits-wheel-diameter.html",
+"t": "Big Brake Kits: The Wheel Diameter Field Decides Before the Price",
+"d": "Four verified truck big brake kits from $1,010.99 to $3,268.50. The cheapest needs 17 in. wheels, the priciest needs 20 in. — and one $1,010 'big brake kit' has a single piston per caliper.",
+"c": "Brakes"
 }
 ]

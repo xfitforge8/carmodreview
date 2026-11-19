@@ -16,9 +16,9 @@ fun_fact:
 category: Suspension
 vehicle: truck
 vehicle_also: [suv]
-status: draft
-published: 2026-11-18
-last_updated: 2026-11-18
+status: published
+published: 2026-11-19
+last_updated: 2026-11-19
 ---
 
 # Alignment After a Lift Kit: Every Kit Is Priced Per Wheel

@@ -15,9 +15,9 @@ fun_fact:
   en: "A retractable cover hides in a canister, and Retrax publishes its size: an **11 in. squared spiral track container**. That single dimension is what the whole \"full bed access\" field is really asking you about — and on the one cover here with a removable canister, it comes back out."
 category: Tonneau & Bed
 vehicle: truck
-status: draft
-published: 2026-11-18
-last_updated: 2026-11-18
+status: published
+published: 2026-11-19
+last_updated: 2026-11-19
 ---
 
 # Tonneau Cover Spec Rows: What "Full Bed Access: No" Really Means

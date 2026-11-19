@@ -16,7 +16,7 @@ fun_fact:
 category: Wheels & Tires
 vehicle: truck
 vehicle_also: [suv]
-status: draft
+status: published
 published: 2026-11-18
 last_updated: 2026-11-18
 ---
